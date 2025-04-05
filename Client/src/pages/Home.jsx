@@ -8,24 +8,27 @@ import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-b
 
 const Home = () => {
     const words = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
-    const description = [` I am a passionate web developer with a focus on creating dynamic and responsive web applications. I love to explore new technologies and continuously improve my skills.
-    I am proficient in HTML, CSS, JavaScript, and various frameworks like React and Node.js. My goal is to build user-friendly and efficient web solutions that meet the needs of clients and users alike.`];
-    
+    const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
+
     const textGradient = "bg-gradient-to-l from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text";
     const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
     const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
-    const bgGradient = "bg-gradient-to-r from-emerald-300 via-teal-200 to-teal-500";
-    const socialIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-[#00c896] p-2 text-lg text-[#00c896] shadow-[0px_0px_5px_1px_rgba(0,_255,_255,_0.7)] transition-all duration-300 hover:scale-110 motion-preset-confetti motion-preset-bounce -motion-translate-y-in-150";
+    const ButtonBgGradient = "bg-[#4ce0af]";
+    
+    const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-[#00c896] p-2 text-lg text-[#00c896] shadow-[0px_0px_5px_1px_rgba(0,_255,_255,_0.7)] transition-all duration-300 hover:scale-110 motion-preset-bounce motion-preset-confetti -motion-translate-y-in-150";
+
+    const BorderAnimation = `relative overflow-hidden shadow-[0px_0px_20px_1px_rgba(0,_255,_255,_0.2)] before:content-[''] before:absolute before:inset-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-[100%] before:h-[100vw] before:rounded-none before:bg-[conic-gradient(transparent,transparent,transparent,#00c896)] before:animate-[spin_3s_linear_infinite] before:z-0`;
+  
 
     const gradientStartColor = '#3B82F6';
     const gradientMiddleColor = '#14B8A6';
     const gradientEndColor = '#10B981';
 
     return (
-        <div id="home" className="flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 mt-3 md:h-screen">
+        <div id="home" className="mt-3 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 md:h-screen">
             <div className="flex w-full flex-col-reverse items-center justify-center md:h-full md:flex-row">
                 <div className="flex w-full items-center justify-center md:h-full md:w-[50vw]">
-                    <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center md:h-full md:items-start sm:pl-10 md:pl-0 lg:pl-0">
+                    <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 md:h-full md:items-start md:pl-0 lg:pl-0">
                         <p className="text-start text-xl font-[Poppins,sans-serif] text-white xs:text-[1.5rem]">
                             Hi!, I Am <span className={`relative ${textGradient2}`}>
                                 <TypeAnimation
@@ -36,38 +39,29 @@ const Home = () => {
                                 />
                             </span>
                         </p>
-                        <h1 className={`text-[3.5rem] text-start font-[700] ${textGradient} max-xs:text-[2.5rem] motion-duration-2000 motion-preset-slide-left`}>
+                        <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] ${textGradient} motion-duration-2000 motion-preset-slide-left`}>
                             Web Developer.
                         </h1>
-                        <div className={`my-3 inline-block w-[97%] text-center text-md ${textGradient3} max-xs:font-[500] xs:text-start xs:font-semibold lg:text-lg motion-duration-2000 motion-preset-slide-right`}>
-                            <ShowMoreText
-                                lines={3}
-                                more={<span className="cursor-pointer font-[400] text-gray-400">See more</span>}
-                                less={<span className="cursor-pointer font-[400] text-gray-400">Less more</span>}
-                                className="content-css"
-                                anchorClass="show-more-less-clickable"
-                                expanded={false}
-                            >
-                                {description}
-                            </ShowMoreText>
+                        <div className={`my-3 inline-block w-[97%] text-center text-md text-lg ${textGradient3} jetbrains-mono xs:text-start xs:font-normal motion-duration-2000 motion-preset-slide-right`}>
+                            {description}
                         </div>
 
-                        <div className="max-xs:flex-col-reverse max-xs:h-50 max-xs:justify-center flex w-full items-center py-4 text-black md:justify-start">
-                            <div className={`group relative m-0 min-w-[150px] rounded-lg border-[3px] border-teal-400 ${textGradient} px-6 md:px-2 lg:px-6 xl:w-1/3 max-xs:my-4 motion-duration-2000 motion-preset-slide-up`}>
+                        <div className="flex w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
+                            <div className={`group relative md:m-2 min-w-[150px] rounded-lg p-[2px] ${textGradient} ${BorderAnimation} xl:w-1/3 motion-duration-2000 motion-preset-slide-up border-snack`}>
                                 <Button
                                     text="CV Download"
                                     onClick={() => { }}
                                     variant="primary"
-                                    icon={<FaCloudDownloadAlt className="z-10 text-[#00c896] transition-colors duration-2000 group-hover:text-[#1d1d35]" />}
-                                    className="peer relative z-10 m-0 w-full rounded-none bg-transparent px-0 py-3 text-md font-[700] text-[#00c896] transition-colors duration-2000 hover:bg-transparent hover:text-[#1d1d35]"
+                                    icon={<FaCloudDownloadAlt className="z-10 text-[#00c896] transition-colors duration-2000 group-hover:text-black" />}
+                                    className="peer relative z-10 m-0 w-full rounded-lg bg-[#141C23] px-4 py-3 text-md font-extrabold text-[#00c896] jetbrains-mono transition-colors duration-2000 hover:bg-transparent hover:text-black"
                                 />
-                                <span className={`absolute inset-0 z-0 w-0 rounded-sm bg-[#00c896] ${bgGradient} transition-all duration-[1000ms] peer-hover:w-full`} />
+                                <span className={`absolute inset-0 z-0 w-0  rounded-sm bg-[#00c896] ${ButtonBgGradient} transition-all duration-[1000ms] peer-hover:w-full`} />
                             </div>
-                            <div className="flex items-center justify-center xs:ml-2">
-                                <FontAwesomeIcon icon={faFacebook} className={`${socialIcon} motion-duration-2200 hover:motion-preset-shake`} />
-                                <FontAwesomeIcon icon={faTwitter} className={`${socialIcon} motion-duration-4000 hover:motion-preset-shake`} />
-                                <FontAwesomeIcon icon={faGithub} className={`${socialIcon} motion-duration-3400 hover:motion-preset-shake`} />
-                                <FontAwesomeIcon icon={faLinkedin} className={`${socialIcon} motion-duration-2800 hover:motion-preset-shake`} />
+                            <div className="flex items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
+                                <FontAwesomeIcon icon={faFacebook} className={`${SocialMediaIcon} motion-duration-2200`} />
+                                <FontAwesomeIcon icon={faTwitter} className={`${SocialMediaIcon} motion-duration-4000`} />
+                                <FontAwesomeIcon icon={faGithub} className={`${SocialMediaIcon} motion-duration-3400`} />
+                                <FontAwesomeIcon icon={faLinkedin} className={`${SocialMediaIcon} motion-duration-2800`} />
                             </div>
                         </div>
                     </div>
