@@ -1,0 +1,1 @@
+// Notification.jsx - Placeholder content
