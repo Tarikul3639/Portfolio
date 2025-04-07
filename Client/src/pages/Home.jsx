@@ -54,7 +54,7 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center text-md text-lg ${textGradient3} jetbrains-mono xs:text-start xs:font-normal intersect:motion-duration-2000 intersect:motion-preset-slide-right`}>
+            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg ${textGradient3} jetbrains-mono xs:text-start xs:font-normal intersect:motion-duration-2000 intersect:motion-preset-slide-right`}>
               {description}
             </div>
 
