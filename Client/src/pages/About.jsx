@@ -19,8 +19,6 @@ import WebRTC from '../assets/icons/webrtc-svgrepo-com.svg';
 import C_Plus from '../assets/icons/c-plus-plus.svg';
 import C_programming from '../assets/icons/C_Programming_Language.svg';
 
-import { Link } from 'react-router-dom';
-
 const About = () => {
     // About Me description
     const AboutMe = [
@@ -35,7 +33,7 @@ const About = () => {
     const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-neutral-600 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     return (
-        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 text-rose-50 outfit text-md font-normal lg:h-screen">
+        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 text-rose-50 outfit text-base font-normal lg:h-screen">
             <div className="flex flex-col items-center justify-center max-w-7xl bg-[#141C23]">
                 {/* Section Heading */}
                 <div className={`relative flex items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
@@ -68,7 +66,7 @@ const About = () => {
                     {/* Education and Experience Section */}
                     <div className="flex flex-col items-center justify-center p-6 h-full w-full lg:w-2/3">
                         {/* Education */}
-                        <div className="flex flex-col items-center justify-center w-full py-3 border-b text-md border-neutral-600 intersect:motion-preset-slide-up">
+                        <div className="flex flex-col items-center justify-center w-full py-3 border-b text-base border-neutral-600 intersect:motion-preset-slide-up">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Education</h1>
                             <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
                                 <p>Bangladesh University of Business and Technology</p>
@@ -81,7 +79,7 @@ const About = () => {
                         </div>
 
                         {/* Experience */}
-                        <div className="Experience flex flex-col items-center justify-center w-full text-md py-3 border-b border-neutral-600 intersect:motion-translate-x-in-[10%] motion-duration-1000">
+                        <div className="Experience flex flex-col items-center justify-center w-full text-base py-3 border-b border-neutral-600 intersect:motion-translate-x-in-[10%] motion-duration-1000">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
                             <div className='flex flex-row items-center justify-between w-full'>
                                 <p>Full Stack Developer</p>
@@ -92,13 +90,13 @@ const About = () => {
                                 <p>Remote</p>
                             </div>
                             <div className='flex flex-col items-start w-full border-l border-neutral-600 px-6 font-normal'>
-                                <p className='relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
+                                <p className='text-base/5 py-1  relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
                                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                                 </p>
-                                <p className='relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
+                                <p className='text-base/5 py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
                                     Implemented a Load Shedding Notification System.
                                 </p>
-                                <p className='relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
+                                <p className='text-base/5 py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
                                     Worked on multiple personal projects.
                                 </p>
                             </div>

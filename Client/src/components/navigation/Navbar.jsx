@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoCloseSharp } from "react-icons/io5";
 
-const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "SERVICE", "CONTACT"] }) => {
+const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "CONTACT"] }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("");
     const [scrollWidth, setScrollWidth] = useState("0%");
@@ -36,7 +36,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "SERVICE", "C
                     className="md:hidden text-bold text-white cursor-pointer transition-all duration-500 ease-in-out focus:outline-none z-10"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <IoCloseSharp size={40} color="#00c896" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb"/>}
+                    {isOpen ? <IoCloseSharp size={40} color="#00c896" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb" />}
                 </button>
 
                 {/* Navigation Menu with Slide Animation */}
