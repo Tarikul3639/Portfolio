@@ -15,7 +15,7 @@ const Home = () => {
   // Gradient styles for text
   const textGradient = "bg-gradient-to-l from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text";
   const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-  const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
+  // const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
   const ButtonBgGradient = "bg-[#4ce0af]";
 
   // Styles for social media icons
@@ -30,12 +30,16 @@ const Home = () => {
   const gradientEndColor = '#10B981';
 
   return (
-    <div id="home" className="mt-3 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 md:h-screen">
+    <section id="home" className="pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen">
       {/* Main content area */}
-      <div className="flex w-full flex-col-reverse items-center justify-center md:h-full md:flex-row">
+      <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
         {/* Left side section (text and button) */}
-        <div className="flex w-full items-center justify-center md:h-full md:w-[50vw]">
-          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 md:h-full md:items-start md:pl-0 lg:pl-0">
+        <div className="flex w-full items-center justify-center lg:h-full lg:w-1/2">
+          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 lg:h-full lg:items-start lg:pl-0 lg:pl-0">
+            <p className="hidden text-xs border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center gap-2 fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shine overflow-hidden z-50 w-max">
+              Available for new projects
+            </p>
+
             {/* Intro text with type animation */}
             <p className="text-start text-xl font-[Poppins,sans-serif] text-white xs:text-[1.5rem]">
               Hi!, I Am <span className={`relative ${textGradient2}`}>
@@ -47,14 +51,14 @@ const Home = () => {
                 />
               </span>
             </p>
-            
+
             {/* Role text */}
-            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] ${textGradient} intersect:motion-duration-2000 intersect:motion-preset-slide-left`}>
+            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] ${textGradient} intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
               Web Developer.
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg ${textGradient3} jetbrains-mono xs:text-start xs:font-normal intersect:motion-duration-2000 intersect:motion-preset-slide-right`}>
+            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} outfit tracking-wider text-rose-50 xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
               {description}
             </div>
 
@@ -84,9 +88,9 @@ const Home = () => {
         </div>
 
         {/* Right side section (profile image) */}
-        <div className="flex items-center justify-center md:h-full">
-          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full md:mt-0 lg:h-110 lg:w-110">
-            <img src={photo} alt="Tarikul Islam" className="h-full w-full object-cover" />
+        <div className="flex items-center justify-center lg:h-full">
+          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
+            <img src={photo} alt="Tarikul Islam" className="h-full w-full object-cover intersect:motion-opacity-in-0 motion-duration-[10s]" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -120,7 +124,7 @@ const Home = () => {
           stroke-dasharray: 24 10 0 0;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

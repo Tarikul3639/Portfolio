@@ -21,7 +21,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "SERVICE", "C
     }, []);
 
     return (
-        <nav className="w-full min-w-[250px] bg-[#141C23] text-white px-4 py-0 shadow-md fixed top-0 left-0 z-50">
+        <nav className="w-full min-w-[250px] bg-transparent backdrop-blur-lg text-white px-4 py-0 shadow-md fixed top-0 left-0 z-50">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link className="text-[#cbcbcb] z-10 cursor-pointer overflow-hidden" to="home" smooth={true} duration={500}>
@@ -36,7 +36,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "SERVICE", "C
                     className="md:hidden text-bold text-white cursor-pointer transition-all duration-500 ease-in-out focus:outline-none z-10"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <IoCloseSharp size={25} /> : <HiOutlineMenuAlt3 size={25} />}
+                    {isOpen ? <IoCloseSharp size={40} color="#00c896" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb"/>}
                 </button>
 
                 {/* Navigation Menu with Slide Animation */}
