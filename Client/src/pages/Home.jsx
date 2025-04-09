@@ -58,7 +58,7 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} outfit tracking-wider text-rose-50 xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
+            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
               {description}
             </div>
 

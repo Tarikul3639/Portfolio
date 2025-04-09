@@ -33,11 +33,14 @@ const About = () => {
     const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-neutral-600 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     return (
-        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 text-rose-50 outfit text-base font-normal lg:h-screen">
+        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-[#e5e5e5] lg:h-screen">
             <div className="flex flex-col items-center justify-center max-w-7xl bg-[#141C23]">
                 {/* Section Heading */}
-                <div className={`relative flex items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
-                    <h1 className="text-5xl font-bold">About Me</h1>
+                <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
+                    <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium`}>
+                        GET TO KNOW ME
+                    </p>
+                    <h1 className="text-5xl font-bold pt-2 pb-1">ABOUT ME</h1>
                 </div>
 
                 {/* Main Content */}
@@ -52,11 +55,11 @@ const About = () => {
                                 className="bg-transparent rounded-full w-[200px] h-[200px] border-2 border-dotted intersect:motion-opacity-in-0 motion-duration-[10s] max-lg:mb-6"
                             />
                             {/* About Me Description */}
-                            <p className={`text-lg break-words hyphens-auto ${TextGradient} border-b border-neutral-600 pb-6 intersect:motion-translate-x-in-[-10%]`}>
+                            <p className={`text-lg break-words hyphens-auto border-b border-neutral-600 pb-6 intersect:motion-translate-x-in-[-10%]`}>
                                 {AboutMe}
                             </p>
                             {/* Location */}
-                            <p className={`relative intersect:motion-translate-y-in-100 motion-duration-1000 ${TextGradient}`}>
+                            <p className={`relative intersect:motion-translate-y-in-100 text-[#e5e5e5] motion-duration-1000`}>
                                 <FontAwesomeIcon icon={faLocationDot} className={`mr-2`} />
                                 Gazipur, Dhaka, Bangladesh
                             </p>
@@ -89,7 +92,7 @@ const About = () => {
                                 <p>Self-initiated</p>
                                 <p>Remote</p>
                             </div>
-                            <div className='flex flex-col items-start w-full border-l border-neutral-600 px-6 font-normal'>
+                            <div className='flex flex-col items-start w-full border-l border-neutral-600 px-6 text-[#c4c4c4] text-sm font-normal'>
                                 <p className='text-base/5 py-1  relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-neutral-600'>
                                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                                 </p>

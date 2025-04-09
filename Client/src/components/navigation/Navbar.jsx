@@ -21,13 +21,13 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     }, []);
 
     return (
-        <nav className="w-full min-w-[250px] bg-transparent backdrop-blur-lg text-white px-4 py-0 shadow-md fixed top-0 left-0 z-50">
+        <nav className="w-full min-w-[250px] bg-[#141C23] text-white px-4 py-0 shadow-md fixed top-0 left-0 z-50">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link className="text-[#cbcbcb] z-10 cursor-pointer overflow-hidden" to="home" smooth={true} duration={500}>
                     <h1 className="text-xl font-[title] pb-2 uppercase" >
-                        <span className="inline-block first-letter:text-[#00c896]">{title}</span>
-                        <span className="text-[#00c896] text-4xl font-[square]">.</span>
+                        <span className={`inline-block first-letter:text-primary`}>{title}</span>
+                        <span className="text-primary text-4xl font-[square]">.</span>
                     </h1>
                 </Link>
 
@@ -36,7 +36,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                     className="md:hidden text-bold text-white cursor-pointer transition-all duration-500 ease-in-out focus:outline-none z-10"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <IoCloseSharp size={40} color="#00c896" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb" />}
+                    {isOpen ? <IoCloseSharp size={40} color="#A8E524" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb" />}
                 </button>
 
                 {/* Navigation Menu with Slide Animation */}
@@ -51,13 +51,13 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                                 duration={500}
                                 spy={true}
                                 onSetActive={() => setActiveLink(item.toLowerCase())}
-                                className={`poppins-medium text-[#cbcbcb] hover:text-[#00c896] hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
-                                    ${activeLink === item.toLowerCase() ? "text-[#00c896]" : ""}`}
+                                className={`poppins-medium text-[#cbcbcb] hover:text-primary hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
+                                    ${activeLink === item.toLowerCase() ? "text-primary" : ""}`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item}
                             </Link>
-                            <span className={`absolute bottom-0 left-0 h-[1.6px] bg-[#00c896] transition-all duration-500
+                            <span className={`absolute bottom-0 left-0 h-[1.6px] bg-primary transition-all duration-500
                         ${activeLink === item.toLowerCase() ? "w-full" : "w-0 group-hover:w-full"}`}></span>
                         </li>
                     ))}
@@ -65,7 +65,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
             </div>
             {/* Scroll Progress Bar */}
             <span
-                className="absolute top-0 left-0 h-[2px] bg-[#00c896] rounded transition-all duration-0 ease-in-out"
+                className={`absolute top-0 left-0 h-[2px] bg-primary rounded transition-all duration-0 ease-in-out`}
                 style={{ width: scrollWidth }}
             ></span>
         </nav>
