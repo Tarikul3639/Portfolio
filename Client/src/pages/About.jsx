@@ -34,7 +34,7 @@ const About = () => {
 
     return (
         <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-[#e5e5e5] lg:h-screen">
-            <div className="flex flex-col items-center justify-center max-w-7xl bg-[#141C23]">
+            <div className="flex flex-col items-center justify-center max-w-7xl ">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
                     <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium`}>

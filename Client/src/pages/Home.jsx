@@ -5,6 +5,8 @@ import { TypeAnimation } from 'react-type-animation';
 import ShowMoreText from "react-show-more-text";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Spotlight } from "../components/ui/Spotlight.jsx";
+import { cn } from "../components/lib/utils.jsx";
 
 const Home = () => {
 
@@ -30,7 +32,19 @@ const Home = () => {
   const gradientEndColor = '#10B981';
 
   return (
-    <section id="home" className="pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen">
+    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen">
+      <Spotlight
+        className=" absolute top-0 left-0 right-0"
+        fill="white"
+      />
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+        )}
+      />
       {/* Main content area */}
       <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
         {/* Left side section (text and button) */}
@@ -58,10 +72,9 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
+            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
               {description}
             </div>
-
             {/* Buttons and social media icons */}
             <div className="flex w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}

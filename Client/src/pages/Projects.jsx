@@ -95,14 +95,14 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="bg-neutral- border border-white/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between"
+                            className=" border border-white/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between"
                         >
                             <img
                                 src={project.image}
                                 alt={project.name}
                                 className="w-full h-48 object-cover"
                             />
-                            <div className="p-4 bg-black/30 backdrop-blur-md rounded border border-b border-white/7">
+                            <div className="bg-[#191f19] p-4 rounded border border-b border-white/7">
                                 <h2 className="text-2xl font-bold mb-2">{project.name}</h2>
                                 <p className="text-zinc-400 mb-4 text-sm flex-grow">
                                     {project.description}
@@ -118,7 +118,7 @@ const Projects = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="bg-black/30 flex items-center p-6 pt-0">
+                            <div className=" bg-[#191f19] flex items-center p-6 pt-0">
                                 <button className="inline-flex items-center justify-center whitespace-nowrap w-full mt-auto bg-[#a7e136] hover:bg-lime-300 text-black text-sm text-center py-2 rounded-sm transition">
                                     View Project
                                 </button>
