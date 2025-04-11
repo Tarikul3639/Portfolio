@@ -96,7 +96,7 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`border border-primary/50 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000`}
+                            className={`border border-primary/50 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000      shadow-xs`}
                         >
                             <img
                                 src={project.image}
