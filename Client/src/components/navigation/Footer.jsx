@@ -5,8 +5,8 @@ import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free
 const Footer = () => {
     return (
         <footer className="w-screen flex-col items-center justify-center p-8 source-sans-3 text-base bg-background-light text-primary-text-light">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 max-md:mb-4  md:space-y-0 max-w-7xl">
 
+            <div className="container w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 max-md:mb-4 md:space-y-0 max-w-7xl">
                 {/* Business Logo and Name */}
                 <div className="flex items-center space-x-4">
                     <Link
@@ -28,7 +28,7 @@ const Footer = () => {
                         activeClass="active"
                         to="home"
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                         className="hover:text-primary transition duration-300"
                     >
@@ -37,7 +37,7 @@ const Footer = () => {
                     <Link
                         to="about"
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                         className="hover:text-primary transition duration-300"
                     >
@@ -52,7 +52,7 @@ const Footer = () => {
                     <Link
                         to="contact"
                         smooth={true}
-                        offset={-70}
+                        offset={0}
                         duration={500}
                         className="hover:text-primary transition duration-300"
                     >
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright Section */}
-            <div className="mt-2 border-t border-white/30 pt-4 text-center text-sm w-full flex justify-center">
+            <div className="mt-2 pt-4 text-center text-sm w-full flex justify-center relative overflow-hidden before:content-[''] before:absolute before:h-[1.5px] before:w-full before:bg-gradient-to-r before:from-transparent before:via-primary/50 before:to-transparent before:z-10 before:top-0 before:left-0 ">
                 <p>
                     &copy; 2025 <strong>Tarikul Islam</strong> || Made with ❤️
                 </p>

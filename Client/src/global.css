@@ -8,18 +8,20 @@
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
+
   --color-background: #030712;
   --color-background-light: #01050e;
+
   --color-secondary: #A8E524;
   --color-primary-light: #16e4b1;
   --color-primary: #00c896;
-  --color-primary-text:#ffff;
+
+  --color-primary-text: #ffff;
   --color-primary-text-light: #cbcbcb;
   --color-secondary-text: #9b9b9b;
   --color-secondary-text-light: #00c6bd;
 
   /* primary:#8874EF,#25AB75 */
-
   /* --color-background: #030712; */
   /* --color-primary: #d8a31a; */
   /* --color-primary-light: #f3b20c; */
@@ -27,10 +29,10 @@
   /* --color-secondary:  #007d55; */
   /* --color-secondary-light: #079a6b; */
   /* --color-secondary-foreground: #030712; */
+
   --color-accent: #988478;
   --color-text: #e2f0ff;
   --color-text-light: #8d98a0;
-
 }
 
 /* colors: {
@@ -41,21 +43,12 @@
   'accent': '#988478',
  } */
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @theme inline {
-  /* Configure your theme variables here */
   --font-display: "Inter", "sans-serif";
   --color-primary-500: oklch(0.84 0.18 117.33);
   --spacing: 0.25rem;
 }
+
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
   --animate-spin: spin 2s linear infinite;
@@ -80,6 +73,7 @@
     transform: translate(-50%, -40%) scale(1);
   }
 }
+
 /* Custom Fonts */
 @font-face {
   font-family: "title";
@@ -132,11 +126,14 @@
   word-wrap: break-word;
   hyphens: auto;
 }
+
+/* Font Utilities */
 .poppins-light {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
+
 .poppins-regular {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -167,6 +164,7 @@
   font-style: normal;
 }
 
+/* Shine Effect */
 .shine::before {
   content: "";
   background-image: linear-gradient(
@@ -184,7 +182,6 @@
   z-index: 1;
 }
 
-/*Proper @keyframes declaration */
 @keyframes shine {
   0% {
     left: -60px;
@@ -194,7 +191,7 @@
   }
 }
 
-/* canvas- styles */
+/* Canvas Loader */
 .canvas-loader {
   font-size: 10px;
   width: 1em;
@@ -220,7 +217,8 @@
   }
   12.5% {
     box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
-      1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em #ffffff,
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
@@ -229,7 +227,8 @@
   }
   25% {
     box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff,
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7),
+      2.5em 0em 0 0em #ffffff,
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
@@ -239,7 +238,8 @@
   37.5% {
     box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
       1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff,
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.7),
+      1.75em 1.75em 0 0em #ffffff,
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
@@ -249,7 +249,8 @@
     box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
       1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
       2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
-      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff,
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7),
+      0em 2.5em 0 0em #ffffff,
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
@@ -259,7 +260,8 @@
       1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
       2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
-      0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff,
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.7),
+      -1.8em 1.8em 0 0em #ffffff,
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
@@ -269,7 +271,8 @@
       2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
-      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff,
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7),
+      -2.6em 0em 0 0em #ffffff,
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
   87.5% {
@@ -279,6 +282,7 @@
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),
+      -1.8em -1.8em 0 0em #ffffff;
   }
 }

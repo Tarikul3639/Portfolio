@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
+import Stars from "../components/ui/Stars.jsx";
 
 const Home = () => {
 
@@ -16,7 +17,7 @@ const Home = () => {
 
   // Gradient styles for text
   const textGradient = "bg-gradient-to-r from-secondary via-primary to-primary-light text-transparent bg-clip-text";
-  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text"; 
+  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
   // const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
   const ButtonBgGradient = "bg-[#4ce0af]";
 
@@ -28,6 +29,11 @@ const Home = () => {
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen  bg-background">
+      <div className="absolute w-full h-full top-1/2 z-1000">
+      <div className="relative w-full inset-0 h-full z-100">
+      <Stars/>
+      </div>
+      </div>
       <Spotlight
         className=" absolute top-0 left-0 right-0"
         fill="white"
@@ -36,10 +42,16 @@ const Home = () => {
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.8)_0%,transparent_80%)]",
+          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_80%)]",
+
+          "[-webkit-mask-image:linear-gradient(to_bottom,white_10%,transparent_60%)]",
+
+          "[mask-size:cover]",
+          "[mask-repeat:no-repeat]",
         )}
       />
+
       {/* Main content area */}
       <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
         {/* Left side section (text and button) */}
@@ -76,7 +88,7 @@ const Home = () => {
               <Button
                 text="CV Download"
                 onClick={() => { }}
-                variant="moving"
+                variant="primary"
                 icon={<FaCloudDownloadAlt className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black" />}
                 className="peer z-10 max-md:w-full"
               />
@@ -94,7 +106,7 @@ const Home = () => {
 
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full">
-          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110 z-99">
+          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
             <img src={photo} alt="Tarikul Islam" className="h-full w-full object-cover intersect:motion-opacity-in-0 motion-duration-[10s]" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>

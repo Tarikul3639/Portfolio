@@ -15,11 +15,12 @@ import ChatFly from '../assets/image/ChatFly.png';
 import Electrifiers from '../assets/image/Electrifiers.png';
 import Portfolio from '../assets/image/Portfolio.png';
 import Button from '../components/ui/Button.jsx';
-
+import Stars from "../components/ui/Stars.jsx";
+import { BackgroundBeamsWithCollision } from "../components/ui/background-beams-with-collision.jsx";
 const Projects = () => {
     // Tech class for styling tech stack items
     const techClass =
-        'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-neutral-600 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000';
+        'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary/5 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000';
 
     // Text gradient classes
     const textGradient =
@@ -78,8 +79,8 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="projects flex justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5]  bg-background"
-        >
+            className="relative projects flex flex-col justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5] bg-background"
+        ><Stars/>
             <div className="flex max-w-7xl flex-col items-center justify-center lg:h-full w-full px-4">
                 {/* Header */}
                 <div className="flex flex-col w-full items-center justify-center">
@@ -90,21 +91,20 @@ const Projects = () => {
                         PROJECTS
                     </h1>
                 </div>
-
                 {/* Project Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-2">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={` border border-white/6 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-opacity-in-100 intersect:motion-translate-x-in-[-50px] intersect:motion-duration-1000`}
+                            className={`border border-primary/50 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000`}
                         >
                             <img
                                 src={project.image}
                                 alt={project.name}
                                 className="w-full h-48 object-cover"
                             />
-                            <div className="bg-background-light p-4 rounded border border-b border-white/7">
-                                <h2 className="text-2xl font-bold mb-2">{project.name}</h2>
+                            <BackgroundBeamsWithCollision className="flex flex-col bg-background-light p-4 rounded border border-b border-primary/5 before:hidden">
+                                <h2 className="w-full items-left text-2xl font-bold mb-2">{project.name}</h2>
                                 <p className="text-zinc-400 mb-4 text-sm flex-grow">
                                     {project.description}
                                 </p>
@@ -118,7 +118,7 @@ const Projects = () => {
                                         </span>
                                     ))}
                                 </div>
-                            </div>
+                            </BackgroundBeamsWithCollision>
                             <div className="bg-background-light flex items-center p-6 pt-0">
                                 <Button
                                     text="View Project"

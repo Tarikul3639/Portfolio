@@ -1,7 +1,6 @@
 import React from 'react';
-import whatsapp from '../assets/icons/whatsapp.svg';
-import gmail from '../assets/icons/gmail.svg';
-import googleMap from '../assets/icons/google-maps.svg';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import Button from '../components/ui/Button.jsx';
 
 const Contact = () => {
     const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
@@ -15,58 +14,67 @@ const Contact = () => {
                 <h1 className="text-5xl font-bold pt-2 pb-1">CONTACT ME</h1>
             </div>
             <div className="flex flex-col lg:flex-row  items-center justify-center w-full max-w-7xl gap-4">
-                <form action="contact" className="flex flex-col w-full lg:w-1/3 p-6 text-[#e5e5e5] gap-4">
+                <form action="contact" className="flex flex-col w-full lg:w-full p-6 text-[#e5e5e5] gap-4">
                     <input
                         type="text"
-                        className="peer w-full px-4 py-3 border border-white/20 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+                        className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
                         required
                         placeholder="Name"
                     />
                     <input
                         type="email"
-                        className="peer w-full px-4 py-3 border border-white/20 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+                        className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
                         required
                         placeholder="Email"
                     />
                     <textarea
                         name="message"
                         id="message"
-                         rows="10"
-                        className="peer w-full px-4 py-3 border border-white/20 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+                        rows="10"
+                        className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
                         placeholder="Email"
                         required
                     />
-                    <button className="border border-white/20 hover:bg-white/10 px-4 py-2 w-30 rounded-[2px]">
-                        Submit
-                    </button>
+                    <Button
+                        text='Submit'
+                        onClick={() => { }}
+                        variant='secondary'
+                        className=' px-4 w-30 border-primary/50 hover:border-primary'
+                    />
                 </form>
 
-                <div className="flex flex-col w-full p-6 gap-4 source-sans-3 text-sm text-white/60">
-                    <ul class="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-                    <li className='flex flex-col justify-start text-[#25D366] px-2 py-1.5 bg-white/7 rounded-xs'>
-                        <img src={whatsapp} alt="whatsapp" className='h-6'/>
+
+                <div className="flex flex-col w-full lg:w-1/2 p-6 gap-4 source-sans-3 text-sm text-white/60">
+                    {/* WhatsApp */}
+                    <ul className="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102 intersect:-motion-translate-x-in-25 intersect:motion-duration-1000">
+                        <li className='flex flex-col justify-start text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs'>
+                            <FaWhatsapp className="h-6 w-6" />
                         </li>
                         <li className="flex flex-col justify-start">
-                            <p className=' text-gray-300'>Phone</p>
-                            <p className=' text-gray-200'>01909290959</p>
+                            <p className='text-gray-300'>Phone</p>
+                            <p className='text-gray-200'>01909290959</p>
                         </li>
                     </ul>
-                    <ul class="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-                        <li className='flex flex-col justify-start text-[#25D366] px-2 py-1.5 bg-white/7 rounded-xs'>
-                        <img src={gmail} alt="gmail" className='h-6'/>
+
+                    {/* Gmail */}
+                    <ul className="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102 intersect:motion-translate-x-in-25 intersect:motion-duration-1000">
+                        <li className='flex flex-col justify-start text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs'>
+                            <FaEnvelope className="h-6 w-6" />
                         </li>
                         <li className="flex flex-col justify-start">
                             <p className='text-gray-300'>Email</p>
-                            <p className=' text-gray-200'>tarikulislam3639@gmail.com</p>
+                            <p className='text-gray-200'>tarikulislam3639@gmail.com</p>
                         </li>
                     </ul>
-                    <ul class="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-                        <li className='flex flex-col justify-start text-3xl text-[#25D366] px-2 py-1.5 bg-white/7 rounded-xs'>
-                            <img src={googleMap} alt="GoogleMap"  className='h-6'/>
+
+                    {/* Address */}
+                    <ul className="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102 intersect:motion-translate-y-in-150 intersect:motion-duration-1000">
+                        <li className='flex flex-col justify-start text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs'>
+                            <FaMapMarkerAlt className="h-6 w-6" />
                         </li>
                         <li className="flex flex-col justify-start">
-                            <p className=' text-gray-300'>Address</p>
-                            <p className=' text-gray-200'>Mirpur-2, Rupnager, 15 Number Road</p>
+                            <p className='text-gray-300'>Address</p>
+                            <p className='text-gray-200'>Mirpur-2, Rupnager, 15 Number Road</p>
                         </li>
                     </ul>
                 </div>
