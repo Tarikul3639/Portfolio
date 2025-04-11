@@ -8,10 +8,48 @@
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
+  --color-background: #030712;
+  --color-background-light: #01050e;
   --color-secondary: #A8E524;
-  --color-primary-light: #141C23;
+  --color-primary-light: #16e4b1;
   --color-primary: #00c896;
+  --color-primary-text:#ffff;
+  --color-primary-text-light: #cbcbcb;
+  --color-secondary-text: #9b9b9b;
+  --color-secondary-text-light: #00c6bd;
+
+  /* primary:#8874EF,#25AB75 */
+
+  /* --color-background: #030712; */
+  /* --color-primary: #d8a31a; */
+  /* --color-primary-light: #f3b20c; */
+  --color-primary-foreground: #030712;
+  /* --color-secondary:  #007d55; */
+  /* --color-secondary-light: #079a6b; */
+  /* --color-secondary-foreground: #030712; */
+  --color-accent: #988478;
+  --color-text: #e2f0ff;
+  --color-text-light: #8d98a0;
+
 }
+
+/* colors: {
+  'text': '#e2f0ff',
+  'background': '#030712',
+  'primary': '#d8a31a',
+  'secondary': '#00c6bd',
+  'accent': '#988478',
+ } */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @theme inline {
   /* Configure your theme variables here */
   --font-display: "Inter", "sans-serif";
@@ -20,6 +58,16 @@
 }
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --animate-spin: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spotlight {
@@ -34,7 +82,7 @@
 }
 /* Custom Fonts */
 @font-face {
-  font-family: 'title';
+  font-family: "title";
   src: url("../src/assets/fonts/ethnocentric rg.otf");
 }
 
@@ -54,7 +102,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #141C23;
+  background-color: #141c23;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -64,20 +112,20 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;     
-  height: 5px;  
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #525252; 
-  margin-top: 40vh;  
-  margin-right: 35vw;  
-  margin-bottom: 40vh; 
-  margin-left: 35vw; 
+  background: #525252;
+  margin-top: 40vh;
+  margin-right: 35vw;
+  margin-bottom: 40vh;
+  margin-left: 35vw;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #a8e524; 
+  background-color: #a8e524;
 }
 
 .break-word {
@@ -101,14 +149,13 @@
   font-style: normal;
 }
 
-
 .jetbrains-mono {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.outfit{
+.outfit {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -122,7 +169,12 @@
 
 .shine::before {
   content: "";
-  background-image: linear-gradient(120deg, #fff0 30%, rgba(255, 255, 255, 0.315), #fff0 70%);
+  background-image: linear-gradient(
+    120deg,
+    #fff0 30%,
+    rgba(255, 255, 255, 0.315),
+    #fff0 70%
+  );
   width: 50px;
   height: 100%;
   animation: shine 2s linear infinite;
@@ -230,6 +282,3 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
-
-
-

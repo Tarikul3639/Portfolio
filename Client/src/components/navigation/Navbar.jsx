@@ -21,7 +21,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     }, []);
 
     return (
-        <nav className={`${isOpen?"bg-primary-light/95":"bg-transparent backdrop-blur-xs"} w-full min-w-[250px] text-white px-4 py-0 shadow-lg fixed top-0 left-0 z-50`}>
+        <nav className={`${isOpen?"bg-background/95":"bg-transparent backdrop-blur-xs"} w-full min-w-[250px] text-white px-4 py-0 shadow-lg fixed top-0 left-0 z-50`}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link className="text-[#cbcbcb] z-10 cursor-pointer overflow-hidden" to="home" smooth={true} duration={500}>
@@ -41,7 +41,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
 
                 {/* Navigation Menu with Slide Animation */}
                 <ul className={`Menu flex flex-col items-center text-left md:flex-row md:space-x-10 space-y-2 md:space-y-1 pb-6 md:p-0 absolute md:static md:bg-transparent left-0 w-full md:w-auto transition-all duration-300 ease-in-out 
-                    ${isOpen ? "top-12 opacity-100 bg-primary-light/95 shadow-lg md:shadow-none" : "-top-50 opacity-100 h-auto"}`}>
+                    ${isOpen ? "top-12 opacity-100 bg-background/95 shadow-lg md:shadow-none" : "-top-50 opacity-100 h-auto"}`}>
                     {/* Menu Items */}
                     {menuItems.map((item, index) => (
                         <li key={index} className="relative py-2 md:py-1 text-center md:text-left group">

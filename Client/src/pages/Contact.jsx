@@ -6,7 +6,7 @@ import googleMap from '../assets/icons/google-maps.svg';
 const Contact = () => {
     const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
     return (
-        <section id="contact" className="relative source-sans-3 pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen">
+        <section id="contact" className="relative source-sans-3 pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background">
             {/* Section Heading */}
             <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
                 <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium`}>
@@ -43,8 +43,8 @@ const Contact = () => {
 
                 <div className="flex flex-col w-full p-6 gap-4 source-sans-3 text-sm text-white/60">
                     <ul class="flex flex-row items-center justify-left gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-                        <li className='flex flex-col justify-start text-[#25D366] px-2 py-1.5 bg-white/7 rounded-xs'>
-                        <img src={whatsapp} alt="whatsapp" className='h-6 ' />
+                    <li className='flex flex-col justify-start text-[#25D366] px-2 py-1.5 bg-white/7 rounded-xs'>
+                        <img src={whatsapp} alt="whatsapp" className='h-6'/>
                         </li>
                         <li className="flex flex-col justify-start">
                             <p className=' text-gray-300'>Phone</p>

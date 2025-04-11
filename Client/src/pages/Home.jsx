@@ -15,24 +15,19 @@ const Home = () => {
   const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
 
   // Gradient styles for text
-  const textGradient = "bg-gradient-to-l from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text";
-  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
+  const textGradient = "bg-gradient-to-r from-secondary via-primary to-primary-light text-transparent bg-clip-text";
+  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text"; 
   // const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
   const ButtonBgGradient = "bg-[#4ce0af]";
 
   // Styles for social media icons
-  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-[#00c896] p-2 text-lg text-[#00c896] shadow-[0px_0px_5px_1px_rgba(0,_255,_255,_0.7)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
+  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary p-2 text-lg text-primary shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
 
   // Border animation for button
   const BorderAnimation = `relative overflow-hidden shadow-[0px_0px_20px_1px_rgba(0,_255,_255,_0.2)] before:group before:content-[''] before:absolute before:inset-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-[100%] before:h-[100vw] before:rounded-none before:bg-[conic-gradient(transparent,transparent,transparent,#00c896)] before:animate-[spin_3s_linear_infinite] before:z-0`;
 
-  // Gradient color values for circle animation
-  const gradientStartColor = '#3B82F6';
-  const gradientMiddleColor = '#14B8A6';
-  const gradientEndColor = '#10B981';
-
   return (
-    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen">
+    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen  bg-background">
       <Spotlight
         className=" absolute top-0 left-0 right-0"
         fill="white"
@@ -72,25 +67,22 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
+            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular text-primary-text-light`}>
               {description}
             </div>
             {/* Buttons and social media icons */}
-            <div className="flex w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
+            <div className="flex items-center justify-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}
-              <div className={`group relative md:m-2 min-w-[170px] rounded-lg p-[2px] ${textGradient} ${BorderAnimation} xl:w-1/3 motion-duration-2000 intersect:motion-preset-slide-up border-snack`}>
-                <Button
-                  text="CV Download"
-                  onClick={() => { }}
-                  variant="primary"
-                  icon={<FaCloudDownloadAlt className="z-10 text-[#00c896] transition-colors duration-2000 group-hover:text-black group-active:text-black group-focus:text-black" />}
-                  className="peer group relative z-999 m-0 w-full rounded-lg bg-[#141C23] px-4 py-3 text-md font-extrabold text-[#00c896] jetbrains-mono transition-colors duration-2000 hover:bg-transparent focus:bg-transparent active:transparent hover:text-black active:text-black focus:text-black"
-                />
-                <span className={`absolute inset-0 z-0 w-0  rounded-sm bg-[#00c896] ${ButtonBgGradient} transition-all duration-[5000ms] peer-active:w-full peer-focus:w-full`} />
-              </div>
+              <Button
+                text="CV Download"
+                onClick={() => { }}
+                variant="moving"
+                icon={<FaCloudDownloadAlt className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black" />}
+                className="peer z-10 max-md:w-full"
+              />
 
               {/* Social Media Icons */}
-              <div className="flex items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
+              <div className="flex max-md:w-full items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
                 <FontAwesomeIcon icon={faFacebook} className={`${SocialMediaIcon} intersect:motion-duration-2200`} />
                 <FontAwesomeIcon icon={faTwitter} className={`${SocialMediaIcon} intersect:motion-duration-4000`} />
                 <FontAwesomeIcon icon={faGithub} className={`${SocialMediaIcon} intersect:motion-duration-3400`} />
@@ -102,14 +94,14 @@ const Home = () => {
 
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full">
-          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
+          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110 z-99">
             <img src={photo} alt="Tarikul Islam" className="h-full w-full object-cover intersect:motion-opacity-in-0 motion-duration-[10s]" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={gradientStartColor} />
-                  <stop offset="50%" stopColor={gradientMiddleColor} />
-                  <stop offset="100%" stopColor={gradientEndColor} />
+                  <stop offset="0%" stopColor="var(--color-primary)" />
+                  <stop offset="50%" stopColor="var(--color-primary-light)" />
+                  <stop offset="100%" stopColor="var(--color-primary)" />
                 </linearGradient>
               </defs>
               <circle

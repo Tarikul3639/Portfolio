@@ -33,7 +33,7 @@ const About = () => {
     const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-neutral-600 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     return (
-        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-[#e5e5e5] lg:h-screen">
+        <section id='about' className="About flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-[#e5e5e5] lg:h-screen  bg-background">
             <div className="flex flex-col items-center justify-center max-w-7xl ">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>

@@ -14,6 +14,7 @@ import FarmerMotion from '../assets/icons/Motion.svg';
 import ChatFly from '../assets/image/ChatFly.png';
 import Electrifiers from '../assets/image/Electrifiers.png';
 import Portfolio from '../assets/image/Portfolio.png';
+import Button from '../components/ui/Button.jsx';
 
 const Projects = () => {
     // Tech class for styling tech stack items
@@ -77,7 +78,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="projects flex justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5]"
+            className="projects flex justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5]  bg-background"
         >
             <div className="flex max-w-7xl flex-col items-center justify-center lg:h-full w-full px-4">
                 {/* Header */}
@@ -91,18 +92,18 @@ const Projects = () => {
                 </div>
 
                 {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-2">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className=" border border-white/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between"
+                            className={` border border-white/6 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-opacity-in-100 intersect:motion-translate-x-in-[-50px] intersect:motion-duration-1000`}
                         >
                             <img
                                 src={project.image}
                                 alt={project.name}
                                 className="w-full h-48 object-cover"
                             />
-                            <div className="bg-[#191f19] p-4 rounded border border-b border-white/7">
+                            <div className="bg-background-light p-4 rounded border border-b border-white/7">
                                 <h2 className="text-2xl font-bold mb-2">{project.name}</h2>
                                 <p className="text-zinc-400 mb-4 text-sm flex-grow">
                                     {project.description}
@@ -118,10 +119,13 @@ const Projects = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className=" bg-[#191f19] flex items-center p-6 pt-0">
-                                <button className="inline-flex items-center justify-center whitespace-nowrap w-full mt-auto bg-[#a7e136] hover:bg-lime-300 text-black text-sm text-center py-2 rounded-sm transition">
-                                    View Project
-                                </button>
+                            <div className="bg-background-light flex items-center p-6 pt-0">
+                                <Button
+                                    text="View Project"
+                                    onClick={() => window.open(project.link, "_blank")}
+                                    variant="primary"
+                                    className="w-full"
+                                />
                             </div>
                         </div>
                     ))}

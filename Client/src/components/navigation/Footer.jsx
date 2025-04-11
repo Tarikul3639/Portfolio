@@ -4,7 +4,7 @@ import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free
 
 const Footer = () => {
     return (
-        <footer className="w-screen flex-col items-center justify-center p-8 source-sans-3 text-base bg-gray-800 text-white">
+        <footer className="w-screen flex-col items-center justify-center p-8 source-sans-3 text-base bg-background-light text-primary-text-light">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 max-md:mb-4  md:space-y-0 max-w-7xl">
 
                 {/* Business Logo and Name */}
@@ -30,7 +30,7 @@ const Footer = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        className="hover:text-blue-600 transition duration-300"
+                        className="hover:text-primary transition duration-300"
                     >
                         Home
                     </Link>
@@ -39,13 +39,13 @@ const Footer = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        className="hover:text-blue-600 transition duration-300"
+                        className="hover:text-primary transition duration-300"
                     >
                         About
                     </Link>
                     <Link
                         to="projects"
-                        className="hover:text-blue-600 transition duration-300"
+                        className="hover:text-primary transition duration-300"
                     >
                         Project
                     </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}
-                        className="hover:text-blue-600 transition duration-300"
+                        className="hover:text-primary transition duration-300"
                     >
                         Contact
                     </Link>
@@ -64,15 +64,15 @@ const Footer = () => {
                 <div className="flex space-x-6">
                     <FontAwesomeIcon
                         icon={faFacebookSquare}
-                        className="text-2xl hover:text-blue-500 hover:cursor-pointer"
+                        className="text-2xl hover:text-primary hover:cursor-pointer"
                     />
                     <FontAwesomeIcon
                         icon={faTwitterSquare}
-                        className="text-2xl hover:text-blue-500 hover:cursor-pointer"
+                        className="text-2xl hover:text-primary hover:cursor-pointer"
                     />
                     <FontAwesomeIcon
                         icon={faLinkedin}
-                        className="text-2xl hover:text-blue-500 hover:cursor-pointer"
+                        className="text-2xl hover:text-primary hover:cursor-pointer"
                     />
                 </div>
             </div>
