@@ -47,5 +47,7 @@
     "tailwindcss-intersect": "^2.2.0",
     "tailwindcss-motion": "^1.1.0",
     "vite": "^6.2.0"
-  }
+  },
+"__note": "Native node modules used. Visual C++ Redistributable required."
+  
 }
