@@ -18,8 +18,8 @@
 
   --color-primary-text: #ffff;
   --color-primary-text-light: #cbcbcb;
-  --color-secondary-text: #9b9b9b;
-  --color-secondary-text-light: #00c6bd;
+  --color-secondary-text: #bbbbbb;
+  --color-secondary-light-text: #a1a1aa;
 
   /* primary:#8874EF,#25AB75 */
   /* --color-background: #030712; */
@@ -36,12 +36,14 @@
 
 
   --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
-  --shadow-xs: 0 0px 15px 10px rgb(0, 200, 150, 0.25);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-xs: 0 0px 26px rgb(0, 200, 150, 0.1);
+  --shadow-sm: 0px 0px 50px 0 rgba(0, 200, 150, 0.1);
+  /* --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 200, 150, 0.25);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 200, 150, 0.25); */
+
+
 }
 
 /* colors: {

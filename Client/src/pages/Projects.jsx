@@ -80,7 +80,8 @@ const Projects = () => {
         <section
             id="projects"
             className="relative projects flex flex-col justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5] bg-background"
-        ><Stars/>
+        >
+            {/* <Stars/> */}
             <div className="flex max-w-7xl flex-col items-center justify-center lg:h-full w-full px-4">
                 {/* Header */}
                 <div className="flex flex-col w-full items-center justify-center">
@@ -92,11 +93,11 @@ const Projects = () => {
                     </h1>
                 </div>
                 {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-2 mb-5">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`border border-primary/50 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000      shadow-xs`}
+                            className={`border border-primary/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000     shadow-xs hover:shadow-sm`}
                         >
                             <img
                                 src={project.image}
@@ -105,7 +106,7 @@ const Projects = () => {
                             />
                             <BackgroundBeamsWithCollision className="flex flex-col bg-background-light p-4 rounded border border-b border-primary/5 before:hidden">
                                 <h2 className="w-full items-left text-2xl font-bold mb-2">{project.name}</h2>
-                                <p className="text-zinc-400 mb-4 text-sm flex-grow">
+                                <p className="text-secondary-light-text mb-4 text-sm flex-grow">
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-4 justify-start w-full">

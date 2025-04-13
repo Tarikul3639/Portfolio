@@ -6,7 +6,7 @@ import Contact from './Contact.jsx';
 import Footer from '../components/navigation/Footer.jsx';
 const LandingPage = () => {
   return (
-    <div className="flex flex-col bg-black, opacity 2.83e+3%] xs:overflow-x-hidden items-center justify-center overflow-hidden">
+    <div className="flex flex-col bg-black opacity-90 items-center justify-center overflow-clip">
       <Navbar />
       <Home />
       <About />
@@ -17,4 +17,3 @@ const LandingPage = () => {
   );
 };
 export default LandingPage;
-

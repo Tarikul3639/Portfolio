@@ -29,11 +29,6 @@ const Home = () => {
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen  bg-background">
-      <div className="absolute w-full h-full top-1/2 z-1000">
-      <div className="relative w-full inset-0 h-full z-100">
-      <Stars/>
-      </div>
-      </div>
       <Spotlight
         className=" absolute top-0 left-0 right-0"
         fill="white"
@@ -56,7 +51,7 @@ const Home = () => {
       <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
         {/* Left side section (text and button) */}
         <div className="flex w-full items-center justify-center lg:h-full lg:w-1/2">
-          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 lg:h-full lg:items-start lg:pl-0 lg:pl-0">
+          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 lg:h-full lg:items-start lg:pl-0">
             <p className="hidden text-xs border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center gap-2 fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shine overflow-hidden z-50 w-max">
               Available for new projects
             </p>
@@ -83,7 +78,7 @@ const Home = () => {
               {description}
             </div>
             {/* Buttons and social media icons */}
-            <div className="flex items-center justify-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
+            <div className="flex items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}
               <Button
                 text="CV Download"

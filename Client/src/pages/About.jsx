@@ -36,7 +36,7 @@ const About = () => {
 
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light-text bg-background">
-            <Stars/>
+            {/* <Stars/> */}
             <div className="flex flex-col items-center justify-center max-w-7xl">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
@@ -95,7 +95,7 @@ const About = () => {
                                 <p>Self-initiated</p>
                                 <p>Remote</p>
                             </div>
-                            <div className='flex flex-col items-start w-full border-l border-primary/50 px-6 text-[#c4c4c4] text-sm font-normal'>
+                            <div className='flex flex-col items-start w-full border-l border-primary/50 px-6 text-secondary-text text-sm font-normal'>
                                 <p className='text-base/5 py-1  relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary/50'>
                                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                                 </p>

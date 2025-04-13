@@ -2,8 +2,10 @@ import React from 'react';
 import LandingPage from './pages/LandingPage.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import ObserverProvider from '../ObserverProvider';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
-  
   return (
     <ObserverProvider>
       <BrowserRouter>
@@ -11,8 +13,9 @@ function App() {
           <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer/>
     </ObserverProvider>
-  )
+  );
 }
 
-export default App
+export default App;
