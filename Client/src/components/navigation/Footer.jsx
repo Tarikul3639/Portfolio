@@ -63,14 +63,17 @@ const Footer = () => {
                 {/* Social Media Icons */}
                 <div className="flex space-x-6">
                     <FontAwesomeIcon
+                        onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")}
                         icon={faFacebookSquare}
                         className="text-2xl hover:text-primary hover:cursor-pointer"
                     />
                     <FontAwesomeIcon
+                        onClick={()=>window.open("https://x.com/Tarikul3639","_blank")}
                         icon={faTwitterSquare}
                         className="text-2xl hover:text-primary hover:cursor-pointer"
                     />
                     <FontAwesomeIcon
+                        onClick={()=>window.open("https://www.linkedin.com/in/Tarikul3639","_blank")}
                         icon={faLinkedin}
                         className="text-2xl hover:text-primary hover:cursor-pointer"
                     />

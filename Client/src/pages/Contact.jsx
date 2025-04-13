@@ -133,7 +133,11 @@ const Contact = () => {
         {/* Contact Information */}
         <div className="flex flex-col w-full lg:w-1/2 p-6 gap-4 source-sans-3 text-sm text-white/60">
           {/* WhatsApp */}
-          <ul className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
+          <a 
+            href="https://wa.me/8801909290959"
+            target="_blank"
+            rel="noopener noreferrer"
+          className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
               <FaWhatsapp className="h-6 w-6" />
             </li>
@@ -141,10 +145,15 @@ const Contact = () => {
               <p className="text-gray-300">Phone</p>
               <p className="text-gray-200">01909290959</p>
             </li>
-          </ul>
+          </a>
 
           {/* Gmail */}
-          <ul className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
+          <a
+            href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSGLdkGRDNTpJTMcvDmBlqwxGvtVTbLStpshzQMDZsJdVhDQsqGMqLQGZCjhCcmgBmkctLKg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102"
+          >
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
               <FaEnvelope className="h-6 w-6" />
             </li>
@@ -152,10 +161,15 @@ const Contact = () => {
               <p className="text-gray-300">Email</p>
               <p className="text-gray-200">tarikulislam3639@gmail.com</p>
             </li>
-          </ul>
+          </a>
+
 
           {/* Address */}
-          <ul className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
+          <a 
+            href="https://maps.app.goo.gl/eAsPwkPz61eHwGND6"
+            target="_blank"
+            rel="noopener noreferrer"
+          className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
               <FaMapMarkerAlt className="h-6 w-6" />
             </li>
@@ -163,7 +177,7 @@ const Contact = () => {
               <p className="text-gray-300">Address</p>
               <p className="text-gray-200">Mirpur-2, Rupnager, 15 Number Road</p>
             </li>
-          </ul>
+          </a>
         </div>
       </div>
 

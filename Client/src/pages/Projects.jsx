@@ -17,19 +17,22 @@ import Portfolio from '../assets/image/Portfolio.png';
 import Button from '../components/ui/Button.jsx';
 import Stars from "../components/ui/Stars.jsx";
 import { BackgroundBeamsWithCollision } from "../components/ui/background-beams-with-collision.jsx";
+
 const Projects = () => {
-    // Tech class for styling tech stack items
+    // Style for each tech item badge
     const techClass =
         'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary/5 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000';
 
-    // Text gradient classes
+    // Gradient text styles for headings
     const textGradient =
         "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
     const TextGradient2 =
         "bg-gradient-to-l from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text";
 
+    // Array of project data
     const projects = [
         {
+            link: "https://github.com/Tarikul3639/ChatFly",
             name: "ChatFly",
             description:
                 "ChatFly is a real-time web-based chat app with secure user login, file sharing, media (image, video, text) exchange, and voice messaging for smooth, interactive communication.",
@@ -45,6 +48,7 @@ const Projects = () => {
             ],
         },
         {
+            link: "https://github.com/Tarikul3639/ELECTRIFIERS",
             name: "Electrifiers",
             description:
                 "Electrifiers is a load-shedding notification system that provides real-time updates to residents based on location, along with energy-saving tips and emergency solutions.",
@@ -60,6 +64,7 @@ const Projects = () => {
             ],
         },
         {
+            link: 'https://github.com/Tarikul3639/Portfolio',
             name: "Portfolio",
             description:
                 "This portfolio website showcases my development skills, projects, and technical stack using modern frontend technologies and animations.",
@@ -81,9 +86,8 @@ const Projects = () => {
             id="projects"
             className="relative projects flex flex-col justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5] bg-background"
         >
-            {/* <Stars/> */}
             <div className="flex max-w-7xl flex-col items-center justify-center lg:h-full w-full px-4">
-                {/* Header */}
+                {/* Section Header */}
                 <div className="flex flex-col w-full items-center justify-center">
                     <p className={`${TextGradient2} text-[15px] text-center text-neutral-300 font-medium`}>
                         EXPLORE MY CREATION
@@ -92,23 +96,28 @@ const Projects = () => {
                         PROJECTS
                     </h1>
                 </div>
-                {/* Project Cards */}
+
+                {/* Project Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-2 mb-5">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`border border-primary/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform  duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000     shadow-xs hover:shadow-sm`}
+                            className="border border-primary/20 rounded-lg shadow-4xl overflow-hidden flex flex-col justify-between hover:shadow-4xl hover:scale-101 transition-transform duration-300 ease-in-out intersect:motion-preset-slide-right intersect:motion-duration-2000 shadow-xs hover:shadow-sm"
                         >
+                            {/* Project Image */}
                             <img
                                 src={project.image}
                                 alt={project.name}
                                 className="w-full h-48 object-cover"
                             />
+
+                            {/* Project Details */}
                             <BackgroundBeamsWithCollision className="flex flex-col bg-background-light p-4 rounded border border-b border-primary/5 before:hidden">
                                 <h2 className="w-full items-left text-2xl font-bold mb-2">{project.name}</h2>
                                 <p className="text-secondary-light-text mb-4 text-sm flex-grow">
                                     {project.description}
                                 </p>
+                                {/* Tech Stack */}
                                 <div className="flex flex-wrap gap-2 mb-4 justify-start w-full">
                                     {project.tech.map((t, i) => (
                                         <span
@@ -120,6 +129,8 @@ const Projects = () => {
                                     ))}
                                 </div>
                             </BackgroundBeamsWithCollision>
+
+                            {/* View Button */}
                             <div className="bg-background-light flex items-center p-6 pt-0">
                                 <Button
                                     text="View Project"
