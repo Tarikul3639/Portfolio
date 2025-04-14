@@ -8,19 +8,36 @@ import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-b
 import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
 import Stars from "../components/ui/Stars.jsx";
+import { toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from "react";
 
 const Home = () => {
+  const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     try {
+      setLoading(true);
       const response = await fetch("http://localhost:5000/api/cv", {
-        method: "GET", 
+        method: "GET",
       });
   
+      const contentType = response.headers.get("Content-Type");
+  
       if (!response.ok) {
-        throw new Error("Failed to fetch CV");
+        setLoading(false);
+  
+        if (contentType && contentType.includes("application/json")) {
+          const result = await response.json();
+          toast.error(result.message || 'Server error.');
+        } else {
+          toast.error('Server error. File may be missing.');
+        }
+  
+        return;
       }
   
+      // If success
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
   
@@ -31,12 +48,18 @@ const Home = () => {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+  
+      setLoading(false);
+      toast.success('Downloaded successfully!');
+  
     } catch (error) {
       console.error("Error downloading CV:", error);
-      alert("Failed to download CV. Please try again later.");
+      setLoading(false);
+      toast.warning('Network error');
     }
   };
   
+
   // Animation words and description for type animation
   const words = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
   const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
@@ -108,7 +131,7 @@ const Home = () => {
               {/* CV Download Button with animation */}
               <Button
                 text="CV Download"
-                onClick={()=>handleClick()}
+                onClick={() => handleClick()}
                 variant="primary"
                 icon={<FaCloudDownloadAlt className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black" />}
                 className="peer z-10 max-md:w-full"
@@ -116,10 +139,10 @@ const Home = () => {
 
               {/* Social Media Icons */}
               <div className="flex max-md:w-full items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
-                <FontAwesomeIcon onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")} icon={faFacebook} className={`${SocialMediaIcon} intersect:motion-duration-2200` } />
-                <FontAwesomeIcon onClick={()=>window.open("https://x.com/Tarikul3639","_blank")} icon={faTwitter} className={`${SocialMediaIcon} intersect:motion-duration-4000`} />
-                <FontAwesomeIcon onClick={()=>window.open("https://github.com/Tarikul3639","_blank")} icon={faGithub} className={`${SocialMediaIcon} intersect:motion-duration-3400`} />
-                <FontAwesomeIcon onClick={()=>window.open("https://www.linkedin.com/in/Tarikul3639","_blank")} icon={faLinkedin} className={`${SocialMediaIcon} intersect:motion-duration-2800`} />
+                <FontAwesomeIcon onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")} icon={faFacebook} className={`${SocialMediaIcon} intersect:motion-duration-2200`} />
+                <FontAwesomeIcon onClick={() => window.open("https://x.com/Tarikul3639", "_blank")} icon={faTwitter} className={`${SocialMediaIcon} intersect:motion-duration-4000`} />
+                <FontAwesomeIcon onClick={() => window.open("https://github.com/Tarikul3639", "_blank")} icon={faGithub} className={`${SocialMediaIcon} intersect:motion-duration-3400`} />
+                <FontAwesomeIcon onClick={() => window.open("https://www.linkedin.com/in/Tarikul3639", "_blank")} icon={faLinkedin} className={`${SocialMediaIcon} intersect:motion-duration-2800`} />
               </div>
             </div>
           </div>

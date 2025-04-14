@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../components/ui/Button.jsx';
-import { ToastContainer, toast, Bounce } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from '../components/ui/Loader.jsx';
 
 const Contact = () => {
+  // State variable to manage loading state
+  const [loading, setLoading] = useState(false);
   // State variables for form inputs
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
@@ -13,7 +16,7 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true); // Set loading state to true when submitting
     const formData = { name, email, message };
     console.log("🔼 Submitting:", formData);
 
@@ -28,30 +31,18 @@ const Contact = () => {
 
       if (!response.ok) {
         console.log('❌ Server error:', result);
+        setLoading(false); // Set loading state to false on error
         toast.error(result.message || 'Failed to send message.', {
-          position: 'top-right',
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'dark',
-          transition: Bounce,
+
         });
         return;
       }
 
       // ✅ Success response
       console.log('✅ Success:', result);
+      setLoading(false); // Set loading state to false on error
       toast.success(result.message || 'Message sent successfully!', {
-        position: 'top-right',
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-        transition: Bounce,
+
       });
 
       // Clear input fields
@@ -61,15 +52,9 @@ const Contact = () => {
 
     } catch (err) {
       console.error('❌ Network error:', err);
+      setLoading(false); // Set loading state to false on error
       toast.warning('Network error', {
-        position: 'top-right',
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-        transition: Bounce,
+
       });
     }
   };
@@ -82,6 +67,9 @@ const Contact = () => {
       id="contact"
       className="source-sans-3 pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background"
     >
+      {/* Loader component to show loading state */}
+      {loading && <Loader loading={true} />}
+
       {/* Section Header */}
       <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient}`}>
         <p className="text-[15px] text-center text-neutral-300 font-medium">GET IN TOUCH</p>
@@ -133,11 +121,11 @@ const Contact = () => {
         {/* Contact Information */}
         <div className="flex flex-col w-full lg:w-1/2 p-6 gap-4 source-sans-3 text-sm text-white/60">
           {/* WhatsApp */}
-          <a 
+          <a
             href="https://wa.me/8801909290959"
             target="_blank"
             rel="noopener noreferrer"
-          className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
+            className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
               <FaWhatsapp className="h-6 w-6" />
             </li>
@@ -165,11 +153,11 @@ const Contact = () => {
 
 
           {/* Address */}
-          <a 
+          <a
             href="https://maps.app.goo.gl/eAsPwkPz61eHwGND6"
             target="_blank"
             rel="noopener noreferrer"
-          className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
+            className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
               <FaMapMarkerAlt className="h-6 w-6" />
             </li>
@@ -180,9 +168,6 @@ const Contact = () => {
           </a>
         </div>
       </div>
-
-      {/* Toast container for notifications */}
-      <ToastContainer />
     </section>
   );
 };
