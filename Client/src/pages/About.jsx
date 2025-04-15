@@ -1,9 +1,7 @@
 import Image from '../assets/image/Profile.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { RiTailwindCssFill } from "react-icons/ri";
 import { DiMongodb } from "react-icons/di";
-import { SiSocketdotio, SiExpress } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import {
     faHtml5,
@@ -18,6 +16,9 @@ import FarmerMotion from '../assets/icons/Motion.svg';
 import WebRTC from '../assets/icons/webrtc-svgrepo-com.svg';
 import C_Plus from '../assets/icons/c-plus-plus.svg';
 import C_programming from '../assets/icons/C_Programming_Language.svg';
+import tailwind from '../assets/icons/tailwind-css-icon.svg';
+import socket from '../assets/icons/socket-io-icon.svg';
+import Express from '../assets/icons/express-js.svg';
 
 import Stars from "../components/ui/Stars.jsx";
 
@@ -40,12 +41,12 @@ const About = () => {
             <div className="flex flex-col items-center justify-center max-w-7xl">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
-                    <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium`}>
+                    <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium `}>
                         GET TO KNOW ME
                     </p>
                     <h1 className="text-5xl font-bold pt-2 pb-1">ABOUT ME</h1>
                 </div>
-                
+
                 {/* Main Content */}
                 <div className="flex flex-col lg:flex-row items-center justify-center h-full w-full px-4">
                     {/* Profile Section */}
@@ -117,16 +118,18 @@ const About = () => {
                                 <span className={`${techClass} motion-delay-100`}><FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />CSS</span>
                                 <span className={`${techClass} motion-delay-150`}><FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />JavaScript</span>
                                 <span className={`${techClass} motion-delay-200`}><FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />ReactJS</span>
-                                <span className={`${techClass} motion-delay-250`}><RiTailwindCssFill className="text-[#06b6d4]" />Tailwind CSS</span>
+                                <span className={`${techClass} motion-delay-250`}>
+                                    <img src={tailwind} className="h-4" />Tailwind CSS</span>
                                 <span className={`${techClass} motion-delay-300`}><img src={FarmerMotion} alt="Framer Motion" className="h-4" />Framer Motion</span>
                                 <span className={`${techClass} motion-delay-350`}><FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />NodeJS</span>
-                                <span className={`${techClass} motion-delay-400`}><SiExpress className="text-[#e34c26] text-sm font-bold" />ExpressJS</span>
+                                <span className={`${techClass} motion-delay-400`}><img src={Express} className="h-4" />ExpressJS</span>
                                 <span className={`${techClass} motion-delay-450`}><DiMongodb className="text-[#47A248] text-sm" />MongoDB</span>
                                 <span className={`${techClass} motion-delay-500`}><FontAwesomeIcon icon={faGithub} />GitHub</span>
                                 <span className={`${techClass} motion-delay-550`}><img src={C_Plus} alt="C++" className="h-4" />C++</span>
                                 <span className={`${techClass} motion-delay-600`}><img src={C_programming} alt="C" className="h-4" />C</span>
                                 <span className={`${techClass} motion-delay-650`}><img src={Rambo} alt="Custom Tech" className='h-4' /></span>
-                                <span className={`${techClass} motion-delay-700`}><SiSocketdotio className="text-[#3B82F6] text-sm" />Socket</span>
+                                <span className={`${techClass} motion-delay-700`}>
+                                    <img src={socket} className="h-4 " />Socket</span>
                                 <span className={`${techClass} motion-delay-750`}><img src={WebRTC} alt="WebRTC" className='h-4' />WebRTC</span>
                                 <span className={`${techClass} motion-delay-800`}><VscVscode style={{ color: '#007ACC' }} />VS Code</span>
                             </div>

@@ -7,15 +7,15 @@ import {
     faNodeJs,
 } from '@fortawesome/free-brands-svg-icons';
 import { DiMongodb } from "react-icons/di";
-import { SiSocketdotio } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
 import Rambo from '../assets/icons/Rambo.svg';
 import FarmerMotion from '../assets/icons/Motion.svg';
 import ChatFly from '../assets/image/ChatFly.png';
 import Electrifiers from '../assets/image/Electrifiers.png';
 import Portfolio from '../assets/image/Portfolio.png';
 import Button from '../components/ui/Button.jsx';
-import Stars from "../components/ui/Stars.jsx";
+import tailwind from '../assets/icons/tailwind-css-icon.svg';
+import socket from '../assets/icons/socket-io-icon.svg';
+import Express from '../assets/icons/express-js.svg';
 import { BackgroundBeamsWithCollision } from "../components/ui/background-beams-with-collision.jsx";
 
 const Projects = () => {
@@ -43,8 +43,9 @@ const Projects = () => {
                 { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
                 { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
                 { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB' },
-                { icon: <SiSocketdotio className="text-[#3B82F6] text-sm" />, name: 'Socket' },
+                { icon: <img src={socket} className="text-[#3B82F6] h-4 " />, name: 'Socket.io' },
                 { icon: <img src={WebRTC} alt="WebRTC" className="h-4" />, name: 'WebRTC' },
+                { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
             ],
         },
         {
@@ -59,8 +60,9 @@ const Projects = () => {
                 { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
                 { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
                 { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB' },
-                { icon: <RiTailwindCssFill className="text-[#06b6d4]" />, name: 'Tailwind CSS' },
-                { icon: <SiSocketdotio className="text-[#3B82F6] text-sm" />, name: 'Socket' },
+                { icon: <img src={tailwind} className="h-4" />, name: 'Tailwind CSS' },
+                { icon: <img src={socket} className=" h-4 " />, name: 'Socket.io' },
+                { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
             ],
         },
         {
@@ -74,9 +76,10 @@ const Projects = () => {
                 { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript' },
                 { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
                 { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
-                { icon: <RiTailwindCssFill className="text-[#06b6d4]" />, name: 'Tailwind CSS' },
+                { icon: <img src={tailwind} className="h-4" />, name: 'Tailwind CSS' },
                 { icon: <img src={FarmerMotion} alt="Framer Motion" className="h-4" />, name: 'Framer Motion' },
                 { icon: <img src={Rambo} alt="Custom Tech" className="h-4" />, name: '' },
+                { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
             ],
         },
     ];

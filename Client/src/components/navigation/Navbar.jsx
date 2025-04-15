@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import PropTypes from "prop-types";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { IoCloseSharp } from "react-icons/io5";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "CONTACT"] }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                     className="md:hidden text-bold text-white cursor-pointer transition-all duration-500 ease-in-out focus:outline-none z-10"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <IoCloseSharp size={40} color="primary" /> : <HiOutlineMenuAlt3 size={40} color="#cbcbcb" />}
+                    {isOpen ? <FontAwesomeIcon icon={faXmark} className="text-3xl text-primary"/> : <HiOutlineMenuAlt3 size={35} color="#cbcbcb" />}
                 </button>
 
                 {/* Navigation Menu with Slide Animation */}

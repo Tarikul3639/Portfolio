@@ -1,13 +1,13 @@
 import photo from "../assets/image/Profile.png";
 import Button from "../components/ui/Button";
-import { FaCloudDownloadAlt } from "react-icons/fa";
 import { TypeAnimation } from 'react-type-animation';
-import ShowMoreText from "react-show-more-text";
+// import ShowMoreText from "react-show-more-text";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
-import Stars from "../components/ui/Stars.jsx";
+// import Stars from "../components/ui/Stars.jsx";
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
@@ -133,7 +133,7 @@ const Home = () => {
                 text="CV Download"
                 onClick={() => handleClick()}
                 variant="primary"
-                icon={<FaCloudDownloadAlt className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black" />}
+                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black"/>}
                 className="peer z-10 max-md:w-full"
               />
 

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope,faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Button from '../components/ui/Button.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -61,6 +63,7 @@ const Contact = () => {
 
   // Gradient text style
   const textGradient = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
+  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
 
   return (
     <section
@@ -72,7 +75,7 @@ const Contact = () => {
 
       {/* Section Header */}
       <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient}`}>
-        <p className="text-[15px] text-center text-neutral-300 font-medium">GET IN TOUCH</p>
+        <p className={`text-[15px] text-center font-medium ${textGradient2}`}>GET IN TOUCH</p>
         <h1 className="text-5xl font-bold pt-2 pb-1">CONTACT ME</h1>
       </div>
 
@@ -127,7 +130,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-              <FaWhatsapp className="h-6 w-6" />
+            <FontAwesomeIcon icon={faWhatsapp} className="text-3xl h-7 w-7" />
             </li>
             <li className="flex flex-col">
               <p className="text-gray-300">Phone</p>
@@ -143,7 +146,7 @@ const Contact = () => {
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102"
           >
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-              <FaEnvelope className="h-6 w-6" />
+            <FontAwesomeIcon icon={faEnvelope} className='text-3xl h-7 w-7' />
             </li>
             <li className="flex flex-col">
               <p className="text-gray-300">Email</p>
@@ -159,7 +162,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
             <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-              <FaMapMarkerAlt className="h-6 w-6" />
+            <FontAwesomeIcon icon={faLocationDot} className='text-3xl h-7 w-7'/>
             </li>
             <li className="flex flex-col">
               <p className="text-gray-300">Address</p>
