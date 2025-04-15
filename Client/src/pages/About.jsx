@@ -1,4 +1,4 @@
-import Image from '../assets/image/Profile.png';
+import Image from '../assets/image/Profile.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
@@ -20,8 +20,6 @@ import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
 
-import Stars from "../components/ui/Stars.jsx";
-
 const About = () => {
     // About Me description
     const AboutMe = [
@@ -37,7 +35,7 @@ const About = () => {
 
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light-text bg-background">
-            {/* <Stars/> */}
+            
             <div className="flex flex-col items-center justify-center max-w-7xl">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
@@ -56,6 +54,7 @@ const About = () => {
                             <img
                                 src={Image}
                                 alt="Profile"
+                                 loading="lazy"
                                 className="bg-transparent rounded-full w-[200px] h-[200px] border-2 border-dotted border-primary/50 intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6"
                             />
                             {/* About Me Description */}

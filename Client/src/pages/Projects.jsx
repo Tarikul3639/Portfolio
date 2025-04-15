@@ -16,7 +16,7 @@ import Button from '../components/ui/Button.jsx';
 import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
-import { BackgroundBeamsWithCollision } from "../components/ui/background-beams-with-collision.jsx";
+import { BackgroundBeamsWithCollision } from  "../components/ui/background-beams-with-collision.jsx";
 
 const Projects = () => {
     // Style for each tech item badge
@@ -111,6 +111,7 @@ const Projects = () => {
                             <img
                                 src={project.image}
                                 alt={project.name}
+                                 loading="lazy"
                                 className="w-full h-48 object-cover"
                             />
 
