@@ -1,4 +1,4 @@
-import photo from "../assets/image/About.webp";
+import photo from "../assets/image/Profile.webp";
 import Button from "../components/ui/Button";
 import { TypeAnimation } from 'react-type-animation';
 // import ShowMoreText from "react-show-more-text";
