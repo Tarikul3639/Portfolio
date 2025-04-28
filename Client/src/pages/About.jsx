@@ -1,4 +1,4 @@
-import Image from '../assets/image/Profile.webp';
+import Image from '../assets/image/About.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
