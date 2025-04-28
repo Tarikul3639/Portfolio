@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "postinstall": "npm i @rollup/rollup-linux-x64-gnu --no-save || npm i rollup --force"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
