@@ -18,7 +18,7 @@ const Home = () => {
   const handleClick = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/cv", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`, {
         method: "GET",
       });
   
