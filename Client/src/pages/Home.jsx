@@ -1,4 +1,4 @@
-import photo from "../assets/image/Profile Image.webp";
+import photo from "../assets/image/Profile.webp";
 import Button from "../components/ui/Button";
 import { TypeAnimation } from 'react-type-animation';
 // import ShowMoreText from "react-show-more-text";
@@ -80,15 +80,14 @@ const Home = () => {
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background">
       <Spotlight
-        className=" absolute top-0 left-0 right-0"
+        className=" absolute top-0 left-0 right-0 z-1"
         fill="white"
       />
       <div
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.8)_0%,transparent_80%)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_80%)]",
+          "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_0%)]",
 
           "[-webkit-mask-image:linear-gradient(to_bottom,white_10%,transparent_60%)]",
 
