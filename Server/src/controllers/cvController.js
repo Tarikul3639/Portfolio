@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 const downloadCV = (req, res) => {
-    const filePath = path.join(__dirname, '../uploads', 'cv.png');
+    const filePath = path.join(__dirname, '../uploads', 'CV.png');
 
     // Check if the file exists
     if (!fs.existsSync(filePath)) {
