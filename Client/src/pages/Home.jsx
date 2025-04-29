@@ -16,6 +16,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
+    console.log("Download button clicked: ",import.meta.env.VITE_API_URL);
     try {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`, {
