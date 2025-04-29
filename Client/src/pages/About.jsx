@@ -1,4 +1,4 @@
-import Image from '../assets/image/About.webp';
+import Image from '../assets/image/Profile Image.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
@@ -35,7 +35,7 @@ const About = () => {
 
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light-text bg-background">
-            
+
             <div className="flex flex-col items-center justify-center max-w-7xl">
                 {/* Section Heading */}
                 <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
@@ -51,12 +51,34 @@ const About = () => {
                     <div className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-primary/50">
                         <div className="flex flex-col items-center justify-center w-full space-y-6 p-6">
                             {/* Profile Image */}
-                            <img
-                                src={Image}
-                                alt="Profile"
-                                 loading="lazy"
-                                className="bg-transparent rounded-full w-[200px] h-[200px] border-2 border-dotted border-primary/50 intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6"
-                            />
+                            <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
+                                {/* Define mask shape */}
+                                <mask id="maskPath" mask-type="alpha">
+                                    <path
+                                        d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                                        fill="background-color"
+                                    />
+                                </mask>
+
+                                {/* Fill shape with base color */}
+                                <path
+                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                                    fill="background-color"
+                                />
+
+                                {/* Image clipped inside the path shape */}
+                                <image
+                                    href={Image} // <-- make sure `Image` is imported or a valid URL
+                                    x="-5"
+                                    y="0"
+                                    width="108%"
+                                    height="100%"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    mask="url(#maskPath)"
+                                />
+                            </svg>
+
+
                             {/* About Me Description */}
                             <p className={`text-lg break-words hyphens-auto border-b border-primary/50 pb-6 intersect:motion-translate-x-in-[-10%]`}>
                                 {AboutMe}

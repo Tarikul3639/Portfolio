@@ -1,4 +1,4 @@
-import photo from "../assets/image/Profile.webp";
+import photo from "../assets/image/Profile Image.webp";
 import Button from "../components/ui/Button";
 import { TypeAnimation } from 'react-type-animation';
 // import ShowMoreText from "react-show-more-text";
@@ -78,7 +78,7 @@ const Home = () => {
   const BorderAnimation = `relative overflow-hidden shadow-[0px_0px_20px_1px_rgba(0,_255,_255,_0.2)] before:group before:content-[''] before:absolute before:inset-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-[100%] before:h-[100vw] before:rounded-none before:bg-[conic-gradient(transparent,transparent,transparent,#00c896)] before:animate-[spin_3s_linear_infinite] before:z-0`;
 
   return (
-    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen  bg-background">
+    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background">
       <Spotlight
         className=" absolute top-0 left-0 right-0"
         fill="white"
@@ -152,7 +152,7 @@ const Home = () => {
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full">
           <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
-            <img src={photo} alt="Tarikul Islam" className="h-full w-full object-cover intersect:motion-opacity-in-0 motion-duration-[10s]" />
+            <img src={photo} alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover intersect:motion-opacity-in-0 motion-duration-[10s]"/>
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
