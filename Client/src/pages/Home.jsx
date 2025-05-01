@@ -44,7 +44,7 @@ const Home = () => {
   
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "cv.png");
+      link.setAttribute("download", "TarikulIslam_CV_Resume_2025.pdf");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
