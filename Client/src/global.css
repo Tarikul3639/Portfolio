@@ -3,32 +3,26 @@
 @plugin "tailwindcss-motion";
 @plugin "tailwindcss-intersect";
 @plugin "@tailwindcss/postcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
 
-  --color-background: #030712;
-  --color-background-light: #01050e;
+  --color-background-dark: #000000;
+  --color-background-light: #FAFAFA;
 
   --color-secondary: #A8E524;
-  --color-primary-light: #16e4b1;
   --color-primary: #00c896;
+  --color-primary-dark: ##FFFFFF;
+  --color-primary-light: #0F172B;
 
-  --color-primary-text: #ffff;
+  --color-primary-text: #;
   --color-primary-text-light: #cbcbcb;
   --color-secondary-text: #bbbbbb;
   --color-secondary-light-text: #a1a1aa;
 
-  /* primary:#8874EF,#25AB75 */
-  /* --color-background: #030712; */
-  /* --color-primary: #d8a31a; */
-  /* --color-primary-light: #f3b20c; */
   --color-primary-foreground: #030712;
-  /* --color-secondary:  #007d55; */
-  /* --color-secondary-light: #079a6b; */
-  /* --color-secondary-foreground: #030712; */
 
   --color-accent: #988478;
   --color-text: #e2f0ff;
@@ -107,7 +101,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #141c23;
+  background-color: var(--background, var(--color-background-light));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -130,7 +124,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-primary);
 }
 
 .break-word {
@@ -147,8 +141,6 @@
 
 .poppins-regular {
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
 }
 
 .poppins-medium {

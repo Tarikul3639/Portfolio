@@ -16,18 +16,12 @@ import Button from '../components/ui/Button.jsx';
 import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
-import { BackgroundBeamsWithCollision } from  "../components/ui/background-beams-with-collision.jsx";
+import { BackgroundBeamsWithCollision } from "../components/ui/background-beams-with-collision.jsx";
 
 const Projects = () => {
-    // Style for each tech item badge
-    const techClass =
-        'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary/5 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000';
-
     // Gradient text styles for headings
     const textGradient =
-        "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-    const TextGradient2 =
-        "bg-gradient-to-l from-blue-500 via-teal-500 to-green-500 text-transparent bg-clip-text";
+        "bg-primary-light bg-gradient-to-r dark:from-secondary dark:via-teal-500 dark:to-primary text-transparent bg-clip-text";
 
     // Array of project data
     const projects = [
@@ -87,12 +81,12 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="relative projects flex flex-col justify-center items-center w-screen min-w-[345px] pt-20 outfit text-[#e5e5e5] bg-background"
+            className="relative projects flex flex-col justify-center items-center w-screen min-w-[345px] pt-20 outfit text-primary-light dark:text-primary-dark bg-background bg-background-light dark:bg-background-dark"
         >
             <div className="flex max-w-7xl flex-col items-center justify-center lg:h-full w-full px-4">
                 {/* Section Header */}
                 <div className="flex flex-col w-full items-center justify-center">
-                    <p className={`${TextGradient2} text-[15px] text-center text-neutral-300 font-medium`}>
+                    <p className="text-xs text-primary-light dark:text-background-light border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center -translate-y-1/2 shine overflow-hidden z-50">
                         EXPLORE MY CREATION
                     </p>
                     <h1 className={`${textGradient} text-5xl font-bold pt-2 pb-1 mb-10`}>
@@ -111,14 +105,14 @@ const Projects = () => {
                             <img
                                 src={project.image}
                                 alt={project.name}
-                                 loading="lazy"
+                                loading="lazy"
                                 className="w-full h-48 object-cover"
                             />
 
                             {/* Project Details */}
-                            <BackgroundBeamsWithCollision className="flex flex-col bg-background-light p-4 rounded border border-b border-primary/5 before:hidden">
+                            <BackgroundBeamsWithCollision className="flex flex-col bg-background-light dark:bg-primary-dark/50 p-4 rounded border border-b border-primary/5 before:hidden h-full">
                                 <h2 className="w-full items-left text-2xl font-bold mb-2">{project.name}</h2>
-                                <p className="text-secondary-light-text mb-4 text-sm flex-grow">
+                                <p className="text-primary-light/80 dark:text-primary-dark dark:opacity-80 font-[400] mb-4 text-sm flex-grow">
                                     {project.description}
                                 </p>
                                 {/* Tech Stack */}
@@ -126,7 +120,7 @@ const Projects = () => {
                                     {project.tech.map((t, i) => (
                                         <span
                                             key={i}
-                                            className={`${techClass} motion-delay-${100 + i * 50}`}
+                                            className={`inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary/5 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000 text-primary-light dark:text-primary-dark motion-delay-${100 + i * 50}`}
                                         >
                                             {t.icon} {t.name}
                                         </span>
@@ -135,12 +129,12 @@ const Projects = () => {
                             </BackgroundBeamsWithCollision>
 
                             {/* View Button */}
-                            <div className="bg-background-light flex items-center p-6 pt-0">
+                            <div className="bg-background-light dark:bg-background-dark flex items-center p-6 pt-0">
                                 <Button
                                     text="View Project"
                                     onClick={() => window.open(project.link, "_blank")}
                                     variant="primary"
-                                    className="w-full"
+                                    className="w-full bg-primary-light hover:bg-primary-light/90 dark:bg-primary dark:hover:bg-primary/90 text-white hover:text-white dark:text-primary-light dark:hover:text-primary-light border-none"
                                 />
                             </div>
                         </div>

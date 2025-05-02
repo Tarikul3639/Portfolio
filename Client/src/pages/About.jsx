@@ -26,29 +26,25 @@ const About = () => {
         "I'm a passionate Full-Stack Developer who loves building dynamic, user-friendly applications. I thrive on solving problems, creating seamless experiences, and continuously expanding my skills. Always eager to learn and grow, I'm currently looking for new opportunities to contribute and innovate."
     ];
 
-    // Text gradient classes
-    const TextGradient = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
-    const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-
     // Tech class for styling tech stack items
-    const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary/50 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
+    const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary-light/50 dark:border-primary/50 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     return (
-        <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light-text bg-background">
+        <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
 
             <div className="flex flex-col items-center justify-center max-w-7xl">
                 {/* Section Heading */}
-                <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient2}`}>
-                    <p className={`${textGradient2} text-[15px] text-center text-neutral-300 font-medium `}>
+                <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10`}>
+                    <p className="text-xs text-primary-light dark:text-background-light border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center -translate-y-1/2 shine overflow-hidden z-50">
                         GET TO KNOW ME
                     </p>
-                    <h1 className="text-5xl font-bold pt-2 pb-1">ABOUT ME</h1>
+                    <h1 className="text-5xl font-bold pt-2 pb-1 bg-primary-light bg-gradient-to-r dark:from-primary dark:via-teal-400 dark:to-secondary text-transparent bg-clip-text">ABOUT ME</h1>
                 </div>
 
                 {/* Main Content */}
                 <div className="flex flex-col lg:flex-row items-center justify-center h-full w-full px-4">
                     {/* Profile Section */}
-                    <div className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-primary/50">
+                    <div className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-primary-light/50 dark:border-primary/50">
                         <div className="flex flex-col items-center justify-center w-full space-y-6 p-6">
                             {/* Profile Image */}
                             <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
@@ -80,11 +76,11 @@ const About = () => {
 
 
                             {/* About Me Description */}
-                            <p className={`text-lg break-words hyphens-auto border-b border-primary/50 pb-6 intersect:motion-translate-x-in-[-10%]`}>
+                            <p className={`text-lg break-words hyphens-auto border-b border-primary-light/50 dark:border-primary/50 pb-6 intersect:motion-translate-x-in-[-10%]`}>
                                 {AboutMe}
                             </p>
                             {/* Location */}
-                            <p className={`relative intersect:motion-translate-y-in-100 text-secondary-text intersect:motion-duration-1000`}>
+                            <p className={`relative intersect:motion-translate-y-in-100 text-primary-light/80 dark:text-primary-dark/80 intersect:motion-duration-1000`}>
                                 <FontAwesomeIcon icon={faLocationDot} className={`mr-2`} />
                                 Gazipur, Dhaka, Bangladesh
                             </p>
@@ -94,7 +90,7 @@ const About = () => {
                     {/* Education and Experience Section */}
                     <div className="flex flex-col items-center justify-center p-6 h-full w-full lg:w-2/3">
                         {/* Education */}
-                        <div className="flex flex-col items-center justify-center w-full py-3 border-b text-base border-primary/50 intersect:motion-preset-slide-up">
+                        <div className="flex flex-col items-center justify-center w-full py-3 border-b text-base border-primary-light/50 dark:border-primary/50 intersect:motion-preset-slide-up">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Education</h1>
                             <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
                                 <p>Bangladesh University of Business and Technology</p>
@@ -107,7 +103,7 @@ const About = () => {
                         </div>
 
                         {/* Experience */}
-                        <div className="Experience flex flex-col items-center justify-center w-full text-base py-3 border-b border-primary/50 intersect:motion-translate-x-in-[10%] motion-duration-1000">
+                        <div className="Experience flex flex-col items-center justify-center w-full text-base py-3 border-b border-primary-light/50 dark:border-primary/50 intersect:motion-translate-x-in-[10%] motion-duration-1000">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
                             <div className='flex flex-row items-center justify-between w-full'>
                                 <p>Full Stack Developer</p>
@@ -117,7 +113,7 @@ const About = () => {
                                 <p>Self-initiated</p>
                                 <p>Remote</p>
                             </div>
-                            <div className='flex flex-col items-start w-full border-l border-primary/50 px-6 text-secondary-text text-sm font-normal'>
+                            <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
                                 <p className='text-base/5 py-1  relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary/50'>
                                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                                 </p>

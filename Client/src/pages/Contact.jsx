@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope,faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Button from '../components/ui/Button.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -61,22 +61,20 @@ const Contact = () => {
     }
   };
 
-  // Gradient text style
-  const textGradient = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-
   return (
     <section
       id="contact"
-      className="source-sans-3 pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background"
+      className="source-sans-3 pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark"
     >
       {/* Loader component to show loading state */}
       {loading && <Loader loading={true} />}
 
       {/* Section Header */}
-      <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10 ${textGradient}`}>
-        <p className={`text-[15px] text-center font-medium ${textGradient2}`}>GET IN TOUCH</p>
-        <h1 className="text-5xl font-bold pt-2 pb-1">CONTACT ME</h1>
+      <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10`}>
+        <p className="text-xs text-primary-light dark:text-background-light border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center -translate-y-1/2 shine overflow-hidden z-50">
+          GET IN TOUCH
+        </p>
+        <h1 className="text-5xl font-bold pt-2 pb-1 bg-primary-light bg-gradient-to-r dark:from-secondary dark:via-teal-500 dark:to-primary text-transparent bg-clip-text">CONTACT ME</h1>
       </div>
 
       <div className="relative flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-4 z-10">
@@ -84,13 +82,13 @@ const Contact = () => {
         <form
           onSubmit={handleSubmit}
           method="POST"
-          className="flex flex-col w-full lg:w-full p-6 text-[#e5e5e5] gap-4"
+          className="flex flex-col w-full lg:w-full p-6 text-primary-light dark:text-primary-dark gap-4"
         >
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+            className="peer w-full px-4 py-3 border border-primary-light dark:border-primary/50 placeholder:text-primary-dark/5 dark:placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
             required
             placeholder="Name"
           />
@@ -98,7 +96,7 @@ const Contact = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+            className="peer w-full px-4 py-3 border border-primary-light dark:border-primary/50 placeholder:text-primary-dark/5 dark:placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
             required
             placeholder="Email"
           />
@@ -108,7 +106,7 @@ const Contact = () => {
             rows="10"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="peer w-full px-4 py-3 border border-primary/50 placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
+            className="peer w-full px-4 py-3 border border-primary-light dark:border-primary/50 placeholder:text-primary-dark/5 dark:placeholder:text-[#c0c0c0] focus:placeholder-transparent focus:outline-none"
             placeholder="Message"
             required
           />
@@ -117,24 +115,24 @@ const Contact = () => {
             text="Submit"
             onClick={() => { }} // Keep empty since form submit is handled by onSubmit
             variant="secondary"
-            className="px-4 w-30 border-primary/50 hover:border-primary"
+            className="px-4 w-30 border-primary-light dark:border-primary/50 hover:border-primary"
           />
         </form>
 
         {/* Contact Information */}
-        <div className="flex flex-col w-full lg:w-1/2 p-6 gap-4 source-sans-3 text-sm text-white/60">
+        <div className="flex flex-col w-full lg:w-1/2 p-6 gap-4 source-sans-3 text-sm text-primary-light dark:text-primary-dark/90">
           {/* WhatsApp */}
           <a
             href="https://wa.me/8801909290959"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-            <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-            <FontAwesomeIcon icon={faWhatsapp} className="text-3xl h-7 w-7" />
+            <li className="flex items-center dark:text-primary dark:hover:text-primary/80 px-2 py-1.5 bg-white/7 rounded-xs">
+              <FontAwesomeIcon icon={faWhatsapp} className="text-3xl h-7 w-7" />
             </li>
             <li className="flex flex-col">
-              <p className="text-gray-300">Phone</p>
-              <p className="text-gray-200">01909290959</p>
+              <p >Phone</p>
+              <p >01909290959</p>
             </li>
           </a>
 
@@ -145,12 +143,12 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102"
           >
-            <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-            <FontAwesomeIcon icon={faEnvelope} className='text-3xl h-7 w-7' />
+            <li className="flex items-center dark:text-primary dark:hover:text-primary/80 px-2 py-1.5 bg-white/7 rounded-xs">
+              <FontAwesomeIcon icon={faEnvelope} className='text-3xl h-7 w-7' />
             </li>
             <li className="flex flex-col">
-              <p className="text-gray-300">Email</p>
-              <p className="text-gray-200">tarikulislam3639@gmail.com</p>
+              <p >Email</p>
+              <p >tarikulislam3639@gmail.com</p>
             </li>
           </a>
 
@@ -161,12 +159,12 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-row items-center gap-3 cursor-pointer transition-transform duration-500 hover:scale-102">
-            <li className="flex items-center text-[#00c896] hover:text-[#16e4b1] px-2 py-1.5 bg-white/7 rounded-xs">
-            <FontAwesomeIcon icon={faLocationDot} className='text-3xl h-7 w-7'/>
+            <li className="flex items-center dark:text-primary dark:hover:text-primary/80 px-2 py-1.5 bg-white/7 rounded-xs">
+              <FontAwesomeIcon icon={faLocationDot} className='text-3xl h-7 w-7' />
             </li>
             <li className="flex flex-col">
-              <p className="text-gray-300">Address</p>
-              <p className="text-gray-200">Mirpur-2, Rupnager, 15 Number Road</p>
+              <p >Address</p>
+              <p >Mirpur-2, Rupnager, 15 Number Road</p>
             </li>
           </a>
         </div>

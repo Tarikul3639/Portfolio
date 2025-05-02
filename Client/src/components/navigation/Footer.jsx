@@ -4,13 +4,13 @@ import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free
 
 const Footer = () => {
     return (
-        <footer className="w-screen flex-col items-center justify-center p-8 source-sans-3 text-base bg-background-light text-primary-text-light">
+        <footer className="w-screen flex-col items-center justify-center p-8 source-sans-3 text-base bg-background-light/96 text-primary-light dark:text-primary-text-light dark:bg-background-light/2 dark:text-primary-text-dark">
 
             <div className="container w-full mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 max-md:mb-4 md:space-y-0 max-w-7xl">
                 {/* Business Logo and Name */}
                 <div className="flex items-center space-x-4">
                     <Link
-                        className="text-[#cbcbcb] z-10 cursor-pointer overflow-hidden"
+                        className="text-primary-light dark:text-primary-dark z-10 cursor-pointer overflow-hidden"
                         to="home"
                         smooth={true}
                         duration={500}
@@ -81,7 +81,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright Section */}
-            <div className="mt-2 pt-4 text-center text-sm w-full flex justify-center relative overflow-hidden before:content-[''] before:absolute before:h-[1.5px] before:w-full before:bg-gradient-to-r before:from-transparent before:via-primary/50 before:to-transparent before:z-10 before:top-0 before:left-0 ">
+            <div className="mt-2 pt-4 text-center text-sm w-full flex justify-center relative overflow-hidden before:content-[''] before:absolute before:h-[1.5px] before:w-full before:bg-gradient-to-r before:from-transparent before:via-primary-light/50 dark:before:via-primary/50 before:to-transparent before:z-10 before:top-0 before:left-0 ">
                 <p>
                     &copy; 2025 <strong>Tarikul Islam</strong> || Made with ❤️
                 </p>

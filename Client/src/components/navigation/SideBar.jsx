@@ -1,1 +1,0 @@
-// SideBar.jsx - Placeholder content

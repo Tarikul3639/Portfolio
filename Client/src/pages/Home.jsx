@@ -8,7 +8,7 @@ import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
 // import Stars from "../components/ui/Stars.jsx";
-import { toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 
@@ -16,32 +16,32 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
-    console.log("Download button clicked: ",import.meta.env.VITE_API_URL);
+    console.log("Download button clicked: ", import.meta.env.VITE_API_URL);
     try {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`, {
         method: "GET",
       });
-  
+
       const contentType = response.headers.get("Content-Type");
-  
+
       if (!response.ok) {
         setLoading(false);
-  
+
         if (contentType && contentType.includes("application/json")) {
           const result = await response.json();
           toast.error(result.message || 'Server error.');
         } else {
           toast.error('Server error. File may be missing.');
         }
-  
+
         return;
       }
-  
+
       // If success
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-  
+
       const link = document.createElement("a");
       link.href = url;
       link.setAttribute("download", "TarikulIslam_CV_Resume_2025.pdf");
@@ -49,36 +49,30 @@ const Home = () => {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-  
+
       setLoading(false);
       toast.success('Downloaded successfully!');
-  
+
     } catch (error) {
       console.error("Error downloading CV:", error);
       setLoading(false);
       toast.warning('Network error');
     }
   };
-  
+
 
   // Animation words and description for type animation
   const words = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
   const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
 
   // Gradient styles for text
-  const textGradient = "bg-gradient-to-r from-secondary via-primary to-primary-light text-transparent bg-clip-text";
-  const textGradient2 = "bg-gradient-to-r from-purple-500 via-teal-500 to-red-500 text-transparent bg-clip-text";
-  // const textGradient3 = "bg-gradient-to-b from-rose-50 via-rose-200 to-neutral-500 bg-clip-text text-transparent";
-  const ButtonBgGradient = "bg-[#4ce0af]";
+  const textGradient2 = "";
 
   // Styles for social media icons
-  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary p-2 text-lg text-primary shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
-
-  // Border animation for button
-  const BorderAnimation = `relative overflow-hidden shadow-[0px_0px_20px_1px_rgba(0,_255,_255,_0.2)] before:group before:content-[''] before:absolute before:inset-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:w-[100%] before:h-[100vw] before:rounded-none before:bg-[conic-gradient(transparent,transparent,transparent,#00c896)] before:animate-[spin_3s_linear_infinite] before:z-0`;
+  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light dark:border-primary p-2 text-lg text-primary-light dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
 
   return (
-    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background">
+    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
       <Spotlight
         className=" absolute top-0 left-0 right-0 z-1"
         fill="white"
@@ -87,7 +81,10 @@ const Home = () => {
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_0%)]",
+
+          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+
+          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_0%)]",
 
           "[-webkit-mask-image:linear-gradient(to_bottom,white_10%,transparent_60%)]",
 
@@ -106,8 +103,8 @@ const Home = () => {
             </p>
 
             {/* Intro text with type animation */}
-            <p className="text-start text-xl font-[Poppins,sans-serif] text-white xs:text-[1.5rem]">
-              Hi!, I Am <span className={`relative ${textGradient2}`}>
+            <p className="text-start text-xl font-[Poppins,sans-serif] text-primary-light dark:text-primary-dark xs:text-[1.5rem]">
+              Hi!, I Am <span className={`relative bg-gradient-to-r from-primary-light dark:from-primary dark:via-teal-500 to-primary-light/50 dark:to-secondary text-transparent bg-clip-text`}>
                 <TypeAnimation
                   sequence={words}
                   wrapper="span"
@@ -118,12 +115,12 @@ const Home = () => {
             </p>
 
             {/* Role text */}
-            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] ${textGradient} intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
+            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] bg-primary-light text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-secondary dark:via-primary dark:to-primary-light intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
               Web Developer.
             </h1>
 
             {/* Description text */}
-            <div className={`my-3 inline-block w-[97%] text-center break-word text-lg {textGradient3} source-sans-3 text-base/7 tracking-wider xs:text-start xs:font-normal intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular text-primary-text-light`}>
+            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-center break-word text-lg source-sans-3 tracking-wider xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
               {description}
             </div>
             {/* Buttons and social media icons */}
@@ -133,8 +130,8 @@ const Home = () => {
                 text="CV Download"
                 onClick={() => handleClick()}
                 variant="primary"
-                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-foreground transition-colors duration-1000 group-hover:text-black group-active:text-black group-focus:text-black"/>}
-                className="peer z-10 max-md:w-full"
+                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black" />}
+                className="peer z-10 max-md:w-full bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
               {/* Social Media Icons */}
@@ -151,7 +148,7 @@ const Home = () => {
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full">
           <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
-            <img src={photo} alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover intersect:motion-opacity-in-0 motion-duration-[10s]"/>
+            <img src={photo} alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
