@@ -11,6 +11,13 @@ import { cn } from "../components/lib/utils.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
+import React from "react";
+import { motion } from "motion/react";
+import { LinkPreview } from "../components/ui/link-preview.jsx";
+import FaceBook from "../assets/image/FaceBook.webp";
+import Tweeter from "../assets/image/Tweeter.webp";
+import Linkedin from "../assets/image/Linkedin.webp";
+
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -120,7 +127,7 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-center break-word text-lg source-sans-3 tracking-wider xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
+            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-center break-word text-base source-sans-3 tracking-wider xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
               {description}
             </div>
             {/* Buttons and social media icons */}
@@ -136,11 +143,48 @@ const Home = () => {
 
               {/* Social Media Icons */}
               <div className="flex max-md:w-full items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
-                <FontAwesomeIcon onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")} icon={faFacebook} className={`${SocialMediaIcon} intersect:motion-duration-2200`} />
-                <FontAwesomeIcon onClick={() => window.open("https://x.com/Tarikul3639", "_blank")} icon={faTwitter} className={`${SocialMediaIcon} intersect:motion-duration-4000`} />
-                <FontAwesomeIcon onClick={() => window.open("https://github.com/Tarikul3639", "_blank")} icon={faGithub} className={`${SocialMediaIcon} intersect:motion-duration-3400`} />
-                <FontAwesomeIcon onClick={() => window.open("https://www.linkedin.com/in/Tarikul3639", "_blank")} icon={faLinkedin} className={`${SocialMediaIcon} intersect:motion-duration-2800`} />
+                <LinkPreview
+                  imageSrc={FaceBook}
+                  isStatic={true}
+                >
+                  <FontAwesomeIcon
+                    icon={faFacebook}
+                    onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")}
+                    className={`${SocialMediaIcon} intersect:motion-duration-2200`}
+                  />
+                </LinkPreview>
+
+                <LinkPreview
+                  imageSrc={Tweeter}
+                  isStatic={true}
+                >
+                  <FontAwesomeIcon
+                    onClick={() => window.open("https://x.com/Tarikul3639", "_blank")}
+                    icon={faTwitter}
+                    className={`${SocialMediaIcon} intersect:motion-duration-4000`}
+                  />
+                </LinkPreview>
+
+                <LinkPreview url="https://github.com/Tarikul3639">
+                  <FontAwesomeIcon
+                    onClick={() => window.open("https://github.com/Tarikul3639", "_blank")}
+                    icon={faGithub}
+                    className={`${SocialMediaIcon} intersect:motion-duration-3400`}
+                  />
+                </LinkPreview>
+
+                <LinkPreview
+                  imageSrc={Linkedin}
+                  isStatic={true}
+                >
+                  <FontAwesomeIcon
+                    onClick={() => window.open("https://www.linkedin.com/in/Tarikul3639", "_blank")}
+                    icon={faLinkedin}
+                    className={`${SocialMediaIcon} intersect:motion-duration-2800`}
+                  />
+                </LinkPreview>
               </div>
+
             </div>
           </div>
         </div>
