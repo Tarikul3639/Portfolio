@@ -11,7 +11,8 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     const [activeLink, setActiveLink] = useState("");
     const [scrollWidth, setScrollWidth] = useState("0%");
     const [theme, setTheme] = useState(() =>
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        // window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        "dark"
     );
 
     // Scroll event listener to update width

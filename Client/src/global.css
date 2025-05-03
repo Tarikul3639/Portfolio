@@ -14,20 +14,11 @@
 
   --color-secondary: #A8E524;
   --color-primary: #00c896;
-  --color-primary-dark: ##FFFFFF;
+  --color-primary-dark: #FFFFFF;
   --color-primary-light: #0F172B;
 
-  --color-primary-text: #;
   --color-primary-text-light: #cbcbcb;
-  --color-secondary-text: #bbbbbb;
-  --color-secondary-light-text: #a1a1aa;
-
-  --color-primary-foreground: #030712;
-
-  --color-accent: #988478;
-  --color-text: #e2f0ff;
-  --color-text-light: #8d98a0;
-
+  --color-secondary-light-text: #a1a1aa; 
 
   --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
   --shadow-xs: 0 0px 26px rgb(0, 200, 150, 0.1);
