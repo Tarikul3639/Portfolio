@@ -137,7 +137,7 @@ const Home = () => {
                 text="CV Download"
                 onClick={() => handleClick()}
                 variant="primary"
-                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black" />}
+                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black dark:text-primary-light" />}
                 className="peer z-10 max-md:w-full bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
