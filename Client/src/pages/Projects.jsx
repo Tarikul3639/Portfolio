@@ -20,6 +20,9 @@ import Portfolio from '../assets/image/Portfolio.webp';
 import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
+import SpotlightCard from '../components/ui/SpotlightCard.jsx';
+import SplitText from "../components/ui/SplitText.jsx";
+import Threads from '../components/ui/Threads.jsx';
 
 const Projects = () => {
   const ref = useRef(null);
@@ -101,7 +104,7 @@ const Projects = () => {
 
   // Define a single content rendering function
   const renderContent = (tech, image, description, name, link) => (
-    <div className="flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 dark:bg-background-dark rounded-sm shadow-lg hover:bg-background-dark/5 dark:hover:bg-background-light/3 transition duration-100 ease-in-out">
+    <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 dark:bg-background-dark rounded-sm shadow-lg transition duration-100 ease-in-out">
       <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
         <img
           src={image}
@@ -134,7 +137,7 @@ const Projects = () => {
           Live Site<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </span>
       </div>
-    </div>
+    </SpotlightCard>
   );
 
   return (
@@ -144,10 +147,17 @@ const Projects = () => {
       id="projects"
     >
       {/* Header */}
-      <div className="max-w-7xl mx-auto py-20 md:mt-20 px-4 px-10">
-        <h2 className="text-2xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
-        </h2>
+      <div className="max-w-7xl mx-auto md:mt-30 px-4 px-10">
+        <SplitText
+          text="Changelog from my journey"
+          className="text-2xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
+          delay={50}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          easing="easeOutCubic"
+          threshold={0.2}
+          rootMargin="-50px"
+        />
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
           I've been working on various projects. Here's a timeline of my journey.
         </p>
