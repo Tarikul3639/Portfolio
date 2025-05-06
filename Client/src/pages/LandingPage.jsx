@@ -5,20 +5,23 @@ import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
 import Footer from '../components/navigation/Footer.jsx';
 import Threads from '../components/ui/Threads.jsx';
+import SplashCursor from '../components/ui/SplashCursor.jsx';
+
 const LandingPage = () => {
   return (
     <div className="flex flex-col bg-background-light dark:bg-background-dark items-center justify-center overflow-clip">
+      <SplashCursor />
       <Navbar />
       <Home />
       <About />
       <Projects />
-      <div className="relative max-w-7xl w-full h-60 min-w-[345px] bg-background-light dark:bg-background-dark">
+      {/* <div className="relative max-w-7xl w-full h-60 min-w-[345px] bg-background-light dark:bg-background-dark">
         <Threads
           amplitude={3}
           distance={0}
           enableMouseInteraction={true}
         />
-      </div>
+      </div> */}
       <Contact />
       <Footer />
     </div>

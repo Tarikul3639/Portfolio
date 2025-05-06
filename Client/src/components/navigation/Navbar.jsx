@@ -88,21 +88,20 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                                 duration={500}
                                 spy={true}
                                 onSetActive={() => setActiveLink(item.toLowerCase())}
-                                className={`poppins-medium text-primary-light dark:text-primary-dark hover:text-primary hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
+                                className={`poppins-medium text-primary-light dark:text-primary-dark/80 hover:text-primary hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
                                     ${activeLink === item.toLowerCase() ? "text-primary" : ""}`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item}
                             </Link>
-                            <span className={`absolute bottom-0 left-0 h-[1.6px] bg-primary transition-all duration-500
-                        ${activeLink === item.toLowerCase() ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                            <span className={`absolute bottom-0 left-0 h-[2px] transition-all duration-500  bg-primary ${activeLink === item.toLowerCase() ? "w-full" : "w-0 group-hover:w-full"}`}></span>
                         </li>
                     ))}
                 </ul>
             </div>
             {/* Scroll Progress Bar */}
             <span
-                className={`absolute top-0 left-0 h-[2px] bg-primary rounded transition-all duration-0 ease-in-out`}
+                className={`absolute top-0 left-0 h-[3px] rounded transition-all duration-0 ease-in-out bg-gradient-to-tr from-[#22c55e] via-[#0e7490] to-[#3b82f6]`}
                 style={{ width: scrollWidth }}
             ></span>
         </nav>

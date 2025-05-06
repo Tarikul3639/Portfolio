@@ -109,7 +109,7 @@ export const LinkPreview = ({
                                     href={url}
                                     target="_blank" // ✅ open in new tab
                                     rel="noopener noreferrer" // ✅ security best practice
-                                    className="block p-0.5 bg-primary-light dark:bg-primary-dark border border-transparent shadow rounded-xl hover:border-primary dark:hover:border-primary-light"
+                                    className="block border border-transparent shadow rounded-xl hover:border-primary dark:hover:border-primary-light"
                                     style={{ fontSize: 0 }}
                                 >
                                     <img

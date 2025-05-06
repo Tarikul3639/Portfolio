@@ -1,4 +1,6 @@
+import SpotlightCard from '../components/ui/SpotlightCard.jsx';
 import Image from '../assets/image/Profile Image.webp';
+import Noise from '../components/ui/Noise.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
@@ -19,33 +21,58 @@ import C_programming from '../assets/icons/C_Programming_Language.svg';
 import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
+import SplitText from "../components/ui/SplitText.jsx";
+import Particles from '../components/ui/Particles.jsx';
 
 const About = () => {
     // About Me description
-    const AboutMe = [
-        "I'm a passionate Full-Stack Developer who loves building dynamic, user-friendly applications. I thrive on solving problems, creating seamless experiences, and continuously expanding my skills. Always eager to learn and grow, I'm currently looking for new opportunities to contribute and innovate."
+    const aboutMeText = [
+        `I specialize in frontend development, creating dynamic, visually engaging, and highly responsive websites that provide seamless user experiences. With a strong foundation in HTML, CSS, and JavaScript, I focus on building modern web interfaces that are not only aesthetically appealing but also optimized for performance and accessibility. I have extensive experience with frameworks like React and Tailwind CSS, enabling me to create interactive, scalable, and efficient applications. Whether designing sleek UI components, implementing smooth animations, or enhancing user interactions, my goal is to develop web solutions that are both functional and innovative.`
     ];
 
     // Tech class for styling tech stack items
-    const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm border border-primary-light/50 dark:border-primary/50 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
+    const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-light/50 dark:border-primary-dark/30 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     return (
-        <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
+        <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
+            <div className="flex flex-col justify-center max-w-7xl px-2">
+                {/* Header */}
+                <div className="my-15 md:my-30 px-2">
+                    <SplitText
+                        text="Let Me Introduce Myself"
+                        className="text-3xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
+                        delay={10}
+                        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                        easing="easeOutCubic"
+                        threshold={0.2}
+                        rootMargin="-50px"
+                    />
+                    <p className="mt-5 max-w-sm">
+                        <SplitText
+                            text="Focused on innovation and solving problems, I’m passionate about building solutions that make a difference."
+                            className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
+                            delay={5}
+                            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                            easing="easeOutCubic"
+                            threshold={0.2}
+                            rootMargin="-50px"
+                        />
 
-            <div className="flex flex-col items-center justify-center max-w-7xl">
-                {/* Section Heading */}
-                <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10`}>
-                    <p className="text-xs text-primary-light dark:text-background-light border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center -translate-y-1/2 shine overflow-hidden z-50">
-                        GET TO KNOW ME
                     </p>
-                    <h1 className="text-5xl font-bold pt-2 pb-1 bg-primary-light bg-gradient-to-r dark:from-primary dark:via-teal-400 dark:to-secondary text-transparent bg-clip-text">ABOUT ME</h1>
                 </div>
-
                 {/* Main Content */}
-                <div className="flex flex-col lg:flex-row items-center justify-center h-full w-full px-4">
+                <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
                     {/* Profile Section */}
-                    <div className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-primary-light/50 dark:border-primary/50">
-                        <div className="flex flex-col items-center justify-center w-full space-y-6 p-6">
+                    <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 lg:border border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
+                        <Noise
+                            patternSize={250}
+                            patternScaleX={1}
+                            patternScaleY={1}
+                            patternAlpha={10}
+                        />
+                        <div className="flex flex-col items-center justify-center w-full space-y-6">
                             {/* Profile Image */}
                             <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
                                 {/* Define mask shape */}
@@ -64,7 +91,7 @@ const About = () => {
 
                                 {/* Image clipped inside the path shape */}
                                 <image
-                                    href={Image} // <-- make sure `Image` is imported or a valid URL
+                                    href={Image}
                                     x="-5"
                                     y="0"
                                     width="108%"
@@ -74,38 +101,46 @@ const About = () => {
                                 />
                             </svg>
 
-
                             {/* About Me Description */}
-                            <p className={`text-lg break-words hyphens-auto border-b border-primary-light/50 dark:border-primary/50 pb-6 intersect:motion-translate-x-in-[-10%]`}>
-                                {AboutMe}
-                            </p>
-                            {/* Location */}
-                            <p className={`relative intersect:motion-translate-y-in-100 text-primary-light/80 dark:text-primary-dark/80 intersect:motion-duration-1000`}>
-                                <FontAwesomeIcon icon={faLocationDot} className={`mr-2`} />
-                                Gazipur, Dhaka, Bangladesh
+                            <h2 className="text-2xl font-bold mb-4">HI THERE, I'M MILAD</h2>
+
+                            <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
+                                {aboutMeText[0]}
                             </p>
                         </div>
-                    </div>
+                    </SpotlightCard>
 
-                    {/* Education and Experience Section */}
-                    <div className="flex flex-col items-center justify-center p-6 h-full w-full lg:w-2/3">
+                    {/* Education Skills and Experience Section */}
+                    <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
                         {/* Education */}
-                        <div className="flex flex-col items-center justify-center w-full py-3 border-b text-base border-primary-light/50 dark:border-primary/50 intersect:motion-preset-slide-up">
-                            <h1 className="outfit text-lg font-bold text-left w-full mb-2">Education</h1>
+                        <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 intersect:motion-preset-slide-up border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
+                            <Noise
+                                patternSize={250}
+                                patternScaleX={1}
+                                patternScaleY={1}
+                                patternAlpha={10}
+                            />
+                            <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
                             <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
-                                <p>Bangladesh University of Business and Technology</p>
-                                <p className='text-end'>2022 - 2026</p>
+                                <p className="text-primary-light dark:text-primary-dark">Bangladesh University of Business and Technology</p>
+                                <p className='text-end text-primary-light dark:text-primary-dark'>2022 - 2026</p>
                             </a>
                             <div className='flex flex-row items-center justify-between w-full'>
-                                <p>Computer Science and Engineering</p>
-                                <p>Current CGPA: 3.56</p>
+                                <p className="text-primary-light dark:text-primary-dark">Computer Science and Engineering</p>
+                                <p className="text-primary-light dark:text-primary-dark">Current CGPA: 3.56</p>
                             </div>
-                        </div>
+                        </SpotlightCard>
 
                         {/* Experience */}
-                        <div className="Experience flex flex-col items-center justify-center w-full text-base py-3 border-b border-primary-light/50 dark:border-primary/50 intersect:motion-translate-x-in-[10%] motion-duration-1000">
+                        <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 intersect:motion-translate-x-in-[10%] motion-duration-1000 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark">
+                            <Noise
+                                patternSize={250}
+                                patternScaleX={1}
+                                patternScaleY={1}
+                                patternAlpha={10}
+                            />
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
-                            <div className='flex flex-row items-center justify-between w-full'>
+                            <div className='flex flex-row items-center justify-between w-full text-sm'>
                                 <p>Full Stack Developer</p>
                                 <p>Feb 2024 - Present</p>
                             </div>
@@ -113,22 +148,28 @@ const About = () => {
                                 <p>Self-initiated</p>
                                 <p>Remote</p>
                             </div>
-                            <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
-                                <p className='text-base/5 py-1  relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary/50'>
+                            <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
+                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
                                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                                 </p>
-                                <p className='text-base/5 py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary/50'>
+                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
                                     Implemented a Load Shedding Notification System.
                                 </p>
-                                <p className='text-base/5 py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary/50'>
+                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
                                     Worked on multiple personal projects.
                                 </p>
                             </div>
-                        </div>
+                        </SpotlightCard>
 
                         {/* Skills Section */}
-                        <div className="Skills flex flex-col items-start w-full py-3 outfit">
-                            <h1 className='text-lg font-semibold text-left w-full mb-2'>Tech Stack</h1>
+                        <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
+                            <Noise
+                                patternSize={250}
+                                patternScaleX={1}
+                                patternScaleY={1}
+                                patternAlpha={10}
+                            />
+                            <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
                             <div className='flex gap-1.5 md:gap-2 flex-wrap'>
                                 {/* Tech Icons */}
                                 <span className={`${techClass} motion-delay-50`}><FontAwesomeIcon icon={faHtml5} style={{ color: '#e34c26' }} />HTML</span>
@@ -146,16 +187,16 @@ const About = () => {
                                 <span className={`${techClass} motion-delay-600`}><img src={C_programming} alt="C" className="h-4" />C</span>
                                 <span className={`${techClass} motion-delay-650`}><img src={Rambo} alt="Custom Tech" className='h-4' /></span>
                                 <span className={`${techClass} motion-delay-700`}>
-                                    <img src={socket} className="h-4 " />Socket</span>
+                                    <img src={socket} className="h-4" />Socket</span>
                                 <span className={`${techClass} motion-delay-750`}><img src={WebRTC} alt="WebRTC" className='h-4' />WebRTC</span>
                                 <span className={`${techClass} motion-delay-800`}><VscVscode style={{ color: '#007ACC' }} />VS Code</span>
                             </div>
-                        </div>
+                        </SpotlightCard>
                     </div>
                 </div>
             </div>
         </section>
     );
-};
+}
 
 export default About;

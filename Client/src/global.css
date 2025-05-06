@@ -27,8 +27,6 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 200, 150, 0.25); */
-
-
 }
 
 /* colors: {
@@ -38,6 +36,27 @@
   'secondary': '#00c6bd',
   'accent': '#988478',
  } */
+ @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+    background-size: 300% 100%;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
 
 @theme inline {
   --font-display: "Inter", "sans-serif";
@@ -85,10 +104,9 @@
 :root {
   padding: 0;
   margin: 0;
-  font-family: system-ui, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* user-select: none; */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -115,7 +133,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  background: linear-gradient(to top, #fb7185, #a21caf, #6366f1);
 }
 
 .break-word {

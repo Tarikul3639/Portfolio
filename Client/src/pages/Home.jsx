@@ -72,9 +72,6 @@ const Home = () => {
   const words = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
   const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
 
-  // Gradient styles for text
-  const textGradient2 = "";
-
   // Styles for social media icons
   const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light dark:border-primary p-2 text-lg text-primary-light dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
 

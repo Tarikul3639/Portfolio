@@ -22,7 +22,6 @@ import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
 import SpotlightCard from '../components/ui/SpotlightCard.jsx';
 import SplitText from "../components/ui/SplitText.jsx";
-import Threads from '../components/ui/Threads.jsx';
 
 const Projects = () => {
   const ref = useRef(null);
@@ -147,19 +146,31 @@ const Projects = () => {
       id="projects"
     >
       {/* Header */}
-      <div className="max-w-7xl mx-auto md:mt-30 px-4 px-10">
-        <SplitText
-          text="Changelog from my journey"
-          className="text-2xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
-          delay={50}
-          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-          easing="easeOutCubic"
-          threshold={0.2}
-          rootMargin="-50px"
-        />
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I've been working on various projects. Here's a timeline of my journey.
+      <div className="max-w-7xl mx-auto md:mt-30 px-2">
+        <h1 className="mt-10 mt-20 mx-2">
+          <SplitText
+            text="Changelog from my journey"
+            className="text-3xl font-[800] md:text-4xl text-black dark:text-white max-w-4xl"
+            delay={10}
+            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
+        </h1>
+        <p className="mt-5 max-w-sm mx-2">
+          <SplitText
+            text="I've been working on various projects. Here's a timeline of my journey."
+            className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
+            delay={5}
+            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
+
         </p>
       </div>
       {/* main content */}
