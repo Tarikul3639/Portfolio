@@ -1,6 +1,5 @@
 import SpotlightCard from '../components/ui/SpotlightCard.jsx';
 import Image from '../assets/image/Profile Image.webp';
-import Noise from '../components/ui/Noise.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
@@ -35,7 +34,7 @@ const About = () => {
 
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
-            <div className="flex flex-col justify-center max-w-7xl px-2">
+            <div className="flex flex-col justify-center max-w-7xl p-4">
                 {/* Header */}
                 <div className="my-15 md:my-30 px-2">
                     <SplitText
@@ -48,7 +47,7 @@ const About = () => {
                         threshold={0.2}
                         rootMargin="-50px"
                     />
-                    <div className="mt-5 max-w-sm">
+                    <div className="mt-5 max-w-sm mx-1">
                         <SplitText
                             text="Focused on innovation and solving problems, I’m passionate about building solutions that make a difference."
                             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
@@ -65,13 +64,7 @@ const About = () => {
                 {/* Main Content */}
                 <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
                     {/* Profile Section */}
-                    <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 lg:border border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
-                        <Noise
-                            patternSize={250}
-                            patternScaleX={1}
-                            patternScaleY={1}
-                            patternAlpha={10}
-                        />
+                    <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 lg:border border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                         <div className="flex flex-col items-center justify-center w-full space-y-6">
                             {/* Profile Image */}
                             <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +95,7 @@ const About = () => {
                             </svg>
 
                             {/* About Me Description */}
-                            <h2 className="text-2xl font-bold mb-4">HI THERE, I'M MILAD</h2>
+                            <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
 
                             <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
                                 {aboutMeText[0]}
@@ -113,13 +106,7 @@ const About = () => {
                     {/* Education Skills and Experience Section */}
                     <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
                         {/* Education */}
-                        <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 intersect:motion-preset-slide-up border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
-                            <Noise
-                                patternSize={250}
-                                patternScaleX={1}
-                                patternScaleY={1}
-                                patternAlpha={10}
-                            />
+                        <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 intersect:motion-preset-slide-up border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
                             <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
                                 <p className="text-primary-light dark:text-primary-dark">Bangladesh University of Business and Technology</p>
@@ -132,13 +119,7 @@ const About = () => {
                         </SpotlightCard>
 
                         {/* Experience */}
-                        <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 intersect:motion-translate-x-in-[10%] motion-duration-1000 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark">
-                            <Noise
-                                patternSize={250}
-                                patternScaleX={1}
-                                patternScaleY={1}
-                                patternAlpha={10}
-                            />
+                        <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 intersect:motion-translate-x-in-[10%] motion-duration-1000 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark bg-primary/5 dark:bg-primary/5">
                             <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
                             <div className='flex flex-row items-center justify-between w-full text-sm'>
                                 <p>Full Stack Developer</p>
@@ -162,13 +143,7 @@ const About = () => {
                         </SpotlightCard>
 
                         {/* Skills Section */}
-                        <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 rounded-sm">
-                            <Noise
-                                patternSize={250}
-                                patternScaleX={1}
-                                patternScaleY={1}
-                                patternAlpha={10}
-                            />
+                        <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                             <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
                             <div className='flex gap-1.5 md:gap-2 flex-wrap'>
                                 {/* Tech Icons */}

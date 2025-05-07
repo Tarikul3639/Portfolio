@@ -7,9 +7,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../components/ui/Loader.jsx';
 import SpotlightCard from '../components/ui/SpotlightCard.jsx';
-// import Globe from 'react-globe.gl';
-import GradientText from '../components/ui/GradientText.jsx';
-import SplitText from "../components/ui/SplitText.jsx";
 import Particles from '../components/ui/Particles.jsx';
 import TrueFocus from '../components/ui/TrueFocus.jsx';
 
@@ -99,7 +96,7 @@ const Contact = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70
- dark:placeholder:text-primary-dark/70 focus:placeholder-transparent focus:outline-none"
+ dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
             required
             placeholder="Name"
           />
@@ -108,7 +105,7 @@ const Contact = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70
- dark:placeholder:text-primary-dark/70 focus:placeholder-transparent focus:outline-none"
+ dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
             required
             placeholder="Email"
           />
@@ -119,7 +116,7 @@ const Contact = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="peer w-full px-4 py-4 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70
- dark:placeholder:text-primary-dark/70 focus:placeholder-transparent focus:outline-none"
+ dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
             placeholder="Message"
             required
           />
@@ -128,12 +125,12 @@ const Contact = () => {
             text="Submit"
             onClick={() => { }} // Keep empty since form submit is handled by onSubmit
             variant="secondary"
-            className="px-4 w-30 dark:hover:text-primary-light border-primary-light/15 dark:border-primary-dark/15 hover:border-primary"
+            className="px-4 w-30 bg-primary/2 dark:hover:text-primary-light border-primary-light/15 dark:border-primary-dark/15 hover:border-primary"
           />
         </form>
 
         {/* Contact Information */}
-        <SpotlightCard className="flex flex-col w-full lg:w-1/2 h-full p-6 gap-4 source-sans-3 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15">
+        <SpotlightCard className="flex flex-col w-full lg:w-1/2 h-full p-6 gap-4 source-sans-3 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15 bg-primary/2">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
             particleCount={200}

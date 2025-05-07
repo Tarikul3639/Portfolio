@@ -48,6 +48,26 @@
   }
 }
 
+@keyframes strokeAnimation {
+  25% {
+    stroke-dasharray: 15 120 25 25;
+  }
+  50% {
+    stroke-dasharray: 16 25 92 72;
+  }
+  75% {
+    stroke-dasharray: 4 250 22 22;
+  }
+  100% {
+    transform: rotate(120deg, 360deg);
+  }
+}
+
+.animate-strokeAnimation {
+  animation: strokeAnimation 20s infinite reverse;
+  stroke-dasharray: 24 10 0 0;
+}
+
 @layer utilities {
   .animate-gradient {
     animation: gradient 8s linear infinite;

@@ -43,7 +43,7 @@ function DotScrollBar() {
   };
 
   return (
-    <div className="fixed top-1/2 right-0 lg:right-4 transform -translate-y-1/2 space-y-3 z-50">
+    <div className="fixed top-1/2 right-1 lg:right-4 transform -translate-y-1/2 space-y-3 z-50">
       {sections.map((id) => {
         const isActive = id === active;
         const progress = progressMap[id] || 0;

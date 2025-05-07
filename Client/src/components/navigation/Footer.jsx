@@ -5,7 +5,7 @@ import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free
 const Footer = () => {
     const ItemClass = "block cursor-pointer text-primary-light/70 dark:text-primary-dark/70 hover:text-primary-light dark:hover:text-primary-dark transitionAll duration-30";
     return (
-        <footer id="footer" className="w-full dark:bg-background-dark border-t-1 border-primary-light/10 px-8 py-20 dark:border-primary-dark/10 bg-background-light mt-20">
+        <footer id="footer" className="w-full dark:bg-background-dark border-t-1 border-primary-light/10 px-8 py-20 dark:border-primary-dark/10 bg-background-light bg-primary/2 mt-20">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between p-3">
                 {/* Left side */}
                 <div className="mb-8 md:mb-0">

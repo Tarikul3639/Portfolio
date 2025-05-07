@@ -46,7 +46,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     };
 
     return (
-        <nav className={`${isOpen ? "bg-background-light/95 dark:bg-background-dark/95" : " bg-transparent backdrop-blur-xs"} w-full min-w-[250px] text-white px-4 py-0 shadow-xl fixed top-0 left-0 z-999`}>
+        <nav className={`${isOpen ? "bg-background-light/95 dark:bg-background-dark/95" : " "} w-full min-w-[250px] text-white px-4 py-0 shadow-xl fixed top-0 left-0 z-999`}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link className="text-primary-light dark:text-primary-dark z-10 cursor-pointer overflow-hidden" to="home" smooth={true} duration={500}>

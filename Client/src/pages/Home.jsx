@@ -1,23 +1,23 @@
 import photo from "../assets/image/Profile.webp";
 import Button from "../components/ui/Button";
 import { TypeAnimation } from 'react-type-animation';
-// import ShowMoreText from "react-show-more-text";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
-// import Stars from "../components/ui/Stars.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import React from "react";
-import { motion } from "motion/react";
 import { LinkPreview } from "../components/ui/link-preview.jsx";
 import FaceBook from "../assets/image/FaceBook.webp";
 import Tweeter from "../assets/image/Tweeter.webp";
 import Linkedin from "../assets/image/Linkedin.webp";
 import SplitText from "../components/ui/SplitText.jsx";
+
+const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
+const DESCRIPTION = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
 
 
 const Home = () => {
@@ -68,11 +68,6 @@ const Home = () => {
     }
   };
 
-
-  // Animation words and description for type animation
-  const words = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
-  const description = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
-
   // Styles for social media icons
   const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light dark:border-primary p-2 text-lg text-primary-light dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
 
@@ -111,7 +106,7 @@ const Home = () => {
             <p className="text-start text-xl font-[Poppins,sans-serif] text-primary-light dark:text-primary-dark xs:text-[1.5rem]">
               Hi!, I Am <span className={`relative bg-gradient-to-r from-primary-light dark:from-primary dark:via-teal-500 to-primary-light/50 dark:to-secondary text-transparent bg-clip-text`}>
                 <TypeAnimation
-                  sequence={words}
+                  sequence={WORDS}
                   wrapper="span"
                   speed={0}
                   repeat={Infinity}
@@ -125,9 +120,9 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-base source-sans-3 xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
+            <div className={`text-primary-light/80 dark:text-primary-dark/70 font-[500] my-3 inline-block w-[97%] text-base source-sans-3 xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
               <SplitText
-                text={`${description}`}
+                text={`${DESCRIPTION}`}
                 delay={20}
                 animationFrom={{ opacity: 0, transform: 'translate3d(0,0,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -198,12 +193,12 @@ const Home = () => {
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full">
           <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
-            <img src={photo} alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
+            <img src={photo} loading="lazy" alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="var(--color-primary)" />
-                  <stop offset="50%" stopColor="var(--color-primary-light)" />
+                  <stop offset="50%" stopColor="var(--color-primary)" />
                   <stop offset="100%" stopColor="var(--color-primary)" />
                 </linearGradient>
               </defs>
@@ -218,20 +213,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Circle animation keyframe */}
-      <style>{`
-        @keyframes strokeAnimation {
-          25% { stroke-dasharray: 15 120 25 25; }
-          50% { stroke-dasharray: 16 25 92 72; }
-          75% { stroke-dasharray: 4 250 22 22; }
-          100% { transform: rotate(120deg, 360deg); }
-        }
-        .animate-strokeAnimation {
-          animation: strokeAnimation 20s infinite reverse;
-          stroke-dasharray: 24 10 0 0;
-        }
-      `}</style>
     </section>
   );
 };

@@ -103,7 +103,7 @@ const Projects = () => {
 
   // Define a single content rendering function
   const renderContent = (tech, image, description, name, link) => (
-    <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 dark:bg-background-dark rounded-sm shadow-lg transition duration-100 ease-in-out">
+    <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/5 dark:bg-primary/5 rounded-sm shadow-lg transition duration-100 ease-in-out">
       <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
         <img
           src={image}
@@ -147,7 +147,7 @@ const Projects = () => {
     >
       {/* Header */}
       <div className="max-w-7xl mx-auto md:mt-30 px-2">
-        <h1 className="mt-10 mt-20 mx-2">
+        <h1 className="mt-10 mt-20 mx-4">
           <SplitText
             text="Changelog from my journey"
             className="text-3xl font-[800] md:text-4xl text-black dark:text-white max-w-4xl"
@@ -159,7 +159,7 @@ const Projects = () => {
             rootMargin="-50px"
           />
         </h1>
-        <div className="mt-5 max-w-sm mx-2">
+        <div className="mt-5 max-w-sm mx-5">
           <SplitText
             text="I've been working on various projects. Here's a timeline of my journey."
             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
