@@ -159,7 +159,7 @@ const Projects = () => {
             rootMargin="-50px"
           />
         </h1>
-        <p className="mt-5 max-w-sm mx-2">
+        <div className="mt-5 max-w-sm mx-2">
           <SplitText
             text="I've been working on various projects. Here's a timeline of my journey."
             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
@@ -171,7 +171,7 @@ const Projects = () => {
             rootMargin="-50px"
           />
 
-        </p>
+        </div>
       </div>
       {/* main content */}
       <div ref={ref} className="relative max-w-7xl mx-auto pb-10">

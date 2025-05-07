@@ -101,7 +101,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
             </div>
             {/* Scroll Progress Bar */}
             <span
-                className={`absolute top-0 left-0 h-[3px] rounded transition-all duration-0 ease-in-out bg-gradient-to-tr from-[#22c55e] via-[#0e7490] to-[#3b82f6]`}
+                className={`absolute top-0 left-0 h-[3px] transition-all duration-0 ease-in-out bg-primary`}
                 style={{ width: scrollWidth }}
             ></span>
         </nav>

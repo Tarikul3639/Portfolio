@@ -7,10 +7,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../components/ui/Loader.jsx';
 import SpotlightCard from '../components/ui/SpotlightCard.jsx';
-import Globe from 'react-globe.gl';
+// import Globe from 'react-globe.gl';
 import GradientText from '../components/ui/GradientText.jsx';
 import SplitText from "../components/ui/SplitText.jsx";
 import Particles from '../components/ui/Particles.jsx';
+import TrueFocus from '../components/ui/TrueFocus.jsx';
 
 const Contact = () => {
   // State variable to manage loading state
@@ -75,19 +76,15 @@ const Contact = () => {
       {loading && <Loader loading={true} />}
 
       {/* Section Header */}
-      <div className={`relative flex flex-col items-center justify-center w-full pb-4 lg:pb-10`}>
-        <p className=" hidden text-xs text-primary-light dark:text-background-light border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center -translate-y-1/2 shine overflow-hidden z-50">
-          GET IN TOUCH
-        </p>
-        <GradientText
-          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-          animationSpeed={5}
-          showBorder={false}
-          className="text-5xl pt-2 pb-1 font-bold"
-        >
-          CONTACT ME
-        </GradientText>
-        <h1 className="hidden text-5xl font-bold pt-2 pb-1 bg-primary-light bg-gradient-to-r dark:from-secondary dark:via-teal-500 dark:to-primary text-transparent bg-clip-text">CONTACT ME</h1>
+      <div className={`relative text-primary-light/80 dark:text-primary-dark/80 flex flex-col items-center justify-center w-full py-20`}>
+        <TrueFocus
+          sentence="CONTACT ME"
+          manualMode={true}
+          blurAmount={3}
+          borderColor="#00C896"
+          animationDuration={0.5}
+          pauseBetweenAnimations={1}
+        />
       </div>
 
       <div className="relative flex flex-col lg:flex-row justify-center w-full max-w-7xl gap-4 z-10">
@@ -118,10 +115,10 @@ const Contact = () => {
           <textarea
             name="message"
             id="message"
-            rows="10"
+            rows="9"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70
+            className="peer w-full px-4 py-4 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70
  dark:placeholder:text-primary-dark/70 focus:placeholder-transparent focus:outline-none"
             placeholder="Message"
             required
@@ -136,7 +133,7 @@ const Contact = () => {
         </form>
 
         {/* Contact Information */}
-        <SpotlightCard className="flex flex-col w-full lg:w-1/2 h-full p-6 gap-4 source-sans-3 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm">
+        <SpotlightCard className="flex flex-col w-full lg:w-1/2 h-full p-6 gap-4 source-sans-3 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15">
           <Particles
             particleColors={['#ffffff', '#ffffff']}
             particleCount={200}

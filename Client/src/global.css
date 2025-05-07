@@ -118,24 +118,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+/* For WebKit-based browsers */
+*::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #525252;
-  margin-top: 40vh;
-  margin-right: 35vw;
-  margin-bottom: 40vh;
-  margin-left: 35vw;
+/* For Firefox */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-::-webkit-scrollbar-thumb {
-  /* background-color: var(--color-primary); */
-  background: linear-gradient(to top, #fb7185, #a21caf, #6366f1);
-}
 
 .break-word {
   word-wrap: break-word;

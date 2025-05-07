@@ -17,6 +17,7 @@ import { LinkPreview } from "../components/ui/link-preview.jsx";
 import FaceBook from "../assets/image/FaceBook.webp";
 import Tweeter from "../assets/image/Tweeter.webp";
 import Linkedin from "../assets/image/Linkedin.webp";
+import SplitText from "../components/ui/SplitText.jsx";
 
 
 const Home = () => {
@@ -124,22 +125,30 @@ const Home = () => {
             </h1>
 
             {/* Description text */}
-            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-center break-word text-base source-sans-3 tracking-wider xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
-              {description}
+            <div className={`text-primary-light dark:text-primary-dark opacity-80 font-[500] my-3 inline-block w-[97%] text-base source-sans-3 xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
+              <SplitText
+                text={`${description}`}
+                delay={20}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,0,0)' }}
+                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                easing="easeOutCubic"
+                threshold={0.2}
+                rootMargin="-50px"
+              />
             </div>
             {/* Buttons and social media icons */}
-            <div className="flex items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
+            <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}
               <Button
                 text="CV Download"
                 onClick={() => handleClick()}
                 variant="primary"
                 icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black dark:text-primary-light" />}
-                className="peer z-10 max-md:w-full bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
+                className="peer max-lg:w-1/2 z-10 bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 /text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
               {/* Social Media Icons */}
-              <div className="flex max-md:w-full items-center justify-evenly md:justify-center max-md:mx-10 md:ml-2">
+              <div className="flex max-md:w-full items-center md:justify-center md:ml-2">
                 <LinkPreview
                   imageSrc={FaceBook}
                   isStatic={true}

@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
+    const ItemClass = "block cursor-pointer text-primary-light/70 dark:text-primary-dark/70 hover:text-primary-light dark:hover:text-primary-dark transitionAll duration-30";
     return (
-        <footer className="w-full dark:bg-background-dark border-t-1 border-primary-light/10 px-8 py-20 dark:border-primary-dark/10 bg-background-light mt-20">
+        <footer id="footer" className="w-full dark:bg-background-dark border-t-1 border-primary-light/10 px-8 py-20 dark:border-primary-dark/10 bg-background-light mt-20">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between p-3">
                 {/* Left side */}
                 <div className="mb-8 md:mb-0">
@@ -43,44 +44,44 @@ const Footer = () => {
                 {/* Right side - Navigation */}
                 <div className="grid grid-cols-3 md:grid-cols-3 gap-x-12 gap-y-4 font-normal text-[15px] max-lg:mt-10">
                     <div className="space-y-4">
-                        <a href="https://github.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:black:hover:text-white hover:text-black/80 hover:text-black/80 transition">
+                        <a href="https://github.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             GitHub
                         </a>
-                        <a href="https://www.linkedin.com/in/Tarikul3639" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:hover:text-white hover:text-black/80 transition">
+                        <a href="https://www.linkedin.com/in/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             Linkedin
                         </a>
-                        <a href="https://x.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:hover:text-white hover:text-black/80 transition">
+                        <a href="https://x.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             Twitter
                         </a>
-                        <a href="https://www.facebook.com/tarikulislam3639/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:hover:text-white hover:text-black/80 transition">
+                        <a href="https://www.facebook.com/tarikulislam3639/" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             Facebook
                         </a>
-                        <a href="https://www.instagram.com/tarikul3639/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:hover:text-white hover:text-black/80 transition">
+                        <a href="https://www.instagram.com/tarikul3639/" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             Instagram
                         </a>
-                        <a href="https://dribbble.com/tarikul3639" target="_blank" rel="noopener noreferrer" className="block text-gray-400 black:hover:text-white hover:text-black/80 transition">
+                        <a href="https://dribbble.com/tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
                             Dribbble
                         </a>
                     </div>
                     <div className="space-y-4 font-light font-normal text-[15px]">
-                        <Link to="home" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="home" smooth={true} duration={500} className={`${ItemClass}`}>
                             Home
                         </Link>
-                        <Link to="about" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="about" smooth={true} duration={500} className={`${ItemClass}`}>
                             About
                         </Link>
-                        <Link to="projects" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="projects" smooth={true} duration={500} className={`${ItemClass}`}>
                             Projects
                         </Link>
-                        <Link to="contact" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
                             Contact
                         </Link>
                     </div>
                     <div className="space-y-4 col-span-1 md:mt-0 font-normal text-[15px]">
-                        <Link to="contact" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
                             Service
                         </Link>
-                        <Link to="contact" smooth={true} duration={500} className="block text-gray-400 black:hover:text-white hover:text-black/80 cursor-pointer transition">
+                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
                             FAQ
                         </Link>
                     </div>

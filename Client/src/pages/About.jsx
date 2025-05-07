@@ -48,7 +48,7 @@ const About = () => {
                         threshold={0.2}
                         rootMargin="-50px"
                     />
-                    <p className="mt-5 max-w-sm">
+                    <div className="mt-5 max-w-sm">
                         <SplitText
                             text="Focused on innovation and solving problems, I’m passionate about building solutions that make a difference."
                             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
@@ -60,7 +60,7 @@ const About = () => {
                             rootMargin="-50px"
                         />
 
-                    </p>
+                    </div>
                 </div>
                 {/* Main Content */}
                 <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
