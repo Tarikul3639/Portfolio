@@ -104,3 +104,6 @@ export const Spotlight = ({
     </motion.div>
   );
 };
+
+// Add default export for React.lazy compatibility
+export default Spotlight;

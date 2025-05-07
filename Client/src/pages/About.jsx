@@ -1,7 +1,6 @@
 import SpotlightCard from '../components/ui/SpotlightCard.jsx';
 import Image from '../assets/image/Profile Image.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
 import {
@@ -21,16 +20,35 @@ import tailwind from '../assets/icons/tailwind-css-icon.svg';
 import socket from '../assets/icons/socket-io-icon.svg';
 import Express from '../assets/icons/express-js.svg';
 import SplitText from "../components/ui/SplitText.jsx";
-import Particles from '../components/ui/Particles.jsx';
+
+// About Me description
+const AboutMe = [
+    `I specialize in frontend development, creating dynamic, visually engaging, and highly responsive websites that provide seamless user experiences. With a strong foundation in HTML, CSS, and JavaScript, I focus on building modern web interfaces that are not only aesthetically appealing but also optimized for performance and accessibility. I have extensive experience with frameworks like React and Tailwind CSS, enabling me to create interactive, scalable, and efficient applications. Whether designing sleek UI components, implementing smooth animations, or enhancing user interactions, my goal is to develop web solutions that are both functional and innovative.`
+];
 
 const About = () => {
-    // About Me description
-    const aboutMeText = [
-        `I specialize in frontend development, creating dynamic, visually engaging, and highly responsive websites that provide seamless user experiences. With a strong foundation in HTML, CSS, and JavaScript, I focus on building modern web interfaces that are not only aesthetically appealing but also optimized for performance and accessibility. I have extensive experience with frameworks like React and Tailwind CSS, enabling me to create interactive, scalable, and efficient applications. Whether designing sleek UI components, implementing smooth animations, or enhancing user interactions, my goal is to develop web solutions that are both functional and innovative.`
-    ];
-
     // Tech class for styling tech stack items
     const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-light/50 dark:border-primary-dark/30 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
+
+    // Tech stack array for icons and labels
+    const techStack = [
+        { label: 'HTML', icon: <FontAwesomeIcon icon={faHtml5} style={{ color: '#e34c26' }} />, delay: 50 },
+        { label: 'CSS', icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, delay: 100 },
+        { label: 'JavaScript', icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, delay: 150 },
+        { label: 'ReactJS', icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, delay: 200 },
+        { label: 'Tailwind CSS', icon: <img loading="lazy" src={tailwind} alt="Tailwind CSS" className="h-4" />, delay: 250 },
+        { label: 'Framer Motion', icon: <img loading="lazy" src={FarmerMotion} alt="Framer Motion" className="h-4" />, delay: 300 },
+        { label: 'NodeJS', icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, delay: 350 },
+        { label: 'ExpressJS', icon: <img loading="lazy" src={Express} alt="Express JS" className="h-4" />, delay: 400 },
+        { label: 'MongoDB', icon: <DiMongodb className="text-green-600 text-lg" />, delay: 450 },
+        { label: 'Socket.io', icon: <img loading="lazy" src={socket} alt="Socket.io" className="h-4" />, delay: 500 },
+        { label: 'WebRTC', icon: <img loading="lazy" src={WebRTC} alt="WebRTC" className="h-4" />, delay: 550 },
+        { label: 'C', icon: <img loading="lazy" src={C_programming} alt="C Programming" className="h-4" />, delay: 600 },
+        { label: '', icon: <img loading="lazy" src={Rambo} alt="Rombo" className="h-4" />, delay: 600 },
+        { label: 'C++', icon: <img loading="lazy" src={C_Plus} alt="C++" className="h-4" />, delay: 650 },
+        { label: 'VS Code', icon: <VscVscode className="text-blue-500" />, delay: 700 },
+        { label: 'GitHub', icon: <FontAwesomeIcon icon={faGithub} style={{ color: '#181717' }} />, delay: 750 },
+    ];
 
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
@@ -49,7 +67,7 @@ const About = () => {
                     />
                     <div className="mt-5 max-w-sm mx-1">
                         <SplitText
-                            text="Focused on innovation and solving problems, I’m passionate about building solutions that make a difference."
+                            text="Focused on innovation and solving problems, I'm passionate about building solutions that make a difference."
                             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
                             delay={5}
                             animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
@@ -58,16 +76,16 @@ const About = () => {
                             threshold={0.2}
                             rootMargin="-50px"
                         />
-
                     </div>
                 </div>
+                
                 {/* Main Content */}
                 <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
                     {/* Profile Section */}
                     <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 lg:border border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                         <div className="flex flex-col items-center justify-center w-full space-y-6">
                             {/* Profile Image */}
-                            <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
+                            <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" aria-label="Profile Image" role="img">
                                 {/* Define mask shape */}
                                 <mask id="maskPath" mask-type="alpha">
                                     <path
@@ -98,7 +116,7 @@ const About = () => {
                             <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
 
                             <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
-                                {aboutMeText[0]}
+                                {AboutMe[0]}
                             </p>
                         </div>
                     </SpotlightCard>
@@ -145,26 +163,16 @@ const About = () => {
                         {/* Skills Section */}
                         <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                             <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
-                            <div className='flex gap-1.5 md:gap-2 flex-wrap'>
-                                {/* Tech Icons */}
-                                <span className={`${techClass} motion-delay-50`}><FontAwesomeIcon icon={faHtml5} style={{ color: '#e34c26' }} />HTML</span>
-                                <span className={`${techClass} motion-delay-100`}><FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />CSS</span>
-                                <span className={`${techClass} motion-delay-150`}><FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />JavaScript</span>
-                                <span className={`${techClass} motion-delay-200`}><FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />ReactJS</span>
-                                <span className={`${techClass} motion-delay-250`}>
-                                    <img src={tailwind} className="h-4" />Tailwind CSS</span>
-                                <span className={`${techClass} motion-delay-300`}><img src={FarmerMotion} alt="Framer Motion" className="h-4" />Framer Motion</span>
-                                <span className={`${techClass} motion-delay-350`}><FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />NodeJS</span>
-                                <span className={`${techClass} motion-delay-400`}><img src={Express} className="h-4" />ExpressJS</span>
-                                <span className={`${techClass} motion-delay-450`}><DiMongodb className="text-[#47A248] text-sm" />MongoDB</span>
-                                <span className={`${techClass} motion-delay-500`}><FontAwesomeIcon icon={faGithub} />GitHub</span>
-                                <span className={`${techClass} motion-delay-550`}><img src={C_Plus} alt="C++" className="h-4" />C++</span>
-                                <span className={`${techClass} motion-delay-600`}><img src={C_programming} alt="C" className="h-4" />C</span>
-                                <span className={`${techClass} motion-delay-650`}><img src={Rambo} alt="Custom Tech" className='h-4' /></span>
-                                <span className={`${techClass} motion-delay-700`}>
-                                    <img src={socket} className="h-4" />Socket</span>
-                                <span className={`${techClass} motion-delay-750`}><img src={WebRTC} alt="WebRTC" className='h-4' />WebRTC</span>
-                                <span className={`${techClass} motion-delay-800`}><VscVscode style={{ color: '#007ACC' }} />VS Code</span>
+                            <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                                {techStack.map(({ label, icon, delay }, index) => (
+                                    <span
+                                        key={index}
+                                        className={`${techClass} motion-delay-${delay}`}
+                                        title={label}
+                                    >
+                                        {icon}{label}
+                                    </span>
+                                ))}
                             </div>
                         </SpotlightCard>
                     </div>

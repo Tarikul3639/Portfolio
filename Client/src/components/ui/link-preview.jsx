@@ -129,3 +129,6 @@ export const LinkPreview = ({
         </>
     );
 };
+
+// Add default export for React.lazy compatibility
+export default LinkPreview;

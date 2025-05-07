@@ -1,24 +1,24 @@
+import React, { useState } from "react";
 import photo from "../assets/image/Profile.webp";
 import Button from "../components/ui/Button";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { Spotlight } from "../components/ui/Spotlight.jsx";
 import { cn } from "../components/lib/utils.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from "react";
-import React from "react";
-import { LinkPreview } from "../components/ui/link-preview.jsx";
 import FaceBook from "../assets/image/FaceBook.webp";
 import Tweeter from "../assets/image/Tweeter.webp";
 import Linkedin from "../assets/image/Linkedin.webp";
+
+// Import components directly
+import Spotlight from "../components/ui/Spotlight.jsx";
+import LinkPreview from "../components/ui/link-preview.jsx";
 import SplitText from "../components/ui/SplitText.jsx";
 
 const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
 const DESCRIPTION = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
-
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -73,21 +73,19 @@ const Home = () => {
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
+      {/* Use the component directly without Suspense */}
       <Spotlight
-        className=" absolute top-0 left-0 right-0 z-1"
+        className="absolute top-0 left-0 right-0 z-1"
         fill="white"
       />
+      
       <div
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
-
           "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-
           "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_0%)]",
-
           "[-webkit-mask-image:linear-gradient(to_bottom,white_10%,transparent_60%)]",
-
           "[mask-size:cover]",
           "[mask-repeat:no-repeat]",
         )}
@@ -119,7 +117,7 @@ const Home = () => {
               Web Developer.
             </h1>
 
-            {/* Description text */}
+            {/* Description text - use directly without Suspense */}
             <div className={`text-primary-light/80 dark:text-primary-dark/70 font-[500] my-3 inline-block w-[97%] text-base source-sans-3 xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
               <SplitText
                 text={`${DESCRIPTION}`}
@@ -131,6 +129,7 @@ const Home = () => {
                 rootMargin="-50px"
               />
             </div>
+            
             {/* Buttons and social media icons */}
             <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}
@@ -142,7 +141,7 @@ const Home = () => {
                 className="peer max-lg:w-1/2 z-10 bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 /text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
-              {/* Social Media Icons */}
+              {/* Social Media Icons - use directly without Suspense */}
               <div className="flex max-md:w-full items-center md:justify-center md:ml-2">
                 <LinkPreview
                   imageSrc={FaceBook}
@@ -185,13 +184,12 @@ const Home = () => {
                   />
                 </LinkPreview>
               </div>
-
             </div>
           </div>
         </div>
 
         {/* Right side section (profile image) */}
-        <div className="flex items-center justify-center lg:h-full">
+        <div className="flex items-center justify-center lg:h-full lg:w-1/2">
           <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
             <img src={photo} loading="lazy" alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">

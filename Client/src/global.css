@@ -1,6 +1,7 @@
 /* Import Tailwind */
 @import "tailwindcss";
 @plugin "tailwindcss-motion";
+@plugin "tailwindcss-motion";
 @plugin "tailwindcss-intersect";
 @plugin "@tailwindcss/postcss";
 @custom-variant dark (&:where(.dark, .dark *));
