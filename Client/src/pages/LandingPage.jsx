@@ -11,7 +11,7 @@ import DotScrollBar from '../components/navigation/DotScrollBar.jsx';
 const LandingPage = () => {
   return (
     <div className="flex flex-col bg-background-light dark:bg-background-dark items-center justify-center overflow-clip">
-      {/* <SplashCursor /> */}
+      <SplashCursor />
       <DotScrollBar />
       <Navbar />
       <Home />
