@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FaceBook from "../assets/image/FaceBook.webp";
 import Tweeter from "../assets/image/Tweeter.webp";
 import Linkedin from "../assets/image/Linkedin.webp";
+import GitHub from "../assets/image/GitHub.webp";
 
 // Import components directly
 import Spotlight from "../components/ui/Spotlight.jsx";
@@ -78,7 +79,7 @@ const Home = () => {
         className="absolute top-0 left-0 right-0 z-1"
         fill="white"
       />
-      
+
       <div
         className={cn(
           "absolute inset-0",
@@ -129,7 +130,7 @@ const Home = () => {
                 rootMargin="-50px"
               />
             </div>
-            
+
             {/* Buttons and social media icons */}
             <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
               {/* CV Download Button with animation */}
@@ -165,7 +166,10 @@ const Home = () => {
                   />
                 </LinkPreview>
 
-                <LinkPreview url="https://github.com/Tarikul3639">
+                <LinkPreview
+                  imageSrc={GitHub}
+                  isStatic={true}
+                >
                   <FontAwesomeIcon
                     onClick={() => window.open("https://github.com/Tarikul3639", "_blank")}
                     icon={faGithub}

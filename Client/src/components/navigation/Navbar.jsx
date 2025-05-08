@@ -29,7 +29,6 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
 
     // Handle dark/light mode
     useEffect(() => {
-        console.log("Theme changed to:", theme);
         const root = document.documentElement;
 
         if (theme === "dark") {

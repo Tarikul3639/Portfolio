@@ -3,6 +3,7 @@ import Image from '../assets/image/Profile Image.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
+import { motion } from 'framer-motion';
 import {
     faHtml5,
     faCss3Alt,
@@ -50,6 +51,20 @@ const About = () => {
         { label: 'GitHub', icon: <FontAwesomeIcon icon={faGithub} style={{ color: '#181717' }} />, delay: 750 },
     ];
 
+
+    // Animation variants for cards
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut"
+            }
+        }
+    };
+
     return (
         <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
             <div className="flex flex-col justify-center max-w-7xl p-4">
@@ -78,103 +93,140 @@ const About = () => {
                         />
                     </div>
                 </div>
-                
+
                 {/* Main Content */}
                 <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
                     {/* Profile Section */}
-                    <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:w-1/3 lg:border border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
-                        <div className="flex flex-col items-center justify-center w-full space-y-6">
-                            {/* Profile Image */}
-                            <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" aria-label="Profile Image" role="img">
-                                {/* Define mask shape */}
-                                <mask id="maskPath" mask-type="alpha">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.2 }}
+                        variants={cardVariants}
+                        custom={1}
+                        className="w-full lg:w-1/3"
+                    >
+                        <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:border border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
+                            {/* Profile Image and Description */}
+                            <div className="flex flex-col items-center justify-center w-full space-y-6">
+                                {/* Profile Image */}
+                                <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" aria-label="Profile Image" role="img">
+                                    {/* Define mask shape */}
+                                    <mask id="maskPath" mask-type="alpha">
+                                        <path
+                                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
+                                            fill="background-color"
+                                        />
+                                    </mask>
+
+                                    {/* Fill shape with base color */}
                                     <path
                                         d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
                                         fill="background-color"
                                     />
-                                </mask>
 
-                                {/* Fill shape with base color */}
-                                <path
-                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                                    fill="background-color"
-                                />
+                                    {/* Image clipped inside the path shape */}
+                                    <image
+                                        href={Image}
+                                        x="-5"
+                                        y="0"
+                                        width="108%"
+                                        height="100%"
+                                        preserveAspectRatio="xMidYMid slice"
+                                        mask="url(#maskPath)"
+                                    />
+                                </svg>
 
-                                {/* Image clipped inside the path shape */}
-                                <image
-                                    href={Image}
-                                    x="-5"
-                                    y="0"
-                                    width="108%"
-                                    height="100%"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    mask="url(#maskPath)"
-                                />
-                            </svg>
+                                {/* About Me Description */}
+                                <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
 
-                            {/* About Me Description */}
-                            <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
-
-                            <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
-                                {AboutMe[0]}
-                            </p>
-                        </div>
-                    </SpotlightCard>
+                                <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
+                                    {AboutMe[0]}
+                                </p>
+                            </div>
+                        </SpotlightCard>
+                    </motion.div>
 
                     {/* Education Skills and Experience Section */}
                     <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
                         {/* Education */}
-                        <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 intersect:motion-preset-slide-up border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
-                            <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
-                            <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
-                                <p className="text-primary-light dark:text-primary-dark">Bangladesh University of Business and Technology</p>
-                                <p className='text-end text-primary-light dark:text-primary-dark'>2022 - 2026</p>
-                            </a>
-                            <div className='flex flex-row items-center justify-between w-full'>
-                                <p className="text-primary-light dark:text-primary-dark">Computer Science and Engineering</p>
-                                <p className="text-primary-light dark:text-primary-dark">Current CGPA: 3.56</p>
-                            </div>
-                        </SpotlightCard>
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: false, amount: 0.2 }}
+                                variants={cardVariants}
+                                custom={1}
+                                className="w-full"
+                            >
+                            <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
+                                <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
+                                <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
+                                    <p className="text-primary-light dark:text-primary-dark">Bangladesh University of Business and Technology</p>
+                                    <p className='text-end text-primary-light dark:text-primary-dark'>2022 - 2026</p>
+                                </a>
+                                <div className='flex flex-row items-center justify-between w-full'>
+                                    <p className="text-primary-light dark:text-primary-dark">Computer Science and Engineering</p>
+                                    <p className="text-primary-light dark:text-primary-dark">Current CGPA: 3.56</p>
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
 
                         {/* Experience */}
-                        <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 intersect:motion-translate-x-in-[10%] motion-duration-1000 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark bg-primary/5 dark:bg-primary/5">
-                            <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
-                            <div className='flex flex-row items-center justify-between w-full text-sm'>
-                                <p>Full Stack Developer</p>
-                                <p>Feb 2024 - Present</p>
-                            </div>
-                            <div className='flex flex-row items-center justify-between w-full mb-2'>
-                                <p>Self-initiated</p>
-                                <p>Remote</p>
-                            </div>
-                            <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
-                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                                    Developed a messaging web application, focusing on real-time communication features like messaging and calling.
-                                </p>
-                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                                    Implemented a Load Shedding Notification System.
-                                </p>
-                                <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                                    Worked on multiple personal projects.
-                                </p>
-                            </div>
-                        </SpotlightCard>
-
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={cardVariants}
+                            custom={1}
+                            className="w-full"
+                        >
+                            <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark bg-primary/5 dark:bg-primary/5">
+                                <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
+                                <div className='flex flex-row items-center justify-between w-full text-sm'>
+                                    <p>Full Stack Developer</p>
+                                    <p>Feb 2024 - Present</p>
+                                </div>
+                                <div className='flex flex-row items-center justify-between w-full mb-2'>
+                                    <p>Self-initiated</p>
+                                    <p>Remote</p>
+                                </div>
+                                <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
+                                    <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
+                                        Developed a messaging web application, focusing on real-time communication features like messaging and calling.
+                                    </p>
+                                    <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
+                                        Implemented a Load Shedding Notification System.
+                                    </p>
+                                    <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
+                                        Worked on multiple personal projects.
+                                    </p>
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
                         {/* Skills Section */}
-                        <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
-                            <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
-                            <div className="flex gap-1.5 md:gap-2 flex-wrap">
-                                {techStack.map(({ label, icon, delay }, index) => (
-                                    <span
-                                        key={index}
-                                        className={`${techClass} motion-delay-${delay}`}
-                                        title={label}
-                                    >
-                                        {icon}{label}
-                                    </span>
-                                ))}
-                            </div>
-                        </SpotlightCard>
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, amount: 0.2 }}
+                            variants={cardVariants}
+                            custom={1}
+                            className="w-full"
+                        >
+                            <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
+                                <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
+                                <div className="flex gap-1.5 md:gap-2 flex-wrap">
+                                    {techStack.map(({ label, icon, delay }, index) => (
+                                        <span
+                                            key={index}
+                                            className={`${techClass}`}
+                                            style={{ animationDelay: `${delay}ms` }}
+                                            title={label}
+                                        >
+                                            {icon}{label}
+                                        </span>
+                                    ))}
+                                </div>
+                            </SpotlightCard>
+                        </motion.div>
                     </div>
                 </div>
             </div>

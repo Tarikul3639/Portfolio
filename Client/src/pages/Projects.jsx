@@ -43,6 +43,19 @@ const Projects = () => {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
+  // Animation variants for cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   const timelineData = [
     {
       title: "ChatFly", // Added title property
@@ -52,14 +65,14 @@ const Projects = () => {
         "ChatFly is a real-time web-based chat app with secure user login, file sharing, media (image, video, text) exchange, and voice messaging for smooth, interactive communication.",
       image: ChatFly,
       tech: [
-        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS' },
-        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript' },
-        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
-        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
-        { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB' },
-        { icon: <img src={socket} className="text-[#3B82F6] h-4 " />, name: 'Socket.io' },
-        { icon: <img src={WebRTC} alt="WebRTC" className="h-4" />, name: 'WebRTC' },
-        { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
+        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS', delay: 50 },
+        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript', delay: 100 },
+        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
+        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
+        { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB', delay: 250 },
+        { icon: <img loading="lazy" src={socket} className="text-[#3B82F6] h-4 " />, name: 'Socket.io', delay: 300 },
+        { icon: <img loading="lazy" src={WebRTC} alt="WebRTC" className="h-4" />, name: 'WebRTC', delay: 350 },
+        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
       ]
     },
     {
@@ -70,14 +83,14 @@ const Projects = () => {
         "Electrifiers is a load-shedding notification system that provides real-time updates to residents based on location, along with energy-saving tips and emergency solutions.",
       image: Electrifiers,
       tech: [
-        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS' },
-        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript' },
-        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
-        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
-        { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB' },
-        { icon: <img src={tailwind} className="h-4" />, name: 'Tailwind CSS' },
-        { icon: <img src={socket} className=" h-4 " />, name: 'Socket.io' },
-        { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
+        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS', delay: 50 },
+        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript', delay: 100 },
+        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
+        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
+        { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB', delay: 250 },
+        { icon: <img loading="lazy" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 350 },
+        { icon: <img loading="lazy" src={socket} className=" h-4 " />, name: 'Socket.io', delay: 400 },
+        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 450 },
       ]
     },
     {
@@ -88,14 +101,14 @@ const Projects = () => {
         "This portfolio website showcases my development skills, projects, and technical stack using modern frontend technologies and animations.",
       image: Portfolio,
       tech: [
-        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS' },
-        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript' },
-        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS' },
-        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS' },
-        { icon: <img src={tailwind} className="h-4" />, name: 'Tailwind CSS' },
-        { icon: <img src={FarmerMotion} alt="Framer Motion" className="h-4" />, name: 'Framer Motion' },
-        { icon: <img src={Rambo} alt="Custom Tech" className="h-4" />, name: 'Rambo' },
-        { icon: <img src={Express} className="h-4" />, name: 'Express.js' },
+        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS', delay: 50 },
+        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript', delay: 100 },
+        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
+        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
+        { icon: <img loading="lazy" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 250 },
+        { icon: <img loading="lazy" src={FarmerMotion} alt="Framer Motion" className="h-4" />, name: 'Framer Motion', delay: 300 },
+        { icon: <img loading="lazy" src={Rambo} alt="Custom Tech" className="h-4" />, name: 'Rambo', delay: 350 },
+        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
       ]
     },
   ];
@@ -103,47 +116,59 @@ const Projects = () => {
 
   // Define a single content rendering function
   const renderContent = (tech, image, description, name, link) => (
-    <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/5 dark:bg-primary/5 rounded-sm shadow-lg transition duration-100 ease-in-out">
-      <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
-        <img
-          src={image}
-          alt={`${name} interface`}
-          className="h-50 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-80 lg:h-80"
-        />
-      </div>
-      <h2 className="w-full items-left text-2xl font-bold mb-2">{name}</h2>
-      <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-        {description}
-      </p>
-      <div className="flex flex-wrap gap-2 mb-4 justify-start w-full">
-        {tech.map((t, i) => (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={cardVariants}
+      custom={1}
+      className="w-full relative"
+    >
+      <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/5 dark:bg-primary/5 rounded-sm shadow-lg transition duration-100 ease-in-out">
+        <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
+          <img
+            src={image}
+            loading="lazy"
+            alt={`${name} interface`}
+            className="h-50 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-80 lg:h-80"
+          />
+        </div>
+        <h2 className="w-full items-left text-2xl font-bold mb-2">{name}</h2>
+        <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4 justify-start w-full">
+          {tech.map((t, i) => (
+            <span
+              key={i}
+              className={`inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-dark/40 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000 text-primary-light dark:text-primary-dark`}
+              style={{ animationDelay: `${t.delay || 0}ms` }}
+            >
+              {t.icon} {t.name}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-4 mt-5">
           <span
-            key={i}
-            className={`inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-dark/40 intersect:motion-preset-slide-up hover:motion-preset-wiggle delay-5000 motion-duration-1000 text-primary-light dark:text-primary-dark motion-delay-${100 + i * 50}`}
+            onClick={() => window.open(link, "_blank")}
+            className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-neutral-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer"
           >
-            {t.icon} {t.name}
+            GitHub<FontAwesomeIcon icon={faGithub} />
           </span>
-        ))}
-      </div>
-      <div className="flex gap-4 mt-5">
-        <span
-          onClick={() => window.open(link, "_blank")}
-          className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-neutral-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer"
-        >
-          GitHub<FontAwesomeIcon icon={faGithub} />
-        </span>
-        <span className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-blue-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer">
-          Live Site<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </span>
-      </div>
-    </SpotlightCard>
+          <span className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-blue-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer">
+            Live Site<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </span>
+        </div>
+      </SpotlightCard>
+    </motion.div>
   );
 
   return (
     <section
-      className="w-screen min-w-[345px] font-sans md:px-10 bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark"
-      ref={containerRef}
       id="projects"
+      ref={containerRef}
+      style={{ position: 'relative' }}
+      className="relative w-screen min-w-[345px] font-sans md:px-10 bg-background-light dark:bg-background-dark text-primary-light dark:text-primary-dark"
     >
       {/* Header */}
       <div className="max-w-7xl mx-auto md:mt-30 px-2">

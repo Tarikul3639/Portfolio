@@ -65,7 +65,7 @@ export const LinkPreview = ({
         <>
             {isMounted ? (
                 <div className="hidden">
-                    <img src={src} width={width} height={height} alt="hidden image" />
+                    <img loading="lazy" src={src} width={width} height={height} alt="hidden image" />
                 </div>
             ) : null}
             <HoverCardPrimitive.Root
@@ -114,6 +114,7 @@ export const LinkPreview = ({
                                 >
                                     <img
                                         src={isStatic ? imageSrc : src}
+                                        loading="lazy"
                                         width={width}
                                         height={height}
                                         className="rounded-lg"

@@ -1,43 +1,36 @@
 /* Import Tailwind */
 @import "tailwindcss";
 @plugin "tailwindcss-motion";
-@plugin "tailwindcss-motion";
 @plugin "tailwindcss-intersect";
 @plugin "@tailwindcss/postcss";
+
+/* Custom Variant */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme Configuration */
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
 
   --color-background-dark: #000000;
-  --color-background-light: #FAFAFA;
+  --color-background-light: #fafafa;
 
-  --color-secondary: #A8E524;
+  --color-secondary: #a8e524;
   --color-primary: #00c896;
-  --color-primary-dark: #FFFFFF;
-  --color-primary-light: #0F172B;
+  --color-primary-dark: #ffffff;
+  --color-primary-light: #0f172b;
 
   --color-primary-text-light: #cbcbcb;
-  --color-secondary-light-text: #a1a1aa; 
+  --color-secondary-light-text: #a1a1aa;
 
   --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
   --shadow-xs: 0 0px 26px rgb(0, 200, 150, 0.1);
   --shadow-sm: 0px 0px 50px 0 rgba(0, 200, 150, 0.1);
-  /* --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 200, 150, 0.25); */
 }
 
-/* colors: {
-  'text': '#e2f0ff',
-  'background': '#030712',
-  'primary': '#d8a31a',
-  'secondary': '#00c6bd',
-  'accent': '#988478',
- } */
- @keyframes gradient {
+/* Keyframes */
+@keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -64,32 +57,6 @@
   }
 }
 
-.animate-strokeAnimation {
-  animation: strokeAnimation 20s infinite reverse;
-  stroke-dasharray: 24 10 0 0;
-}
-
-@layer utilities {
-  .animate-gradient {
-    animation: gradient 8s linear infinite;
-    background-size: 300% 100%;
-  }
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@theme inline {
-  --font-display: "Inter", "sans-serif";
-  --color-primary-500: oklch(0.84 0.18 117.33);
-  --spacing: 0.25rem;
-}
-
-@theme inline {
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
-  --animate-spin: spin 2s linear infinite;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -108,6 +75,45 @@
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
   }
+}
+
+@keyframes shine {
+  0% {
+    left: -60px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Animations */
+.animate-strokeAnimation {
+  animation: strokeAnimation 20s infinite reverse;
+  stroke-dasharray: 24 10 0 0;
+}
+
+/* Utility Layer */
+@layer utilities {
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+    background-size: 300% 100%;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Inline Themes */
+@theme inline {
+  --font-display: "Inter", "sans-serif";
+  --color-primary-500: oklch(0.84 0.18 117.33);
+  --spacing: 0.25rem;
+}
+
+@theme inline {
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --animate-spin: spin 2s linear infinite;
 }
 
 /* Custom Fonts */
@@ -139,18 +145,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* For WebKit-based browsers */
+/* Scrollbar Hide */
 *::-webkit-scrollbar {
   display: none;
 }
 
-/* For Firefox */
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-
+/* Text Wrapping */
 .break-word {
   word-wrap: break-word;
   hyphens: auto;
@@ -160,35 +165,22 @@
 .poppins-light {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-style: normal;
 }
-
 .poppins-regular {
   font-family: "Poppins", sans-serif;
 }
-
 .poppins-medium {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-style: normal;
 }
-
 .jetbrains-mono {
   font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
-
 .outfit {
   font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
-
 .source-sans-3 {
   font-family: "Source Sans 3", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 /* Shine Effect */
@@ -207,13 +199,4 @@
   top: 0;
   left: -60px;
   z-index: 1;
-}
-
-@keyframes shine {
-  0% {
-    left: -60px;
-  }
-  100% {
-    left: 100%;
-  }
 }
