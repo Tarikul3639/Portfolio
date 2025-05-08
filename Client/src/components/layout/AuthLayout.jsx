@@ -1,1 +1,0 @@
-// AuthLayout.jsx - Placeholder content

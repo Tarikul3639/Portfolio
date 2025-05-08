@@ -127,6 +127,11 @@
   src: url("../src/assets/fonts/Dot Font.otf") format("opentype");
 }
 
+/* HTML Style */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Root Styles */
 :root {
   padding: 0;

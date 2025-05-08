@@ -7,13 +7,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Custom Components
-import Button from '../components/ui/Button.jsx';
-import Loader from '../components/ui/Loader.jsx';
-import SpotlightCard from '../components/ui/SpotlightCard.jsx';
+import Button from '../common/Button.jsx';
+import Loader from '../common/Loader.jsx';
+import SpotlightCard from '../ui/SpotlightCard.jsx';
 
 // Lazy load components to improve performance
-const Particles = lazy(() => import('../components/ui/Particles'));
-const TrueFocus = lazy(() => import('../components/ui/TrueFocus'));
+const Particles = lazy(() => import('../ui/Particles'));
+const TrueFocus = lazy(() => import('../ui/TrueFocus'));
 
 const Contact = () => {
   // State variables
@@ -207,7 +207,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="flex group items-center gap-3 transition-transform duration-500 hover:scale-105"
               >
-                <div className="flex items-center text-primary-light dark:text-primary bg-black/10 dark:bg-white/5 group-hover:text-yellow-400 px-3 py-2 rounded-md transition-colors duration-300 bg-red-500">
+                <div className="flex items-center text-primary-light dark:text-primary bg-black/10 dark:bg-white/5 group-hover:text-yellow-400 px-3 py-2 rounded-md transition-colors duration-300">
                   <FontAwesomeIcon icon={faLocationDot} className="text-2xl" />
                 </div>
                 <div>

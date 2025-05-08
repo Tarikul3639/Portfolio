@@ -5,17 +5,17 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 // SVG and icon imports
-import WebRTC from '../assets/icons/webrtc-svgrepo-com.svg';
-import Rambo from '../assets/icons/Rambo.svg';
-import FarmerMotion from '../assets/icons/Motion.svg';
-import tailwind from '../assets/icons/tailwind-css-icon.svg';
-import socket from '../assets/icons/socket-io-icon.svg';
-import Express from '../assets/icons/express-js.svg';
+import WebRTC from '../../assets/icons/webrtc-svgrepo-com.svg';
+import Rambo from '../../assets/icons/Rambo.svg';
+import FarmerMotion from '../../assets/icons/Motion.svg';
+import tailwind from '../../assets/icons/tailwind-css-icon.svg';
+import socket from '../../assets/icons/socket-io-icon.svg';
+import Express from '../../assets/icons/express-js.svg';
 
 // Project images
-import ChatFly from '../assets/image/ChatFly.png';
-import Electrifiers from '../assets/image/Electrifiers.webp';
-import Portfolio from '../assets/image/Portfolio.webp';
+import ChatFly from '../../assets/image/ChatFly.png';
+import Electrifiers from '../../assets/image/Electrifiers.webp';
+import Portfolio from '../../assets/image/Portfolio.webp';
 
 // Font Awesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,8 +30,8 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 // Other libraries and components
 import { DiMongodb } from "react-icons/di";
-import SpotlightCard from '../components/ui/SpotlightCard.jsx';
-import SplitText from "../components/ui/SplitText.jsx";
+import SpotlightCard from '../ui/SpotlightCard.jsx';
+import SplitText from "../ui/SplitText.jsx";
 
 /**
  * Projects Component

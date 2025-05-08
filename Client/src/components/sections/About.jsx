@@ -1,5 +1,5 @@
-import SpotlightCard from '../components/ui/SpotlightCard.jsx';
-import Image from '../assets/image/Profile Image.webp';
+import SpotlightCard from '../ui/SpotlightCard.jsx';
+import Image from '../../assets/image/Profile Image.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
@@ -12,15 +12,15 @@ import {
     faNodeJs,
     faGithub,
 } from '@fortawesome/free-brands-svg-icons';
-import Rambo from '../assets/icons/Rambo.svg';
-import FarmerMotion from '../assets/icons/Motion.svg';
-import WebRTC from '../assets/icons/webrtc-svgrepo-com.svg';
-import C_Plus from '../assets/icons/c-plus-plus.svg';
-import C_programming from '../assets/icons/C_Programming_Language.svg';
-import tailwind from '../assets/icons/tailwind-css-icon.svg';
-import socket from '../assets/icons/socket-io-icon.svg';
-import Express from '../assets/icons/express-js.svg';
-import SplitText from "../components/ui/SplitText.jsx";
+import Rambo from '../../assets/icons/Rambo.svg';
+import FarmerMotion from '../../assets/icons/Motion.svg';
+import WebRTC from '../../assets/icons/webrtc-svgrepo-com.svg';
+import C_Plus from '../../assets/icons/c-plus-plus.svg';
+import C_programming from '../../assets/icons/C_Programming_Language.svg';
+import tailwind from '../../assets/icons/tailwind-css-icon.svg';
+import socket from '../../assets/icons/socket-io-icon.svg';
+import Express from '../../assets/icons/express-js.svg';
+import SplitText from "../../components/ui/SplitText.jsx";
 
 // About Me description
 const AboutMe = [
