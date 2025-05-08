@@ -132,7 +132,7 @@ const Home = () => {
             </div>
 
             {/* Buttons and social media icons */}
-            <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row">
+            <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row z-50">
               {/* CV Download Button with animation */}
               <Button
                 text="CV Download"

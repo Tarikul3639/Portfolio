@@ -30,7 +30,6 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     // Handle dark/light mode
     useEffect(() => {
         const root = document.documentElement;
-
         if (theme === "dark") {
             root.classList.add("dark");
             root.style.setProperty("--background", "var(--color-background-dark)");

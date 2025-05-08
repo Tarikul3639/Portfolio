@@ -29,7 +29,7 @@ const AboutMe = [
 
 const About = () => {
     // Tech class for styling tech stack items
-    const techClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-light/50 dark:border-primary-dark/30 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
+    const TechClass = 'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-light/50 dark:border-primary-dark/30 intersect:motion-preset-slide-up hover:motion-preset-wiggle motion-duration-1000';
 
     // Tech stack array for icons and labels
     const techStack = [
@@ -53,16 +53,11 @@ const About = () => {
 
 
     // Animation variants for cards
-    const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut"
-            }
-        }
+    const fadeInUp = {
+        initial: { opacity: 0, y: 100 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: false, amount: 0.2 },
+        transition: { duration: 0.8 },
     };
 
     return (
@@ -97,14 +92,7 @@ const About = () => {
                 {/* Main Content */}
                 <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
                     {/* Profile Section */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, amount: 0.2 }}
-                        variants={cardVariants}
-                        custom={1}
-                        className="w-full lg:w-1/3"
-                    >
+                    <motion.div {...fadeInUp} className="w-full lg:w-1/3">
                         <SpotlightCard className="relative flex flex-col items-center justify-center h-full w-full lg:border border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                             {/* Profile Image and Description */}
                             <div className="flex flex-col items-center justify-center w-full space-y-6">
@@ -149,14 +137,7 @@ const About = () => {
                     {/* Education Skills and Experience Section */}
                     <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
                         {/* Education */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: false, amount: 0.2 }}
-                                variants={cardVariants}
-                                custom={1}
-                                className="w-full"
-                            >
+                        <motion.div {...fadeInUp} className="w-full">
                             <SpotlightCard className="flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                                 <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
                                 <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
@@ -171,14 +152,7 @@ const About = () => {
                         </motion.div>
 
                         {/* Experience */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: false, amount: 0.2 }}
-                            variants={cardVariants}
-                            custom={1}
-                            className="w-full"
-                        >
+                        <motion.div {...fadeInUp} className="w-full">
                             <SpotlightCard className="Experience relative flex flex-col items-center justify-center w-full text-base p-4 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark bg-primary/5 dark:bg-primary/5">
                                 <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
                                 <div className='flex flex-row items-center justify-between w-full text-sm'>
@@ -203,21 +177,14 @@ const About = () => {
                             </SpotlightCard>
                         </motion.div>
                         {/* Skills Section */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: false, amount: 0.2 }}
-                            variants={cardVariants}
-                            custom={1}
-                            className="w-full"
-                        >
+                        <motion.div {...fadeInUp}>
                             <SpotlightCard className="Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 bg-primary/5 dark:bg-primary/5 rounded-sm">
                                 <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
                                 <div className="flex gap-1.5 md:gap-2 flex-wrap">
                                     {techStack.map(({ label, icon, delay }, index) => (
                                         <span
                                             key={index}
-                                            className={`${techClass}`}
+                                            className={`${TechClass}`}
                                             style={{ animationDelay: `${delay}ms` }}
                                             title={label}
                                         >
