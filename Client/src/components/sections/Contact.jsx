@@ -113,7 +113,7 @@ const Contact = () => {
               onChange={(e) => setName(e.target.value)}
               required
               placeholder="Name"
-              className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
+              className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/1 focus:placeholder-transparent focus:outline-none"
             />
           </motion.div>
 
@@ -124,7 +124,7 @@ const Contact = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="Email"
-              className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
+              className="peer w-full px-4 py-3 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/1 focus:placeholder-transparent focus:outline-none"
             />
           </motion.div>
 
@@ -135,7 +135,7 @@ const Contact = () => {
               onChange={(e) => setMessage(e.target.value)}
               required
               placeholder="Message"
-              className="peer w-full px-4 py-4 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/2 focus:placeholder-transparent focus:outline-none"
+              className="peer w-full px-4 py-4 border border-primary-light/15 dark:border-primary-dark/15 placeholder:text-primary-light/70 dark:placeholder:text-primary-dark/70 bg-primary/1 focus:placeholder-transparent focus:outline-none"
             />
           </motion.div>
 
@@ -151,7 +151,7 @@ const Contact = () => {
 
         {/* Contact Info Section */}
         <motion.div {...fadeInUp} className="w-full lg:w-1/2 h-full">
-          <SpotlightCard className="relative flex flex-col w-full p-6 gap-4 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15 bg-primary/2">
+          <SpotlightCard className="relative flex flex-col w-full p-6 gap-4 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15 bg-primary/1">
             <Suspense fallback={<Loader loading={true} variant="small" size={30} />}>
               <Particles
                 particleColors={['#ffffff', '#ffffff']}

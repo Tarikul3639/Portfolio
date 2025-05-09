@@ -63,7 +63,7 @@ export const Spotlight = ({
           }}
           className={`absolute top-0 left-0 origin-top-left`} />
       </motion.div>
-      <motion.div
+      {/* <motion.div
         animate={{
           x: [0, -xOffset, 0],
         }}
@@ -100,7 +100,7 @@ export const Spotlight = ({
             height: `${height}px`,
           }}
           className={`absolute top-0 right-0 origin-top-right`} />
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };

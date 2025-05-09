@@ -69,7 +69,7 @@ const Hero = () => {
   };
 
   // Styles for social media icons
-  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light dark:border-primary p-2 text-lg text-primary-light dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
+  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light/80 dark:border-primary p-2 text-lg text-primary-light/90 dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
@@ -108,7 +108,7 @@ const Hero = () => {
             </p>
 
             {/* Role text */}
-            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] bg-primary-light text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-secondary dark:via-primary dark:to-primary-light intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
+            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] bg-primary-light/80 text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-secondary dark:via-primary dark:to-primary-light intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
               Web Developer.
             </h1>
 
@@ -133,7 +133,7 @@ const Hero = () => {
                 onClick={() => handleClick()}
                 variant="primary"
                 icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black dark:text-primary-light" />}
-                className="peer max-lg:w-1/2 z-10 bg-primary-light hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 /text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
+                className="peer max-lg:w-1/2 z-10 bg-primary-light/80 hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 /text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
               {/* Social Media Icons - use directly without Suspense */}

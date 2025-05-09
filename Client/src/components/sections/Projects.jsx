@@ -152,7 +152,7 @@ const Projects = () => {
       custom={1}
       className="w-full relative"
     >
-      <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/5 dark:bg-primary/5 rounded-sm shadow-lg transition duration-100 ease-in-out">
+      <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/2 dark:bg-primary/2 rounded-sm shadow-lg transition duration-100 ease-in-out">
         {/* Project image */}
         <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
           <img
