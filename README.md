@@ -1,6 +1,8 @@
 # 💼 Tarikul Islam - Personal Portfolio
 
-Welcome to my personal portfolio website! This site showcases my projects, technical skills, and professional journey. Built with modern web technologies for speed, simplicity, and a seamless user experience.
+Welcome to my personal portfolio website! This site showcases my projects,
+technical skills, and professional journey. Built with modern web technologies for speed, simplicity,
+and a seamless user experience.
 
 ## 🌟 Features
 
@@ -15,6 +17,11 @@ Welcome to my personal portfolio website! This site showcases my projects, techn
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Fonts**: Google Fonts – JetBrains Mono, Outfit, Poppins, Source Sans 3
 - **Deployment**: [Vercel](https://vercel.com/)
+
+## 🌐 Visit My Portfolio
+
+You can view my portfolio here:  
+🔗 [https://tarikul-islam.netlify.app](https://tarikul-islam.netlify.app)
 
 ## ⚙️ Getting Started
 
@@ -101,10 +108,7 @@ Client/
 
 Feel free to connect with me:
 
-- **Email**: [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com)
-- **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/)
-- **GitHub**: [github.com/tarikul3639](https://github.com/tarikul3639)
+* **Email**: [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com)
+* **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/)
+* **GitHub**: [github.com/tarikul3639](https://github.com/tarikul3639)
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
