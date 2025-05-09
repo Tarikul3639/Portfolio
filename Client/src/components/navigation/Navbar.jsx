@@ -82,10 +82,9 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                         <li key={index} className="relative py-2 md:py-1 text-center md:text-left group">
                             <Link
                                 to={item.toLowerCase()}
-                                smooth={true}
                                 spy={true}
                                 onSetActive={() => setActiveLink(item.toLowerCase())}
-                                className={`poppins-medium text-primary-light dark:text-primary-dark/80 hover:text-primary hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
+                                className={`poppins-medium text-primary-light dark:text-primary-dark hover:text-primary hover:text-shadow-[1px_1px_1px_rgba(0,_200,_150,_0.2)] cursor-pointer transition-all duration-300 block
                                     ${activeLink === item.toLowerCase() ? "text-primary" : ""}`}
                                 onClick={() => setIsOpen(false)}
                             >

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Observer from './Observer.tsx';
-import Home from '../src/pages/Home.jsx';
-import CustomToastContainer from '../src/components/ui/ToastContainer.jsx';
+import Home from './pages/Home.jsx';
+import CustomToastContainer from './components/ui/ToastContainer.jsx';
 
 function App() {
   return (

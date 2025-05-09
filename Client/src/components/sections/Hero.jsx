@@ -14,7 +14,6 @@ import Linkedin from "../../assets/image/Linkedin.webp";
 import GitHub from "../../assets/image/GitHub.webp";
 
 // Import components directly
-import Spotlight from "../ui/Spotlight.jsx";
 import LinkPreview from "../ui/link-preview.jsx";
 import SplitText from "../ui/SplitText.jsx";
 
@@ -74,12 +73,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
-      {/* Use the component directly without Suspense */}
-      <Spotlight
-        className="absolute top-0 left-0 right-0 z-1"
-        fill="white"
-      />
-
+      
       <div
         className={cn(
           "absolute inset-0",

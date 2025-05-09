@@ -15,8 +15,6 @@ const Footer = () => {
                             <Link
                                 className="text-primary-light dark:text-primary-dark z-10 cursor-pointer overflow-hidden"
                                 to="home"
-                                smooth={true}
-                                duration={500}
                             >
                                 <h1 className="text-xl font-[title] pb-2 uppercase">
                                     <span className="inline-block first-letter:text-primary">Tarikul</span>
@@ -64,24 +62,24 @@ const Footer = () => {
                         </a>
                     </div>
                     <div className="space-y-4 font-light font-normal text-[15px]">
-                        <Link to="home" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="home" className={`${ItemClass}`}>
                             Home
                         </Link>
-                        <Link to="about" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="about" className={`${ItemClass}`}>
                             About
                         </Link>
-                        <Link to="projects" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="projects" className={`${ItemClass}`}>
                             Projects
                         </Link>
-                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="contact" className={`${ItemClass}`}>
                             Contact
                         </Link>
                     </div>
                     <div className="space-y-4 col-span-1 md:mt-0 font-normal text-[15px]">
-                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="contact" className={`${ItemClass}`}>
                             Service
                         </Link>
-                        <Link to="contact" smooth={true} duration={500} className={`${ItemClass}`}>
+                        <Link to="contact" className={`${ItemClass}`}>
                             FAQ
                         </Link>
                     </div>

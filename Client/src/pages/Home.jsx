@@ -2,6 +2,7 @@ import React from 'react';
 
 // Lazy load the SplashCursor for performance optimization
 const SplashCursor = React.lazy(() => import('../components/ui/SplashCursor.jsx'));
+const Spotlight = React.lazy(() => import('../components/ui/Spotlight.jsx'));
 
 // Navigation components
 import Navbar from '../components/navigation/Navbar.jsx';
@@ -16,7 +17,7 @@ import Contact from '../components/sections/Contact.jsx';
 
 const Home = () => {
   return (
-    <div className="flex flex-col bg-background-light dark:bg-background-dark items-center justify-center overflow-clip">
+    <div className="relative w-screen overflow-hidden">
 
       {/* Navigation bar at the top */}
       <Navbar />
@@ -33,9 +34,13 @@ const Home = () => {
       {/* Footer at the bottom */}
       <Footer />
 
-      {/* Suspense fallback for lazy-loaded SplashCursor */}
+      {/* Suspense fallback for lazy-loaded */}
       <React.Suspense fallback={<div />}>
-        {/* <SplashCursor /> */}
+        <Spotlight />
+      </React.Suspense>
+
+      <React.Suspense fallback={<div />}>
+        <SplashCursor />
       </React.Suspense>
 
     </div>
