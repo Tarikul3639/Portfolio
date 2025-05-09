@@ -28,7 +28,7 @@ Welcome to my personal portfolio website! This site showcases my projects, techn
 Clone the repository:
 
 ```bash
-git clone https://github.com/tarikulwebx/your-repo-name.git
+git clone https://github.com/tarikul3639/your-repo-name.git
 cd your-repo-name
 ```
 
@@ -63,23 +63,48 @@ yarn build
 ## 📁 Project Structure
 
 ```
+Client/
+├── public/             # Static assets, favicon, index.html
 ├── src/
-│   ├── assets/         # Images, icons, and static files
-│   ├── components/     # Reusable React components
-│   ├── pages/          # Main pages of the app
-│   └── styles/         # Global and custom styles
+│   ├── assets/         # Images, fonts, icons, etc.
+│   │   ├── images/
+│   │   ├── fonts/
+│   │   └── icons/
+│   ├── components/     # Reusable components
+│   │   ├── common/     # Truly reusable across the app
+│   │   │   └── Button.jsx
+│   │   ├── layout/     # Layout components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── DotScrollBar.jsx
+│   │   ├── ui/         # UI components
+│   │   │   └── SplashCursor.jsx
+│   │   └── sections/   # Page sections
+│   │       ├── AboutSection.jsx
+│   │       ├── ProjectsSection.jsx
+│   │       └── ContactSection.jsx
+│   ├── hooks/          # Custom hooks
+│   ├── context/        # Context providers
+│   ├── utils/          # Helper functions
+│   ├── services/       # API calls, external services
+│   ├── styles/         # Global styles, theme
+│   ├── pages/          # Page components
+│   │   ├── HomePage.jsx
+│   │   └── ViewportSection.jsx
+│   ├── App.jsx
+│   └── index.jsx
+├── package.json
+└── README.md
 ```
 
 ## 📫 Contact
 
 Feel free to connect with me:
 
-- **Email**: [tarikul.islam.rony@gmail.com](mailto:tarikul.islam.rony@gmail.com)
-- **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam/)
-- **GitHub**: [github.com/tarikulwebx](https://github.com/tarikulwebx)
+- **Email**: [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com)
+- **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/)
+- **GitHub**: [github.com/tarikul3639](https://github.com/tarikul3639)
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-Next i will update Loader + nav
