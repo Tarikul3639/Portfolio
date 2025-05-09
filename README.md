@@ -112,6 +112,3 @@ Feel free to connect with me:
 * **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/)
 * **GitHub**: [github.com/tarikul3639](https://github.com/tarikul3639)
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
