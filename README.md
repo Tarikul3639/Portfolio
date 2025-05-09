@@ -1,6 +1,3 @@
-Here's your updated and properly formatted `README.md` with the website link added:
-
-````markdown
 # 💼 Tarikul Islam - Personal Portfolio
 
 Welcome to my personal portfolio website! This site showcases my projects,
@@ -40,7 +37,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/tarikul3639/your-repo-name.git
 cd your-repo-name
-````
+```
 
 Install dependencies:
 
@@ -118,8 +115,3 @@ Feel free to connect with me:
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-```
-
-This version includes your portfolio link and uses proper Markdown formatting. Let me know if you need further changes!
-```
