@@ -73,7 +73,8 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
-      
+
+      {/* Background image */}
       <div
         className={cn(
           "absolute inset-0",

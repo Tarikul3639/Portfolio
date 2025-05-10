@@ -9,11 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 // Custom Components
 import Button from '../common/Button.jsx';
 import Loader from '../common/Loader.jsx';
-import SpotlightCard from '../ui/SpotlightCard.jsx';
 
 // Lazy load components to improve performance
-const Particles = lazy(() => import('../ui/Particles'));
 const TrueFocus = lazy(() => import('../ui/TrueFocus'));
+const Orbital = lazy(() => import('../ui/Orbital'));
 
 const Contact = () => {
   // State variables
@@ -130,7 +129,7 @@ const Contact = () => {
 
           <motion.div {...fadeInUp}>
             <textarea
-              rows="9"
+              rows="10"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
@@ -151,16 +150,9 @@ const Contact = () => {
 
         {/* Contact Info Section */}
         <motion.div {...fadeInUp} className="w-full lg:w-1/2 h-full">
-          <SpotlightCard className="relative flex flex-col w-full p-6 gap-4 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15 bg-primary/1">
+          <div className="relative flex flex-col w-full p-6 gap-4 text-sm text-primary-light dark:text-primary-dark/90 rounded-sm border border-primary-light/15 dark:border-primary-dark/15 bg-primary/1">
             <Suspense fallback={<Loader loading={true} variant="small" size={30} />}>
-              <Particles
-                particleColors={['#ffffff', '#ffffff']}
-                particleCount={200}
-                particleSpread={10}
-                speed={0.1}
-                particleBaseSize={100}
-                moveParticlesOnHover
-              />
+              <Orbital/>
             </Suspense>
 
             {/* WhatsApp Info */}
@@ -216,7 +208,7 @@ const Contact = () => {
                 </div>
               </a>
             </motion.div>
-          </SpotlightCard>
+          </div>
         </motion.div>
       </div>
     </section>
