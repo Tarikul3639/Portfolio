@@ -40,7 +40,7 @@ const Home = () => {
       </React.Suspense>
 
       <React.Suspense fallback={<div />}>
-        {/* <SplashCursor /> */}
+        <SplashCursor />
       </React.Suspense>
 
     </div>
