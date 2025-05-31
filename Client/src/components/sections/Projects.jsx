@@ -80,6 +80,7 @@ const Projects = () => {
     {
       title: "ChatFly",
       link: "https://github.com/Tarikul3639/ChatFly",
+      Live_link: "https://chatfly.netlify.app/",
       name: "ChatFly",
       description:
         "ChatFly is a real-time web-based chat app with secure user login, file sharing, media (image, video, text) exchange, and voice messaging for smooth, interactive communication.",
@@ -98,6 +99,7 @@ const Projects = () => {
     {
       title: "Electrifiers",
       link: "https://github.com/Tarikul3639/ELECTRIFIERS",
+      Live_link: "https://electrifiers.netlify.app/",
       name: "Electrifiers",
       description:
         "Electrifiers is a load-shedding notification system that provides real-time updates to residents based on location, along with energy-saving tips and emergency solutions.",
@@ -116,6 +118,7 @@ const Projects = () => {
     {
       title: "Portfolio",
       link: "https://github.com/Tarikul3639/Portfolio",
+      Live_link: "https://tarikul-islam.netlify.app/",
       name: "Portfolio",
       description:
         "This portfolio website showcases my development skills, projects, and technical stack using modern frontend technologies and animations.",
@@ -143,7 +146,7 @@ const Projects = () => {
    * @param {string} link - GitHub link
    */
 
-  const renderContent = (tech, image, description, name, link) => (
+  const renderContent = (tech, image, description, name, link, Live_link) => (
     <motion.div
       initial="hidden"
       whileInView="visible"
@@ -190,7 +193,9 @@ const Projects = () => {
           >
             GitHub<FontAwesomeIcon icon={faGithub} />
           </span>
-          <span className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-blue-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer z-50">
+          <span
+            onClick={() => window.open(Live_link, "_blank")}
+            className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-blue-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer z-50">
             Live Site<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </span>
         </div>
@@ -257,7 +262,7 @@ const Projects = () => {
                 {item.title}
               </h3>
               {/* Render project card */}
-              {renderContent(item.tech, item.image, item.description, item.name, item.link)}
+              {renderContent(item.tech, item.image, item.description, item.name, item.link, item.Live_link)}
             </div>
           </div>
         ))}
