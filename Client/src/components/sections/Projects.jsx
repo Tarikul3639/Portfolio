@@ -50,6 +50,21 @@ const Projects = () => {
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
     }
+    
+    // Function to recalculate on resize
+    const handleResize = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    };
+    
+    // Use passive event listener for better performance
+    window.addEventListener('resize', handleResize, { passive: true });
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [ref]);
 
   // Set up scroll animations
@@ -145,22 +160,24 @@ const Projects = () => {
    * @param {string} name - Project name
    * @param {string} link - GitHub link
    */
-
-  const renderContent = (tech, image, description, name, link, Live_link) => (
+  const renderContent = (tech, image, description, name, link, Live_link, index) => (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
       custom={1}
       className="w-full relative"
     >
       <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 p-4 bg-primary/2 dark:bg-primary/2 rounded-sm shadow-lg transition duration-100 ease-in-out">
-        {/* Project image */}
-        <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
+        {/* Project image */}        <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
           <img
             src={image}
             loading="lazy"
+            width="800"
+            height="450"
+            fetchpriority={index === 0 ? "high" : "auto"}
+            decoding="async"
             alt={`${name} interface`}
             className="h-50 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-80 lg:h-80"
           />
@@ -240,8 +257,7 @@ const Projects = () => {
       </div>
 
       {/* Timeline Content */}
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
-        {/* Map through project data and render each project */}
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">        {/* Map through project data and render each project */}
         {timelineData.map((item, index) => (
           <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
             {/* Timeline Circle and Title */}
@@ -262,7 +278,7 @@ const Projects = () => {
                 {item.title}
               </h3>
               {/* Render project card */}
-              {renderContent(item.tech, item.image, item.description, item.name, item.link, item.Live_link)}
+              {renderContent(item.tech, item.image, item.description, item.name, item.link, item.Live_link, index)}
             </div>
           </div>
         ))}

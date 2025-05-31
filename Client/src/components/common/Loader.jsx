@@ -20,7 +20,7 @@ const Loader = ({ loading, variant, size }) => {
 
     if (variant === "small") {
         return (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y- w-full h-full flex /items-center justify-center bg-background-light dark:bg-background-dark z-50">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex justify-center items-center dark:bg-background-dark z-50">
                 <HashLoader
                     size={size}
                     color="#00c896"
