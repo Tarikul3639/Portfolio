@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://tarikul-islam.netlify.app data:; connect-src 'self' https://*.netlify.app; frame-src 'none'; object-src 'none';" />
-    <title>
-      Tarikul Islam | Full Stack Developer | React, MongoDB, Tailwind Portfolio
-    </title>
+<html lang="en">
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" href="/portfolio-preview.png" />
-    <link rel="canonical" href="https://tarikul-islam.netlify.app/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Security policy add -->
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  img-src 'self' https://tarikul-islam.netlify.app data: blob:;
+  media-src 'self' data: blob:;
+  connect-src 'self' https://*.netlify.app https://prod.spline.design https://fonts.gstatic.com;
+  frame-src 'none';
+  object-src 'none';
+" />
 
-    <!-- Meta SEO -->
-    <meta
-      name="description"
-      content="Welcome to the official portfolio of Tarikul Islam, a passionate full stack developer skilled in React, Tailwind CSS, and MongoDB. Discover my projects, skills, and experience based in Bangladesh. Let’s build something great together!"
-    />
-    <meta
-      name="keywords"
-      content="Tarikul Islam, full stack developer, React developer, Tailwind CSS, MongoDB, Bangladesh portfolio, software engineer, web developer"
-    />
-    <meta name="author" content="Tarikul Islam" />
-    <meta name="robots" content="index, follow" />
+  <title>
+    Tarikul Islam | Full Stack Developer | React, MongoDB, Tailwind Portfolio
+  </title>
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Tarikul Islam | Full Stack Developer" />
-    <meta
-      property="og:description"
-      content="Explore my full stack development portfolio with React, Tailwind, and MongoDB."
-    />
-    <meta
-      property="og:image"
-      content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp"
-    />
-    <meta property="og:url" content="https://tarikul-islam.netlify.app/" />
-    <meta property="og:type" content="website" />
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" href="/portfolio-preview.png" />
+  <link rel="canonical" href="https://tarikul-islam.netlify.app/" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tarikul Islam | Full Stack Developer" />
-    <meta
-      name="twitter:description"
-      content="Explore my full stack development portfolio with React, Tailwind, and MongoDB."
-    />
-    <meta
-      name="twitter:image"
-      content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp"
-    />
+  <!-- Meta SEO -->
+  <meta name="description"
+    content="Welcome to the official portfolio of Tarikul Islam, a passionate full stack developer skilled in React, Tailwind CSS, and MongoDB. Discover my projects, skills, and experience based in Bangladesh. Let’s build something great together!" />
+  <meta name="keywords"
+    content="Tarikul Islam, full stack developer, React developer, Tailwind CSS, MongoDB, Bangladesh portfolio, software engineer, web developer" />
+  <meta name="author" content="Tarikul Islam" />
+  <meta name="robots" content="index, follow" />
 
-    <!-- Preconnect for fonts (optional) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tarikul Islam | Full Stack Developer" />
+  <meta property="og:description"
+    content="Explore my full stack development portfolio with React, Tailwind, and MongoDB." />
+  <meta property="og:image" content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
+  <meta property="og:url" content="https://tarikul-islam.netlify.app/" />
+  <meta property="og:type" content="website" />
 
-    <!-- Structured Data (Schema.org) -->
-    <script type="application/ld+json">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tarikul Islam | Full Stack Developer" />
+  <meta name="twitter:description"
+    content="Explore my full stack development portfolio with React, Tailwind, and MongoDB." />
+  <meta name="twitter:image" content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
+
+  <!-- Preconnect for fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -76,9 +77,11 @@
         }
       }
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
