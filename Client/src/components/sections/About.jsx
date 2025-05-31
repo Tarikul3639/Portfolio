@@ -118,6 +118,7 @@ const About = () => {
                                     {/* Image clipped inside the path shape */}
                                     <image
                                         href={Image}
+                                        alt="Tarikul Islam"
                                         x="-5"
                                         y="0"
                                         width="108%"

@@ -90,9 +90,9 @@ const Projects = () => {
         { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
         { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
         { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB', delay: 250 },
-        { icon: <img loading="lazy" src={socket} className="text-[#3B82F6] h-4 " />, name: 'Socket.io', delay: 300 },
+        { icon: <img loading="lazy" alt="Socket" src={socket} className="text-[#3B82F6] h-4 " />, name: 'Socket.io', delay: 300 },
         { icon: <img loading="lazy" src={WebRTC} alt="WebRTC" className="h-4" />, name: 'WebRTC', delay: 350 },
-        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
+        { icon: <img loading="lazy" alt="Express" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
       ]
     },
     {
@@ -108,9 +108,9 @@ const Projects = () => {
         { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
         { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
         { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB', delay: 250 },
-        { icon: <img loading="lazy" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 350 },
-        { icon: <img loading="lazy" src={socket} className=" h-4 " />, name: 'Socket.io', delay: 400 },
-        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 450 },
+        { icon: <img loading="lazy" alt="Tailwind" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 350 },
+        { icon: <img loading="lazy" alt="Socket" src={socket} className=" h-4 " />, name: 'Socket.io', delay: 400 },
+        { icon: <img loading="lazy" alt="Express" src={Express} className="h-4" />, name: 'Express.js', delay: 450 },
       ]
     },
     {
@@ -125,10 +125,10 @@ const Projects = () => {
         { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript', delay: 100 },
         { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
         { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
-        { icon: <img loading="lazy" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 250 },
+        { icon: <img loading="lazy" alt="Tailwind" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 250 },
         { icon: <img loading="lazy" src={FarmerMotion} alt="Framer Motion" className="h-4" />, name: 'Framer Motion', delay: 300 },
         { icon: <img loading="lazy" src={Rambo} alt="Custom Tech" className="h-4" />, name: 'Rambo', delay: 350 },
-        { icon: <img loading="lazy" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
+        { icon: <img loading="lazy" alt="Express" src={Express} className="h-4" />, name: 'Express.js', delay: 400 },
       ]
     },
   ];
