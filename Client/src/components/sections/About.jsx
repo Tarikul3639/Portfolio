@@ -1,3 +1,4 @@
+import React from 'react';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
 import Image from '../../assets/image/Profile Image.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,6 +50,7 @@ const About = () => {
     { label: 'C++', icon: <img src={C_Plus} alt="C++" className="h-4" />, delay: 0.65 },
     { label: 'VS Code', icon: <VscVscode className="text-blue-500" />, delay: 0.7 },
     { label: 'GitHub', icon: <FontAwesomeIcon icon={faGithub} style={{ color: 'gray' }} />, delay: 0.75 },
+    { label: '', icon: <img src={Rambo} alt="Rambo" className="h-4" />, delay: 0.8 },
   ];
 
 
@@ -192,7 +194,7 @@ const About = () => {
                       transition={{ delay, duration: 0.5 }}
                     >
                       {icon}
-                      <span>{label}</span>
+                      {label && <span>{label}</span>}
                     </motion.span>
                   ))}
                 </div>
