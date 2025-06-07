@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Lazy load the SplashCursor for performance optimization
-const SplashCursor = React.lazy(() => import('../components/ui/SplashCursor.jsx'));
 const Spotlight = React.lazy(() => import('../components/ui/Spotlight.jsx'));
 
 // Navigation components
@@ -37,10 +36,6 @@ const Home = () => {
       {/* Suspense fallback for lazy-loaded */}
       <React.Suspense fallback={<div />}>
         <Spotlight />
-      </React.Suspense>
-
-      <React.Suspense fallback={<div />}>
-        {/* <SplashCursor /> */}
       </React.Suspense>
 
     </div>

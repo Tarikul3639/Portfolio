@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import photo from "../../assets/image/Profile.webp";
 import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
@@ -214,4 +214,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);
