@@ -234,7 +234,7 @@ const Projects = () => {
           <SplitText
             text="Changelog from my journey"
             className="text-3xl font-[800] md:text-4xl text-black dark:text-white max-w-4xl"
-            delay={10}
+            delay={5}
             animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
             animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
             easing="easeOutCubic"
@@ -246,7 +246,7 @@ const Projects = () => {
           <SplitText
             text="I've been working on various projects. Here's a timeline of my journey."
             className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
-            delay={5}
+            delay={2}
             animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
             animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
             easing="easeOutCubic"
