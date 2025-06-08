@@ -4,8 +4,7 @@
   "description": "Portfolio website for Tarikul Islam, Full Stack Developer",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "white",
-  "theme_color": "white",
+  "background_color": "black",
   "icons": [
     {
       "src": "/Tarikul_Islam.webp",
