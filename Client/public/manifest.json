@@ -8,29 +8,9 @@
   "theme_color": "#111111",
   "icons": [
     {
-      "src": "/Tarikul Islam.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/Tarikul Islam.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/Tarikul Islam.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/Tarikul Islam.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/Tarikul Islam.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/Tarikul_Islam.webp",
+      "sizes": "512x512 192x192 180x180 32x32",
+      "type": "image/webp",
       "purpose": "any maskable"
     }
   ]

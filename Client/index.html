@@ -1,102 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  
-  <!-- SEO -->
-  <title>Tarikul Islam | Full Stack Developer | React, MongoDB, Tailwind Portfolio</title>
-  <meta name="description" content="Welcome to the official portfolio of Tarikul Islam, a passionate full stack developer skilled in React, Tailwind CSS, and MongoDB. Discover my projects, skills, and experience based in Bangladesh. Let's build something great together!" />
-  <meta name="keywords" content="Tarikul Islam, full stack developer, React developer, Tailwind CSS, MongoDB, Bangladesh portfolio, software engineer, web developer" />
-  <meta name="author" content="Tarikul Islam" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://tarikul-islam.netlify.app/" />
+  <head>
+    <!-- Meta Basics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Web App Support -->
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="Tarikul Islam Portfolio" />
-  <meta name="theme-color" content="#111111" />
+    <!-- SEO Optimization -->
+    <title>Tarikul Islam | Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Tarikul Islam, a full stack developer skilled in React, Tailwind CSS, and MongoDB."
+    />
+    <meta
+      name="keywords"
+      content="Tarikul Islam, Full Stack Developer, React, Tailwind CSS, MongoDB, Portfolio, Bangladesh"
+    />
+    <meta name="author" content="Tarikul Islam" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tarikul-islam.netlify.app/" />
 
-  <!-- Icons -->
-  <link rel="icon" type="image/png" href="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
-  <link rel="icon" href="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
-  <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="/portfolio-preview.png" />
+    <!-- Progressive Web App Support -->
+    <link rel="manifest" href="./public/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Tarikul Islam Portfolio" />
+    <meta name="theme-color" content="#111111" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Tarikul Islam | Full Stack Developer" />
-  <meta property="og:description" content="Explore my full stack development portfolio with React, Tailwind, and MongoDB." />
-  <meta property="og:image" content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
-  <meta property="og:url" content="https://tarikul-islam.netlify.app/" />
-  <meta property="og:type" content="website" />
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="./public/tarikul-Islam.webp" />
+    <link rel="apple-touch-icon" href="./public/tarikul-Islam.webp" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tarikul Islam | Full Stack Developer" />
-  <meta name="twitter:description" content="Explore my full stack development portfolio with React, Tailwind, and MongoDB." />
-  <meta name="twitter:image" content="https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp" />
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Tarikul Islam | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Explore my portfolio built with React, Tailwind CSS, and MongoDB."
+    />
+    <meta property="og:image" content="./public/tarikul-Islam.webp" />
+    <meta property="og:url" content="https://tarikul-islam.netlify.app/" />
+    <meta property="og:type" content="website" />
 
-  <!-- Preconnect and DNS Prefetch -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="https://tarikul-islam.netlify.app" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tarikul Islam | Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Explore my portfolio built with React, Tailwind CSS, and MongoDB."
+    />
+    <meta name="twitter:image" content="./public/tarikul-Islam.webp" />
 
-  <!-- Fonts -->
-  <link rel="preload" crossorigin="anonymous" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript>  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  </noscript>
+    <!-- Preconnect and DNS Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://tarikul-islam.netlify.app" />
 
-  <!-- Preload Critical Assets -->
-  <link rel="modulepreload" href="/src/main.jsx" />
-  <link rel="preload" href="/Tarikul Islam.png" as="image" fetchpriority="high" />
+    <!-- Preloading Critical Assets -->
+    <link rel="modulepreload" href="/src/main.jsx" />
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Tarikul Islam",
-    "url": "https://tarikul-islam.netlify.app",
-    "image": "https://tarikul-islam.netlify.app/assets/Profile%20Image-CoQdls0c.webp",
-    "jobTitle": "Full Stack Developer",
-    "description": "Official portfolio of Tarikul Islam, a full stack developer skilled in React, Tailwind, and MongoDB. Based in Bangladesh.",
-    "sameAs": [
-      "https://github.com/tarikul-islam",
-      "https://linkedin.com/in/tarikul-islam"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "mailto:your-email@example.com",
-      "contactType": "personal"
-    }
-  }
-  </script>
+    <!-- Structured Data with Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tarikul Islam",
+        "url": "https://tarikul-islam.netlify.app",
+        "image": "https://tarikul-islam.netlify.app/public/tarikul-Islam.webp",
+        "jobTitle": "Full Stack Developer",
+        "description": "Official portfolio of Tarikul Islam, a full stack developer skilled in React, Tailwind, and MongoDB. Based in Bangladesh.",
+        "sameAs": [
+          "https://github.com/tarikul-islam",
+          "https://linkedin.com/in/tarikul-islam"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "mailto:your-email@example.com",
+          "contactType": "personal"
+        }
+      }
+    </script>
 
-<!-- CSP -->
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval';
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-  img-src 'self' https://tarikul-islam.netlify.app data: blob:;
-  media-src 'self' data: blob:;
-  connect-src 'self' https://*.netlify.app https://prod.spline.design https://fonts.gstatic.com https://cdn.jsdelivr.net;
-  frame-src 'self';
-  object-src 'none';
-" />
+    <!-- Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' https://tarikul-islam.netlify.app data: blob:;
+      media-src 'self' data: blob:;
+      connect-src 'self' https://*.netlify.app https://prod.spline.design https://fonts.gstatic.com https://cdn.jsdelivr.net;
+      frame-src 'self';
+      object-src 'none';
+    "
+    />
+  </head>
+  <body style="position: relative; overflow-x: hidden">
+    <div id="root"></div>
 
-<body style="position: relative; overflow-x: hidden;">
-  <div id="root"></div>
-
-  <!-- Main App Script -->
-  <script type="module" src="/src/main.jsx"></script>
-</body>
-</html> 
+    <!-- Main Application Entry Point -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
