@@ -12,7 +12,7 @@ import {
 
 import { cn } from "../lib/utils.jsx";
 
-export const LinkPreview = ({
+const LinkPreview = ({
     children,
     url,
     className,

@@ -139,6 +139,7 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  position: relative; /* Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

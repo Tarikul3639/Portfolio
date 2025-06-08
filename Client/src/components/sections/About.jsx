@@ -1,6 +1,6 @@
 import React from 'react';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
-import Image from '../../assets/image/Profile Image.webp';
+import Image from '../../assets/image/Tarikul Islam.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";

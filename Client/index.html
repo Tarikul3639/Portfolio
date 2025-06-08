@@ -48,15 +48,15 @@
   <link rel="dns-prefetch" href="https://tarikul-islam.netlify.app" />
 
   <!-- Fonts -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
+  <link rel="preload" crossorigin="anonymous" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   </noscript>
 
   <!-- Preload Critical Assets -->
   <link rel="modulepreload" href="/src/main.jsx" />
-  <link rel="preload" href="/portfolio-preview.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="/Tarikul Islam.png" as="image" fetchpriority="high" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -80,7 +80,7 @@
   }
   </script>
 
-  <!-- CSP -->
+<!-- CSP -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   script-src 'self' 'unsafe-inline' 'unsafe-eval';
@@ -89,10 +89,9 @@
   img-src 'self' https://tarikul-islam.netlify.app data: blob:;
   media-src 'self' data: blob:;
   connect-src 'self' https://*.netlify.app https://prod.spline.design https://fonts.gstatic.com https://cdn.jsdelivr.net;
-  frame-src 'none';
+  frame-src 'self';
   object-src 'none';
 " />
-</head>
 
 <body style="position: relative; overflow-x: hidden;">
   <div id="root"></div>
