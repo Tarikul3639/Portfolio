@@ -63,10 +63,10 @@ const About = () => {
   };
 
   return (
-    <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
+    <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center lg:pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
       <div className="flex flex-col justify-center max-w-7xl p-4">
         {/* Header */}
-        <div className="my-15 md:my-30 px-2">
+        <div className="mb-15 lg:mb-20 px-2">
           <SplitText
             text="Let Me Introduce Myself"
             className="text-3xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
