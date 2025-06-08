@@ -1,43 +1,49 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 
-// Lazy load the SplashCursor for performance optimization
-const Spotlight = React.lazy(() => import('../components/ui/Spotlight.jsx'));
+// Eager load Hero only
+import Hero from '../components/sections/Hero.jsx';
+
+// Lazy‐load everything else
+const About         = lazy(() => import('../components/sections/About.jsx'));
+const Projects      = lazy(() => import('../components/sections/Projects.jsx'));
+const Contact       = lazy(() => import('../components/sections/Contact.jsx'));
+const Spotlight     = lazy(() => import('../components/ui/Spotlight.jsx'));
+const DotScrollBar  = lazy(() => import('../components/navigation/DotScrollBar.jsx'));
 
 // Navigation components
-import Navbar from '../components/navigation/Navbar.jsx';
-import Footer from '../components/navigation/Footer.jsx';
-import DotScrollBar from '../components/navigation/DotScrollBar.jsx';
+import Navbar    from '../components/navigation/Navbar.jsx';
+import Footer    from '../components/navigation/Footer.jsx';
+import Loader    from '../components/common/Loader.jsx';
 
-// Page sections
-import Hero from '../components/sections/Hero.jsx';
-import About from '../components/sections/About.jsx';
-import Projects from '../components/sections/Projects.jsx';
-import Contact from '../components/sections/Contact.jsx';
+// LoadingFallback component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-screen bg-[#111111] overflow-hidden">
+    <Loader loading={true} variant="small" size={50} />
+  </div>
+);
 
 const Home = () => {
   return (
     <div className="relative w-screen overflow-hidden">
-
-      {/* Navigation bar at the top */}
       <Navbar />
 
-      {/* Main content sections */}
+      {/* Hero eagerly */}
       <Hero />
-      <About />
-      <Projects />
-      <Contact />
 
-      {/* Navigation dot scrollbar for page section tracking */}
-      <DotScrollBar />
+      {/* The rest lazy‐loaded when first rendered */}
+      <Suspense fallback={<LoadingFallback />}>
+        <About />
+        <Projects />
+        <Contact />
+        <DotScrollBar />
+      </Suspense>
 
-      {/* Footer at the bottom */}
       <Footer />
 
-      {/* Suspense fallback for lazy-loaded */}
-      <React.Suspense fallback={<div />}>
+      {/* Spotlight cursor overlay, also lazy */}
+      <Suspense fallback={<LoadingFallback />}>
         <Spotlight />
-      </React.Suspense>
-
+      </Suspense>
     </div>
   );
 };
