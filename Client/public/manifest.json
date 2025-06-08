@@ -1,15 +1,15 @@
 {
-  "name": "Tarikul Islam Portfolio",
-  "short_name": "TI Portfolio",
+  "name": "Tarikul Islam",
+  "short_name": "Tarikul",
   "description": "Portfolio website for Tarikul Islam, Full Stack Developer",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#111111",
+  "background_color": "white",
+  "theme_color": "white",
   "icons": [
     {
       "src": "/Tarikul_Islam.webp",
-      "sizes": "512x512 192x192 180x180 32x32",
+      "sizes": "512x512",
       "type": "image/webp",
       "purpose": "any maskable"
     }
