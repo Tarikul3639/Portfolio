@@ -44,9 +44,9 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
     };
 
     return (
-        <nav className={`${isOpen ? "bg-background-light/95 dark:bg-background-dark/95" : " "} w-full min-w-[250px] text-white px-4 py-0 shadow-xl fixed top-0 left-0 z-999`}>
-            <div className="container mx-auto flex items-center justify-between">
-                {/* Logo */}
+        <nav className={`${isOpen ? "bg-background-light/95 dark:bg-background-dark/95" : " "} flex items-center justify-center w-full min-w-[250px] text-white px-4 py-0 shadow-xl fixed top-0 left-0 z-999 text-sm`}>
+            <div className="md:container w-full flex py-1 items-center justify-between">
+                {/* Logo */}    
                 <Link className="text-primary-light dark:text-primary-dark z-10 cursor-pointer overflow-hidden" to="home" smooth={true}>
                     <h1 className="text-xl font-[title] pb-2 uppercase" >
                         <span className={`inline-block first-letter:text-primary`}>{title}</span>

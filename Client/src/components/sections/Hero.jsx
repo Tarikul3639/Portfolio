@@ -91,7 +91,7 @@ const Hero = () => {
       <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
         {/* Left side section (text and button) */}
         <div className="flex w-full items-center justify-center lg:h-full lg:w-1/2">
-          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center sm:pl-10 lg:h-full lg:items-start lg:pl-0">
+          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center md:pl-10 lg:h-full lg:items-start lg:pl-0">
             <p className="hidden text-xs border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center gap-2 fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shine overflow-hidden z-50 w-max">
               Available for new projects
             </p>
@@ -114,7 +114,7 @@ const Hero = () => {
             </h1>
 
             {/* Description text - use directly without Suspense */}
-            <div className={`text-primary-light/80 dark:text-primary-dark/70 font-[500] my-3 inline-block w-[97%] text-base source-sans-3 xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000 poppins-regular`}>
+            <div className={`text-primary-light/80 dark:text-primary-dark/70 font-[500] my-3 inline-block w-[97%] text-md font-light xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
               <SplitText
                 text={`${DESCRIPTION}`}
                 delay={20}
@@ -134,7 +134,7 @@ const Hero = () => {
                 onClick={() => handleClick()}
                 variant="primary"
                 icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black dark:text-primary-light" />}
-                className="peer max-lg:w-1/2 z-10 bg-primary-light/80 hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 /text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
+                className="peer max-lg:w-1/2 z-10 bg-primary-light/80 font-semibold hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
               />
 
               {/* Social Media Icons - use directly without Suspense */}

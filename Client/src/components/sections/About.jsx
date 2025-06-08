@@ -130,7 +130,7 @@ const About = () => {
                 {/* About Me Description */}
                 <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
 
-                <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200 text-justify">
+                <p className="text-sm leading-relaxed text-neutral-800 dark:text-gray-200 text-justify">
                   {AboutMe[0]}
                 </p>
               </div>
@@ -144,12 +144,12 @@ const About = () => {
               <SpotlightCard className={`flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
                 <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
                 <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
-                  <p className="text-primary-light dark:text-primary-dark">Bangladesh University of Business and Technology</p>
-                  <p className='text-end text-primary-light dark:text-primary-dark'>2022 - 2026</p>
+                  <p className="text-primary-light dark:text-primary-dark/90">Bangladesh University of Business and Technology</p>
+                  <p className='text-end text-primary-light dark:text-primary-dark/90'>2022 - 2026</p>
                 </a>
                 <div className='flex flex-row items-center justify-between w-full'>
-                  <p className="text-primary-light dark:text-primary-dark">Computer Science and Engineering</p>
-                  <p className="text-primary-light dark:text-primary-dark">Current CGPA: 3.56</p>
+                  <p className="text-primary-light dark:text-primary-dark/90">Computer Science and Engineering</p>
+                  <p className="text-primary-light dark:text-primary-dark/90">Current CGPA: 3.56</p>
                 </div>
               </SpotlightCard>
             </motion.div>
@@ -166,7 +166,7 @@ const About = () => {
                   <p>Self-initiated</p>
                   <p>Remote</p>
                 </div>
-                <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/80 text-sm font-normal'>
+                <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/85 text-sm font-normal'>
                   <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                   </p>

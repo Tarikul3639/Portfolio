@@ -185,7 +185,7 @@ const Projects = () => {
 
         {/* Project details */}
         <h2 className="w-full items-left text-2xl font-bold mb-2">{name}</h2>
-        <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+        <p className="text-sm font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
           {description}
         </p>
 
