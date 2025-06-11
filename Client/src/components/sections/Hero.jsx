@@ -114,7 +114,7 @@ const Hero = () => {
             </h1>
 
             {/* Description text - use directly without Suspense */}
-            <div className={`text-primary-light/80 dark:text-primary-dark/70 font-[500] my-3 inline-block w-[97%] text-md font-light xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
+            <div className={`text-primary-light/90 dark:text-primary-dark/92 font-[500] my-3 inline-block w-[97%] text-md font-light xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
               <SplitText
                 text={`${DESCRIPTION}`}
                 delay={20}
