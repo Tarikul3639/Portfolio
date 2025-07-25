@@ -168,6 +168,9 @@ const About = () => {
                 </div>
                 <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/85 text-sm font-normal'>
                   <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
+                  Krishok Palli An agriculture-focused web platform helping Bangladeshi users track seasonal vegetables, market prices, and weather updates.
+                  </p>
+                  <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
                     Developed a messaging web application, focusing on real-time communication features like messaging and calling.
                   </p>
                   <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>

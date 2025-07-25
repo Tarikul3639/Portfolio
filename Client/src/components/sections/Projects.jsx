@@ -11,11 +11,14 @@ import FarmerMotion from '../../assets/icons/Motion.svg';
 import tailwind from '../../assets/icons/tailwind-css-icon.svg';
 import socket from '../../assets/icons/socket-io-icon.svg';
 import Express from '../../assets/icons/express-js.svg';
+const cloudinary = './icon/Cloudinary.svg';
+const resend = './icon/resend.svg';
 
 // Project images
-import ChatFly from '../../assets/image/ChatFly.png';
-import Electrifiers from '../../assets/image/Electrifiers.webp';
-import Portfolio from '../../assets/image/Portfolio.webp';
+const ChatFly = './image/ChatFly.png';
+const Electrifiers = './image/Electrifiers.webp';
+const Portfolio = './image/Portfolio.webp';
+const krishokPalli = './image/krishok-palli.png';
 
 // Font Awesome icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -50,7 +53,7 @@ const Projects = () => {
       const rect = ref.current.getBoundingClientRect();
       setHeight(rect.height);
     }
-    
+
     // Function to recalculate on resize
     const handleResize = () => {
       if (ref.current) {
@@ -58,10 +61,10 @@ const Projects = () => {
         setHeight(rect.height);
       }
     };
-    
+
     // Use passive event listener for better performance
     window.addEventListener('resize', handleResize, { passive: true });
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -92,6 +95,25 @@ const Projects = () => {
 
   // --- Project Data ---
   const timelineData = [
+    {
+      title: "Krishok Palli",
+      link: "https://github.com/Tarikul3639/Krishok-Palli",
+      Live_link: "https://krishok-palli.netlify.app/",
+      name: "Krishok Palli",
+      description: "Krishok Palli is a comprehensive platform for farmers, offering features like crop management, weather updates, and a marketplace for agricultural products.",
+      image: krishokPalli,
+      tech: [
+        { icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, name: 'CSS', delay: 50 },
+        { icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, name: 'JavaScript', delay: 100 },
+        { icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, name: 'ReactJS', delay: 150 },
+        { icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, name: 'NodeJS', delay: 200 },
+        { icon: <DiMongodb className="text-[#47A248] text-sm" />, name: 'MongoDB', delay: 250 },
+        { icon: <img loading="lazy" alt="Tailwind" src={tailwind} className="h-4" />, name: 'Tailwind CSS', delay: 300 },
+        { icon: <img loading="lazy" alt="Express" src={Express} className="h-4" />, name: 'Express.js', delay: 350 },
+        { icon: <img loading="lazy" alt="Cloudinary" src={cloudinary} className="h-4" />, name: null, delay: 400 },
+        { icon: <img loading="lazy" alt="Resend" src={resend} className="h-4" />, name: 'Resend', delay: 450 },
+      ]
+    },
     {
       title: "ChatFly",
       link: "https://github.com/Tarikul3639/ChatFly",
