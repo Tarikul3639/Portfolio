@@ -192,7 +192,8 @@ const Projects = () => {
       className="w-full relative"
     >
       <SpotlightCard className="custom-spotlight-card flex flex-col items-start gap-4 border border-primary-light/15 dark:border-primary-dark/15 bg-primary/2 dark:bg-primary/2 rounded-sm shadow-lg transition duration-100 ease-in-out">
-        {/* Project image */}        <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
+        {/* Project image */} 
+        <div className="w-full hover:scale-101 overflow-hidden transition-transform duration-100 ease-in-out">
           <img
             src={image}
             loading="lazy"
@@ -225,7 +226,7 @@ const Projects = () => {
         </div>
 
         {/* Action buttons */}
-        <div className="flex gap-4 mt-5">
+        <div className="flex gap-4">
           <span
             onClick={() => window.open(link, "_blank")}
             className="px-5 py-2 rounded-xl flex justify-center items-center gap-2 text-sm border border-neutral-600 shadow-md hover:bg-neutral-800 hover:text-white transition-transform duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 intersect:motion-preset-slide-up cursor-pointer z-50"
