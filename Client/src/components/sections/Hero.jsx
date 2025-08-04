@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import photo from "../../assets/image/Tarikul Islam.png";
+import photo from "../../assets/image/Profile.webp";
 import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
