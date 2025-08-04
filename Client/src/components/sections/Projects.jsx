@@ -117,7 +117,7 @@ const Projects = () => {
     {
       title: "ChatFly",
       link: "https://github.com/Tarikul3639/ChatFly",
-      Live_link: "https://chatfly.netlify.app/",
+      Live_link: "https://chatfly.vercel.app/",
       name: "ChatFly",
       description:
         "ChatFly is a real-time web-based chat app with secure user login, file sharing, media (image, video, text) exchange, and voice messaging for smooth, interactive communication.",
