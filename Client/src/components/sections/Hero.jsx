@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import photo from "../../assets/image/Profile.webp";
+import photo from "../../assets/image/Tarikul Islam.png";
 import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -189,7 +189,7 @@ const Hero = () => {
 
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full lg:w-1/2">
-          <div className="relative mt-14 flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
+          <div className="relative flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
             <img src={photo} loading="eager" alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
