@@ -64,7 +64,7 @@ const About = () => {
 
   return (
     <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center lg:pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
-      <div className="flex flex-col justify-center max-w-7xl p-4">
+      <div className="flex flex-col justify-center max-w-7xl p-2 sm:p-4">
         {/* Header */}
         <div className="mb-15 lg:mb-20 px-2">
           <SplitText
@@ -141,7 +141,7 @@ const About = () => {
           <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
             {/* Education */}
             <motion.div {...fadeInUp} className="w-full">
-              <SpotlightCard className={`flex flex-col items-center justify-center w-full p-4 text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
+              <SpotlightCard className={`flex flex-col items-center justify-center w-full text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
                 <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
                 <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
                   <p className="text-primary-light dark:text-primary-dark/90">Bangladesh University of Business and Technology</p>
@@ -156,7 +156,7 @@ const About = () => {
 
             {/* Experience */}
             <motion.div {...fadeInUp} className="w-full">
-              <SpotlightCard className={`Experience relative flex flex-col items-center justify-center w-full text-base p-4 border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark ${CardBackground}`}>
+              <SpotlightCard className={`Experience relative flex flex-col items-center justify-center w-full text-base border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark ${CardBackground}`}>
                 <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
                 <div className='flex flex-row items-center justify-between w-full text-sm'>
                   <p>Full Stack Developer</p>
@@ -184,7 +184,7 @@ const About = () => {
             </motion.div>
             {/* Skills Section */}
             <motion.div {...fadeInUp}>
-              <SpotlightCard className={`Skills relative flex flex-col items-start w-full p-4 outfit border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
+              <SpotlightCard className={`Skills relative flex flex-col items-start w-full outfit border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
                 <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
                 <div className="flex flex-wrap gap-2">
                   {techStack.map(({ label, icon, delay }, index) => (
