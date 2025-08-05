@@ -200,7 +200,7 @@ const Hero = () => {
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full lg:w-1/2">
           <div className="relative flex h-80 w-80 items-center justify-center lg:mt-0 lg:h-110 lg:w-110 p-7 lg:p-10">
-            <img src={photo} loading="eager" alt="Tarikul Islam" className="w-full h-full overflow-hidden rounded-full object-cover object-[0%_18%] scale-120 mask-b-from-70% mask-radial-[50%_50%] mask-radial-from-30%" />
+            <img src={photo} loading="eager" alt="Tarikul Islam" className="w-full h-full overflow-hidden rounded-full object-cover object-[0%_18%] scale-120 mask-radial-[50%_50%] mask-radial-from-30%" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
