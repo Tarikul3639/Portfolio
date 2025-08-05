@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from "react";
-import photo from "../../assets/image/Profile.webp";
+import photo from "../../assets/image/Profile.jpg";
 import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,8 @@ import Tweeter from "../../assets/image/Tweeter.webp";
 import Linkedin from "../../assets/image/Linkedin.webp";
 import GitHub from "../../assets/image/GitHub.webp";
 
+import Cropper from 'react-easy-crop';
+
 // Import components directly
 import LinkPreview from "../ui/link-preview.jsx";
 import SplitText from "../ui/SplitText.jsx";
@@ -22,6 +24,14 @@ const DESCRIPTION = [`Passionate coder aspiring to architect software solutions 
 
 const Hero = () => {
   const [loading, setLoading] = useState(false);
+
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
 
   const handleClick = async () => {
     console.log("Download button clicked: ", import.meta.env.VITE_API_URL);
@@ -189,8 +199,8 @@ const Hero = () => {
 
         {/* Right side section (profile image) */}
         <div className="flex items-center justify-center lg:h-full lg:w-1/2">
-          <div className="relative flex h-80 w-80 items-center justify-center overflow-hidden rounded-full lg:mt-0 lg:h-110 lg:w-110">
-            <img src={photo} loading="eager" alt="Tarikul Islam" className="h-full w-full p-1.5 object-cover" />
+          <div className="relative flex h-80 w-80 items-center justify-center lg:mt-0 lg:h-110 lg:w-110 p-7 lg:p-10">
+            <img src={photo} loading="eager" alt="Tarikul Islam" className="w-full h-full overflow-hidden rounded-full object-cover object-[0%_18%] scale-120 mask-b-from-70% mask-radial-[50%_50%] mask-radial-from-30%" />
             <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
               <defs>
                 <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
