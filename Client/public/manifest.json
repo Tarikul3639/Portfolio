@@ -8,10 +8,10 @@
   "theme_color": "#111111",
   "icons": [
     {
-      "src": "/Tarikul_Islam.webp",
+      "src": "/icon.png",
       "sizes": "512x512",
-      "type": "image/webp",
-      "purpose": "any"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
