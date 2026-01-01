@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen, setIsOpen, menuItems, activeLink, setActiveLink, togg
                         <div className="p-8 flex items-center justify-between border-b border-neutral-200 dark:border-white/5">
                             <div className="flex flex-col">
                                 <span className="text-[10px] font-mono text-primary tracking-widest uppercase">System Menu</span>
-                                <span className="text-xs text-neutral-500 font-bold">v2.0.4 - Active</span>
+                                <span className="text-xs text-neutral-500 font-bold">v4.0.4 - Active</span>
                             </div>
                             <button
                                 onClick={() => setIsOpen(false)}
