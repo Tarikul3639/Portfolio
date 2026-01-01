@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Normal/Eager Imports (Directly Loaded)
 import Navbar from '../components/navigation/Navbar.jsx';

@@ -1,14 +1,14 @@
 import { Link } from "react-scroll";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faGithub, faLinkedin, faTwitter, faFacebook, faInstagram, faDribbble 
+import {
+    faGithub, faLinkedin, faTwitter, faFacebook, faInstagram, faDribbble
 } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUp, faBolt, faSatellite, faMicrochip, faTerminal } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faSatellite, faMicrochip, faTerminal } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    
+
     // Mouse movement for the top glow effect
     const mouseX = useMotionValue(0);
     const handleMouseMove = ({ clientX, currentTarget }) => {
@@ -17,7 +17,7 @@ const Footer = () => {
     };
 
     const ItemClass = "block cursor-pointer text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-x-2 flex items-center gap-2 group/link";
-    
+
     const socialLinks = [
         { icon: faGithub, url: "https://github.com/Tarikul3639" },
         { icon: faLinkedin, url: "https://www.linkedin.com/in/Tarikul3639" },
@@ -28,13 +28,13 @@ const Footer = () => {
     ];
 
     return (
-        <footer 
-            id="footer" 
+        <footer
+            id="footer"
             onMouseMove={handleMouseMove}
             className="relative w-full bg-[#020202] pt-32 pb-12 px-6 overflow-hidden border-t border-white/5 group/footer"
         >
             {/* --- TOP DYNAMIC GLOW BEAM --- */}
-            <motion.div 
+            <motion.div
                 className="absolute top-0 h-[2px] w-40 bg-primary blur-[4px] z-20 pointer-events-none"
                 style={{ left: mouseX, x: "-50%" }}
             />
@@ -45,30 +45,34 @@ const Footer = () => {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
-                    
+
                     {/* BRANDING SECTION */}
                     <div className="lg:col-span-5 space-y-10">
                         <div className="relative inline-block">
                             <Link to="home" className="inline-block cursor-pointer group">
-                                <motion.h1 
+                                <motion.h1
                                     className="text-4xl font-black italic tracking-tighter uppercase text-white"
                                     whileHover={{ skewX: -10 }}
                                 >
                                     TARIKUL<span className="text-primary drop-shadow-[0_0_8px_#00eeff]">.</span>
                                 </motion.h1>
                             </Link>
-                            <motion.div 
+                            <motion.div
                                 className="absolute -bottom-2 left-0 h-[2px] bg-primary"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "100%" }}
                                 transition={{ duration: 1 }}
                             />
                         </div>
-                        
+
                         <p className="text-neutral-400 text-sm max-w-sm leading-relaxed font-medium italic border-l-2 border-primary/20 pl-4">
-                            "Engineering the void between imagination and digital reality. 
-                            Operating on <span className="text-primary/80 font-bold uppercase tracking-widest text-[10px]">Nexion OS v2.0</span>."
+                            {"\"Engineering the void between imagination and digital reality. Operating on "}
+                            <span className="text-primary/80 font-bold uppercase tracking-widest text-[10px]">
+                                Nexion OS v4.0
+                            </span>
+                            {"\"."}
                         </p>
+
 
                         {/* SOCIALS WITH NEON HOVER */}
                         <div className="flex flex-wrap gap-4">
@@ -78,8 +82,8 @@ const Footer = () => {
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ 
-                                        y: -5, 
+                                    whileHover={{
+                                        y: -5,
                                         boxShadow: "0 0 20px rgba(0, 238, 255, 0.3)",
                                         borderColor: "rgba(0, 238, 255, 0.5)"
                                     }}
@@ -117,7 +121,7 @@ const Footer = () => {
                         </div>
 
                         {/* INTERACTIVE STATUS BOX */}
-                        <motion.div 
+                        <motion.div
                             whileHover={{ scale: 1.02 }}
                             className="col-span-2 md:col-span-1 p-[1px] rounded-[2rem] bg-gradient-to-br from-white/10 to-transparent group/status hover:from-primary/40"
                         >
@@ -150,8 +154,8 @@ const Footer = () => {
                             LATENCY: 14MS | ENCRYPTION: AES-256
                         </p>
                     </div>
-                    
-                    <motion.button 
+
+                    <motion.button
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,238,255,0.1)" }}
                         whileTap={{ scale: 0.95 }}
@@ -165,7 +169,7 @@ const Footer = () => {
             </div>
 
             {/* WATERMARK WITH HOVER GLOW */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0.01 }}
                 whileHover={{ opacity: 0.05, letterSpacing: "0.2em" }}
                 className="absolute -bottom-16 -right-10 text-[14rem] font-black text-white select-none pointer-events-none uppercase italic tracking-tighter transition-all duration-1000"

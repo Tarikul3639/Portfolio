@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLocationDot, faPaperPlane, faIdBadge, faCircleDot } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Custom Components
@@ -161,4 +160,4 @@ const Contact = () => {
   );
 };
 
-export default React.memo(Contact);
+export default Contact;

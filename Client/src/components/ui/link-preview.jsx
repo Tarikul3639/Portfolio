@@ -1,15 +1,8 @@
-"use client";;
+"use client";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-
 import { encode } from "qss";
-import React from "react";
-import {
-    AnimatePresence,
-    motion,
-    useMotionValue,
-    useSpring,
-} from "motion/react";
-
+import React, { useState, useEffect, useCallback } from "react";
+import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion"; // Changed to framer-motion for stability
 import { cn } from "../lib/utils.jsx";
 
 const LinkPreview = ({
@@ -18,110 +11,86 @@ const LinkPreview = ({
     className,
     width = 250,
     height = 125,
-    quality = 50,
-    layout = "fixed",
     isStatic = false,
     imageSrc = ""
 }) => {
-    let src;
-    if (!isStatic) {
-        const params = encode({
-            url,
-            screenshot: true,
-            meta: false,
-            embed: "screenshot.url",
-            colorScheme: "dark",
-            "viewport.isMobile": true,
-            "viewport.deviceScaleFactor": 1,
-            "viewport.width": width * 3,
-            "viewport.height": height * 3,
-        });
-        src = `https://api.microlink.io/?${params}`;
-    } else {
-        src = imageSrc;
-    }
+    const [isOpen, setOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-    const [isOpen, setOpen] = React.useState(false);
-
-    const [isMounted, setIsMounted] = React.useState(false);
-
-    React.useEffect(() => {
+    useEffect(() => {
         setIsMounted(true);
     }, []);
 
-    const springConfig = { stiffness: 100, damping: 15 };
+    // API URL Logic
+    const src = isStatic ? imageSrc : `https://api.microlink.io/?${encode({
+        url,
+        screenshot: true,
+        meta: false,
+        embed: "screenshot.url",
+        colorScheme: "dark",
+        "viewport.width": width * 2,
+        "viewport.height": height * 2,
+    })}`;
+
     const x = useMotionValue(0);
+    const translateX = useSpring(x, { stiffness: 100, damping: 15 });
 
-    const translateX = useSpring(x, springConfig);
+    // --- OPTIMIZED MOUSE MOVE (Jitter Fix) ---
+    const handleMouseMove = useCallback((event) => {
+        // স্ক্রলিং করার সময় মাউস মুভমেন্ট ক্যালকুলেশন বন্ধ রাখবে
+        if (window.scrollY > 0 && Math.abs(event.movementY) > 5) return;
 
-    const handleMouseMove = (event) => {
-        const targetRect = event.target.getBoundingClientRect();
+        const targetRect = event.currentTarget.getBoundingClientRect();
         const eventOffsetX = event.clientX - targetRect.left;
-        const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
+        const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
         x.set(offsetFromCenter);
-    };
+    }, [x]);
 
     return (
         <>
-            {isMounted ? (
+            {isMounted && (
                 <div className="hidden">
-                    <img loading="lazy" src={src} width={width} height={height} alt="hidden image" />
+                    <img loading="lazy" src={src} width={width} height={height} alt="" />
                 </div>
-            ) : null}
+            )}
+            
             <HoverCardPrimitive.Root
-                openDelay={50}
-                closeDelay={100}
-                onOpenChange={(open) => {
-                    setOpen(open);
-                }}>
+                openDelay={100} // সামান্য ডিলে দেওয়া হয়েছে যাতে ক্লিক করার সময় হুট করে পপআপ না আসে
+                closeDelay={50}
+                onOpenChange={setOpen}
+            >
                 <HoverCardPrimitive.Trigger
                     onMouseMove={handleMouseMove}
-                    className={cn("text-black dark:text-white", className)}
-                    href={url}>
+                    className={cn("text-black dark:text-white cursor-pointer", className)}
+                    asChild // Trigger কে বাটনের ভেতর এম্বেড করার জন্য
+                >
                     {children}
                 </HoverCardPrimitive.Trigger>
 
                 <HoverCardPrimitive.Content
-                    className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
+                    className="z-[1001] pointer-events-none" // পপআপ যেন স্ক্রলকে বাধা না দেয়
                     side="top"
                     align="center"
-                    sideOffset={10}>
-                    <AnimatePresence>
+                    sideOffset={15}
+                >
+                    <AnimatePresence mode="wait">
                         {isOpen && (
                             <motion.div
-                                initial={{ opacity: 0, y: 20, scale: 0.6 }}
-                                animate={{
-                                    opacity: 1,
-                                    y: 0,
-                                    scale: 1,
-                                    transition: {
-                                        type: "spring",
-                                        stiffness: 260,
-                                        damping: 20,
-                                    },
-                                }}
-                                exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                                className="shadow-xl rounded-xl"
-                                style={{
-                                    x: translateX,
-                                }}>
-                                <a
-                                    href={url}
-                                    target="_blank" // ✅ open in new tab
-                                    rel="noopener noreferrer" // ✅ security best practice
-                                    className="block border border-transparent shadow rounded-xl hover:border-primary dark:hover:border-primary-light"
-                                    style={{ fontSize: 0 }}
-                                >
+                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                style={{ x: translateX }}
+                                className="shadow-2xl rounded-xl overflow-hidden border border-white/10 bg-[#050505]"
+                            >
+                                <div className="block p-1 bg-black/50 backdrop-blur-lg">
                                     <img
-                                        src={isStatic ? imageSrc : src}
-                                        loading="lazy"
+                                        src={src}
                                         width={width}
                                         height={height}
-                                        className="rounded-lg"
-                                        alt="preview image"
+                                        className="rounded-lg object-cover"
+                                        alt="preview"
                                     />
-                                </a>
-
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -131,5 +100,4 @@ const LinkPreview = ({
     );
 };
 
-// Add default export for React.lazy compatibility
-export default LinkPreview;
+export default React.memo(LinkPreview);

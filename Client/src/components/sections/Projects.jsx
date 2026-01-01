@@ -11,7 +11,7 @@ import krishokPalli from '../../assets/image/krishok-palli.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpRightFromSquare, faTerminal, faCode, faMicrochip } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faCode, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { DiMongodb } from "react-icons/di";
 
 import SpotlightCard from '../ui/SpotlightCard.jsx';
@@ -205,4 +205,4 @@ const Projects = () => {
   );
 };
 
-export default React.memo(Projects);
+export default Projects;

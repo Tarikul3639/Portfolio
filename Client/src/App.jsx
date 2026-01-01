@@ -1,17 +1,8 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Observer from './Observer.tsx';
 import CustomToastContainer from './components/ui/ToastContainer.jsx';
 import Loader from './components/common/Loader.jsx';
-
-// Lazy load the Home page for better performance
-// const Home = lazy(() =>
-//   new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve(import('./pages/Home.jsx'));
-//     }, 10000); // 1 second delay
-//   })
-// );
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 
@@ -19,7 +10,7 @@ const Home = lazy(() => import('./pages/Home.jsx'));
 // Loading component while the main content is being loaded
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-screen bg-[#111111] overflow-hidden">
-    <Loader loading={true} variant="small" size={50} />
+    <Loader loading={true} variant="full" size={50} />
   </div>
 );
 

@@ -1,11 +1,9 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import photo from "../../assets/image/Profile.jpg";
-import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { cn } from "../lib/utils.jsx";
 import { toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
@@ -77,7 +75,7 @@ const Hero = () => {
           </div>
 
           <h2 className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-300">
-            Hi, I'm <span className="text-primary font-bold">
+            {`Hi, I'm `}<span className="text-primary font-bold">
               <TypeAnimation sequence={WORDS} repeat={Infinity} />
             </span>
           </h2>
@@ -186,4 +184,4 @@ const Hero = () => {
   );
 };
 
-export default React.memo(Hero);
+export default Hero;
