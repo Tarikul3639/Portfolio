@@ -167,38 +167,38 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
 
-{/* Floating Badges - Minimalist & Compact */}
-<motion.div 
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ delay: 1, duration: 0.5 }}
-  className="absolute -bottom-4 -right-4 z-20 animate-float"
->
-  <div className="relative group">
-    {/* Subtle Glow */}
-    <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
-    
-    {/* Compact Glass Container */}
-    <div className="relative flex items-center gap-2.5 bg-white/90 dark:bg-[#0f0f0f]/90 backdrop-blur-md p-2.5 px-3.5 rounded-xl border border-neutral-200/50 dark:border-white/10 shadow-lg">
-      
-      {/* Small Gradient Circle */}
-      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-sm">
-        <span className="text-white font-bold text-sm tracking-tighter">2+</span>
-      </div>
+            {/* Floating Badges - Minimalist & Compact */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="absolute -bottom-4 -right-4 z-20 animate-float"
+            >
+              <div className="relative group">
+                {/* Subtle Glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
 
-      {/* Tiny Refined Text */}
-      <div className="flex flex-col justify-center">
-        <span className="text-[9px] font-black text-primary uppercase tracking-[0.15em] leading-none mb-0.5">
-          Experience
-        </span>
-        <span className="text-[10px] font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide leading-tight">
-          Years of<br />Mastery
-        </span>
-      </div>
-      
-    </div>
-  </div>
-</motion.div>
+                {/* Compact Glass Container */}
+                <div className="relative flex items-center gap-2.5 bg-white/90 dark:bg-[#0f0f0f]/90 backdrop-blur-md p-2.5 px-3.5 rounded-xl border border-neutral-200/50 dark:border-white/10 shadow-lg">
+
+                  {/* Small Gradient Circle */}
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-sm">
+                    <span className="text-white font-bold text-sm tracking-tighter">2+</span>
+                  </div>
+
+                  {/* Tiny Refined Text */}
+                  <div className="flex flex-col justify-center">
+                    <span className="text-[9px] font-black text-primary uppercase tracking-[0.15em] leading-none mb-0.5">
+                      Experience
+                    </span>
+                    <span className="text-[10px] font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide leading-tight">
+                      Years of<br />Mastery
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
