@@ -59,7 +59,7 @@ function DotScrollBar() {
               className="relative flex items-center justify-center group cursor-pointer"
             >
               {/* --- SECTION NAME (Tooltip) --- */}
-              <div className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+              <div className="hidden md:flex absolute right-full mr-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                 <div className="flex items-center gap-3">
                   <span className="text-[10px] font-black text-primary tracking-[0.3em] uppercase bg-neutral-100/80 dark:bg-primary/5 px-3 py-1 border border-neutral-200/50 dark:border-primary/20 backdrop-blur-sm rounded-sm shadow-sm">
                     {id}

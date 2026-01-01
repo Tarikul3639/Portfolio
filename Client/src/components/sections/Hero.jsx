@@ -62,7 +62,7 @@ const Hero = () => {
         <div className="absolute top-0 left-1/4 h-[500px] w-[500px] bg-primary/20 blur-[120px] rounded-full opacity-50" />
       </div>
 
-      <div className="container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl">
+      <div className="max-md:mt-18 container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl">
 
         {/* Content Side */}
         <div className="flex-1 text-center lg:text-left space-y-6">

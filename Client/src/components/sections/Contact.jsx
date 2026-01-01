@@ -65,13 +65,13 @@ const Contact = () => {
                   <div className="group relative">
                     <input
                       type="text" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your Identity"
-                      className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400"
+                      className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                     />
                   </div>
                   <div className="group relative">
                     <input
                       type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Return Address"
-                      className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400"
+                      className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                     />
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const Contact = () => {
                 <div className="group relative">
                   <textarea
                     rows="6" value={message} onChange={(e) => setMessage(e.target.value)} required placeholder="Describe your objective..."
-                    className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm resize-none text-neutral-900 dark:placeholder:text-neutral-400"
+                    className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm resize-none text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                   />
                 </div>
 

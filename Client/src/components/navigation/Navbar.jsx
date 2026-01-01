@@ -213,7 +213,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full z-[999] transition-all duration-700 ${scrolled ? "py-4" : "py-8"}`}>
+            <nav className={`fixed top-0 left-0 w-full z-[999] transition-all duration-700 ${scrolled ? "py-4" : "py-6 md:py-8"}`}>
                 {/* PROGRESS BAR - Ultra Thin Laser Style */}
                 <Scrollbar scrollWidth={scrollWidth} />
 
@@ -222,7 +222,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                     ? "max-w-5xl bg-white/70 dark:bg-black/40 backdrop-blur-2xl border border-neutral-200/50 dark:border-white/10 rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
                     : "max-w-7xl bg-transparent"
                     }`}>
-                    <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center justify-between">
                         {/* LOGO WITH GLITCH HOVER */}
                         <Link to="home" className="cursor-pointer group flex items-center gap-3">
                             <div className="relative">
