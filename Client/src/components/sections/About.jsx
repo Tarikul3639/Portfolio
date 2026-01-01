@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
-import Image from '../../assets/image/Tarikul Islam.webp';
+import Image from '../../assets/image/Tarikul.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
 import { SiTypescript, SiFramer } from "react-icons/si";
@@ -15,6 +15,8 @@ const About = () => {
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
+  
+  // 3D Rotation Values
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
@@ -41,19 +43,23 @@ const About = () => {
   ];
 
   return (
-    <section id='about' className="relative py-24 bg-background-light dark:bg-[#050505] overflow-hidden">
+    <section id='about' className="relative py-24 bg-white dark:bg-[#050505] overflow-hidden">
       
-      {/* Background Decor */}
+      {/* --- BACKGROUND DECOR --- */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
+      <div className="container relative z-10 mx-auto px-6 max-w-7xl">
         
-        {/* Header Section */}
+        {/* --- HEADER SECTION --- */}
         <div className="mb-16 text-center lg:text-left">
-          <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-primary font-black text-[10px] tracking-[0.4em] uppercase">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            className="text-primary font-black text-[10px] tracking-[0.4em] uppercase"
+          >
             The Architect
           </motion.span>
           <div className="mt-4">
@@ -65,52 +71,77 @@ const About = () => {
           </div>
         </div>
 
-        {/* Main Layout Grid */}
+        {/* --- MAIN LAYOUT GRID --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
-          {/* LEFT: 3D IMAGE CARD (Spans 5 columns) */}
+          {/* LEFT: 3D IMAGE CARD */}
           <motion.div 
-            className="lg:col-span-5 perspective-[1500px] h-full"
+            className="lg:col-span-5 perspective-[2000px] min-h-[550px] relative group"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="relative group h-full p-2 bg-white/5 border border-white/10 rounded-[3.5rem] backdrop-blur-3xl shadow-2xl">
-              <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
+            {/* Main Card Wrapper */}
+            <div className="relative h-full w-full overflow-hidden rounded-[3.8rem] bg-[#050505] border border-white/10 backdrop-blur-3xl shadow-2xl">
               
-              <div className="relative h-full overflow-hidden rounded-[3rem] bg-[#0a0a0a] ring-1 ring-white/10">
-                {/* HUD Elements */}
-                <div className="absolute top-8 left-8 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-xl z-30" />
-                <div className="absolute bottom-8 right-8 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-xl z-30" />
-                
-                <motion.div style={{ translateZ: 50 }} className="h-full">
-                  <motion.img 
-                    src={Image} 
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
-                </motion.div>
+              {/* IMAGE WITH COLOR FILTER */}
+              <motion.div style={{ translateZ: 60 }} className="absolute inset-0 h-full w-full">
+                <motion.img 
+                  src={Image} 
+                  className="w-full h-full object-cover scale-110 grayscale-[50%] group-hover:grayscale-0 group-hover:scale-125 transition-all duration-1000 ease-out"
+                  style={{ filter: "brightness(0.6) contrast(1.1)" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-95" />
+              </motion.div>
 
-                {/* Info Overlay */}
-                <div className="absolute bottom-10 left-10 right-10 z-30">
-                  <motion.div style={{ translateZ: 100 }} className="flex items-center gap-2 mb-2">
-                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[10px] font-black text-white/70 uppercase tracking-[0.2em]">Tarikul_Islam.sys</span>
-                  </motion.div>
-                  <motion.h3 style={{ translateZ: 130 }} className="text-3xl font-black text-white italic uppercase leading-none">
-                    Full Stack <span className="text-primary block text-xl not-italic mt-1">Developer</span>
-                  </motion.h3>
+              {/* HUD ELEMENTS */}
+              <div className="absolute inset-0 p-10 z-20 pointer-events-none">
+                <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-primary rounded-tl-3xl group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-primary rounded-br-3xl group-hover:scale-110 transition-transform duration-500" />
+                
+                <div className="absolute top-10 right-10 text-right font-mono text-[8px] text-primary font-bold leading-tight uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
+                    Core_Pulse: Active <br />
+                    Neural_Link: 98% <br />
+                    Lat: 12ms
                 </div>
               </div>
+
+              {/* INFO OVERLAY */}
+              <div className="absolute bottom-12 left-12 right-12 z-30">
+                <motion.div 
+                    style={{ translateZ: 120 }} 
+                    className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-black/80 border border-primary/40 backdrop-blur-md"
+                >
+                  <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#00eeff] animate-pulse" />
+                  <span className="text-[9px] font-black text-white uppercase tracking-[0.4em]">Auth: Tarikul_Islam</span>
+                </motion.div>
+
+                <motion.div style={{ translateZ: 160 }}>
+                  <h3 className="text-4xl font-black text-white italic uppercase leading-[0.85] drop-shadow-[0_5px_15px_rgba(0,0,0,1)]">
+                    Full Stack <br />
+                    <span className="text-primary not-italic text-5xl inline-block mt-2 relative drop-shadow-[0_0_15px_rgba(0,238,255,0.4)]">
+                        DEVELOPER
+                        <span className="absolute -bottom-2 left-0 w-full h-[1.5px] bg-primary" />
+                    </span>
+                  </h3>
+                </motion.div>
+              </div>
+
+              {/* EXTERNAL GLOW */}
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full group-hover:bg-primary/30 transition-all duration-700" />
             </div>
           </motion.div>
 
-          {/* RIGHT: TECH STACK GRID (Spans 7 columns) */}
+          {/* RIGHT: TECH STACK GRID */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 h-full">
               {techStack.map((tech, i) => (
-                <SpotlightCard key={i} className="flex flex-col items-center justify-center p-6 bg-white/5 border-white/5 rounded-[2.5rem]">
-                  <motion.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }} className="text-4xl mb-3">
+                <SpotlightCard key={i} className="flex flex-col items-center justify-center p-6 bg-white/5 border border-white/5 rounded-[2.5rem]">
+                  <motion.div 
+                    whileHover={{ rotate: 360, scale: 1.2 }} 
+                    transition={{ duration: 0.5 }} 
+                    className="text-4xl mb-3"
+                  >
                     {tech.icon}
                   </motion.div>
                   <span className="text-[10px] font-black uppercase text-neutral-400 tracking-widest">{tech.label}</span>
@@ -163,7 +194,7 @@ const About = () => {
                         <defs>
                           <linearGradient id="gradAbout" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stopColor="#00eeff" />
-                            <stop offset="100%" stopColor="var(--primary-color)" />
+                            <stop offset="100%" stopColor="#0066ff" />
                           </linearGradient>
                         </defs>
                       </svg>

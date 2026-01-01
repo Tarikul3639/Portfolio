@@ -7,6 +7,7 @@ import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-b
 import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { cn } from "../lib/utils.jsx";
 import { toast } from 'react-toastify';
+import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
 
 // Asset Imports
@@ -30,7 +31,7 @@ const Hero = () => {
       setLoading(true);
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`);
       if (!response.ok) throw new Error("File not found");
-      
+
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
@@ -56,15 +57,15 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background-light dark:bg-[#050505] px-6 py-20">
-      
+
       {/* Modern Background Grid & Glow */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         <div className="absolute top-0 left-1/4 h-[500px] w-[500px] bg-primary/20 blur-[120px] rounded-full opacity-50" />
       </div>
 
-      <div className="container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-        
+      <div className="container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl">
+
         {/* Content Side */}
         <div className="flex-1 text-center lg:text-left space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium animate-bounce">
@@ -82,7 +83,7 @@ const Hero = () => {
           </h2>
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
-            Building Digital <br /> 
+            Building Digital <br />
             <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Experiences.</span>
           </h1>
 
@@ -90,26 +91,63 @@ const Hero = () => {
             <SplitText text={DESCRIPTION} delay={15} />
           </div>
 
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4 justify-center lg:justify-start">
-            <Button
-              text={loading ? "Downloading..." : "Get My CV"}
-              onClick={handleDownloadCV}
-              icon={<FontAwesomeIcon icon={faCloudArrowDown} />}
-              className="h-14 px-8 rounded-2xl bg-primary hover:shadow-[0_0_20px_rgba(var(--color-primary),0.4)] transition-all"
-            />
+          {/* Actions & Social Links */}
+          <div className="flex flex-col sm:flex-row items-center gap-10 pt-10 justify-center lg:justify-start">
 
-            <div className="flex items-center gap-3">
-              {socialIcons.map((soc, i) => (
-                <LinkPreview key={i} imageSrc={soc.img} isStatic={true}>
-                  <button 
-                    onClick={() => window.open(soc.link, "_blank")}
-                    className="w-12 h-12 flex items-center justify-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:border-primary hover:text-primary transition-all duration-300 shadow-sm"
-                  >
-                    <FontAwesomeIcon icon={soc.icon} className="text-lg" />
-                  </button>
-                </LinkPreview>
-              ))}
+            {/* --- 1. MINIMALIST NEON BUTTON --- */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleDownloadCV}
+              className="relative group h-14 px-10 flex items-center gap-3 bg-transparent overflow-hidden"
+            >
+              {/* Button Border - একদম পাতলা এবং প্রিমিয়াম */}
+              <div className="absolute inset-0 border border-primary/30 rounded-full group-hover:border-primary transition-colors duration-500" />
+
+              {/* Inner Glow - হোভার করলে হালকা আভা ছড়াবে */}
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 rounded-full" />
+
+              {/* Text & Icon */}
+              <span className="relative z-10 text-primary font-bold tracking-[0.2em] uppercase text-xs">
+                {loading ? "System Syncing..." : "Download CV"}
+              </span>
+              <FontAwesomeIcon
+                icon={faCloudArrowDown}
+                className="relative z-10 text-primary text-sm group-hover:translate-y-[-2px] transition-transform duration-300"
+              />
+
+              {/* Corner Accents - বাটনের দুই কোণায় ছোট ডিটেইলস */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-0 group-hover:opacity-100 transition-all duration-500" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-0 group-hover:opacity-100 transition-all duration-500" />
+            </motion.button>
+
+            {/* --- 2. FLOATING SOCIAL DOCK --- */}
+            <div className="flex items-center gap-6 relative">
+              {/* Divider Line */}
+              <div className="hidden sm:block w-[1px] h-8 bg-neutral-800" />
+
+              <div className="flex items-center gap-5">
+                {socialIcons.map((soc, i) => (
+                  <LinkPreview key={i} imageSrc={soc.img} isStatic={true}>
+                    <motion.button
+                      whileHover={{ y: -4 }}
+                      onClick={() => window.open(soc.link, "_blank")}
+                      className="relative group p-2"
+                    >
+                      {/* Minimalist Icon */}
+                      <FontAwesomeIcon
+                        icon={soc.icon}
+                        className="text-xl text-neutral-500 group-hover:text-primary transition-all duration-300 drop-shadow-[0_0_8px_rgba(0,238,255,0)] group-hover:drop-shadow-[0_0_8px_rgba(0,238,255,0.5)]"
+                      />
+
+                      {/* Underline Animation */}
+                      <motion.div
+                        className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500"
+                      />
+                    </motion.button>
+                  </LinkPreview>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -120,12 +158,12 @@ const Hero = () => {
             {/* Animated Ring Backdrops */}
             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-400 rounded-[2rem] rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-bl from-primary to-cyan-400 rounded-[2rem] -rotate-3 opacity-20 group-hover:-rotate-6 transition-transform duration-500" />
-            
+
             {/* Main Image Container */}
             <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] border-2 border-white/10 shadow-2xl">
-              <img 
-                src={photo} 
-                alt="Profile" 
+              <img
+                src={photo}
+                alt="Profile"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -133,12 +171,12 @@ const Hero = () => {
 
             {/* Floating Badges */}
             <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-900 p-4 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800 animate-float">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
-                    <span className="font-bold text-xl">2+</span>
-                  </div>
-                  <p className="text-xs font-bold dark:text-white uppercase tracking-wider">Years Of<br/>Experience</p>
-               </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
+                  <span className="font-bold text-xl">2+</span>
+                </div>
+                <p className="text-xs font-bold dark:text-white uppercase tracking-wider">Years Of<br />Experience</p>
+              </div>
             </div>
           </div>
         </div>
