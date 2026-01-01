@@ -6,7 +6,7 @@ import { faEnvelope, faLocationDot, faPaperPlane, faIdBadge, faCircleDot } from 
 import 'react-toastify/dist/ReactToastify.css';
 
 // Custom Components
-import Loader from '../common/Loader.jsx';
+import Loader from '../ui/Loader.jsx';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
 
 const TrueFocus = lazy(() => import('../ui/TrueFocus'));

@@ -7,6 +7,7 @@ const Loader = ({ loading, variant, size = 50 }) => {
   return (
     <AnimatePresence>
       {loading && (
+        <div className="dark"> 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -70,6 +71,7 @@ const Loader = ({ loading, variant, size = 50 }) => {
             )}
           </div>
         </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faMoon, faSun, faTerminal } from "@fortawesome/free-solid-svg-icons";
 
@@ -70,8 +69,8 @@ const Sidebar = ({ isOpen, setIsOpen, menuItems, activeLink, setActiveLink, togg
 
                                             {/* Link Text */}
                                             <span className={`text-3xl font-black uppercase tracking-tighter transition-all duration-300 flex-1 ${activeLink === item.toLowerCase()
-                                                    ? "text-neutral-900 dark:text-white"
-                                                    : "text-neutral-400 dark:text-neutral-700 group-hover:text-neutral-900 dark:group-hover:text-white"
+                                                ? "text-neutral-900 dark:text-white"
+                                                : "text-neutral-400 dark:text-neutral-700 group-hover:text-neutral-900 dark:group-hover:text-white"
                                                 }`}>
                                                 {item}
                                             </span>
@@ -105,28 +104,82 @@ const Sidebar = ({ isOpen, setIsOpen, menuItems, activeLink, setActiveLink, togg
                             </ul>
                         </nav>
 
-                        {/* SIDEBAR FOOTER - UTILITY BOX */}
-                        <div className="p-8 bg-neutral-50 dark:bg-white/[0.02] border-t border-neutral-200 dark:border-white/5 space-y-6">
-                            <div className="flex items-center justify-between gap-4">
-                                <div className="flex -space-x-2">
-                                    {/* Visual decorative circles */}
-                                    {[1, 2, 3].map((n) => (
-                                        <div key={n} className="w-8 h-8 rounded-full border-2 border-white dark:border-[#080808] bg-neutral-200 dark:bg-neutral-800" />
-                                    ))}
+                        {/* SIDEBAR FOOTER - HUD UTILITY MODULE */}
+                        <div className="p-8 bg-neutral-50 dark:bg-[#0c0c0c] border-t border-neutral-200 dark:border-white/5 space-y-6">
+
+                            <div className="relative group p-5 rounded-2xl bg-white dark:bg-white/[0.03] border border-neutral-200 dark:border-white/10 overflow-hidden shadow-inner">
+                                {/* Background Decorative Tech Lines */}
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-3xl rounded-full -mr-10 -mt-10 group-hover:bg-primary/20 transition-all duration-700" />
+
+                                <div className="relative z-10 flex flex-col gap-4">
+                                    {/* Top Row: Status & Clock */}
+                                    <div className="flex justify-between items-start">
+                                        <div className="space-y-1">
+                                            <div className="flex items-center gap-2">
+                                                <div className="relative flex h-2 w-2">
+                                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                                </div>
+                                                <span className="text-[10px] font-mono text-primary uppercase tracking-[0.2em] font-bold">System Online</span>
+                                            </div>
+                                            <p className="text-[9px] text-neutral-400 dark:text-neutral-500 font-mono uppercase tracking-widest">Global Access Node: 0x24</p>
+                                        </div>
+
+                                        {/* Dynamic Digital Clock */}
+                                        <div className="text-right">
+                                            <h4 className="text-sm font-black font-mono text-neutral-800 dark:text-white tabular-nums uppercase">
+                                                {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}
+                                            </h4>
+                                            <p className="text-[8px] text-primary/60 font-mono font-bold uppercase tracking-tighter">Sync: UTC+6</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Separator Line */}
+                                    <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-200 dark:via-white/10 to-transparent" />
+
+                                    {/* Bottom Row: Metrics */}
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex gap-4">
+                                            <div className="flex flex-col">
+                                                <span className="text-[8px] text-neutral-400 uppercase font-mono">Uptime</span>
+                                                <span className="text-[10px] font-bold text-neutral-700 dark:text-neutral-300 font-mono">99.9%</span>
+                                            </div>
+                                            <div className="flex flex-col border-l border-neutral-200 dark:border-white/10 pl-4">
+                                                <span className="text-[8px] text-neutral-400 uppercase font-mono">Load</span>
+                                                <span className="text-[10px] font-bold text-neutral-700 dark:text-neutral-300 font-mono">0.04ms</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="h-8 w-12 flex items-end gap-[2px]">
+                                            {/* Visual Audio/Signal Bars Animation */}
+                                            {[0.4, 0.7, 0.5, 0.9, 0.6].map((h, i) => (
+                                                <motion.div
+                                                    key={i}
+                                                    animate={{ height: [`${h * 100}%`, `${(h * 100) - 20}%`, `${h * 100}%`] }}
+                                                    transition={{ duration: 1.5 + (i * 0.2), repeat: Infinity }}
+                                                    className="w-full bg-primary/40 rounded-t-[1px]"
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                <p className="text-[10px] text-neutral-500 font-mono leading-tight">
-                                    Ready to build something <br /> incredible?
-                                </p>
                             </div>
 
+                            {/* THEME TOGGLE BUTTON - RE-STYLED */}
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={toggleTheme}
-                                className="w-full py-4 rounded-xl bg-neutral-900 dark:bg-primary text-white dark:text-black font-black text-xs tracking-[0.4em] uppercase flex items-center justify-center gap-3 shadow-xl dark:shadow-[0_10px_30px_rgba(0,238,255,0.3)] transition-all"
+                                className="group relative w-full py-4 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-black text-[10px] tracking-[0.4em] uppercase flex items-center justify-center gap-3 shadow-2xl transition-all overflow-hidden"
                             >
-                                <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} />
-                                {theme === "dark" ? "Light" : "Dark"} Interface
+                                {/* Animated Background Overlay */}
+                                <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
+
+                                <FontAwesomeIcon
+                                    icon={theme === "dark" ? faSun : faMoon}
+                                    className="text-primary dark:text-neutral-800 group-hover:rotate-180 transition-transform duration-500"
+                                />
+                                <span className="relative z-10">{theme === "dark" ? "Switch Light" : "Switch Dark"} Mode</span>
                             </motion.button>
                         </div>
                     </motion.div>
@@ -241,7 +294,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                         {/* DESKTOP NAVIGATION - UNIQUE ACTIVE STATE */}
                         <div className="hidden md:flex items-center gap-10">
                             <LayoutGroup>
-                                <ul className="flex items-center gap-2">
+                                <ul className="flex items-center gap-2 py-1.5">
                                     {menuItems.map((item) => {
                                         const isCurrent = activeLink === item.toLowerCase();
                                         return (
@@ -264,7 +317,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                                                 {isCurrent && (
                                                     <motion.div
                                                         layoutId="nav-pill"
-                                                        className="absolute inset-0 bg-neutral-100 dark:bg-white/5 rounded-full z-0 border border-neutral-200 dark:border-white/10 shadow-sm"
+                                                        className="absolute inset-0 bg-primary/10 rounded-full z-0 border border-neutral-200 dark:border-white/10 shadow-sm"
                                                         transition={{ type: "spring", bounce: 0.25, duration: 0.6 }}
                                                     >
                                                         {/* TOP LASER DOT */}
@@ -299,9 +352,65 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                             </motion.button>
                         </div>
 
-                        {/* MOBILE MENU BUTTON */}
-                        <button className="md:hidden text-primary p-2" onClick={() => setIsOpen(true)}>
-                            <HiOutlineMenuAlt3 size={32} />
+                        {/* MOBILE MENU BUTTON - QUANTUM CORE VERSION */}
+                        <button
+                            className="md:hidden relative w-16 h-16 flex items-center justify-center group"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            {/* Layer 1: Outer Rotating Tech Ring (Dashed) */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-0 border-2 border-dashed border-primary/30 rounded-full scale-90 group-hover:scale-100 group-hover:border-primary/60 transition-all duration-500"
+                            />
+
+                            {/* Layer 2: Middle Hex-Frame (Rotating Counter-Clockwise) */}
+                            <motion.div
+                                animate={{ rotate: -360 }}
+                                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                                className="absolute w-10 h-10 border border-primary/40 rounded-sm group-hover:border-primary transition-colors"
+                                style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                            />
+
+                            {/* Layer 3: The Core (Pulsing Energy) */}
+                            <div className="relative flex items-center justify-center">
+                                {/* Glow Aura */}
+                                <div className="absolute w-6 h-6 bg-primary/40 blur-md rounded-full animate-pulse" />
+
+                                {/* Main Icon - 4 Moving Dots (Grid Transformation) */}
+                                <div className="grid grid-cols-2 gap-1 relative z-10">
+                                    {[1, 2, 3, 4].map((i) => (
+                                        <motion.div
+                                            key={i}
+                                            animate={{
+                                                scale: [1, 1.5, 1],
+                                                borderRadius: ["20%", "50%", "20%"]
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                delay: i * 0.2
+                                            }}
+                                            className="w-1.5 h-1.5 bg-primary shadow-[0_0_8px_#00eeff]"
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* HUD Elements: Scanning Brackets (Vertical Only) */}
+                            <div className="absolute inset-y-0 -left-1 w-[2px] bg-gradient-to-b from-transparent via-primary/50 to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+                            <div className="absolute inset-y-0 -right-1 w-[2px] bg-gradient-to-b from-transparent via-primary/50 to-transparent scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+
+                            {/* Micro Text Labels */}
+                            <div className="absolute -right-6 top-1/2 -translate-y-1/2 rotate-90 overflow-hidden h-3">
+                                <motion.p
+                                    initial={{ y: 10 }}
+                                    whileHover={{ y: 0 }}
+                                    className="text-[6px] font-mono text-primary uppercase tracking-[0.3em] font-black"
+                                >
+                                    Access
+                                </motion.p>
+                            </div>
                         </button>
                     </div>
                 </div>

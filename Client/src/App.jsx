@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Observer from './Observer.tsx';
 import CustomToastContainer from './components/ui/ToastContainer.jsx';
-import Loader from './components/common/Loader.jsx';
+import Loader from './components/ui/Loader.jsx';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 
