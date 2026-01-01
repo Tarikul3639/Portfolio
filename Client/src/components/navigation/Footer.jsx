@@ -1,90 +1,177 @@
 import { Link } from "react-scroll";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookSquare, faTwitterSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { 
+  faGithub, faLinkedin, faTwitter, faFacebook, faInstagram, faDribbble 
+} from "@fortawesome/free-brands-svg-icons";
+import { faArrowUp, faBolt, faSatellite, faMicrochip, faTerminal } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
-    const ItemClass = "block cursor-pointer text-primary-light/70 dark:text-primary-dark/70 hover:text-primary-light dark:hover:text-primary-dark transitionAll duration-30";
+    const currentYear = new Date().getFullYear();
+    
+    // Mouse movement for the top glow effect
+    const mouseX = useMotionValue(0);
+    const handleMouseMove = ({ clientX, currentTarget }) => {
+        const { left } = currentTarget.getBoundingClientRect();
+        mouseX.set(clientX - left);
+    };
+
+    const ItemClass = "block cursor-pointer text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-x-2 flex items-center gap-2 group/link";
+    
+    const socialLinks = [
+        { icon: faGithub, url: "https://github.com/Tarikul3639" },
+        { icon: faLinkedin, url: "https://www.linkedin.com/in/Tarikul3639" },
+        { icon: faTwitter, url: "https://x.com/Tarikul3639" },
+        { icon: faFacebook, url: "https://www.facebook.com/tarikulislam3639/" },
+        { icon: faInstagram, url: "https://www.instagram.com/tarikul3639/" },
+        { icon: faDribbble, url: "https://dribbble.com/tarikul3639" },
+    ];
+
     return (
-        <footer id="footer" className="w-full dark:bg-background-dark border-t-1 border-primary-light/10 px-8 py-20 dark:border-primary-dark/10 bg-background-light bg-primary/2 mt-20">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between p-3">
-                {/* Left side */}
-                <div className="mb-8 md:mb-0">
-                    <div className="flex items-center">
-                        {/* Business Logo and Name */}
-                        <div className="flex items-center space-x-4">
-                            <Link
-                                className="text-primary-light dark:text-primary-dark z-10 cursor-pointer overflow-hidden"
-                                to="home"
-                            >
-                                <h1 className="text-xl font-[title] pb-2 uppercase">
-                                    <span className="inline-block first-letter:text-primary">Tarikul</span>
-                                    <span className="text-primary text-4xl font-[square]">.</span>
-                                </h1>
+        <footer 
+            id="footer" 
+            onMouseMove={handleMouseMove}
+            className="relative w-full bg-[#020202] pt-32 pb-12 px-6 overflow-hidden border-t border-white/5 group/footer"
+        >
+            {/* --- TOP DYNAMIC GLOW BEAM --- */}
+            <motion.div 
+                className="absolute top-0 h-[2px] w-40 bg-primary blur-[4px] z-20 pointer-events-none"
+                style={{ left: mouseX, x: "-50%" }}
+            />
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-50" />
+
+            {/* --- AMBIENT BACKGROUND ELEMENTS --- */}
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+                    
+                    {/* BRANDING SECTION */}
+                    <div className="lg:col-span-5 space-y-10">
+                        <div className="relative inline-block">
+                            <Link to="home" className="inline-block cursor-pointer group">
+                                <motion.h1 
+                                    className="text-4xl font-black italic tracking-tighter uppercase text-white"
+                                    whileHover={{ skewX: -10 }}
+                                >
+                                    TARIKUL<span className="text-primary drop-shadow-[0_0_8px_#00eeff]">.</span>
+                                </motion.h1>
                             </Link>
+                            <motion.div 
+                                className="absolute -bottom-2 left-0 h-[2px] bg-primary"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "100%" }}
+                                transition={{ duration: 1 }}
+                            />
+                        </div>
+                        
+                        <p className="text-neutral-400 text-sm max-w-sm leading-relaxed font-medium italic border-l-2 border-primary/20 pl-4">
+                            "Engineering the void between imagination and digital reality. 
+                            Operating on <span className="text-primary/80 font-bold uppercase tracking-widest text-[10px]">Nexion OS v2.0</span>."
+                        </p>
+
+                        {/* SOCIALS WITH NEON HOVER */}
+                        <div className="flex flex-wrap gap-4">
+                            {socialLinks.map((social, index) => (
+                                <motion.a
+                                    key={index}
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ 
+                                        y: -5, 
+                                        boxShadow: "0 0 20px rgba(0, 238, 255, 0.3)",
+                                        borderColor: "rgba(0, 238, 255, 0.5)"
+                                    }}
+                                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/[0.02] border border-white/10 text-neutral-500 hover:text-primary transition-all duration-300"
+                                >
+                                    <FontAwesomeIcon icon={social.icon} />
+                                </motion.a>
+                            ))}
                         </div>
                     </div>
-                    <div className="pl-1 text-sm text-primary-light/70 dark:text-primary-dark/70 space-y-2">
-                        <p>
-                            A product by{" "}
-                            <a href="#" className="text-blue-400 hover:text-blue-300">
-                                Tarikul Islam
-                            </a>
-                        </p>
-                        <p>
-                            Building in public at{" "}
-                            <a href="#" className="text-blue-400 hover:text-blue-300">
-                                @tarikul3639
-                            </a>
-                        </p>
+
+                    {/* LINKS GRID */}
+                    <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+                        <div className="space-y-8">
+                            <h5 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 flex items-center gap-2">
+                                <FontAwesomeIcon icon={faSatellite} className="animate-pulse" /> Navigation
+                            </h5>
+                            <ul className="space-y-4 text-[12px] font-bold uppercase tracking-widest">
+                                <li><Link to="home" className={ItemClass}>Root_Dir</Link></li>
+                                <li><Link to="about" className={ItemClass}>Protocol_Intel</Link></li>
+                                <li><Link to="projects" className={ItemClass}>Deploy_Logs</Link></li>
+                                <li><Link to="contact" className={ItemClass}>Comm_Link</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="space-y-8">
+                            <h5 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 flex items-center gap-2">
+                                <FontAwesomeIcon icon={faMicrochip} /> Infrastructure
+                            </h5>
+                            <ul className="space-y-4 text-[12px] font-bold uppercase tracking-widest">
+                                <li><a href="#" className={ItemClass}>Open_Src</a></li>
+                                <li><a href="#" className={ItemClass}>Security</a></li>
+                                <li><a href="#" className={ItemClass}>Terminal_FAQ</a></li>
+                            </ul>
+                        </div>
+
+                        {/* INTERACTIVE STATUS BOX */}
+                        <motion.div 
+                            whileHover={{ scale: 1.02 }}
+                            className="col-span-2 md:col-span-1 p-[1px] rounded-[2rem] bg-gradient-to-br from-white/10 to-transparent group/status hover:from-primary/40"
+                        >
+                            <div className="h-full w-full bg-[#050505] rounded-[2rem] p-6 space-y-4">
+                                <p className="text-[9px] text-primary uppercase font-black tracking-widest">System Status</p>
+                                <div className="space-y-1">
+                                    <p className="text-[11px] font-bold text-white/80 italic flex items-center gap-2">
+                                        <FontAwesomeIcon icon={faTerminal} className="text-[8px] text-primary" /> Mirpur, Dhaka
+                                    </p>
+                                    <p className="text-[10px] text-neutral-600 font-mono">23.8103° N, 90.4125° E</p>
+                                </div>
+                                <div className="pt-2">
+                                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/20 text-[9px] text-primary font-black uppercase tracking-tighter">
+                                        <span className="w-1.5 h-1.5 bg-primary rounded-full animate-ping" />
+                                        Ready_to_Build
+                                    </span>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
 
-                {/* Right side - Navigation */}
-                <div className="grid grid-cols-3 md:grid-cols-3 gap-x-12 gap-y-4 font-normal text-[15px] max-lg:mt-10">
-                    <div className="space-y-4">
-                        <a href="https://github.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            Linkedin
-                        </a>
-                        <a href="https://x.com/Tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            Twitter
-                        </a>
-                        <a href="https://www.facebook.com/tarikulislam3639/" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            Facebook
-                        </a>
-                        <a href="https://www.instagram.com/tarikul3639/" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            Instagram
-                        </a>
-                        <a href="https://dribbble.com/tarikul3639" target="_blank" rel="noopener noreferrer" className={`${ItemClass}`}>
-                            Dribbble
-                        </a>
+                {/* --- BOTTOM SECTION --- */}
+                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+                    <div className="flex flex-col gap-1 text-center md:text-left">
+                        <p className="text-[10px] font-black text-neutral-500 uppercase tracking-[0.4em]">
+                            © {currentYear} TARIKUL ISLAM <span className="text-primary/30">//</span> V2.0.0
+                        </p>
+                        <p className="text-[8px] text-neutral-700 font-mono tracking-widest">
+                            LATENCY: 14MS | ENCRYPTION: AES-256
+                        </p>
                     </div>
-                    <div className="space-y-4 font-light font-normal text-[15px]">
-                        <Link to="home" className={`${ItemClass}`}>
-                            Home
-                        </Link>
-                        <Link to="about" className={`${ItemClass}`}>
-                            About
-                        </Link>
-                        <Link to="projects" className={`${ItemClass}`}>
-                            Projects
-                        </Link>
-                        <Link to="contact" className={`${ItemClass}`}>
-                            Contact
-                        </Link>
-                    </div>
-                    <div className="space-y-4 col-span-1 md:mt-0 font-normal text-[15px]">
-                        <Link to="contact" className={`${ItemClass}`}>
-                            Service
-                        </Link>
-                        <Link to="contact" className={`${ItemClass}`}>
-                            FAQ
-                        </Link>
-                    </div>
+                    
+                    <motion.button 
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,238,255,0.1)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-8 py-3 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-primary/5 hover:border-primary/30 transition-all duration-500 group/btn"
+                    >
+                        <span className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-neutral-500 group-hover/btn:text-primary">
+                            Ascend to Zenith <FontAwesomeIcon icon={faArrowUp} className="group-hover/btn:-translate-y-1 transition-transform" />
+                        </span>
+                    </motion.button>
                 </div>
             </div>
+
+            {/* WATERMARK WITH HOVER GLOW */}
+            <motion.div 
+                initial={{ opacity: 0.01 }}
+                whileHover={{ opacity: 0.05, letterSpacing: "0.2em" }}
+                className="absolute -bottom-16 -right-10 text-[14rem] font-black text-white select-none pointer-events-none uppercase italic tracking-tighter transition-all duration-1000"
+            >
+                TARIKUL
+            </motion.div>
         </footer>
     );
 };

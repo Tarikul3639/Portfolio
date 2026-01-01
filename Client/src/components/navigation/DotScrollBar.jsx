@@ -1,70 +1,104 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const sections = ['home', 'about', 'projects', 'contact', 'footer'];
 
 function DotScrollBar() {
   const [active, setActive] = useState('home');
-  const [progressMap, setProgressMap] = useState({});
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const newProgressMap = {};
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.documentElement.scrollHeight - windowHeight;
+      
+      // Overall scroll progress for the whole page
+      const overallProgress = scrollY / fullHeight;
+      setProgress(overallProgress);
 
       for (let id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
-
-        const sectionTop = el.offsetTop;
-        const sectionHeight = el.offsetHeight;
-        const scrollY = window.scrollY + window.innerHeight / 2;
-
-        if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
           setActive(id);
-          const progress = Math.min(
-            1,
-            Math.max(0, (scrollY - sectionTop) / sectionHeight)
-          );
-          newProgressMap[id] = progress;
-        } else {
-          newProgressMap[id] = 0;
         }
       }
-
-      setProgressMap(newProgressMap);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initial run
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="fixed top-1/2 right-1 lg:right-4 transform -translate-y-1/2 space-y-3 z-50">
-      {sections.map((id) => {
-        const isActive = id === active;
-        const progress = progressMap[id] || 0;
-        const height = isActive ? 10 + progress * 50 : 10;
+    <div className="fixed top-1/2 right-4 lg:right-8 transform -translate-y-1/2 flex flex-col items-center z-[9999]">
+      
+      {/* --- PROGRESS LINE (Vertical Rail) --- */}
+      <div className="absolute h-full w-[2px] bg-white/5 rounded-full overflow-hidden">
+        <motion.div 
+          className="w-full bg-primary shadow-[0_0_15px_#00eeff]"
+          style={{ height: `${progress * 100}%` }}
+          transition={{ type: "spring", stiffness: 100, damping: 30 }}
+        />
+      </div>
 
-        return (
-          <div
-            key={id}
-            onClick={() => scrollTo(id)}
-            className={`w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full cursor-pointer lg:transition-all duration-1000 ${
-              isActive
-                ? 'bg-primary scale-110'
-                : 'bg-gray-400'
-            }`}
-            style={{
-              height: `${height}px`,
-              transition: isActive ? 'none' : 'height 1s ease-in-out',
-            }}
-          />
-        );
-      })}
+      <div className="flex flex-col gap-8 relative">
+        {sections.map((id, index) => {
+          const isActive = id === active;
+
+          return (
+            <div
+              key={id}
+              onClick={() => scrollTo(id)}
+              className="relative flex items-center justify-center group cursor-pointer"
+            >
+              {/* --- SECTION NAME (Tooltip) --- */}
+              <div className="absolute right-full mr-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-black text-primary tracking-[0.3em] uppercase bg-primary/5 px-3 py-1 border border-primary/20 backdrop-blur-md rounded-sm">
+                    {id}
+                  </span>
+                  <div className="w-4 h-[1px] bg-primary/30" />
+                </div>
+              </div>
+
+              {/* --- THE DOT --- */}
+              <motion.div
+                animate={{
+                  scale: isActive ? 1.5 : 1,
+                  backgroundColor: isActive ? "#00eeff" : "rgba(255,255,255,0.2)",
+                }}
+                className="w-2 h-2 rounded-full relative z-10"
+              >
+                {isActive && (
+                  <>
+                    {/* Ring Effect */}
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0.5 }}
+                      animate={{ scale: 2.5, opacity: 0 }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                      className="absolute inset-0 bg-primary rounded-full"
+                    />
+                    {/* Core Glow */}
+                    <div className="absolute inset-0 bg-primary blur-[6px] rounded-full" />
+                  </>
+                )}
+              </motion.div>
+
+              {/* --- INDEX NUMBER --- */}
+              <span className={`absolute -right-6 text-[8px] font-bold transition-colors duration-500 ${isActive ? 'text-primary' : 'text-neutral-700'}`}>
+                0{index + 1}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

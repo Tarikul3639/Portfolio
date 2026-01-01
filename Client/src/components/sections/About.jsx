@@ -1,199 +1,183 @@
 import React from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
 import Image from '../../assets/image/Tarikul Islam.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
-import { VscVscode } from "react-icons/vsc";
-import { motion } from 'framer-motion';
-import {
-  faHtml5,
-  faCss3Alt,
-  faJs,
-  faReact,
-  faNodeJs,
-  faGithub,
-} from '@fortawesome/free-brands-svg-icons';
-import Rambo from '../../assets/icons/Rambo.svg';
-import FarmerMotion from '../../assets/icons/Motion.svg';
-import WebRTC from '../../assets/icons/webrtc-svgrepo-com.svg';
-import C_Plus from '../../assets/icons/c-plus-plus.svg';
-import C_programming from '../../assets/icons/C_Programming_Language.svg';
-import tailwind from '../../assets/icons/tailwind-css-icon.svg';
-import socket from '../../assets/icons/socket-io-icon.svg';
+import { SiTypescript, SiFramer } from "react-icons/si";
+import { faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+
 import Express from '../../assets/icons/express-js.svg';
 import SplitText from "../../components/ui/SplitText.jsx";
 
-// About Me description
-const AboutMe = [
-  `I specialize in frontend development, creating dynamic, visually engaging, and highly responsive websites that provide seamless user experiences. With a strong foundation in HTML, CSS, and JavaScript, I focus on building modern web interfaces that are not only aesthetically appealing but also optimized for performance and accessibility. I have extensive experience with frameworks like React and Tailwind CSS, enabling me to create interactive, scalable, and efficient applications. Whether designing sleek UI components, implementing smooth animations, or enhancing user interactions, my goal is to develop web solutions that are both functional and innovative.`
-];
-
 const About = () => {
-  // Tech class for styling tech stack items
-  const TechClass =
-    'inline-flex justify-center items-center gap-2 px-3 py-1 rounded-full text-xs border border-primary-light/50      dark:border-primary-dark/30 hover:motion-preset-wiggle motion-duration-1000';
-  const CardBackground = 'bg-primary/2 dark:bg-primary/2';
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
-  const techStack = [
-    { label: 'HTML', icon: <FontAwesomeIcon icon={faHtml5} style={{ color: '#e34c26' }} />, delay: 0.05 },
-    { label: 'CSS', icon: <FontAwesomeIcon icon={faCss3Alt} style={{ color: '#264de4' }} />, delay: 0.1 },
-    { label: 'JavaScript', icon: <FontAwesomeIcon icon={faJs} style={{ color: '#f7df1e' }} />, delay: 0.15 },
-    { label: 'ReactJS', icon: <FontAwesomeIcon icon={faReact} style={{ color: '#61dafb' }} />, delay: 0.2 },
-    { label: 'Tailwind CSS', icon: <img src={tailwind} alt="Tailwind CSS" className="h-4" />, delay: 0.25 },
-    { label: 'Framer Motion', icon: <img src={FarmerMotion} alt="Framer Motion" className="h-4" />, delay: 0.3 },
-    { label: 'NodeJS', icon: <FontAwesomeIcon icon={faNodeJs} style={{ color: '#339933' }} />, delay: 0.35 },
-    { label: 'ExpressJS', icon: <img src={Express} alt="Express JS" className="h-4" />, delay: 0.4 },
-    { label: 'MongoDB', icon: <DiMongodb className="text-green-600 text-lg" />, delay: 0.45 },
-    { label: 'Socket.io', icon: <img src={socket} alt="Socket.io" className="h-4" />, delay: 0.5 },
-    { label: 'WebRTC', icon: <img src={WebRTC} alt="WebRTC" className="h-4" />, delay: 0.55 },
-    { label: 'C', icon: <img src={C_programming} alt="C Programming" className="h-4" />, delay: 0.6 },
-    { label: 'C++', icon: <img src={C_Plus} alt="C++" className="h-4" />, delay: 0.65 },
-    { label: 'VS Code', icon: <VscVscode className="text-blue-500" />, delay: 0.7 },
-    { label: 'GitHub', icon: <FontAwesomeIcon icon={faGithub} style={{ color: 'gray' }} />, delay: 0.75 },
-    { label: '', icon: <img src={Rambo} alt="Rambo" className="h-4" />, delay: 0.8 },
-  ];
-
-
-  // Animation variants for cards
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: false, amount: 0.2 },
-    transition: { duration: 0.5 },
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
   };
 
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  const techStack = [
+    { label: 'TypeScript', icon: <SiTypescript className="text-[#3178c6]" /> },
+    { label: 'React', icon: <FontAwesomeIcon icon={faReact} className="text-[#61dafb]" /> },
+    { label: 'Framer', icon: <SiFramer className="text-pink-500" /> },
+    { label: 'Node.js', icon: <FontAwesomeIcon icon={faNodeJs} className="text-[#339933]" /> },
+    { label: 'Express', icon: <img src={Express} className="h-4 dark:invert" /> },
+    { label: 'MongoDB', icon: <DiMongodb className="text-emerald-500" /> },
+  ];
+
   return (
-    <section id='about' className="relative About f-full flex w-screen flex-col items-center justify-center lg:pt-20 mb-5 source-sans-3 text-base text-primary-light dark:text-primary-dark bg-background-light dark:bg-background-dark">
-      <div className="flex flex-col justify-center max-w-7xl p-2 sm:p-4">
-        {/* Header */}
-        <div className="mb-15 lg:mb-20 px-2">
-          <SplitText
-            text="Let Me Introduce Myself"
-            className="text-3xl font-[800] md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
-            delay={5}
-            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-            easing="easeOutCubic"
-            threshold={0.2}
-            rootMargin="-50px"
-          />
-          <div className="mt-5 max-w-sm mx-1">
+    <section id='about' className="relative py-24 bg-background-light dark:bg-[#050505] overflow-hidden">
+      
+      {/* Background Decor */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 blur-[100px] rounded-full" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6 max-w-6xl">
+        
+        {/* Header Section */}
+        <div className="mb-16 text-center lg:text-left">
+          <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-primary font-black text-[10px] tracking-[0.4em] uppercase">
+            The Architect
+          </motion.span>
+          <div className="mt-4">
             <SplitText
-              text="Focused on innovation and solving problems, I'm passionate about building solutions that make a difference."
-              className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base"
-              delay={2}
-              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-              easing="easeOutCubic"
-              threshold={0.2}
-              rootMargin="-50px"
+              text="Driven By Innovation"
+              className="text-5xl md:text-7xl font-black text-neutral-900 dark:text-white tracking-tighter italic"
+              delay={30}
             />
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="HELLO flex flex-col lg:flex-row justify-center space-x-4 space-y-4 w-full">
-          {/* Profile Section */}
-          <motion.div {...fadeInUp} className="w-full lg:w-1/3">
-            <SpotlightCard className={`relative flex flex-col items-center justify-center h-full w-full lg:border border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
-              {/* Profile Image and Description */}
-              <div className="flex flex-col items-center justify-center w-full space-y-6">
-                {/* Profile Image */}
-                <svg className='w-[250px] h-[250px] intersect:motion-opacity-in-0 motion-duration-[5s] max-lg:mb-6' viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" aria-label="Profile Image" role="img">
-                  {/* Define mask shape */}
-                  <defs>
-                    <mask id="maskPath" mask-type="alpha">
-                      <path
-                        d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                      />
-                    </mask>
-                  </defs>
-
-                  {/* Image clipped inside the path shape */}
-                  <image
-                    href={Image}
-                    alt="Tarikul Islam"
-                    x="-5"
-                    y="0"
-                    width="108%"
-                    height="100%"
-                    preserveAspectRatio="xMidYMid slice"
-                    mask="url(#maskPath)"
-                    className="opacity-95"
+        {/* Main Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          
+          {/* LEFT: 3D IMAGE CARD (Spans 5 columns) */}
+          <motion.div 
+            className="lg:col-span-5 perspective-[1500px] h-full"
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="relative group h-full p-2 bg-white/5 border border-white/10 rounded-[3.5rem] backdrop-blur-3xl shadow-2xl">
+              <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
+              
+              <div className="relative h-full overflow-hidden rounded-[3rem] bg-[#0a0a0a] ring-1 ring-white/10">
+                {/* HUD Elements */}
+                <div className="absolute top-8 left-8 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-xl z-30" />
+                <div className="absolute bottom-8 right-8 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-xl z-30" />
+                
+                <motion.div style={{ translateZ: 50 }} className="h-full">
+                  <motion.img 
+                    src={Image} 
+                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
-                </svg>
-                {/* About Me Description */}
-                <h2 className="text-2xl font-bold mb-4">HI THERE, I'M TARIKUL</h2>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
+                </motion.div>
 
-                <p className="text-sm leading-relaxed text-neutral-800 dark:text-gray-200 text-justify">
-                  {AboutMe[0]}
-                </p>
+                {/* Info Overlay */}
+                <div className="absolute bottom-10 left-10 right-10 z-30">
+                  <motion.div style={{ translateZ: 100 }} className="flex items-center gap-2 mb-2">
+                    <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-[10px] font-black text-white/70 uppercase tracking-[0.2em]">Tarikul_Islam.sys</span>
+                  </motion.div>
+                  <motion.h3 style={{ translateZ: 130 }} className="text-3xl font-black text-white italic uppercase leading-none">
+                    Full Stack <span className="text-primary block text-xl not-italic mt-1">Developer</span>
+                  </motion.h3>
+                </div>
               </div>
-            </SpotlightCard>
+            </div>
           </motion.div>
 
-          {/* Education Skills and Experience Section */}
-          <div className="flex flex-col items-center justify-center space-y-4 h-full w-full lg:w-2/3">
-            {/* Education */}
-            <motion.div {...fadeInUp} className="w-full">
-              <SpotlightCard className={`flex flex-col items-center justify-center w-full text-[15px] text-primary-light/90 dark:text-primary-dark/85 border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
-                <h1 className="outfit text-lg font-bold text-left w-full mb-2 text-primary-light dark:text-primary-dark">Education</h1>
-                <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer" className='inline-flex flex-row items-center justify-between w-full text-left'>
-                  <p className="text-primary-light dark:text-primary-dark/90">Bangladesh University of Business and Technology</p>
-                  <p className='text-end text-primary-light dark:text-primary-dark/90'>2022 - 2026</p>
-                </a>
-                <div className='flex flex-row items-center justify-between w-full'>
-                  <p className="text-primary-light dark:text-primary-dark/90">Computer Science and Engineering</p>
-                  <p className="text-primary-light dark:text-primary-dark/90">Current CGPA: 3.56</p>
-                </div>
-              </SpotlightCard>
-            </motion.div>
+          {/* RIGHT: TECH STACK GRID (Spans 7 columns) */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 h-full">
+              {techStack.map((tech, i) => (
+                <SpotlightCard key={i} className="flex flex-col items-center justify-center p-6 bg-white/5 border-white/5 rounded-[2.5rem]">
+                  <motion.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }} className="text-4xl mb-3">
+                    {tech.icon}
+                  </motion.div>
+                  <span className="text-[10px] font-black uppercase text-neutral-400 tracking-widest">{tech.label}</span>
+                </SpotlightCard>
+              ))}
+            </div>
+          </div>
 
-            {/* Experience */}
-            <motion.div {...fadeInUp} className="w-full">
-              <SpotlightCard className={`Experience relative flex flex-col items-center justify-center w-full text-base border-primary-light/50 dark:border-primary-dark/15 rounded-sm text-primary-light dark:text-primary-dark ${CardBackground}`}>
-                <h1 className="outfit text-lg font-bold text-left w-full mb-2">Experience</h1>
-                <div className='flex flex-row items-center justify-between w-full text-sm'>
-                  <p>Full Stack Developer</p>
-                  <p>Feb 2024 - Present</p>
+          {/* FULL WIDTH BOTTOM: EDUCATION CARD */}
+          <div className="lg:col-span-12 mt-4">
+            <motion.div whileHover={{ y: -5 }} className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-blue-600/20 rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-700" />
+              
+              <SpotlightCard className="relative overflow-hidden border border-white/10 bg-[#0a0a0a]/80 backdrop-blur-3xl rounded-[3rem] p-8 md:p-12">
+                <div className="absolute -bottom-6 -right-6 text-[12rem] font-black text-white/[0.02] italic pointer-events-none group-hover:text-primary/[0.04] transition-all duration-700">
+                  BUBT
                 </div>
-                <div className='flex flex-row items-center justify-between w-full mb-2'>
-                  <p>Self-initiated</p>
-                  <p>Remote</p>
+
+                <div className="relative z-10 flex flex-col lg:flex-row justify-between items-center gap-10">
+                  <div className="text-center lg:text-left space-y-4">
+                    <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[9px] font-black uppercase">
+                      Academic Background
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-white italic tracking-tighter leading-tight group-hover:text-primary transition-colors">
+                      BANGLADESH UNIVERSITY OF <br className="hidden md:block" /> BUSINESS & TECHNOLOGY
+                    </h2>
+                    <p className="text-neutral-500 font-bold text-sm uppercase tracking-[0.3em] flex justify-center lg:justify-start items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                      Computer Science and Engineering
+                    </p>
+                  </div>
+
+                  {/* CGPA Circle */}
+                  <div className="relative shrink-0">
+                    <div className="relative h-44 w-44 rounded-full border-2 border-dashed border-neutral-800 flex flex-col items-center justify-center transition-all duration-700 group-hover:border-primary/50">
+                      <div className="text-center">
+                        <span className="text-[10px] font-black text-neutral-500 uppercase block">Current</span>
+                        <div className="text-6xl font-black text-white italic">3.56</div>
+                        <span className="text-[10px] font-black text-primary uppercase tracking-widest">2022-2026</span>
+                      </div>
+                      
+                      <svg className="absolute inset-0 w-full h-full -rotate-90">
+                        <motion.circle
+                          cx="50%" cy="50%" r="48%" fill="none" stroke="url(#gradAbout)"
+                          strokeWidth="4" strokeDasharray="100"
+                          initial={{ strokeDashoffset: 100 }}
+                          whileInView={{ strokeDashoffset: 11 }}
+                          transition={{ duration: 2 }}
+                        />
+                        <defs>
+                          <linearGradient id="gradAbout" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#00eeff" />
+                            <stop offset="100%" stopColor="var(--primary-color)" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <div className='flex flex-col items-start w-full border-l border-primary-light/50 dark:border-primary-dark/50 px-6 text-primary-light/80 dark:text-primary-dark/85 text-sm font-normal'>
-                  <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                    Krishok Palli An agriculture-focused web platform helping Bangladeshi users track seasonal vegetables, market prices, and weather updates.
-                  </p>
-                  <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                    Developed a messaging web application, focusing on real-time communication features like messaging and calling.
-                  </p>
-                  <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                    Implemented a Load Shedding Notification System.
-                  </p>
-                  <p className='text-sm py-1 relative before:absolute before:h-[.01cm] before:w-5 before:left-0 before:-ml-6 before:top-[50%] before:bg-primary-light/50 dark:before:bg-primary-dark/50'>
-                    Worked on multiple personal projects.
-                  </p>
-                </div>
-              </SpotlightCard>
-            </motion.div>
-            {/* Skills Section */}
-            <motion.div {...fadeInUp}>
-              <SpotlightCard className={`Skills relative flex flex-col items-start w-full outfit border-primary-light/50 dark:border-primary-dark/15 rounded-sm ${CardBackground}`}>
-                <h1 className='text-lg font-semibold text-left w-full mb-4'>Tech Stack</h1>
-                <div className="flex flex-wrap gap-2">
-                  {techStack.map(({ label, icon, delay }, index) => (
-                    <motion.span
-                      key={index}
-                      className={TechClass}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ delay, duration: 0.5 }}
-                    >
-                      {icon}
-                      {label && <span>{label}</span>}
-                    </motion.span>
+
+                {/* Skills Row */}
+                <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/5 pt-8">
+                  {['Algorithms', 'System Design', 'Software Engineering', 'Mathematics'].map((skill, i) => (
+                    <div key={i} className="text-center md:text-left">
+                      <span className="text-[8px] font-black text-neutral-600 uppercase block mb-1">Focus {i+1}</span>
+                      <span className="text-xs font-bold text-white/70 group-hover:text-white transition-colors uppercase tracking-widest">{skill}</span>
+                    </div>
                   ))}
                 </div>
               </SpotlightCard>

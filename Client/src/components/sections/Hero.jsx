@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import photo from "../../assets/image/Profile.jpg";
 import Button from "../common/Button.jsx";
 import { TypeAnimation } from 'react-type-animation';
@@ -8,217 +8,141 @@ import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { cn } from "../lib/utils.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+// Asset Imports
 import FaceBook from "../../assets/image/FaceBook.webp";
 import Tweeter from "../../assets/image/Tweeter.webp";
 import Linkedin from "../../assets/image/Linkedin.webp";
 import GitHub from "../../assets/image/GitHub.webp";
 
-import Cropper from 'react-easy-crop';
-
-// Import components directly
+// UI Components
 import LinkPreview from "../ui/link-preview.jsx";
 import SplitText from "../ui/SplitText.jsx";
 
-const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Programmer", 1000];
-const DESCRIPTION = [`Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!`];
+const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Full Stack Engineer", 1000];
+const DESCRIPTION = "Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!";
 
 const Hero = () => {
   const [loading, setLoading] = useState(false);
 
-  const [crop, setCrop] = useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(1);
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    setCroppedAreaPixels(croppedAreaPixels);
-  }, []);
-
-  const handleClick = async () => {
-    console.log("Download button clicked: ", import.meta.env.VITE_API_URL);
+  const handleDownloadCV = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`, {
-        method: "GET",
-      });
-
-      const contentType = response.headers.get("Content-Type");
-
-      if (!response.ok) {
-        setLoading(false);
-
-        if (contentType && contentType.includes("application/json")) {
-          const result = await response.json();
-          toast.error(result.message || 'Server error.');
-        } else {
-          toast.error('Server error. File may be missing.');
-        }
-
-        return;
-      }
-
-      // If success
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/cv`);
+      if (!response.ok) throw new Error("File not found");
+      
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "TarikulIslam_CV_Resume_2025.pdf");
+      link.setAttribute("download", "Tarikul_Islam_CV.pdf");
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-
-      setLoading(false);
+      link.remove();
       toast.success('Downloaded successfully!');
-
     } catch (error) {
-      console.error("Error downloading CV:", error);
+      toast.error('Download failed. Please try again.');
+    } finally {
       setLoading(false);
-      toast.warning('Network error');
     }
   };
 
-  // Styles for social media icons
-  const SocialMediaIcon = "m-2 flex cursor-pointer items-center justify-center rounded-full border-[3px] border-primary-light/80 dark:border-primary p-2 text-lg text-primary-light/90 dark:text-primary shadow-[0px_0px_5px_1px_var(--color-primary-light)] dark:shadow-[0px_0px_5px_1px_var(--color-primary)] transition-all duration-300 hover:scale-110 intersect:motion-preset-bounce motion-preset-confetti intersect:-motion-translate-y-in-150";
+  const socialIcons = [
+    { icon: faFacebook, link: "https://facebook.com/...", img: FaceBook },
+    { icon: faTwitter, link: "https://x.com/...", img: Tweeter },
+    { icon: faGithub, link: "https://github.com/...", img: GitHub },
+    { icon: faLinkedin, link: "https://linkedin.com/...", img: Linkedin },
+  ];
 
   return (
-    <section id="home" className="relative pt-20 flex min-w-[345px] w-full flex-col items-center justify-center overflow-hidden p-4 lg:h-screen bg-background-light dark:bg-background-dark">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background-light dark:bg-[#050505] px-6 py-20">
+      
+      {/* Modern Background Grid & Glow */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute top-0 left-1/4 h-[500px] w-[500px] bg-primary/20 blur-[120px] rounded-full opacity-50" />
+      </div>
 
-      {/* Background image */}
-      <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,transparent_0%)]",
-          "[-webkit-mask-image:linear-gradient(to_bottom,white_10%,transparent_60%)]",
-          "[mask-size:cover]",
-          "[mask-repeat:no-repeat]",
-        )}
-      />
+      <div className="container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        
+        {/* Content Side */}
+        <div className="flex-1 text-center lg:text-left space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium animate-bounce">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Available for new projects
+          </div>
 
-      {/* Main content area */}
-      <div className="flex max-w-7xl flex-col-reverse items-center justify-center lg:h-full lg:flex-row">
-        {/* Left side section (text and button) */}
-        <div className="flex w-full items-center justify-center lg:h-full lg:w-1/2">
-          <div className="mt-10 flex w-full flex-col justify-center py-10 pr-4 max-xs:items-center md:pl-10 lg:h-full lg:items-start lg:pl-0">
-            <p className="hidden text-xs border border-neutral-600 rounded-full px-4 py-1.5 flex justify-center items-center gap-2 fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shine overflow-hidden z-50 w-max">
-              Available for new projects
-            </p>
+          <h2 className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-300">
+            Hi, I'm <span className="text-primary font-bold">
+              <TypeAnimation sequence={WORDS} repeat={Infinity} />
+            </span>
+          </h2>
 
-            {/* Intro text with type animation */}
-            <p className="text-start text-xl font-[Poppins,sans-serif] text-primary-light dark:text-primary-dark xs:text-[1.5rem]">
-              Hi!, I Am <span className={`relative bg-gradient-to-r from-primary-light dark:from-primary dark:via-teal-500 to-primary-light/50 dark:to-secondary text-transparent bg-clip-text`}>
-                <TypeAnimation
-                  sequence={WORDS}
-                  wrapper="span"
-                  speed={0}
-                  repeat={Infinity}
-                />
-              </span>
-            </p>
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
+            Building Digital <br /> 
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Experiences.</span>
+          </h1>
 
-            {/* Role text */}
-            <h1 className={`max-xs:text-[2.5rem] text-[3.5rem] text-start font-[700] bg-primary-light/80 text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-secondary dark:via-primary dark:to-primary-light intersect:motion-translate-x-in-[10%] intersect:motion-duration-1000`}>
-              Web Developer.
-            </h1>
+          <div className="max-w-xl mx-auto lg:mx-0 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed">
+            <SplitText text={DESCRIPTION} delay={15} />
+          </div>
 
-            {/* Description text - use directly without Suspense */}
-            <div className={`text-primary-light/90 dark:text-primary-dark/92 font-[500] my-3 inline-block w-[97%] text-md font-light xs:text-start intersect:motion-translate-x-in-[-10%] motion-duration-1000`}>
-              <SplitText
-                text={`${DESCRIPTION}`}
-                delay={20}
-                animationFrom={{ opacity: 0, transform: 'translate3d(0,0,0)' }}
-                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-                easing="easeOutCubic"
-                threshold={0.2}
-                rootMargin="-50px"
-              />
-            </div>
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4 justify-center lg:justify-start">
+            <Button
+              text={loading ? "Downloading..." : "Get My CV"}
+              onClick={handleDownloadCV}
+              icon={<FontAwesomeIcon icon={faCloudArrowDown} />}
+              className="h-14 px-8 rounded-2xl bg-primary hover:shadow-[0_0_20px_rgba(var(--color-primary),0.4)] transition-all"
+            />
 
-            {/* Buttons and social media icons */}
-            <div className="flex items-start md:items-center w-full py-4 max-md:h-[10rem] justify-start flex-col-reverse max-md:justify-between md:flex-row z-50">
-              {/* CV Download Button with animation */}
-              <Button
-                text="CV Download"
-                onClick={() => handleClick()}
-                variant="primary"
-                icon={<FontAwesomeIcon icon={faCloudArrowDown} className="z-10 text-primary-dark group-hover:text-primary group-active:text-black group-focus:text-black dark:text-primary-light" />}
-                className="peer max-lg:w-1/2 z-10 bg-primary-light/80 font-semibold hover:bg-primary-light/80 dark:bg-primary dark:hover:bg-primary/80 text-primary-dark hover:text-primary-dark dark:text-primary-light dark:hover:text-primary-light border-none"
-              />
-
-              {/* Social Media Icons - use directly without Suspense */}
-              <div className="flex max-md:w-full items-center md:justify-center md:ml-2">
-                <LinkPreview
-                  imageSrc={FaceBook}
-                  isStatic={true}
-                >
-                  <FontAwesomeIcon
-                    icon={faFacebook}
-                    onClick={() => window.open("https://www.facebook.com/tarikulislam3639/", "_blank")}
-                    className={`${SocialMediaIcon} intersect:motion-duration-2200`}
-                  />
+            <div className="flex items-center gap-3">
+              {socialIcons.map((soc, i) => (
+                <LinkPreview key={i} imageSrc={soc.img} isStatic={true}>
+                  <button 
+                    onClick={() => window.open(soc.link, "_blank")}
+                    className="w-12 h-12 flex items-center justify-center rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:border-primary hover:text-primary transition-all duration-300 shadow-sm"
+                  >
+                    <FontAwesomeIcon icon={soc.icon} className="text-lg" />
+                  </button>
                 </LinkPreview>
-
-                <LinkPreview
-                  imageSrc={Tweeter}
-                  isStatic={true}
-                >
-                  <FontAwesomeIcon
-                    onClick={() => window.open("https://x.com/Tarikul3639", "_blank")}
-                    icon={faTwitter}
-                    className={`${SocialMediaIcon} intersect:motion-duration-4000`}
-                  />
-                </LinkPreview>
-
-                <LinkPreview
-                  imageSrc={GitHub}
-                  isStatic={true}
-                >
-                  <FontAwesomeIcon
-                    onClick={() => window.open("https://github.com/Tarikul3639", "_blank")}
-                    icon={faGithub}
-                    className={`${SocialMediaIcon} intersect:motion-duration-3400`}
-                  />
-                </LinkPreview>
-
-                <LinkPreview
-                  imageSrc={Linkedin}
-                  isStatic={true}
-                >
-                  <FontAwesomeIcon
-                    onClick={() => window.open("https://www.linkedin.com/in/Tarikul3639", "_blank")}
-                    icon={faLinkedin}
-                    className={`${SocialMediaIcon} intersect:motion-duration-2800`}
-                  />
-                </LinkPreview>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Right side section (profile image) */}
-        <div className="flex items-center justify-center lg:h-full lg:w-1/2">
-          <div className="relative flex h-80 w-80 items-center justify-center lg:mt-0 lg:h-110 lg:w-110 p-7 lg:p-10">
-            <img src={photo} loading="eager" alt="Tarikul Islam" className="w-full h-full overflow-hidden rounded-full object-cover object-[0%_18%] scale-120 mask-radial-[50%_50%] mask-radial-from-30%" />
-            <svg width="100%" height="100%" viewBox="0 0 506 506" className="absolute">
-              <defs>
-                <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="var(--color-primary)" />
-                  <stop offset="50%" stopColor="var(--color-primary)" />
-                  <stop offset="100%" stopColor="var(--color-primary)" />
-                </linearGradient>
-              </defs>
-              <circle
-                className="animate-strokeAnimation fill-none stroke-[5]"
-                cx="253" cy="253" r="250"
-                stroke="url(#gradientStroke)"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+        {/* Visual Side - Modern Image Box */}
+        <div className="flex-1 flex justify-center items-center">
+          <div className="relative group w-72 h-72 md:w-[450px] md:h-[450px]">
+            {/* Animated Ring Backdrops */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-400 rounded-[2rem] rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-primary to-cyan-400 rounded-[2rem] -rotate-3 opacity-20 group-hover:-rotate-6 transition-transform duration-500" />
+            
+            {/* Main Image Container */}
+            <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] border-2 border-white/10 shadow-2xl">
+              <img 
+                src={photo} 
+                alt="Profile" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-            </svg>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating Badges */}
+            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-900 p-4 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800 animate-float">
+               <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
+                    <span className="font-bold text-xl">2+</span>
+                  </div>
+                  <p className="text-xs font-bold dark:text-white uppercase tracking-wider">Years Of<br/>Experience</p>
+               </div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );
