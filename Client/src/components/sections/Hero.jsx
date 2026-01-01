@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import photo from "../../assets/image/Profile.jpg";
+import photo from "../../assets/image/Tarikul.jpg";
 import { TypeAnimation } from 'react-type-animation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -162,7 +162,7 @@ const Hero = () => {
               <img
                 src={photo}
                 alt="Profile"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover scale-150 object-[50%_20%] transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>

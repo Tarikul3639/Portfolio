@@ -25,6 +25,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
+          {/* <LoadingFallback /> */}
           <CustomToastContainer />
         </BrowserRouter>
       </Observer>

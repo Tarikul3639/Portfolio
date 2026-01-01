@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
-import Image from '../../assets/image/Tarikul.jpg';
+import Image from '../../assets/image/Profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DiMongodb } from "react-icons/di";
 import { SiTypescript, SiFramer } from "react-icons/si";
@@ -85,11 +85,11 @@ const About = () => {
               <motion.div style={{ translateZ: 60 }} className="absolute inset-0 h-full w-full">
                 <motion.img 
                   src={Image} 
-                  className="w-full h-full object-cover scale-110 grayscale-[30%] dark:grayscale-[50%] group-hover:grayscale-0 group-hover:scale-125 transition-all duration-1000 ease-out"
-                  style={{ filter: "brightness(0.8) contrast(1.1)" }}
+                  className="w-full h-full object-cover scale-110 grayscale-[30%] object-[50%_5%] dark:grayscale-[50%] group-hover:grayscale-0 group-hover:scale-125 transition-all duration-1000 ease-out"
+                  style={{ filter: "dark:brightness(0.8) contrast(1.1)" }}
                 />
                 {/* Gradient Overlay: Light mode is more transparent */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 dark:via-black/60 to-transparent opacity-95" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/5 dark:via-black/60 to-transparent dark:opacity-95" />
               </motion.div>
 
               {/* HUD Elements: Primary color used for both modes */}
@@ -105,7 +105,7 @@ const About = () => {
               <div className="absolute bottom-12 left-12 right-12 z-30">
                 <motion.div 
                     style={{ translateZ: 120 }} 
-                    className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-white/20 dark:bg-black/80 border border-white/30 dark:border-primary/40 backdrop-blur-md transition-colors"
+                    className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-white/5 dark:bg-black/5 border border-white/30 dark:border-primary/40 backdrop-blur-md transition-colors"
                 >
                   <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#00eeff] animate-pulse" />
                   <span className="text-[9px] font-black text-white uppercase tracking-[0.4em]">Auth: Tarikul_Islam</span>

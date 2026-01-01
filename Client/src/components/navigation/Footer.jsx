@@ -147,7 +147,7 @@ const Footer = () => {
                 <div className="pt-12 border-t border-neutral-200/50 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex flex-col gap-1 text-center md:text-left">
                         <p className="text-[10px] font-black text-neutral-600 dark:text-neutral-500 uppercase tracking-[0.4em]">
-                            © {currentYear} TARIKUL ISLAM <span className="text-primary/40 dark:text-primary/30">//</span> V2.0.0
+                            © {currentYear} TARIKUL ISLAM <span className="text-primary/40 dark:text-primary/30">//</span> V4.0.0
                         </p>
                         <p className="text-[8px] text-neutral-500 dark:text-neutral-700 font-mono tracking-widest">
                             LATENCY: 14MS | ENCRYPTION: AES-256
@@ -180,26 +180,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-
-
-
-
-
-
-
-
-
-    // --- SCROLL EFFECT & PROGRESS BAR LOGIC ---
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         setScrolled(window.scrollY > 50);
-    //         const scrollTop = window.scrollY;
-    //         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    //         setScrollWidth((scrollTop / docHeight) * 100);
-    //     };
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, []);
