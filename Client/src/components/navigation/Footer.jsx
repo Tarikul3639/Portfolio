@@ -180,3 +180,26 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+
+
+
+
+
+
+
+
+
+    // --- SCROLL EFFECT & PROGRESS BAR LOGIC ---
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         setScrolled(window.scrollY > 50);
+    //         const scrollTop = window.scrollY;
+    //         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    //         setScrollWidth((scrollTop / docHeight) * 100);
+    //     };
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, []);
