@@ -99,11 +99,11 @@ const Hero = () => {
               onClick={handleDownloadCV}
               className="relative group h-14 px-10 flex items-center gap-3 bg-transparent overflow-hidden"
             >
-              {/* Button Border - একদম পাতলা এবং প্রিমিয়াম */}
-              <div className="absolute inset-0 border border-primary/30 rounded-full group-hover:border-primary transition-colors duration-500" />
+              {/* Button Border */}
+              <div className="absolute inset-0 border border-primary/30 dark:border-primary/50 rounded-full group-hover:border-primary transition-colors duration-500" />
 
-              {/* Inner Glow - হোভার করলে হালকা আভা ছড়াবে */}
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500 rounded-full" />
+              {/* Inner Glow */}
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 dark:group-hover:bg-primary/10 transition-colors duration-500 rounded-full" />
 
               {/* Text & Icon */}
               <span className="relative z-10 text-primary font-bold tracking-[0.2em] uppercase text-xs">
@@ -114,7 +114,7 @@ const Hero = () => {
                 className="relative z-10 text-primary text-sm group-hover:translate-y-[-2px] transition-transform duration-300"
               />
 
-              {/* Corner Accents - বাটনের দুই কোণায় ছোট ডিটেইলস */}
+              {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-0 group-hover:opacity-100 transition-all duration-500" />
               <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-0 group-hover:opacity-100 transition-all duration-500" />
             </motion.button>
@@ -122,7 +122,7 @@ const Hero = () => {
             {/* --- 2. FLOATING SOCIAL DOCK --- */}
             <div className="flex items-center gap-6 relative">
               {/* Divider Line */}
-              <div className="hidden sm:block w-[1px] h-8 bg-neutral-800" />
+              <div className="hidden sm:block w-[1px] h-8 bg-neutral-200 dark:bg-neutral-800" />
 
               <div className="flex items-center gap-5">
                 {socialIcons.map((soc, i) => (
@@ -135,7 +135,7 @@ const Hero = () => {
                       {/* Minimalist Icon */}
                       <FontAwesomeIcon
                         icon={soc.icon}
-                        className="text-xl text-neutral-500 group-hover:text-primary transition-all duration-300 drop-shadow-[0_0_8px_rgba(0,238,255,0)] group-hover:drop-shadow-[0_0_8px_rgba(0,238,255,0.5)]"
+                        className="text-xl text-neutral-500 dark:text-neutral-400 group-hover:text-primary transition-all duration-300 drop-shadow-[0_0_8px_rgba(0,238,255,0)] group-hover:drop-shadow-[0_0_8px_rgba(0,238,255,0.5)]"
                       />
 
                       {/* Underline Animation */}
@@ -158,7 +158,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-bl from-primary to-cyan-400 rounded-[2rem] -rotate-3 opacity-20 group-hover:-rotate-6 transition-transform duration-500" />
 
             {/* Main Image Container */}
-            <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] border-2 border-white/10 shadow-2xl">
+            <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] border-2 border-white/20 dark:border-white/10 shadow-2xl dark:shadow-neutral-900/50">
               <img
                 src={photo}
                 alt="Profile"
@@ -167,15 +167,38 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
 
-            {/* Floating Badges */}
-            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-900 p-4 rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800 animate-float">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
-                  <span className="font-bold text-xl">2+</span>
-                </div>
-                <p className="text-xs font-bold dark:text-white uppercase tracking-wider">Years Of<br />Experience</p>
-              </div>
-            </div>
+{/* Floating Badges - Minimalist & Compact */}
+<motion.div 
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 1, duration: 0.5 }}
+  className="absolute -bottom-4 -right-4 z-20 animate-float"
+>
+  <div className="relative group">
+    {/* Subtle Glow */}
+    <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
+    
+    {/* Compact Glass Container */}
+    <div className="relative flex items-center gap-2.5 bg-white/90 dark:bg-[#0f0f0f]/90 backdrop-blur-md p-2.5 px-3.5 rounded-xl border border-neutral-200/50 dark:border-white/10 shadow-lg">
+      
+      {/* Small Gradient Circle */}
+      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center shadow-sm">
+        <span className="text-white font-bold text-sm tracking-tighter">2+</span>
+      </div>
+
+      {/* Tiny Refined Text */}
+      <div className="flex flex-col justify-center">
+        <span className="text-[9px] font-black text-primary uppercase tracking-[0.15em] leading-none mb-0.5">
+          Experience
+        </span>
+        <span className="text-[10px] font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide leading-tight">
+          Years of<br />Mastery
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</motion.div>
           </div>
         </div>
 
