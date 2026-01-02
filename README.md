@@ -1,114 +1,65 @@
 # 💼 Tarikul Islam - Personal Portfolio
 
-Welcome to my personal portfolio website! This site showcases my projects,
-technical skills, and professional journey. Built with modern web technologies for speed, simplicity,
-and a seamless user experience.
+Welcome to my personal portfolio website, showcasing my projects, technical skills, and professional journey. Designed for speed, clarity, and a seamless experience for recruiters and collaborators.
 
-## 🌟 Features
+---
 
-- ⚡ **Modern Design** – Clean, minimal, and responsive UI using Tailwind CSS
-- 🚀 **Optimized Performance** – Fast load times with Vite and optimized assets
-- 💻 **Project Showcase** – Detailed display of professional and personal work
-- 📬 **Contact Section** – Easy ways to reach and connect with me
+## Key Highlights
 
-## 🛠️ Technologies Used
+- **Modern & Professional Design** – Clean, minimal, fully responsive UI using Tailwind CSS  
+- **High Performance** – Optimized for fast load times and smooth interactions  
+- **Project Showcase** – In-depth display of professional and personal projects  
+- **Contact & Connect** – Easy ways to reach me for opportunities  
 
-- **Frontend**: [React.js](https://react.dev/), [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Fonts**: Google Fonts – JetBrains Mono, Outfit, Poppins, Source Sans 3
-- **Deployment**: [Vercel](https://vercel.com/)
+---
 
-## 🌐 Visit My Portfolio
+## 🔗 Portfolio Live Demo
 
-You can view my portfolio here:  
-🔗 [https://tarikul-islam.netlify.app](https://tarikul-islam.netlify.app)
+Check out the live website here: [**Link**](https://tarikul-islam.netlify.ap)
 
-## ⚙️ Getting Started
+---
 
-### Prerequisites
+## 🛠️ Technologies & Tools
 
-- [Node.js](https://nodejs.org/) (v14 or later)
-- npm or yarn
+| Layer           | Technologies & Tools |
+|-----------------|-------------------|
+| **Frontend**    | React.js, Vite, Tailwind CSS, Framer Motion |
+| **Styling**     | Tailwind CSS, Google Fonts (JetBrains Mono, Outfit, Poppins, Source Sans 3) |
+| **Deployment**  | Netlify & Vercel |
+| **Version Control** | Git & GitHub |
 
-### Installation
+---
 
-Clone the repository:
 
-```bash
-git clone https://github.com/tarikul3639/your-repo-name.git
-cd your-repo-name
-```
+---
 
-Install dependencies:
+## 📝 Known Issues / Notes
 
-```bash
-npm install
-# or
-yarn install
-```
+- ⚠️ Minor scroll lag observed (~0.5s) on page transitions. Optimizations with lazy-loading, Suspense, and motion effects are applied but may still cause slight delay on lower-end devices.  
+- Spline 3D components (Orbital, TrueFocus) require `@splinetool/runtime` latest version.  
 
-Start the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 📫 Connect With Me
 
-Then open your browser and visit: `http://localhost:5173`
+| Platform  | Link |
+|-----------|------|
+| **Live Website** | [tarikul-islam.netlify.app](https://tarikul-islam.netlify.app/) |
+| **Email** | [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com) |
+| **LinkedIn** | [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/) |
 
-## 🏗️ Build for Production
+---
 
-To create a production build:
+## 📄 License
 
-```bash
-npm run build
-# or
-yarn build
-```
+This project is licensed under the [MIT License](LICENSE).
 
-## 📁 Project Structure
+---
 
-```
-Client/
-├── public/             # Static assets, favicon, index.html
-├── src/
-│   ├── assets/         # Images, fonts, icons, etc.
-│   │   ├── images/
-│   │   ├── fonts/
-│   │   └── icons/
-│   ├── components/     # Reusable components
-│   │   ├── common/     # Truly reusable across the app
-│   │   │   └── Button.jsx
-│   │   ├── layout/     # Layout components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   └── DotScrollBar.jsx
-│   │   ├── ui/         # UI components
-│   │   │   └── SplashCursor.jsx
-│   │   └── sections/   # Page sections
-│   │       ├── AboutSection.jsx
-│   │       ├── ProjectsSection.jsx
-│   │       └── ContactSection.jsx
-│   ├── hooks/          # Custom hooks
-│   ├── context/        # Context providers
-│   ├── utils/          # Helper functions
-│   ├── services/       # API calls, external services
-│   ├── styles/         # Global styles, theme
-│   ├── pages/          # Page components
-│   │   ├── HomePage.jsx
-│   │   └── ViewportSection.jsx
-│   ├── App.jsx
-│   └── index.jsx
-├── package.json
-└── README.md
-```
+### 🔹 Notes for Recruiters
 
-## 📫 Contact
-
-Feel free to connect with me:
-
-* **Email**: [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com)
-* **LinkedIn**: [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/)
-* **GitHub**: [github.com/tarikul3639](https://github.com/tarikul3639)
+- Fully responsive & modern portfolio for desktop and mobile  
+- Clean code with React + Tailwind + Vite, optimized for speed  
+- Ready for integration with Spline 3D animations and Framer Motion  
+- Highlights professional projects, technical skills, and contact info clearly
 
