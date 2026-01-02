@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -79,7 +81,7 @@ const Contact = () => {
                   System: {status === 'loading' ? 'Transmitting...' : 'Stable'}
                 </div>
                 <h4 className="text-4xl font-black italic tracking-tighter leading-none">
-                  SEND A <span className="text-primary text-glow">TRANSMISSION</span>
+                  SEND A <span className="text-primary drop-shadow-[0_0_20px_rgba(0,238,255,0.5)]">TRANSMISSION</span>
                 </h4>
               </div>
 
@@ -216,8 +218,6 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-
-      <style jsx>{`.text-glow { text-shadow: 0 0 20px rgba(0, 238, 255, 0.5); }`}</style>
     </section>
   );
 };
