@@ -301,10 +301,12 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                                             <li key={item} className="relative px-4 py-2">
                                                 <Link
                                                     to={item.toLowerCase()}
-                                                    spy={true}
+                                                    // spy={true}
                                                     smooth={true}
                                                     offset={-70}
-                                                    onSetActive={() => setActiveLink(item.toLowerCase())}
+                                                    duration={300}
+                                                    onClick={() => setActiveLink(item.toLowerCase())}
+                                                    // onSetActive={() => setActiveLink(item.toLowerCase())} //Scroll spy version
                                                     className={`relative z-10 text-[11px] font-black tracking-[0.25em] uppercase transition-all duration-500 cursor-pointer ${isCurrent
                                                         ? "text-neutral-900 dark:text-white"
                                                         : "text-neutral-500 dark:text-neutral-500 hover:text-primary dark:hover:text-primary"
@@ -318,7 +320,7 @@ const Navbar = ({ title = "Tarikul", menuItems = ["HOME", "ABOUT", "PROJECTS", "
                                                     <motion.div
                                                         layoutId="nav-pill"
                                                         className="absolute inset-0 bg-primary/10 rounded-full z-0 border border-neutral-200 dark:border-white/10 shadow-sm"
-                                                        transition={{ type: "spring", bounce: 0.25, duration: 0.6 }}
+                                                        transition={{ type: "spring", bounce: 0, duration: 0.5 }}
                                                     >
                                                         {/* TOP LASER DOT */}
                                                         <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-4 h-[2px] bg-primary shadow-[0_0_10px_#00eeff]" />
