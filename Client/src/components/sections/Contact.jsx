@@ -1,33 +1,57 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLocationDot, faPaperPlane, faIdBadge, faCircleDot } from '@fortawesome/free-solid-svg-icons';
-import 'react-toastify/dist/ReactToastify.css';
+import { faEnvelope, faLocationDot, faPaperPlane, faIdBadge, faCircleDot, faCheckCircle, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-// Custom Components
-import Loader from '../ui/Loader.jsx';
 import SpotlightCard from '../ui/SpotlightCard.jsx';
 
 const TrueFocus = lazy(() => import('../ui/TrueFocus'));
 const Orbital = lazy(() => import('../ui/Orbital'));
+import Loader from '../ui/Loader.jsx';
 
 const Contact = () => {
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  // Destructure form data for easier access
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    // ... logic same ...
-    setLoading(false);
+    setStatus('loading');
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      console.log(result);
+
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 4000);
+        return;
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+        return;
+      }
+    } catch (err) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
     <section id="contact" className="relative py-32 bg-white dark:bg-[#020202] text-neutral-900 dark:text-white overflow-hidden">
-      {loading && <Loader loading={true} variant="full" />}
 
       <div className="container relative z-10 mx-auto px-6 max-w-7xl">
 
@@ -45,32 +69,33 @@ const Contact = () => {
           <motion.div
             whileHover={{ scale: 1.001, y: -2 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="flex"
+            className="flex max-lg:flex-col group"
           >
             <SpotlightCard className="p-8 md:p-14 border border-neutral-200 dark:border-white/10 bg-white hover:bg-primary/5 dark:bg-[#080808]/60 backdrop-blur-3xl rounded-[3rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-500 hover:border-primary/50 hover:shadow-[0_30px_60px_rgba(0,238,255,0.1)] hover:dark:shadow-[0_30px_60px_rgba(0,238,255,0.2)]">
 
-              {/* Unique Text Effect Area for Balance */}
               <div className="mb-10 space-y-2">
                 <div className="flex items-center gap-2 text-primary/50 text-[10px] font-bold tracking-[0.2em] uppercase">
-                  <FontAwesomeIcon icon={faCircleDot} className="text-[6px] animate-ping" /> System Status: Ready
+                  <FontAwesomeIcon icon={faCircleDot} className={`text-[6px] ${status === 'loading' ? 'animate-pulse text-yellow-500' : 'animate-ping'}`} />
+                  System: {status === 'loading' ? 'Transmitting...' : 'Stable'}
                 </div>
                 <h4 className="text-4xl font-black italic tracking-tighter leading-none">
                   SEND A <span className="text-primary text-glow">TRANSMISSION</span>
                 </h4>
-                <p className="text-neutral-600 dark:text-neutral-500 text-xs font-medium tracking-wide">Ready to turn your vision into digital reality.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="group relative">
                     <input
-                      type="text" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your Identity"
+                      name="name"
+                      type="text" value={formData.name} onChange={handleChange} required placeholder="Your Identity"
                       className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                     />
                   </div>
                   <div className="group relative">
                     <input
-                      type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Return Address"
+                      name="email"
+                      type="email" value={formData.email} onChange={handleChange} required placeholder="Return Address"
                       className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                     />
                   </div>
@@ -78,16 +103,53 @@ const Contact = () => {
 
                 <div className="group relative">
                   <textarea
-                    rows="6" value={message} onChange={(e) => setMessage(e.target.value)} required placeholder="Describe your objective..."
+                    rows="6" name="message" value={formData.message} onChange={handleChange} required placeholder="Describe your objective..."
                     className="w-full px-5 py-4 bg-neutral-100/80 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/10 rounded-2xl focus:border-primary focus:ring-4 focus:ring-primary/10 dark:focus:ring-primary/5 focus:outline-none transition-all duration-300 text-sm resize-none text-neutral-900 dark:placeholder:text-neutral-400 dark:text-neutral-200"
                   />
                 </div>
 
+                {/* --- SMART ACTION BUTTON --- */}
                 <motion.button
-                  whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(0,238,255,0.4)" }}
-                  className="w-full py-5 rounded-2xl bg-primary text-black font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3"
+                  disabled={status === 'loading' || status !== 'idle'}
+                  whileHover={status === 'idle' ? { scale: 1.02 } : {}}
+                  whileTap={status === 'idle' ? { scale: 0.98 } : {}}
+                  className={`relative w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all duration-500 overflow-hidden ${status === 'loading' ? 'bg-neutral-800 text-yellow-500 cursor-wait' :
+                    status === 'success' ? 'bg-green-600 text-white' :
+                      status === 'error' ? 'bg-red-600 text-white' :
+                        'bg-primary text-black hover:shadow-[0_0_30px_rgba(0,238,255,0.4)]'
+                    }`}
                 >
-                  BROADCAST SIGNAL <FontAwesomeIcon icon={faPaperPlane} className="text-[10px]" />
+                  <AnimatePresence mode="wait">
+                    {status === 'idle' && (
+                      <motion.div key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3">
+                        BROADCAST SIGNAL <FontAwesomeIcon icon={faPaperPlane} />
+                      </motion.div>
+                    )}
+                    {status === 'loading' && (
+                      <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3">
+                        <FontAwesomeIcon icon={faSpinner} className="animate-spin" /> ENCRYPTING...
+                      </motion.div>
+                    )}
+                    {status === 'success' && (
+                      <motion.div key="success" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3">
+                        <FontAwesomeIcon icon={faCheckCircle} /> RECEIVED
+                      </motion.div>
+                    )}
+                    {status === 'error' && (
+                      <motion.div key="error" initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3">
+                        <FontAwesomeIcon icon={faExclamationTriangle} /> FAILED
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Button Background Scanline Effect during loading */}
+                  {status === 'loading' && (
+                    <motion.div
+                      animate={{ x: ['-100%', '100%'] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    />
+                  )}
                 </motion.button>
               </form>
             </SpotlightCard>

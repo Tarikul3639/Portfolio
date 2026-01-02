@@ -9,10 +9,10 @@ const registerUser = async (req, res) => {
     // Call sendEmail with user data
     await sendEmail({ name, email, message });
 
-    res.status(200).json({ message: "Email sent successfully" });
+    res.status(200).json({success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:1");
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 module.exports = { registerUser };

@@ -231,3 +231,23 @@ html {
   left: -60px;
   z-index: 1;
 }
+
+/* Browser Input Auto fill color in Dark Mode*/
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(4, 255, 192, 0.304) inset;
+  -webkit-text-fill-color: #e5e7eb;
+}
+
+/* Light Mode */
+/* Chrome, Edge, Brave */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(245, 245, 245, 0.8) inset;
+  -webkit-text-fill-color: #111827; /* text color */
+  transition: background-color 5000s ease-in-out 0s;
+}
