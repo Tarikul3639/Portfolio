@@ -9,6 +9,7 @@ import Express from '../../assets/icons/express-js.svg';
 import ChatFly from '../../assets/image/ChatFly.png';
 import krishokPalli from '../../assets/image/krishok-palli.png';
 import Nexion from '../../assets/image/Nexion_V4.png';
+import Nexion_App from '../../assets/image/Nexion_App.png';
 import KrishokPalliAdmin from '../../assets/image/Krishok_Palli_Admin.png';
 import { SiTypescript, SiFramer } from "react-icons/si";
 
@@ -19,6 +20,7 @@ import { faArrowUpRightFromSquare, faCode, faMicrochip } from '@fortawesome/free
 import { DiMongodb } from "react-icons/di";
 
 import SpotlightCard from '../ui/SpotlightCard.jsx';
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
 const Projects = () => {
   const containerRef = useRef(null);
@@ -94,7 +96,24 @@ const Projects = () => {
         { icon: <img src={Express} className="h-3 dark:invert" alt="" />, name: 'Express' },
         { icon: <img src={socket} className="h-3" alt="" />, name: 'Socket' },
         { icon: <img src={WebRTC} className="h-3" alt="" />, name: 'WebRTC' },
+      ]
+    },
+    {
+      title: "Nexion Mobile App",
+      link: "https://github.com/Tarikul3639/Nexion_App",
+      // Live_link: "https://nexion-mobile-app.vercel.app/",
+      description: "A mobile extension of the Nexion platform, offering seamless on-the-go collaboration and communication.",
+      image: Nexion_App,
+      tag: "Mobile App",
+      bgText: "APP",
+      progress: 80,
+      tech: [
         { icon: <FontAwesomeIcon icon={faReact} className="text-[#61dafb]" />, name: 'React Native' },
+        { icon: <SiTypescript className="text-[#3178c6]" />, name: 'TypeScript' },
+        { icon: <SiFramer className="text-[#0055ff]" />, name: 'Framer Motion' },
+        { icon: <img src={Express} className="h-3 dark:invert" alt="" />, name: 'Express' },
+        { icon: <img src={socket} className="h-3" alt="" />, name: 'Socket' },
+        { icon: <DiMongodb className="text-[#47A248]" />, name: 'MongoDB' },
       ]
     },
     {
