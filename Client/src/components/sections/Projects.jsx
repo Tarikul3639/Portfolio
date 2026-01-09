@@ -251,10 +251,22 @@ const Projects = () => {
 
                         {/* Actions */}
                         <div className={`flex flex-wrap gap-4 pt-4 ${isEven ? 'justify-center xl:justify-end' : 'justify-center xl:justify-start'}`}>
-                          <button onClick={() => window.open(item.Live_link, "_blank")} className="relative h-14 px-8 overflow-hidden rounded-2xl bg-primary text-black font-black text-[11px] uppercase tracking-[0.15em] flex items-center gap-3 transition-all hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(0,238,255,0.6)]">
-                            Launch Project <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                          <button
+                            onClick={() => item.Live_link && window.open(item.Live_link, "_blank")}
+                            className={`
+    relative h-14 px-8 overflow-hidden rounded-2xl
+    font-black text-[11px] uppercase tracking-[0.15em]
+    flex items-center gap-3 transition-all
+    ${item.Live_link
+                                ? "bg-primary text-black hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(0,238,255,0.6)] cursor-pointer"
+                                : "bg-neutral-500/50 text-neutral-500 opacity-60"}
+  `}
+                          >
+                            Launch Project
+                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                           </button>
-                          <button onClick={() => window.open(item.link, "_blank")} className="h-14 px-8 rounded-2xl border border-neutral-200/30 dark:border-white/10 bg-neutral-100/80 dark:bg-white/5 text-neutral-900 dark:text-white font-black text-[11px] uppercase tracking-[0.15em] flex items-center gap-3 transition-all hover:bg-neutral-200 hover:scale-105 active:scale-95 dark:hover:bg-white/10">
+
+                          <button onClick={() => window.open(item.link, "_blank")} disabled={!item.link} className="h-14 px-8 rounded-2xl border border-neutral-200/30 dark:border-white/10 bg-neutral-100/80 dark:bg-white/5 text-neutral-900 dark:text-white font-black text-[11px] uppercase tracking-[0.15em] flex items-center gap-3 transition-all hover:bg-neutral-200 hover:scale-105 active:scale-95 dark:hover:bg-white/10">
                             <FontAwesomeIcon icon={faCode} /> GitHub
                           </button>
                         </div>
