@@ -9,7 +9,7 @@ import Express from '../../assets/icons/express-js.svg';
 import ChatFly from '../../assets/image/ChatFly.png';
 import krishokPalli from '../../assets/image/krishok-palli.png';
 import Nexion from '../../assets/image/Nexion_V4.png';
-import Nexion_App from '../../assets/image/Nexion_App.png';
+import Nexion_App from '../../assets/image/nexion_app.png';
 import KrishokPalliAdmin from '../../assets/image/Krishok_Palli_Admin.png';
 import { SiTypescript, SiFramer } from "react-icons/si";
 
