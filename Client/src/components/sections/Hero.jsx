@@ -96,7 +96,7 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Available for new projects
+            Available For New Projects
           </div>
 
           <h2 className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-300">
@@ -106,8 +106,8 @@ const Hero = () => {
           </h2>
 
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
-            Building Digital <br />
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Experiences.</span>
+            Full-Stack Web App<br />
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">with TypeScript.</span>
           </h1>
 
           <motion.div
