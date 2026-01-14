@@ -1,6 +1,6 @@
 
 // Normal/Eager Imports (Directly Loaded)
-import Navbar from '../components/navigation/Navbar.jsx';
+import Navbar from '../components/navigation/navbar/index.jsx';
 import Hero from '../components/sections/Hero.jsx';
 import About from '../components/sections/About.jsx';
 import Projects from '../components/sections/Projects.jsx';

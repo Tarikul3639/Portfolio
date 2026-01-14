@@ -8,14 +8,13 @@ import { SiTypescript, SiFramer } from "react-icons/si";
 import { faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 
 import Express from '../../assets/icons/express-js.svg';
-import SplitText from "../../components/ui/SplitText.jsx";
 
 const About = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
-  
+
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
@@ -43,7 +42,7 @@ const About = () => {
 
   return (
     <section id='about' className="relative py-24 bg-slate-50 dark:bg-[#050505] overflow-hidden transition-colors duration-500">
-      
+
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-30">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/15 blur-[120px] rounded-full" />
@@ -51,29 +50,33 @@ const About = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 max-w-7xl">
-        
+
         {/* Header */}
         <div className="mb-16 text-center lg:text-left">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             className="text-primary font-black text-[10px] tracking-[0.4em] uppercase"
           >
             The Architect
           </motion.span>
-          <div className="mt-4">
-            <SplitText
-              text="Driven By Innovation"
-              className="text-5xl md:text-7xl font-black text-neutral-900 dark:text-white tracking-tighter italic"
-              delay={30}
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-4"
+          >
+            <h1 className="text-2xl md:text-3xl font-extrabold text-neutral-900 dark:text-white tracking-tighter uppercase">
+              Driven By <span className="text-neutral-500 dark:text-neutral-400">Innovation</span>
+            </h1>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-          
+
           {/* LEFT: 3D IMAGE CARD - Optimized for Light Mode */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-5 perspective-[2000px] min-h-[550px] relative group"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
@@ -81,10 +84,10 @@ const About = () => {
           >
             {/* Main Container: Light mode uses a subtle gray/white while dark uses deep black */}
             <div className="relative h-full w-full overflow-hidden rounded-[3.8rem] bg-neutral-200 dark:bg-[#050505] border border-white dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-colors duration-500">
-              
+
               <motion.div style={{ translateZ: 60 }} className="absolute inset-0 h-full w-full">
-                <motion.img 
-                  src={Image} 
+                <motion.img
+                  src={Image}
                   className="w-full h-full object-cover scale-110 grayscale-[30%] object-[50%_5%] dark:grayscale-[50%] group-hover:grayscale-0 group-hover:scale-125 transition-all duration-1000 ease-out"
                   style={{ filter: "dark:brightness(0.8) contrast(1.1)" }}
                 />
@@ -97,15 +100,15 @@ const About = () => {
                 <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-primary rounded-tl-3xl group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-primary rounded-br-3xl group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute top-10 right-10 text-right font-mono text-[8px] text-primary font-bold leading-tight uppercase tracking-widest drop-shadow-md">
-                    Core_Pulse: Active <br /> Neural_Link: 98%
+                  Core_Pulse: Active <br /> Neural_Link: 98%
                 </div>
               </div>
 
               {/* INFO OVERLAY */}
               <div className="absolute bottom-12 left-12 right-12 z-30">
-                <motion.div 
-                    style={{ translateZ: 120 }} 
-                    className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-white/5 dark:bg-black/5 border border-white/30 dark:border-primary/40 backdrop-blur-md transition-colors"
+                <motion.div
+                  style={{ translateZ: 120 }}
+                  className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-white/5 dark:bg-black/5 border border-white/30 dark:border-primary/40 backdrop-blur-md transition-colors"
                 >
                   <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#00eeff] animate-pulse" />
                   <span className="text-[9px] font-black text-white uppercase tracking-[0.4em]">Auth: Tarikul_Islam</span>
@@ -115,8 +118,8 @@ const About = () => {
                   <h3 className="text-4xl font-black text-white italic uppercase leading-[0.85] drop-shadow-lg">
                     Full Stack <br />
                     <span className="text-primary not-italic text-5xl inline-block mt-2 relative drop-shadow-[0_0_15px_rgba(0,238,255,0.3)]">
-                        DEVELOPER
-                        <span className="absolute -bottom-2 left-0 w-full h-[1.5px] bg-primary" />
+                      DEVELOPER
+                      <span className="absolute -bottom-2 left-0 w-full h-[1.5px] bg-primary" />
                     </span>
                   </h3>
                 </motion.div>
@@ -128,8 +131,8 @@ const About = () => {
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 h-full">
               {techStack.map((tech, i) => (
-                <SpotlightCard 
-                  key={i} 
+                <SpotlightCard
+                  key={i}
                   className="group/card flex flex-col items-center justify-center p-6 bg-white dark:bg-white/5 border-none shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-none rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2"
                 >
                   <motion.div whileHover={{ rotate: 15, scale: 1.1 }} className="text-4xl mb-3 relative">
@@ -189,7 +192,7 @@ const About = () => {
                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-neutral-200 dark:border-white/5 pt-8">
                   {['Algorithms', 'System Design', 'Software Engineering', 'Mathematics'].map((skill, i) => (
                     <div key={i} className="text-center md:text-left">
-                      <span className="text-[8px] font-black text-neutral-500 dark:text-neutral-600 uppercase block mb-1">Focus {i+1}</span>
+                      <span className="text-[8px] font-black text-neutral-500 dark:text-neutral-600 uppercase block mb-1">Focus {i + 1}</span>
                       <span className="text-xs font-black text-neutral-900 dark:text-white/70 group-hover:text-primary transition-colors uppercase tracking-[0.15em]">{skill}</span>
                     </div>
                   ))}
@@ -199,7 +202,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      
+
       {/* SVG Gradient Defs */}
       <svg className="absolute w-0 h-0">
         <defs>

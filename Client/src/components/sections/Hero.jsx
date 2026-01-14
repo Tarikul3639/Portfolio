@@ -19,7 +19,6 @@ import GitHub from "../../assets/image/GitHub.webp";
 
 // UI Components
 import LinkPreview from "../ui/link-preview.jsx";
-import SplitText from "../ui/SplitText.jsx";
 
 const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Full Stack Engineer", 1000];
 const DESCRIPTION = "Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!";
@@ -80,7 +79,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background-light dark:bg-[#050505] px-6 py-20">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background-light dark:bg-[#050505] px-6 pt-24">
 
       {/* Modern Background Grid & Glow */}
       <div className="absolute inset-0 z-0">
@@ -102,21 +101,26 @@ const Hero = () => {
 
           <h2 className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-300">
             {`Hi, I'm `}<span className="text-primary font-bold">
-              <TypeAnimation sequence={WORDS} repeat={Infinity} />
+              <TypeAnimation sequence={WORDS} repeat={false} />
             </span>
           </h2>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
             Building Digital <br />
             <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Experiences.</span>
           </h1>
 
-          <div className="max-w-xl mx-auto lg:mx-0 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed">
-            <SplitText text={DESCRIPTION} delay={15} />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            repeat={Infinity}
+            className="max-w-xl mx-auto lg:mx-0 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed font-serif">
+            {DESCRIPTION}
+          </motion.div>
 
           {/* Actions & Social Links */}
-          <div className="flex flex-col sm:flex-row items-center gap-10 pt-10 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row items-center gap-10 pt-5 justify-center lg:justify-start">
 
             <SmartDownloadButton status={status} onClick={handleDownloadCV} />
 
