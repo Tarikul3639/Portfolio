@@ -11,6 +11,7 @@ import SpotlightCard from '../ui/SpotlightCard.jsx';
 const TrueFocus = lazy(() => import('../ui/TrueFocus'));
 const Orbital = lazy(() => import('../ui/Orbital'));
 import Loader from '../ui/Loader.jsx';
+import Watermark from '../ui/Watermark.jsx';
 
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
@@ -53,9 +54,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 bg-white dark:bg-[#020202] text-neutral-900 dark:text-white overflow-hidden">
+    <section id="contact" className="relative py-16 lg:py-24 bg-white dark:bg-[#020202] text-neutral-900 dark:text-white overflow-hidden">
 
-      <div className="container relative z-10 mx-auto px-6 max-w-7xl">
+      <div className="container relative z-10 mx-auto px-2 lg:px-6 max-w-7xl">
 
         {/* --- HEADER --- */}
         <motion.div initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} className="flex flex-col items-center mb-24">
@@ -73,20 +74,20 @@ const Contact = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="flex max-lg:flex-col group"
           >
-            <SpotlightCard className="p-8 md:p-14 border border-neutral-200 dark:border-white/10 bg-white hover:bg-primary/5 dark:bg-[#080808]/60 backdrop-blur-3xl rounded-[3rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-500 hover:border-primary/50 hover:shadow-[0_30px_60px_rgba(0,238,255,0.1)] hover:dark:shadow-[0_30px_60px_rgba(0,238,255,0.2)]">
+            <SpotlightCard className="p-5 pb-8 md:pb-0 md:p-14 border border-neutral-200 dark:border-white/10 bg-white hover:bg-primary/5 dark:bg-[#080808]/60 backdrop-blur-3xl rounded-2xl lg:rounded-[2rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-500 hover:border-primary/50 hover:shadow-[0_30px_60px_rgba(0,238,255,0.1)] hover:dark:shadow-[0_30px_60px_rgba(0,238,255,0.2)]">
 
               <div className="mb-10 space-y-2">
                 <div className="flex items-center gap-2 text-primary/50 text-[10px] font-bold tracking-[0.2em] uppercase">
                   <FontAwesomeIcon icon={faCircleDot} className={`text-[6px] ${status === 'loading' ? 'animate-pulse text-yellow-500' : 'animate-ping'}`} />
                   System: {status === 'loading' ? 'Transmitting...' : 'Stable'}
                 </div>
-                <h4 className="text-4xl font-black italic tracking-tighter leading-none">
+                <h4 className="text-2xl lg:text-4xl font-black italic tracking-tighter leading-none">
                   SEND A <span className="text-primary drop-shadow-[0_0_20px_rgba(0,238,255,0.5)]">TRANSMISSION</span>
                 </h4>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6 flex-grow">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div className="group relative">
                     <input
                       name="name"
@@ -115,7 +116,7 @@ const Contact = () => {
                   disabled={status === 'loading' || status !== 'idle'}
                   whileHover={status === 'idle' ? { scale: 1.02 } : {}}
                   whileTap={status === 'idle' ? { scale: 0.98 } : {}}
-                  className={`relative w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all duration-500 overflow-hidden ${status === 'loading' ? 'bg-neutral-800 text-yellow-500 cursor-wait' :
+                  className={`relative w-full py-4 lg:py-5 rounded-2xl font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all duration-500 overflow-hidden ${status === 'loading' ? 'bg-neutral-800 text-yellow-500 cursor-wait' :
                     status === 'success' ? 'bg-green-600 text-white' :
                       status === 'error' ? 'bg-red-600 text-white' :
                         'bg-primary text-black hover:shadow-[0_0_30px_rgba(0,238,255,0.4)]'
@@ -165,7 +166,7 @@ const Contact = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="group"
           >
-            <SpotlightCard className="p-8 md:p-14 border border-neutral-200 dark:border-white/10 bg-white hover:bg-primary/5 dark:bg-[#080808]/60 backdrop-blur-3xl rounded-[3rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-500 hover:border-primary/50 hover:shadow-[0_30px_60px_rgba(0,238,255,0.1)] hover:dark:shadow-[0_30px_60px_rgba(0,238,255,0.2)]">
+            <SpotlightCard className="p-5 pb-8 md:pb-0 md:p-14 border border-neutral-200 dark:border-white/10 bg-white hover:bg-primary/5 dark:bg-[#080808]/60 backdrop-blur-3xl lg:rounded-[2rem] relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-500 hover:border-primary/50 hover:shadow-[0_30px_60px_rgba(0,238,255,0.1)] hover:dark:shadow-[0_30px_60px_rgba(0,238,255,0.2)]">
 
               <div className="relative z-10 space-y-10">
                 <div className="flex flex-col items-center justify-center min-h-[220px]">
@@ -210,10 +211,8 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Decorative Watermark */}
-              <div className="absolute -bottom-10 -right-10 text-[10rem] font-black text-neutral-200 dark:text-white/[0.015] italic select-none pointer-events-none uppercase transition-opacity group-hover:opacity-5">
-                COMM
-              </div>
+              {/* WATERMARK WITH HOVER GLOW */}
+              <Watermark text="COM" />
             </SpotlightCard>
           </motion.div>
         </div>

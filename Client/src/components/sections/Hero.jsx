@@ -21,7 +21,7 @@ import GitHub from "../../assets/image/GitHub.webp";
 import LinkPreview from "../ui/link-preview.jsx";
 
 const WORDS = ["Tarikul Islam", 1000, "Web Developer", 1000, "Full Stack Engineer", 1000];
-const DESCRIPTION = "Passionate coder aspiring to architect software solutions that seamlessly blend functionality and solve problems. Let's build the future together!";
+const DESCRIPTION = "Full-stack developer working with TypeScript, Node.js, and MongoDB, focused on responsive UI with Tailwind CSS and motion-based design. Learning AI.";
 
 const Hero = () => {
   const [status, setStatus] = useState('idle');
@@ -115,7 +115,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             repeat={Infinity}
-            className="max-w-xl mx-auto lg:mx-0 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed font-serif">
+            className="max-w-xl mx-auto lg:mx-0 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed font-serif">
             {DESCRIPTION}
           </motion.div>
 

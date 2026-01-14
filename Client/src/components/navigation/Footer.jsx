@@ -5,6 +5,7 @@ import {
     faGithub, faLinkedin, faTwitter, faFacebook, faInstagram, faDribbble
 } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUp, faSatellite, faMicrochip, faTerminal } from "@fortawesome/free-solid-svg-icons";
+import Watermark from "../ui/Watermark.jsx";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -168,13 +169,7 @@ const Footer = () => {
             </div>
 
             {/* WATERMARK WITH HOVER GLOW */}
-            <motion.div
-                initial={{ opacity: 0.03 }}
-                whileHover={{ opacity: 0.08, letterSpacing: "0.2em" }}
-                className="absolute -bottom-16 -right-10 text-[14rem] font-black text-neutral-200 dark:text-white select-none pointer-events-none uppercase italic tracking-tighter transition-all duration-1000"
-            >
-                TARIKUL
-            </motion.div>
+            <Watermark text="TARIKUL" />
         </footer>
     );
 };

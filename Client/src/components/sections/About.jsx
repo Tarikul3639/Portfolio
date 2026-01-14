@@ -49,7 +49,7 @@ const About = () => {
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 max-w-7xl">
+      <div className="container relative z-10 mx-auto px-2 md:px-6 max-w-7xl">
 
         {/* Header */}
         <div className="mb-16 text-center lg:text-left">
@@ -105,19 +105,19 @@ const About = () => {
               </div>
 
               {/* INFO OVERLAY */}
-              <div className="absolute bottom-12 left-12 right-12 z-30">
+              <div className="absolute bottom-10.5 md:bottom-12 left-6 md:left-12 right-12 z-30">
                 <motion.div
                   style={{ translateZ: 120 }}
                   className="inline-flex items-center gap-3 mb-4 px-4 py-1.5 rounded-full bg-white/5 dark:bg-black/5 border border-white/30 dark:border-primary/40 backdrop-blur-md transition-colors"
                 >
                   <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#00eeff] animate-pulse" />
-                  <span className="text-[9px] font-black text-white uppercase tracking-[0.4em]">Auth: Tarikul_Islam</span>
+                  <span className="text-[7px] md:text-[9px] font-black text-white uppercase tracking-[0.4em]">Auth: Tarikul_Islam</span>
                 </motion.div>
 
                 <motion.div style={{ translateZ: 160 }}>
-                  <h3 className="text-4xl font-black text-white italic uppercase leading-[0.85] drop-shadow-lg">
+                  <h3 className="text-2xl md:text-4xl font-black text-white italic uppercase leading-[0.85] drop-shadow-lg">
                     Full Stack <br />
-                    <span className="text-primary not-italic text-5xl inline-block mt-2 relative drop-shadow-[0_0_15px_rgba(0,238,255,0.3)]">
+                    <span className="text-primary not-italic text-4xl md:text-5xl inline-block mt-2 relative drop-shadow-[0_0_15px_rgba(0,238,255,0.3)]">
                       DEVELOPER
                       <span className="absolute -bottom-2 left-0 w-full h-[1.5px] bg-primary" />
                     </span>
@@ -129,11 +129,11 @@ const About = () => {
 
           {/* RIGHT: TECH STACK GRID */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 h-full">
+            <div className="grid grid-cols-2 xs:grid-cols-3 gap-3 sm:gap-2 md:gap-3 lg:gap-4 h-full">
               {techStack.map((tech, i) => (
                 <SpotlightCard
                   key={i}
-                  className="group/card flex flex-col items-center justify-center p-6 bg-white dark:bg-white/5 border-none shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-none rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2"
+                  className="p-6 group/card flex flex-col items-center justify-center bg-white dark:bg-white/5 border-none shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-none rounded-2xl lg:rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2"
                 >
                   <motion.div whileHover={{ rotate: 15, scale: 1.1 }} className="text-4xl mb-3 relative">
                     <div className="absolute inset-0 blur-2xl bg-primary/20 opacity-0 group-hover/card:opacity-100 transition-opacity" />
@@ -160,10 +160,10 @@ const About = () => {
                     <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-primary/10 text-primary text-[9px] font-black uppercase">
                       Academic Background
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white italic tracking-tighter leading-tight group-hover:text-primary transition-colors">
+                    <h2 className="text-xl md:text-5xl font-black text-neutral-900 dark:text-white italic tracking-tighter leading-tight group-hover:text-primary transition-colors">
                       BANGLADESH UNIVERSITY OF <br className="hidden md:block" /> BUSINESS & TECHNOLOGY
                     </h2>
-                    <p className="text-neutral-700 dark:text-neutral-500 font-bold text-sm uppercase tracking-[0.3em] flex justify-center lg:justify-start items-center gap-2">
+                    <p className="text-neutral-700 dark:text-neutral-500 font-bold text-xs md:text-sm uppercase tracking-[0.3em] flex justify-center lg:justify-start items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                       Computer Science and Engineering
                     </p>
@@ -190,7 +190,7 @@ const About = () => {
                 </div>
 
                 <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-neutral-200 dark:border-white/5 pt-8">
-                  {['Algorithms', 'System Design', 'Software Engineering', 'Mathematics'].map((skill, i) => (
+                  {['Algorithms', 'Backend Development', 'Software Engineering', 'Deep Learning'].map((skill, i) => (
                     <div key={i} className="text-center md:text-left">
                       <span className="text-[8px] font-black text-neutral-500 dark:text-neutral-600 uppercase block mb-1">Focus {i + 1}</span>
                       <span className="text-xs font-black text-neutral-900 dark:text-white/70 group-hover:text-primary transition-colors uppercase tracking-[0.15em]">{skill}</span>
