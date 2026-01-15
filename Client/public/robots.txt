@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://tarikul-islam.netlify.app/sitemap.xml
+Sitemap: https://tarikul-islam.me/sitemap.xml
