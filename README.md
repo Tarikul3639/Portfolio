@@ -15,7 +15,7 @@ Welcome to my professional portfolio, highlighting my technical expertise, key p
 
 ## 🔗 Live Portfolio
 
-[View Live Site](https://tarikul-islam.netlify.app/)
+[View Live Site](https://tarikul-islam.me/)
 
 ***
 
@@ -27,6 +27,7 @@ Welcome to my professional portfolio, highlighting my technical expertise, key p
 | **Styling**     | Tailwind CSS, Google Fonts (JetBrains Mono, Outfit, Poppins, Source Sans 3) |
 | **Deployment**  | Netlify, Vercel                     |
 | **Version Control** | Git, GitHub                     |
+| **Domain**      | Namecheap                           |
 
 ***
 
@@ -41,7 +42,7 @@ Welcome to my professional portfolio, highlighting my technical expertise, key p
 
 | Platform       | Link                                      |
 |----------------|-------------------------------------------|
-| **Portfolio**  | [tarikul-islam.netlify.app](https://tarikul-islam.netlify.app/) |
+| **Portfolio**  | [tarikul-islam.me](https://tarikul-islam.me/) |
 | **Email**      | [tarikulislam3639@gmail.com](mailto:tarikulislam3639@gmail.com) |
 | **LinkedIn**   | [linkedin.com/in/tarikulislam](https://www.linkedin.com/in/tarikulislam3639/) |
 
