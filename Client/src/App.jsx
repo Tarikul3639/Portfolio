@@ -21,17 +21,11 @@ function App() {
     <Observer>
       <BrowserRouter>
         <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </Suspense>
-        {/* <LoadingFallback /> */}
-
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
         <CustomToastContainer />
       </BrowserRouter>
     </Observer>

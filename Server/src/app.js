@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-// ✅ Use cors middleware
+// Use cors middleware
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST'],
