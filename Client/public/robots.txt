@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tarikul-islam.me/sitemap.xml
