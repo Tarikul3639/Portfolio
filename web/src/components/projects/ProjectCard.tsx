@@ -1,0 +1,21 @@
+import type { Project } from "@/data/projects.data";
+import { ProjectImage } from "./ProjectImage";
+import { ProjectContent } from "./ProjectContent";
+
+type Props = { item: Project; index: number };
+
+export const ProjectCard = ({ item, index }: Props) => {
+    const isEven = index % 2 === 0;
+
+    return (
+        <div className="h-full flex items-center">
+            <div
+                className={`group/img bg-background flex flex-col lg:flex-row items-center gap-8 ${isEven ? "lg:flex-row" : "lg:flex-row-reverse cursor-grab"
+                    }`}
+            >
+                <ProjectImage item={item} />
+                <ProjectContent item={item} isEven={isEven} />
+            </div>
+        </div>
+    );
+};
