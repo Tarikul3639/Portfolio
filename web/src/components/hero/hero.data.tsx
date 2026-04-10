@@ -8,7 +8,7 @@ export const WORDS: string[] = [
 ];
 
 export const HERO_DESCRIPTION =
-    "I build scalable, performant full-stack web applications with modern technologies. Passionate about clean code, great UX, and turning ideas into reality.";
+    "Full Stack Web Developer focused on building scalable and performant web applications using React, Next.js, TypeScript, and Node.js. I care about clean architecture, great UX, and delivering production-ready solutions.";
 
 export type SocialLink = {
     href: string;

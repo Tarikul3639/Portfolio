@@ -33,7 +33,9 @@ export function HeroContent({ status, onDownload, socialLinks }: Props) {
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
                 Full-Stack Web App<br />
-                <span className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent">with TypeScript.</span>
+                <span className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+                    with TypeScript.
+                </span>
             </h1>
 
             {/* Description */}
