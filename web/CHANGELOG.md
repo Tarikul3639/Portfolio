@@ -1,3 +1,10 @@
+# [web-v1.3.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.2.0...web-v1.3.0) (2026-04-11)
+
+
+### Features
+
+* Add page loader, cal.com booking & UI tweaks ([498200e](https://github.com/Tarikul3639/Portfolio/commit/498200eb6304d675e6bd4c59e0f67052dce4d196))
+
 # [web-v1.2.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.1.0...web-v1.2.0) (2026-04-11)
 
 
