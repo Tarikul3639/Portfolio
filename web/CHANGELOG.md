@@ -1,3 +1,10 @@
+# [web-v1.1.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.0.0...web-v1.1.0) (2026-04-11)
+
+
+### Features
+
+* bump web version to 4.1.0, add APP_CONFIG and reorganize assets ([23c7a3c](https://github.com/Tarikul3639/Portfolio/commit/23c7a3c457bd6e66fa8303e7a58dafc7f0ef2b2e))
+
 # web-v1.0.0 (2026-04-10)
 
 
