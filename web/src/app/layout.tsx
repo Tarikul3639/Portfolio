@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+
+// Loader 
+import PageLoader from "@/components/ui/PageLoader";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -15,17 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Viewport settings for responsive design and mobile optimization
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 // SEO META (IMPORTANT)
 export const metadata: Metadata = {
-
-  // Viewport settings for responsive design and mobile optimization
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
-
   // Manifest and base URL for SEO and PWA support
   manifest: "/manifest.json",
   metadataBase: new URL("https://tarikul-islam.me"),
@@ -103,7 +105,9 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <PageLoader>{children}</PageLoader>
+      </body>
     </html>
   );
 }

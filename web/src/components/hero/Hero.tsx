@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroContent } from "./HeroContent";
 import { HeroVisual } from "./HeroVisual";
-import { SOCIAL_LINKS } from "./hero.data";
 import { SectionId } from "@/types/section";
 
 export default function Hero() {
@@ -36,7 +35,6 @@ export default function Hero() {
                 <HeroContent
                     status={status}
                     onDownload={handleDownloadCV}
-                    socialLinks={SOCIAL_LINKS}
                 />
                 <HeroVisual />
             </div>

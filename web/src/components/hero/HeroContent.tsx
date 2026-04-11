@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 import { TypeWriter } from "@/components/ui/TypeWriter";
-import { HERO_DESCRIPTION, WORDS, type SocialLink } from "./hero.data";
+import { HERO_DESCRIPTION, WORDS } from "./hero.data";
 import { HeroActions } from "./HeroActions";
 
 interface Props {
     status: "idle" | "loading" | "success" | "error";
     onDownload: () => void;
-    socialLinks: SocialLink[];
 }
 
-export function HeroContent({ status, onDownload, socialLinks }: Props) {
+export function HeroContent({ status, onDownload }: Props) {
     return (
         <div className="flex-1 text-center lg:text-left space-y-6">
 
@@ -52,7 +51,6 @@ export function HeroContent({ status, onDownload, socialLinks }: Props) {
             <HeroActions
                 status={status}
                 onDownload={onDownload}
-                socialLinks={socialLinks}
             />
 
         </div>

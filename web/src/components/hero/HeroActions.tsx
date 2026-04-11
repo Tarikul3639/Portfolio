@@ -3,14 +3,12 @@
 import { CloudDownload, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HeroSocialLinks } from "./HeroSocialLinks";
-import type { SocialLink } from "./hero.data";
 
 type DownloadStatus = "idle" | "loading" | "success" | "error";
 
 interface Props {
     status: DownloadStatus;
     onDownload: () => void;
-    socialLinks: SocialLink[];
 }
 
 const PRIMARY_COLOR = "#00eeff";
@@ -35,11 +33,11 @@ const getStatusColor = (status: DownloadStatus): string => {
     }
 };
 
-export function HeroActions({ status, onDownload, socialLinks }: Props) {
+export function HeroActions({ status, onDownload }: Props) {
     const statusColor = getStatusColor(status);
 
     return (
-        <div className="flex flex-col items-center gap-10 pt-5 sm:flex-row lg:justify-start">
+        <div className="flex flex-col items-center justify-center gap-7 sm:gap-10 pt-5 sm:flex-row lg:justify-start">
 
             {/* ── Smart Download Button ── */}
             <div className="inline-block">
@@ -48,7 +46,7 @@ export function HeroActions({ status, onDownload, socialLinks }: Props) {
                     whileHover={status === "idle" ? { scale: 1.02 } : {}}
                     whileTap={status === "idle" ? { scale: 0.98 } : {}}
                     onClick={onDownload}
-                    className={`relative group h-16 w-auto px-8 flex items-center justify-center overflow-hidden rounded-xl transition-all duration-500
+                    className={`relative group h-12 w-auto px-8 flex items-center justify-center overflow-hidden rounded-xl transition-all duration-500
                         ${status === "loading" ? "cursor-wait" : ""}
                         ${status === "idle" ? "cursor-crosshair" : "bg-transparent"}
                         ${status === "error" ? "cursor-not-allowed" : ""}
@@ -192,8 +190,8 @@ export function HeroActions({ status, onDownload, socialLinks }: Props) {
 
             {/* ── Social Links ── */}
             <div className="flex items-center gap-6">
-                <div className="hidden h-8 w-px bg-border sm:block" />
-                <HeroSocialLinks links={socialLinks} />
+                <div className="hidden h-10 w-px bg-border sm:block" />
+                <HeroSocialLinks />
             </div>
 
         </div>

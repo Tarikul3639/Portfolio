@@ -17,9 +17,9 @@ export const ProjectButtons = ({ item, isEven }: Props) => (
             viewport={{ once: true, amount: 0.3 }}
             href={item.link}
             target="_blank"
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-accent bg-background text-sm font-medium hover:bg-accent shadow-sm transition-all"
+            className="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-accent bg-background text-xs font-normal hover:bg-accent shadow-sm transition-all"
         >
-            <Terminal className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            <Terminal className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             View Code
         </motion.a>
 
@@ -32,10 +32,10 @@ export const ProjectButtons = ({ item, isEven }: Props) => (
                 viewport={{ once: true, amount: 0.3 }}
                 href={item.liveLink}
                 target="_blank"
-                className="group flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all"
+                className="group flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium shadow-lg shadow-primary/20 hover:opacity-90 transition-all"
             >
                 View Live
-                <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </motion.a>
         )}
     </div>

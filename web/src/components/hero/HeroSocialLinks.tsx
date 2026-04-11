@@ -1,29 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { SocialLink } from "./hero.data";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
+import { Phone } from "lucide-react";
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
 
-interface Props {
-    links: SocialLink[];
-}
+export function HeroSocialLinks() {
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi({ namespace: "portfolio-meeting" });
+            cal("ui", {
+                hideEventTypeDetails: false,
+                layout: "month_view",
+            });
+        })();
+    }, []);
 
-export function HeroSocialLinks({ links }: Props) {
     return (
-        <div className="flex items-center gap-5">
-            {links.map(({ icon, href, label, external }) => (
-                <motion.a
-                    key={label}
-                    href={href}
-                    target={external ? "_blank" : undefined}
-                    rel={external ? "noopener noreferrer" : undefined}
-                    aria-label={label}
-                    whileHover={{ y: -4 }}
-                    className="group relative rounded-md p-2 text-muted-foreground transition-colors duration-300 hover:text-primary"
-                >
-                    {icon}
-                    <motion.div className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-500 group-hover:w-full" />
-                </motion.a>
-            ))}
+        <div className="flex justify-center text-center">
+            <HoverBorderGradient
+                data-cal-namespace="portfolio-meeting"
+                data-cal-link="tarikul3639/portfolio-meeting"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":true}'
+                containerClassName="group rounded cursor-pointer active:scale-95 transition-transform"
+                className="dark:bg-black bg-white text-xs dark:text-white text-black flex items-center gap-2 px-4 py-2"
+            >
+                <motion.span className="flex items-center justify-center bg-primary/10 rounded-full p-1 group-hover:scale-110 transition-transform duration-300">
+                    <Phone className="size-3.5 text-primary" />
+                </motion.span>
+
+                <span className="font-medium tracking-wide">
+                    Book a Call
+                </span>
+            </HoverBorderGradient>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 
 export const ContactInfo = () => (
-    <div className="flex flex-wrap items-center gap-3 text-muted-foreground text-sm font-heading">
+    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-muted-foreground text-sm font-heading">
 
         {/* Email */}
         <div className="flex items-center gap-2">

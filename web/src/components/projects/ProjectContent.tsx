@@ -7,7 +7,7 @@ type Props = { item: Project; isEven: boolean };
 
 export const ProjectContent = ({ item, isEven }: Props) => (
     <div
-        className={`relative flex-1 z-10 p-6 md:p-10 lg:p-14 flex flex-col gap-6 ${isEven ? "text-center lg:text-left" : "text-center lg:text-right"
+        className={`relative flex-1 min-w-0 z-10 p-6 md:p-10 lg:p-14 flex flex-col gap-6 ${isEven ? "text-center lg:text-left" : "text-center lg:text-right"
             }`}
     >
         {/* Tag */}
