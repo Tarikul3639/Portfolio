@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
-export function HeroSocialLinks() {
+export function CalDotComButton() {
     useEffect(() => {
         (async function () {
             const cal = await getCalApi({ namespace: "portfolio-meeting" });

@@ -22,16 +22,16 @@ export function HeroContent({ status, onDownload }: Props) {
             </div>
 
             {/* Intro + Name */}
-            <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground font-sans">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground font-sans">
                 Hi, I'm{" "}
-                <span className="inline-flex text-3xl md:text-3xl font-extrabold tracking-wide text-primary">
+                <span className="inline-flex text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-wide text-primary">
                     <TypeWriter words={WORDS} />
                 </span>
             </h2>
 
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
-                Full-Stack Web App<br />
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-tight">
+                Full-Stack Developer<br />
                 <span className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent">
                     with TypeScript.
                 </span>
@@ -42,7 +42,7 @@ export function HeroContent({ status, onDownload }: Props) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed text-muted-foreground font-serif"
+                className="max-w-xl text-sm mx-auto lg:mx-0 sm:text-lg leading-relaxed text-muted-foreground font-serif"
             >
                 {HERO_DESCRIPTION}
             </motion.p>

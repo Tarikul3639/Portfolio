@@ -36,7 +36,7 @@ async function bootstrap() {
   // API Versioning
   app.enableVersioning({
     type: VersioningType.URI,
-    defaultVersion: '2', // GET /v2/api/users     → version 2
+    defaultVersion: '4', // GET /v4/api/resume     → version 4
   });
 
   // Swagger Setup
@@ -51,7 +51,7 @@ async function bootstrap() {
   SwaggerModule.setup('api/docs', app, document);
 
   // Port from .env
-  const port = configService.get<number>('PORT') || 5000;
+  const port = configService.get<number>('PORT') || 3000;
 
   await app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

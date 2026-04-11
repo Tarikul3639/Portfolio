@@ -2,7 +2,7 @@
 
 import { CloudDownload, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeroSocialLinks } from "./HeroSocialLinks";
+import { CalDotComButton } from "./CalDotComButton";
 
 type DownloadStatus = "idle" | "loading" | "success" | "error";
 
@@ -93,7 +93,7 @@ export function HeroActions({ status, onDownload }: Props) {
                                 className="relative z-10 flex items-center gap-3 text-green-400 text-xs font-black uppercase tracking-[0.3em] drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]"
                             >
                                 <CheckCircle2 className="w-5 h-5" />
-                                <span>Authorized</span>
+                                <span>Success</span>
                             </motion.div>
                         )}
 
@@ -191,7 +191,7 @@ export function HeroActions({ status, onDownload }: Props) {
             {/* ── Social Links ── */}
             <div className="flex items-center gap-6">
                 <div className="hidden h-10 w-px bg-border sm:block" />
-                <HeroSocialLinks />
+                <CalDotComButton />
             </div>
 
         </div>

@@ -1,0 +1,105 @@
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>New Message Notification</title>
+</head>
+
+<body
+    style="margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif; color: #1a1a1a; line-height: 1.6; background-color: transparent;">
+
+    <table width='100%' cellpadding='0' cellspacing='0' border='0'
+        style='max-width: 650px; margin: 0 auto; padding: 10px 5px 20px 5px;'>
+        <tr>
+            <td>
+                <table width='100%' border='0' cellpadding='0' cellspacing='0'>
+                    <tr>
+                        <td style='border-bottom: 2px solid #00c896; padding-bottom: 8px;'>
+                            <div
+                                style='font-size: 18px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;'>
+                                Tarikul Islam
+                            </div>
+                            <div style='font-size: 11px; color: #666; font-family: Arial, sans-serif; margin-top: 0px;'>
+                                Portfolio Notification System
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table width='100%' border='0' cellpadding='0' cellspacing='0' style='margin-top: 30px;'>
+                    <tr>
+                        <td style='font-size: 14px;'>
+                            <p style='margin: 0 0 15px;'>Hi <strong>Tarikul</strong>,</p>
+                            <p style='margin: 0 0 25px;'>You have received a new message
+                                from your portfolio contact form. Here are the details:</p>
+
+                            <table width='100%' cellpadding='0' cellspacing='0' border='0'
+                                style='border-collapse: collapse; font-family: Arial, sans-serif;'>
+                                <tr>
+                                    <td width='100'
+                                        style='padding: 8px 0; font-size: 12px; color: #71717a; text-transform: uppercase; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        Name:</td>
+                                    <td
+                                        style='padding: 8px 0; font-size: 14px; color: #111111; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        <strong>{{name}}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style='padding: 8px 0; font-size: 12px; color: #71717a; text-transform: uppercase; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        Email:</td>
+                                    <td
+                                        style='padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        <a href='mailto:{{email}}'
+                                            style='color: #004a99; text-decoration: none;'>{{email}}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style='padding: 8px 0; font-size: 12px; color: #71717a; text-transform: uppercase; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        Company:</td>
+                                    <td
+                                        style='padding: 8px 0; font-size: 14px; color: #111111; border-bottom: 1px solid #eeeeee; vertical-align: top;'>
+                                        {{company}}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style='padding: 12px 0; font-size: 12px; color: #71717a; text-transform: uppercase; vertical-align: top;'>
+                                        Message:</td>
+                                    <td
+                                        style='padding: 12px 0; font-size: 14px; color: #111111; line-height: 1.7; vertical-align: top;'>
+                                        {{message}}
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style='margin: 30px 0 0;'>
+                                <a href='mailto:{{email}}'
+                                    style='display: inline-block; background-color: #00c896; color: #ffffff; font-size: 12px; font-weight: bold; text-decoration: none; padding: 10px 20px; text-transform: uppercase; font-family: Arial, sans-serif; border-radius: 4px;'>
+                                    Reply to
+                                    {{name}}
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table width='100%' border='0' cellpadding='0' cellspacing='0'
+                    style='margin-top: 40px; border-top: 1px solid #eeeeee; padding-top: 20px;'>
+                    <tr>
+                        <td style='font-family: Arial, sans-serif; font-size: 12px; color: #888888;'>
+                            <p style='margin: 0;'>Sent via
+                                <a href='{{frontendUrl}}'
+                                    style='color: #666; text-decoration: none;'>tarikul-islam.com</a>
+                            </p>
+                            <p style='margin: 5px 0 0;'>Dhaka, Bangladesh</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

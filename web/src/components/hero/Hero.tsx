@@ -5,23 +5,38 @@ import { HeroBackground } from "./HeroBackground";
 import { HeroContent } from "./HeroContent";
 import { HeroVisual } from "./HeroVisual";
 import { SectionId } from "@/types/section";
+import { apiClient } from "@/api/axios";
 
 export default function Hero() {
-    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [status, setStatus] = useState<
+        "idle" | "loading" | "success" | "error"
+    >("idle");
 
     const handleDownloadCV = useCallback(() => {
         if (status === "loading") return;
 
         setStatus("loading");
 
-        const link = document.createElement("a");
-        link.href = "/cv.pdf";
-        link.download = "Tarikul_Islam_CV.pdf";
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-
-        window.setTimeout(() => setStatus('success'), 600);
+        try {
+            apiClient
+                .get("/resume", { responseType: "blob" })
+                .then((response) => {
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const link = document.createElement("a");
+                    link.href = url;
+                    link.setAttribute("download", "Resume.pdf");
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                })
+                .then(() => setStatus("success"))
+                .catch(() => setStatus("error"));
+        } catch (error) {
+            console.error("Error downloading resume:", error);
+            setStatus("error");
+        } finally {
+            setTimeout(() => setStatus("idle"), 3000);
+        }
     }, []);
 
     return (
@@ -32,10 +47,7 @@ export default function Hero() {
             <HeroBackground />
 
             <div className="max-lg:mt-18 container relative z-10 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 max-w-7xl">
-                <HeroContent
-                    status={status}
-                    onDownload={handleDownloadCV}
-                />
+                <HeroContent status={status} onDownload={handleDownloadCV} />
                 <HeroVisual />
             </div>
         </section>
