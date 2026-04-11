@@ -1,3 +1,10 @@
+# [web-v1.2.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.1.0...web-v1.2.0) (2026-04-11)
+
+
+### Features
+
+* Bump web package version to 4.1.0 ([b8b1265](https://github.com/Tarikul3639/Portfolio/commit/b8b1265d11a9f7c0a09b4fa1e7fab0cb01b1e991))
+
 # [web-v1.1.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.0.0...web-v1.1.0) (2026-04-11)
 
 
