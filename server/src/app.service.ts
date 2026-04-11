@@ -31,7 +31,7 @@ export class AppService {
     const { name, email, company, message } = contactData;
 
     try {
-      Promise.all([
+      await Promise.all([
         // 2. Send Notification Email to Admin
         this.mailerService.sendMail({
           to: this.configService.get<string>('EMAIL_USER'),
