@@ -1,5 +1,5 @@
 "use client";
-import { SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export const TrueFocus = ({
