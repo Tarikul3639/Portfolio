@@ -1,9 +1,8 @@
-import { Mail } from "lucide-react";
 import { TrueFocus } from "@/components/ui/TrueFocus";
 
 export const ContactHeader = () => (
     <div className="space-y-10 text-left">
-        <div className="flex ml-3">
+        <div className="flex justify-center sm:justify-start ml-3">
             <TrueFocus
                 sentence="CONTACT ME"
                 manualMode

@@ -70,9 +70,8 @@ export default function Navbar({
                 menuItems={sections}
                 activeLink={activeLink}
                 toggleTheme={toggleTheme}
-                theme={theme} setActiveLink={function (v: string): void {
-                    throw new Error("Function not implemented.");
-                } }            />
+                theme={theme} 
+            />
         </>
     );
 }

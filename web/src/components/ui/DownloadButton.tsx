@@ -1,5 +1,10 @@
 import React from "react";
-import { CloudDownload, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
+import {
+    CloudDownload,
+    Loader2,
+    CheckCircle2,
+    AlertTriangle,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { SmartDownloadButtonProps } from "@/types";
 
@@ -8,14 +13,21 @@ const SECONDARY_COLOR = "#00c896";
 
 const getStatusColor = (status: SmartDownloadButtonProps["status"]): string => {
     switch (status) {
-        case "error": return "bg-red-500 shadow-[0_0_10px_#ef4444]";
-        case "success": return "bg-green-500 shadow-[0_0_10px_#22c55e]";
-        case "loading": return "bg-[#00c896] shadow-[0_0_10px_#00c896]";
-        default: return "bg-primary/60 shadow-[0_0_10px_rgba(0,238,255,0.5)]";
+        case "error":
+            return "bg-red-500 shadow-[0_0_10px_#ef4444]";
+        case "success":
+            return "bg-green-500 shadow-[0_0_10px_#22c55e]";
+        case "loading":
+            return "bg-[#00c896] shadow-[0_0_10px_#00c896]";
+        default:
+            return "bg-primary/60 shadow-[0_0_10px_rgba(0,238,255,0.5)]";
     }
 };
 
-export const DownloadButton: React.FC<SmartDownloadButtonProps> = ({ status, onClick }) => {
+export const DownloadButton: React.FC<SmartDownloadButtonProps> = ({
+    status,
+    onClick,
+}) => {
     const statusColor = getStatusColor(status);
 
     return (
@@ -25,20 +37,20 @@ export const DownloadButton: React.FC<SmartDownloadButtonProps> = ({ status, onC
                 whileHover={status === "idle" ? { scale: 1.02 } : {}}
                 whileTap={status === "idle" ? { scale: 0.98 } : {}}
                 onClick={onClick}
-                className={`relative group h-16 w-auto min-w-55 px-8 flex items-center justify-center overflow-hidden rounded-xl transition-all duration-500
-          ${status === "loading" ? "cursor-wait" : ""}
-          ${status === "idle" ? "cursor-crosshair" : "bg-transparent"}
-          ${status === "error" ? "cursor-not-allowed" : ""}
+                className={`relative group h-16 w-auto min-w-55 px-8 flex items-center justify-center overflow-hidden rounded-xl transition-all duration-500 ${status === "loading" ? "cursor-wait" : ""} ${status === "idle" ? "cursor-crosshair" : "bg-transparent"} ${status === "error" ? "cursor-not-allowed" : ""}
         `}
             >
                 {/* Dynamic Corner Accents */}
                 {(["tl-h", "tl-v", "br-h", "br-v"] as const).map((pos) => (
                     <div
                         key={pos}
-                        className={`absolute transition-colors duration-500 ${statusColor} ${pos === "tl-h" ? "top-1.5 left-1.5 w-3 h-px" :
-                                pos === "tl-v" ? "top-1.5 left-1.5 w-px h-3" :
-                                    pos === "br-h" ? "bottom-1.5 right-1.5 w-3 h-px" :
-                                        "bottom-1.5 right-1.5 w-px h-3"
+                        className={`absolute transition-colors duration-500 ${statusColor} ${pos === "tl-h"
+                            ? "top-1.5 left-1.5 w-3 h-px"
+                            : pos === "tl-v"
+                                ? "top-1.5 left-1.5 w-px h-3"
+                                : pos === "br-h"
+                                    ? "bottom-1.5 right-1.5 w-3 h-px"
+                                    : "bottom-1.5 right-1.5 w-px h-3"
                             }`}
                     />
                 ))}
@@ -145,7 +157,11 @@ export const DownloadButton: React.FC<SmartDownloadButtonProps> = ({ status, onC
                                         className="relative z-20 flex items-center justify-center text-gray-950 dark:text-gray-200 group-hover:text-primary transition-all duration-500"
                                         whileHover={{
                                             scale: [1, 1.25, 1],
-                                            transition: { duration: 0.8, repeat: Infinity, ease: "easeInOut" },
+                                            transition: {
+                                                duration: 0.8,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                            },
                                         }}
                                     >
                                         <div className="transform transition-transform duration-500 group-hover:translate-y-1.5">
@@ -165,7 +181,10 @@ export const DownloadButton: React.FC<SmartDownloadButtonProps> = ({ status, onC
                         animate={{ top: ["-100%", "200%"] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                         className="absolute left-0 w-full h-0.5 z-20"
-                        style={{ backgroundColor: SECONDARY_COLOR, boxShadow: `0 0 20px ${PRIMARY_COLOR}` }}
+                        style={{
+                            backgroundColor: SECONDARY_COLOR,
+                            boxShadow: `0 0 20px ${PRIMARY_COLOR}`,
+                        }}
                     />
                 )}
             </motion.button>

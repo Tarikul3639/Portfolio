@@ -17,6 +17,16 @@ const geistMono = Geist_Mono({
 
 // SEO META (IMPORTANT)
 export const metadata: Metadata = {
+
+  // Viewport settings for responsive design and mobile optimization
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
+
+  // Manifest and base URL for SEO and PWA support
   manifest: "/manifest.json",
   metadataBase: new URL("https://tarikul-islam.me"),
 
@@ -84,6 +94,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
+        "dark",
         "h-full",
         "antialiased",
         geistSans.variable,

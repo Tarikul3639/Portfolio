@@ -5,9 +5,10 @@ type Props = { tech: Project["tech"]; isEven: boolean };
 
 export const ProjectTechStack = ({ tech, isEven }: Props) => (
     <div
-        className={`flex items-center gap-4 justify-center ${isEven ? "lg:justify-start" : "lg:justify-end"
-            }`}
-    >
+    className={`flex flex-wrap items-center gap-4 justify-center ${
+        isEven ? "lg:justify-start" : "lg:justify-end"
+    }`}
+>
         {tech.map((t, i) => (
             <motion.div
                 key={t.name}

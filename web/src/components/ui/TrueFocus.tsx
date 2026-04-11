@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { SetStateAction, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export const TrueFocus = ({
@@ -13,9 +13,9 @@ export const TrueFocus = ({
 }) => {
   const words = sentence.split(" ");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [lastActiveIndex, setLastActiveIndex] = useState(null);
-  const containerRef = useRef(null);
-  const wordRefs = useRef([]);
+  const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const wordRefs = useRef<HTMLSpanElement[]>([]);
   const [focusRect, setFocusRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const TrueFocus = ({
     });
   }, [currentIndex, words.length]);
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index: number) => {
     if (manualMode) {
       setLastActiveIndex(index);
       setCurrentIndex(index);
@@ -52,7 +52,7 @@ export const TrueFocus = ({
 
   const handleMouseLeave = () => {
     if (manualMode) {
-      setCurrentIndex(lastActiveIndex);
+      setCurrentIndex(lastActiveIndex ?? -1);
     }
   };
 
@@ -66,8 +66,8 @@ export const TrueFocus = ({
         return (
           <span
             key={index}
-            ref={(el) => (wordRefs.current[index] = el)}
-            className="relative text-[3rem] font-black cursor-pointer"
+            ref={(el) => { if (el) wordRefs.current[index] = el; }}
+            className="relative text-[2.5rem] sm:text-[3rem] font-black cursor-pointer"
             style={{
               filter: manualMode
                 ? isActive
@@ -76,10 +76,8 @@ export const TrueFocus = ({
                 : isActive
                   ? `blur(0px)`
                   : `blur(${blurAmount}px)`,
-              "--border-color": borderColor,
-              "--glow-color": glowColor,
               transition: `filter ${animationDuration}s ease`,
-            }}
+            } as React.CSSProperties}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
@@ -103,31 +101,31 @@ export const TrueFocus = ({
         style={{
           "--border-color": borderColor,
           "--glow-color": glowColor,
-        }}
+        } as React.CSSProperties}
       >
         <span
-          className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] left-[-10px] border-r-0 border-b-0"
+          className="absolute w-4 h-4 border-[3px] rounded-[3px] -top-2.5 -left-2.5 border-r-0 border-b-0"
           style={{
             borderColor: "var(--border-color)",
             filter: "drop-shadow(0 0 4px var(--border-color))",
           }}
         ></span>
         <span
-          className="absolute w-4 h-4 border-[3px] rounded-[3px] top-[-10px] right-[-10px] border-l-0 border-b-0"
+          className="absolute w-4 h-4 border-[3px] rounded-[3px] -top-2.5 -right-2.5 border-l-0 border-b-0"
           style={{
             borderColor: "var(--border-color)",
             filter: "drop-shadow(0 0 4px var(--border-color))",
           }}
         ></span>
         <span
-          className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] left-[-10px] border-r-0 border-t-0"
+          className="absolute w-4 h-4 border-[3px] rounded-[3px] -bottom-2.5 -left-2.5 border-r-0 border-t-0"
           style={{
             borderColor: "var(--border-color)",
             filter: "drop-shadow(0 0 4px var(--border-color))",
           }}
         ></span>
         <span
-          className="absolute w-4 h-4 border-[3px] rounded-[3px] bottom-[-10px] right-[-10px] border-l-0 border-t-0"
+          className="absolute w-4 h-4 border-[3px] rounded-[3px] -bottom-2.5 -right-2.5 border-l-0 border-t-0"
           style={{
             borderColor: "var(--border-color)",
             filter: "drop-shadow(0 0 4px var(--border-color))",

@@ -3,20 +3,16 @@ import { motion } from "framer-motion";
 interface Props {
     menuItems: string[];
     activeLink: string;
-    setActiveLink: (v: string) => void;
     onClose: () => void;
 }
 
-export function SidebarNav({ menuItems, activeLink, setActiveLink, onClose }: Props) {
-    const scrollTo = (id: string) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    };
+export function SidebarNav({ menuItems, activeLink, onClose }: Props) {
 
     return (
         <nav className="flex-1 px-8 py-12 overflow-y-auto">
             <ul className="space-y-2">
                 {menuItems.map((item, i) => {
-                    const isActive = activeLink === item.toLowerCase();
+                    const isActive = activeLink === item;
                     return (
                         <motion.li
                             key={item}
@@ -26,11 +22,11 @@ export function SidebarNav({ menuItems, activeLink, setActiveLink, onClose }: Pr
                         >
                             <div
                                 onClick={() => {
-                                    setActiveLink(item.toLowerCase());
+                                    const el = document.getElementById(item);
+                                    el?.scrollIntoView({ behavior: "smooth" });
                                     onClose();
-                                    scrollTo(item.toLowerCase());
                                 }}
-                                className="relative group flex items-center py-5 px-6 rounded-2xl transition-all duration-500 hover:bg-sidebar-primary/5 border border-transparent hover:border-sidebar-primary/20 overflow-hidden cursor-pointer"
+                                className="relative group flex items-center py-5 px-6 rounded-xl transition-all duration-500 hover:bg-sidebar-primary/5 border border-transparent hover:border-sidebar-primary/10 overflow-hidden cursor-pointer"
                             >
                                 {/* Index */}
                                 <span className="text-sm font-mono text-sidebar-primary/40 group-hover:text-sidebar-primary transition-colors mr-6">
@@ -38,11 +34,10 @@ export function SidebarNav({ menuItems, activeLink, setActiveLink, onClose }: Pr
                                 </span>
 
                                 {/* Label */}
-                                <span className={`text-3xl font-black uppercase tracking-tighter transition-all duration-300 flex-1 ${
-                                    isActive
-                                        ? "text-sidebar-foreground"
-                                        : "text-sidebar-accent group-hover:text-sidebar-foreground"
-                                }`}>
+                                <span className={`text-3xl font-black uppercase tracking-tighter transition-all duration-300 flex-1 ${isActive
+                                    ? "text-sidebar-foreground"
+                                    : "text-sidebar-accent group-hover:text-sidebar-foreground"
+                                    }`}>
                                     {item}
                                 </span>
 

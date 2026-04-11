@@ -9,7 +9,7 @@ const PIN_X = 66.8;
 const PIN_Y = 40.5;
 
 export const ContactMap = () => (
-    <div className="relative mt-12 w-full aspect-video overflow-hidden">
+    <div className="relative mt-12 min-h-60 w-full aspect-video ">
 
         {/* ── World map ── */}
         <Image
@@ -98,10 +98,10 @@ export const ContactMap = () => (
                 className="flex flex-col items-center pb-2"
             >
                 {/* Tooltip Card */}
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background/80 backdrop-blur-md border border-primary/30 shadow-lg shadow-primary/20">
+                <div className="inline-flex items-center min-w-24 gap-1.5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md border border-primary/30 shadow-lg shadow-primary/20">
                     <MapPin size={10} className="text-primary fill-primary/20" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground">
-                        We are here
+                    <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest text-foreground">
+                        I am here
                     </span>
                 </div>
                 

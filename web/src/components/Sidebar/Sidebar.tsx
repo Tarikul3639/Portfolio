@@ -5,14 +5,21 @@ import { SidebarHeader } from "./SidebarHeader";
 import { SidebarNav } from "./SidebarNav";
 import { SidebarStatusCard } from "./SidebarStatusCard";
 import { SidebarThemeToggle } from "./SidebarThemeToggle";
-import type { SidebarProps } from "./types";
+
+interface SidebarProps {
+    isOpen: boolean;
+    setIsOpen: (v: boolean) => void;
+    menuItems: string[];
+    activeLink: string;
+    toggleTheme: () => void;
+    theme: "dark" | "light";
+}
 
 export function Sidebar({
     isOpen,
     setIsOpen,
     menuItems,
     activeLink,
-    setActiveLink,
     toggleTheme,
     theme,
 }: SidebarProps) {
@@ -44,7 +51,6 @@ export function Sidebar({
                         <SidebarNav
                             menuItems={menuItems}
                             activeLink={activeLink}
-                            setActiveLink={setActiveLink}
                             onClose={() => setIsOpen(false)}
                         />
 

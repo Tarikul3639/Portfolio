@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import { APP_CONFIG } from "@/config/app-config";
 
 interface Props {
     onClose: () => void;
@@ -12,7 +13,7 @@ export function SidebarHeader({ onClose }: Props) {
                     System Menu
                 </span>
                 <span className="text-xs text-sidebar-accent font-bold">
-                    v4.0.4 - Active
+                    V{APP_CONFIG.version}- Active
                 </span>
             </div>
             <button

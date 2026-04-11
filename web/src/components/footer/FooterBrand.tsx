@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "./constants";
 import { LinkPreview } from "@/components/ui/link-preview";
+import { APP_CONFIG } from "@/config/app-config"
 
 export const FooterBrand = () => {
     return (
@@ -35,7 +36,7 @@ export const FooterBrand = () => {
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed font-medium italic border-l-2 border-primary/30 pl-4">
                 {`"Engineering the void between imagination and digital reality. Operating on `}
                 <span className="text-primary/90 font-bold uppercase tracking-widest text-[10px]">
-                    v4.0
+                    V{APP_CONFIG.version}
                 </span>
                 {`".`}
             </p>
