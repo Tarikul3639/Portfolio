@@ -1,3 +1,10 @@
+# [web-v1.4.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.3.0...web-v1.4.0) (2026-04-11)
+
+
+### Features
+
+* Add mailer support and update contact UI ([6583653](https://github.com/Tarikul3639/Portfolio/commit/658365345489b79912d567b65b8f1686716aaf55))
+
 # [web-v1.3.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.2.0...web-v1.3.0) (2026-04-11)
 
 
