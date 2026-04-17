@@ -38,6 +38,10 @@ export const metadata: Metadata = {
     template: "%s | Tarikul Islam",
   },
 
+  alternates: {
+    canonical: "https://tarikul-islam.me",
+  },
+
   description:
     "Full Stack Web Developer specializing in React, Next.js, Node.js, and modern web applications. Passionate about building scalable and user-friendly digital experiences.",
 
@@ -97,6 +101,19 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Tarikul Islam",
+    url: "https://tarikul-islam.me",
+    jobTitle: "Full Stack Web Developer",
+    sameAs: [
+      "https://github.com/tarikul3639",
+      "https://www.linkedin.com/in/tarikul3639/",
+    ],
+  };
+
   return (
     <html
       lang="en"
@@ -111,6 +128,10 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <PageLoader>{children}</PageLoader>
         <Toaster />
       </body>
