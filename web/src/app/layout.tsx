@@ -3,6 +3,9 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+// Visitor Analytics
+import { Analytics } from "@vercel/analytics/next"
+
 // Loader and Toaster for better UX during page transitions and notifications
 import PageLoader from "@/components/ui/PageLoader";
 import { Toaster } from "@/components/ui/sonner"
@@ -133,6 +136,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <PageLoader>{children}</PageLoader>
+        <Analytics />
         <Toaster />
       </body>
     </html>
