@@ -56,7 +56,11 @@ export const metadata: Metadata = {
   creator: "Tarikul Islam",
 
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+    ],
+    apple: "/icon512_rounded.png",
   },
 
   openGraph: {
