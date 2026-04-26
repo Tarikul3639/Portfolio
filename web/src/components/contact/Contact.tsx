@@ -33,6 +33,18 @@ export const Contact = () => {
         setIsLoading(true);
         setError(null);
         try {
+            if (!formData.name || !formData.email || !formData.message) {
+                throw new Error("Please fill in all required fields");
+            }
+
+            if (!/\S+@\S+\.\S+/.test(formData.email)) {
+                throw new Error("Please enter a valid email address");
+            }
+
+            if (formData.message.length < 10) {
+                throw new Error("Message should be at least 10 characters long");
+            }
+            
             const { data } = await apiClient.post("/contact", formData);
 
             if (!data?.success) {

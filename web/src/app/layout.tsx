@@ -1,106 +1,139 @@
+// app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-// Visitor Analytics
-import { Analytics } from "@vercel/analytics/next"
-
-// Loader and Toaster for better UX during page transitions and notifications
+import { Analytics } from "@vercel/analytics/next";
 import PageLoader from "@/components/ui/PageLoader";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const BASE_URL = "https://tarikul-islam.me";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Viewport settings for responsive design and mobile optimization
+// ─── Viewport ────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
-// SEO META (IMPORTANT)
+// ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  // Manifest and base URL for SEO and PWA support
+  // ── Base ──
+  metadataBase: new URL(BASE_URL),
   manifest: "/manifest.json",
-  metadataBase: new URL("https://tarikul-islam.me"),
+  applicationName: "Tarikul Islam Portfolio",
+  generator: "Next.js",
+  category: "technology",
+  referrer: "origin-when-cross-origin",
+  formatDetection: { email: false, address: false, telephone: false },
 
+  // ── Title ──
   title: {
     default: "Tarikul Islam | Full Stack Web Developer",
     template: "%s | Tarikul Islam",
   },
 
-  alternates: {
-    canonical: "https://tarikul-islam.me",
-  },
-
+  // ── Description & Keywords ──
   description:
-    "Full Stack Web Developer specializing in React, Next.js, Node.js, and modern web applications. Passionate about building scalable and user-friendly digital experiences.",
+    "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript. Building scalable, high-performance web applications from Dhaka, Bangladesh.",
 
   keywords: [
     "Tarikul Islam",
     "Full Stack Developer",
     "React Developer",
-    "Nest.js Developer",
     "Next.js Developer",
+    "NestJS Developer",
+    "TypeScript Developer",
+    "Node.js Developer",
     "JavaScript Developer",
     "Web Developer Bangladesh",
+    "Dhaka Developer",
   ],
 
-  authors: [{ name: "Tarikul Islam" }],
-
+  // ── Author / Creator ──
+  authors: [{ name: "Tarikul Islam", url: BASE_URL }],
   creator: "Tarikul Islam",
+  publisher: "Tarikul Islam",
 
+  // ── Canonical ──
+  alternates: { canonical: BASE_URL },
+
+  // ── Icons (matched to actual /public files) ──
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/icon0.svg", type: "image/svg+xml" },   // scalable
+      { url: "/icon1.png", type: "image/png", sizes: "48x48" },
     ],
-    apple: "/icon512_rounded.png",
+    apple: "/apple-icon.png",                          // exists in public ✓
+    other: [
+      { rel: "mask-icon", url: "/icon0.svg", color: "#0a0a0a" },
+    ],
   },
 
+  // ── Open Graph ──
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tarikul-islam.me",
+    url: BASE_URL,
+    siteName: "Tarikul Islam Portfolio",
     title: "Tarikul Islam | Full Stack Web Developer",
     description:
-      "Full Stack Web Developer specializing in React, Next.js, Node.js and modern web applications.",
-    siteName: "Tarikul Islam Portfolio",
+      "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript.",
+    images: [
+      {
+        url: "/og",      // create this file: 1200×630px
+        width: 1200,
+        height: 630,
+        alt: "Tarikul Islam – Full Stack Web Developer",
+        type: "image/png",
+      },
+    ],
   },
 
+  // ── Twitter / X ──
   twitter: {
     card: "summary_large_image",
     title: "Tarikul Islam | Full Stack Web Developer",
     description:
-      "Full Stack Web Developer specializing in React, Next.js, Node.js and modern web applications.",
+      "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript.",
+    images: ["/og"],
+    creator: "@tarikul3639",      // Twitter/X handle (without @) — optional but good for social proof
   },
 
+  // ── Robots ──
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 
-  // Developer Social Links (IMPORTANT for SEO trust)
+  // ── sameAs (Social Trust Signals) ──
   other: {
     sameAs: JSON.stringify([
       "https://github.com/tarikul3639",
-      "https://www.linkedin.com/in/tarikul3639/"
+      "https://www.linkedin.com/in/tarikul3639/",
     ]),
   },
 };
 
+// ─── Root Layout ─────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -109,8 +142,26 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Tarikul Islam",
-    url: "https://tarikul-islam.me",
+    url: BASE_URL,
+    image: `${BASE_URL}/og`,
     jobTitle: "Full Stack Web Developer",
+    description:
+      "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript — based in Dhaka, Bangladesh.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dhaka",
+      addressCountry: "BD",
+    },
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "NestJS",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+      "Redux Toolkit",
+      "Tailwind CSS",
+    ],
     sameAs: [
       "https://github.com/tarikul3639",
       "https://www.linkedin.com/in/tarikul3639/",
@@ -126,8 +177,8 @@ export default function RootLayout({
         "antialiased",
         geistSans.variable,
         geistMono.variable,
-        "font-sans",
-        inter.variable
+        inter.variable,
+        "font-sans"
       )}
     >
       <body className="min-h-full flex flex-col">
