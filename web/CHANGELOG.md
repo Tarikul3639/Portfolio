@@ -1,3 +1,10 @@
+# [web-v1.5.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.4.0...web-v1.5.0) (2026-04-26)
+
+
+### Features
+
+* **web:** Update app icons, manifest & add OG route ([926c344](https://github.com/Tarikul3639/Portfolio/commit/926c344c573106dfe9bad74f9df78c5f7961ac5c))
+
 # [web-v1.4.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.3.0...web-v1.4.0) (2026-04-11)
 
 
