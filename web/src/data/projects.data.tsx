@@ -139,7 +139,7 @@ export const PROJECTS = [
     {
         title: "Electrifiers",
         link: "https://github.com/Tarikul3639/ELECTRIFIERS",
-        liveLink: "https://electrifiers.vercel.app",
+        liveLink: "https://electrifiers.netlify.app",
         description: "Electrifiers is a real-time system that provides scheduled load shedding updates, showing affected areas, timings, and electricity restoration time.",
         image: Electrifiers,
         tag: "Full-Stack Dev",
