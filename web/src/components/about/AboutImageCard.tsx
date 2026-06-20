@@ -29,7 +29,7 @@ export const AboutImageCard = () => {
     return (
         <motion.div
             // Height reduced (h-80, md:h-96, lg:h-[28rem])
-            className="relative h-80 md:h-96 lg:h-[28rem]"
+            className="relative h-80 md:h-96 lg:h-112"
             style={{
                 rotateX,
                 rotateY,
