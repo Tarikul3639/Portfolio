@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import photo from "@/assets/tarikul-hero.jpg";
+import photo from "@/assets/tarikul-hero.webp";
 
 export function HeroVisual() {
     return (

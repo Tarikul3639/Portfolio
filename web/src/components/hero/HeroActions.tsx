@@ -37,7 +37,7 @@ export function HeroActions({ status, onDownload }: Props) {
     const statusColor = getStatusColor(status);
 
     return (
-        <div className="flex flex-col items-center justify-center gap-7 sm:gap-10 pt-5 sm:flex-row lg:justify-start">
+        <div className="flex flex-col items-center justify-center gap-7 sm:gap-10 pt-5 xs:flex-row lg:justify-start">
 
             {/* ── Smart Download Button ── */}
             <div className="inline-block">

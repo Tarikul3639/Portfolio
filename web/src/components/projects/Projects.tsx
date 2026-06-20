@@ -3,6 +3,7 @@
 import { SectionId } from "@/types/section";
 import { PROJECTS } from "@/data/projects.data";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectsHeader } from "./ProjectsHeader";
 
 export default function ProjectsSection() {
     return (
@@ -10,6 +11,9 @@ export default function ProjectsSection() {
             id={SectionId.Projects}
             className="max-w-7xl w-full bg-background px-4 md:px-6 py-16"
         >
+
+            <ProjectsHeader />
+
             {PROJECTS.map((project, i) => (
                 <div
                     key={i}

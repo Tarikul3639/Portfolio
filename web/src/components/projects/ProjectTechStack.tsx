@@ -6,7 +6,7 @@ type Props = { tech: Project["tech"]; isEven: boolean };
 export const ProjectTechStack = ({ tech, isEven }: Props) => (
     <div
     className={`flex flex-wrap items-center gap-4 justify-center ${
-        isEven ? "lg:justify-start" : "lg:justify-end"
+        isEven ? "md:justify-start" : "md:justify-end"
     }`}
 >
         {tech.map((t, i) => (

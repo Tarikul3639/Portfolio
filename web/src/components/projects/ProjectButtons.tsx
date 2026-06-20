@@ -6,7 +6,7 @@ type Props = { item: Project; isEven: boolean };
 
 export const ProjectButtons = ({ item, isEven }: Props) => (
     <div
-        className={`flex items-center gap-4 justify-center ${isEven ? "lg:justify-start" : "lg:justify-end"
+        className={`flex items-center mt-2 gap-4 justify-center ${isEven ? "md:justify-start" : "md:justify-end"
             }`}
     >
         {/* View Code */}

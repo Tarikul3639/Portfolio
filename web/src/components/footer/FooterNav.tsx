@@ -9,7 +9,7 @@ const itemCls =
     "transition-all duration-300 hover:translate-x-2 flex items-center gap-2 group/link";
 
 export const FooterNav = () => (
-    <div className="space-y-8">
+    <div className="max-w-50 space-y-8">
 
         <h5 className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/70 flex items-center gap-2">
             <Satellite size={12} className="animate-pulse" />

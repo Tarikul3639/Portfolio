@@ -7,7 +7,7 @@ export function MobileMenuButton({ onClick }: Props) {
         <button
             aria-label="Open menu"
             onClick={onClick}
-            className="md:hidden relative w-16 h-16 flex items-center justify-center group"
+            className="md:hidden relative w-16 h-16 flex items-center justify-center group cursor-crosshair"
         >
             {/* Outer rotating ring */}
             <motion.div

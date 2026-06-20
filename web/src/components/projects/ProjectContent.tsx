@@ -7,7 +7,7 @@ type Props = { item: Project; isEven: boolean };
 
 export const ProjectContent = ({ item, isEven }: Props) => (
     <div
-        className={`relative flex-1 min-w-0 z-10 p-6 md:p-10 lg:p-14 flex flex-col gap-6 ${isEven ? "text-center lg:text-left" : "text-center lg:text-right"
+        className={`relative flex-1 min-w-0 z-10 p-6 md:p-10 lg:p-14 flex flex-col gap-4 md:gap-6 ${isEven ? "text-center md:text-left" : "text-center md:text-right"
             }`}
     >
         {/* Tag */}
@@ -16,7 +16,7 @@ export const ProjectContent = ({ item, isEven }: Props) => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             viewport={{ once: true, margin: "-50px" }}
-            className={`flex items-center gap-3 ${isEven ? "justify-center lg:justify-start" : "justify-center lg:justify-end"
+            className={`flex items-center gap-3 ${isEven ? "justify-center md:justify-start" : "justify-center md:justify-end"
                 }`}
         >
             <span className="text-primary font-mono text-[10px] uppercase tracking-[0.3em] font-black">

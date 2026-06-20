@@ -2,95 +2,128 @@
 
 import { motion } from "framer-motion";
 import {
-    TypeScriptIcon,
-    ReactIcon,
     FramerIcon,
     NodeIcon,
-    ExpressIcon,
-    MongoDBIcon,
     NestJsIcon,
     NextJsIcon,
     TailwindIcon,
-    ReduxIcon,
     GitIcon,
-    GitHubIcon,
     SocketIoIcon,
-    CPlusPlusIcon,
 } from "@/data/tech.icons";
+import { RestApiIcon } from "@/stack/RestApiIcon";
+import { JSIcon } from "@/stack/JSIcon";
+import { TypeScriptIcon } from "@/stack/TypeScriptIcon";
+import { ReduxIcon } from "@/stack/ReduxIcon";
+import { ReactIcon } from "@/stack/ReactIcon";
+import { GitHubIcon } from "@/stack/GitHubIcon";
+import { CPlusPlusIcon } from "@/stack/CPlusPlusIcon";
+import { DockerIcon } from "@/stack/DockerIcon";
+import { PythonIcon } from "@/stack/PythonIcon";
+import { MySQLIcon } from "@/stack/MySQLIcon";
+import { MongoDBIcon } from "@/stack/MongoDBIcon";
 
 interface TechItem {
     label: string;
     icon: React.ReactNode;
     color: string; // accent color for icon
 }
+const ICON_CLASS = "w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11";
 
 const TECH_STACK: TechItem[] = [
     {
         label: "NestJS",
-        icon: <NestJsIcon className="w-9 h-9" />,
+        icon: <NestJsIcon className={ICON_CLASS} />,
         color: "#e0234e",
     },
     {
         label: "Next.js",
-        icon: <NextJsIcon className="w-9 h-9" />,
+        icon: <NextJsIcon className={ICON_CLASS} />,
         color: "currentColor",
     },
     {
         label: "TypeScript",
-        icon: <TypeScriptIcon className="w-9 h-9" />,
+        icon: <TypeScriptIcon className={ICON_CLASS} />,
         color: "#3178c6",
     },
-    { label: "Redux", icon: <ReduxIcon className="w-9 h-9" />, color: "#764abc" },
-    { label: "React", icon: <ReactIcon className="w-9 h-9" />, color: "#61dafb" },
+    {
+        label: "JavaScript",
+        icon: <JSIcon className={ICON_CLASS} />,
+        color: "#f7df1f",
+    },
+    {
+        label: "Redux",
+        icon: <ReduxIcon className={ICON_CLASS} />,
+        color: "#764abc"
+    },
+    {
+        label: "Docker",
+        icon: <DockerIcon className={ICON_CLASS} />,
+        color: "#2496ed",
+    },
+    {
+        label: "Python",
+        icon: <PythonIcon className={ICON_CLASS} />,
+        color: "#3776ab",
+    },
+    {
+        label: "MySQL",
+        icon: <MySQLIcon className={ICON_CLASS} />,
+        color: "#f29e3e",
+    },
     {
         label: "Tailwind",
-        icon: <TailwindIcon className="w-9 h-9" />,
+        icon: <TailwindIcon className={ICON_CLASS} />,
         color: "#38bdf8",
     },
     {
         label: "Framer",
-        icon: <FramerIcon className="w-9 h-9" />,
+        icon: <FramerIcon className={ICON_CLASS} />,
         color: "#ec4899",
     },
     {
         label: "Node.js",
-        icon: <NodeIcon className="w-9 h-9" />,
+        icon: <NodeIcon className={ICON_CLASS} />,
         color: "#339933",
     },
     {
-        label: "Express",
-        icon: <ExpressIcon className="w-9 h-9" />,
-        color: "currentColor",
-    },
-    {
         label: "MongoDB",
-        icon: <MongoDBIcon className="w-9 h-9" />,
+        icon: <MongoDBIcon className={ICON_CLASS} />,
         color: "#10b981",
     },
     {
         label: "Socket.IO",
-        icon: <SocketIoIcon className="w-9 h-9" />,
-        color: "#010101",
+        icon: <SocketIoIcon className={ICON_CLASS} />,
+        color: "#fff",
     },
     {
         label: "C++",
-        icon: <CPlusPlusIcon className="w-9 h-9" />,
+        icon: <CPlusPlusIcon className={ICON_CLASS} />,
         color: "#00599c",
     },
     {
+        label: "React",
+        icon: <ReactIcon className={ICON_CLASS} />,
+        color: "#61dafb"
+    },
+    {
         label: "Git",
-        icon: <GitIcon className="w-9 h-9" />,
+        icon: <GitIcon className={ICON_CLASS} />,
         color: "#f05032",
     },
     {
         label: "GitHub",
-        icon: <GitHubIcon className="w-9 h-9" />,
-        color: "#181717",
+        icon: <GitHubIcon className={ICON_CLASS} />,
+        color: "#fff",
+    },
+    {
+        label: "REST API",
+        icon: <RestApiIcon className={ICON_CLASS} />,
+        color: "#43A2D8",
     },
 ];
 
 export const AboutTechGrid = () => (
-    <div className="lg:col-span-6 grid grid-cols-3 xs:grid-cols-3 gap-3 sm:gap-4">
+    <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-2.5 sm:gap-3 md:gap-4">
         {TECH_STACK.map(({ label, icon, color }, i) => (
             <motion.div
                 key={label}
@@ -99,7 +132,7 @@ export const AboutTechGrid = () => (
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07, duration: 0.4 }}
                 whileHover={{ y: -6 }}
-                className="group/card flex flex-col items-center justify-center gap-3 rounded-2xl lg:rounded-[2.5rem] p-4 md:p-5 lg:p-6 bg-card border border-border/10 shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                className="group/card flex flex-col items-center justify-center gap-3 rounded-2xl lg:rounded-3xl px-2 py-4 bg-card border border-border/10 shadow-sm hover:shadow-md transition-all duration-300 cursor-crosshair select-none"
             >
                 {/* Icon with color + glow */}
                 <div className="relative text-4xl" style={{ color }}>
@@ -116,7 +149,7 @@ export const AboutTechGrid = () => (
                 </div>
 
                 {/* Label */}
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground group-hover/card:text-primary transition-colors duration-200">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-xl foreground group-hover/card:text-primary transition-colors duration-200">
                     {label}
                 </span>
             </motion.div>

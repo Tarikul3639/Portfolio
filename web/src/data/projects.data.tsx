@@ -1,9 +1,9 @@
-import krishokPalli from "@/assets/projects/Krishok_Palli.png";
-import krishokPalliAdmin from "@/assets/projects/Krishok_Palli_Admin.png";
+import ClassFlow_Prime from "@/assets/projects/classflow-prime-mockup.webp";
+import DeenSeries from "@/assets/projects/deen-series-mockup.webp";
 import Nexion_v4 from "@/assets/projects/Nexion_V4.png";
+import krishokPalli from "@/assets/projects/krishok-palli-mockup.webp";
 import RamadanOrbit from "@/assets/projects/Ramadan_Orbit.png";
 import Electrifiers from "@/assets/projects/Electrifiers.webp";
-import ClassFlow_Prime from "@/assets/projects/ClassFlow_Prime.png";
 
 import {
     TypeScriptIcon,
@@ -19,56 +19,12 @@ import {
     GitIcon,
     GitHubIcon,
     SocketIoIcon,
-    CPlusPlusIcon,
+    CloudinaryIcon,
 } from "@/data/tech.icons";
 
 export const PROJECTS = [
     {
-        title: "Krishok Palli",
-        link: "https://github.com/Tarikul3639/Krishok-Palli",
-        liveLink: "https://krishok-palli.netlify.app/",
-        description:
-            "A high-performance digital agricultural ecosystem bridging farmers with real-time data analytics and market intelligence.",
-        image: krishokPalli,
-        tag: "Full-Stack Dev",
-        bgText: "AGRI",
-        progress: 94,
-        tech: [
-            { icon: <ReactIcon className="w-5 h-5" />, name: "React" },
-            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
-            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
-            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
-            { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
-            { icon: <NodeIcon className="w-4 h-4" />, name: "Node.js" },
-            { icon: <ExpressIcon className="w-4 h-4" />, name: "Express.js" },
-            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
-            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
-        ],
-    },
-    {
-        title: "Krishok Palli Admin",
-        link: "https://github.com/Tarikul3639/Krishok-Palli/tree/main/admin-pannel",
-        liveLink: "https://krishok-palli-admin.netlify.app/",
-        description:
-            "An intuitive admin dashboard for managing agricultural data, user roles, and real-time analytics to optimize farm operations.",
-        image: krishokPalliAdmin,
-        tag: "Admin Panel",
-        bgText: "ADMIN",
-        progress: 99,
-        tech: [
-            { icon: <ReactIcon className="w-5 h-5" />, name: "React" },
-            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
-            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
-            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
-            { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
-            { icon: <NodeIcon className="w-4 h-4" />, name: "Node.js" },
-            { icon: <ExpressIcon className="w-4 h-4" />, name: "Express.js" },
-            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
-            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
-        ],
-    },
-    {
-        title: "ClassFlow Prime",
+        title: "ClassFlow-Prime",
         link: "https://github.com/Tarikul3639/ClassFlow-Prime",
         liveLink: "https://classflow-prime.vercel.app",
         description:
@@ -78,11 +34,11 @@ export const PROJECTS = [
         bgText: "AGRI",
         progress: 94,
         tech: [
-            { icon: <ReactIcon className="w-4 h-4" />, name: "React" },
-            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
-            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
             { icon: <NestJsIcon className="w-4 h-4" />, name: "NestJS" },
             { icon: <NextJsIcon className="w-4 h-4" />, name: "Next.js" },
+            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
+            { icon: <CloudinaryIcon className="w-4 h-4" />, name: "Cloudinary" },
+            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
             { icon: <ReduxIcon className="w-4 h-4" />, name: "Redux" },
             { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
             { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
@@ -92,7 +48,30 @@ export const PROJECTS = [
             { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
         ],
     },
-
+    {
+        title: "Deen Series",
+        link: "https://github.com/Tarikul3639/DeenSeries",
+        liveLink: "https://deenseries.vercel.app",
+        description:
+            "DeenSeries – Watch with Purpose. A modern Islamic streaming platform with a clean UI and a simple system for managing series, episodes, and movies. Have a admin panel to manage content",
+        image: DeenSeries,
+        tag: "deenseries",
+        bgText: "DEEN",
+        progress: 99,
+        tech: [
+            { icon: <NestJsIcon className="w-4 h-4" />, name: "Nest.js" },
+            { icon: <NextJsIcon className="w-5 h-5" />, name: "Next.js" },
+            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
+            { icon: <CloudinaryIcon className="w-4 h-4" />, name: "Cloudinary" },
+            { icon: <ReduxIcon className="w-4 h-4" />, name: "Redux" },
+            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
+            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
+            { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
+            { icon: <NodeIcon className="w-4 h-4" />, name: "Node.js" },
+            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
+            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
+        ],
+    },
     {
         title: "Nexion V4",
         link: "https://github.com/Nexion-V2/Nexion-web",
@@ -116,7 +95,28 @@ export const PROJECTS = [
             { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
         ],
     },
-
+    {
+        title: "Krishok Palli",
+        link: "https://github.com/Tarikul3639/Krishok-Palli",
+        liveLink: "https://krishok-palli.netlify.app/",
+        description:
+            "A high-performance digital agricultural ecosystem bridging farmers with real-time data analytics and market intelligence.",
+        image: krishokPalli,
+        tag: "Full-Stack Dev",
+        bgText: "AGRI",
+        progress: 94,
+        tech: [
+            { icon: <ReactIcon className="w-5 h-5" />, name: "React" },
+            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
+            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
+            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
+            { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
+            { icon: <NodeIcon className="w-4 h-4" />, name: "Node.js" },
+            { icon: <ExpressIcon className="w-4 h-4" />, name: "Express.js" },
+            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
+            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
+        ],
+    },
     {
         title: "Ramadan Orbit",
         link: "https://github.com/Tarikul3639/Ramadan-Orbit",

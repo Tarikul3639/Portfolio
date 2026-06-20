@@ -31,7 +31,7 @@ export const FooterBottom = () => {
                 onClick={handleScrollTop}
                 whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,238,255,0.15)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full border border-border/50 bg-card/70 hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 group/btn shadow-sm"
+                className="px-8 py-3 rounded-full border border-border/50 bg-card/70 hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group/btn shadow-sm"
             >
                 <span className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground group-hover/btn:text-primary cursor-pointer">
                     Ascend to Zenith

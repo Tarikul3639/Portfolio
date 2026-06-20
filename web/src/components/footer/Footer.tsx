@@ -5,7 +5,6 @@ import { useMotionValue } from "framer-motion";
 import { FooterGlow } from "./FooterGlow";
 import { FooterBrand } from "./FooterBrand";
 import { FooterNav } from "./FooterNav";
-import { FooterInfra } from "./FooterInfra";
 import { FooterStatus } from "./FooterStatus";
 import { FooterBottom } from "./FooterBottom";
 import { SectionId } from "@/types/section";
@@ -30,9 +29,8 @@ export const Footer = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
                     <FooterBrand />
 
-                    <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+                    <div className="flex flex-col sm:flex-row gap-16 justify-between col-span-1 lg:col-span-7">
                         <FooterNav />
-                        <FooterInfra />
                         <FooterStatus />
                     </div>
                 </div>

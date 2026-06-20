@@ -62,14 +62,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const NAV_LINKS = [
-    { label: "Root_Dir", href: "/#home" },
-    { label: "Protocol_Intel", href: "/#about" },
-    { label: "Deploy_Logs", href: "/#projects" },
-    { label: "Comm_Link", href: "/#contact" },
-];
-
-export const INFRA_LINKS = [
-    { label: "Open_Src", href: "#" },
-    { label: "Security", href: "#" },
-    { label: "Terminal_FAQ", href: "#" },
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Contact", href: "/#contact" },
 ];

@@ -6,7 +6,7 @@ import { Terminal } from "lucide-react";
 export const FooterStatus = () => (
     <motion.div
         whileHover={{ scale: 1.02 }}
-        className="col-span-2 md:col-span-1 p-px rounded-[2rem] bg-linear-to-br from-border/40 to-border/20 group/status hover:from-primary/30 hover:to-primary/20"
+        className="w-full p-px rounded-[2rem] bg-linear-to-br from-border/40 to-border/20 group/status hover:from-primary/30 hover:to-primary/20"
     >
         <div className="h-full w-full bg-card/70 rounded-[2rem] p-6 space-y-4 shadow-lg">
 

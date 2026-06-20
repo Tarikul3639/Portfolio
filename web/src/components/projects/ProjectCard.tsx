@@ -8,9 +8,9 @@ export const ProjectCard = ({ item, index }: Props) => {
     const isEven = index % 2 === 0;
 
     return (
-        <div className="h-full flex items-center overflow-hidden">
+        <div className="h-full flex items-center">
             <div
-                className={`group/img bg-background flex flex-col lg:flex-row items-center gap-8 ${isEven ? "lg:flex-row" : "lg:flex-row-reverse cursor-grab"
+                className={`group/img bg-background flex flex-col lg:flex-row items-center ${isEven ? "md:flex-row" : "md:flex-row-reverse cursor-grab"
                     }`}
             >
                 <ProjectImage item={item} />
