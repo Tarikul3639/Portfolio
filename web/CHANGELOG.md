@@ -1,3 +1,10 @@
+# [web-v1.6.1](https://github.com/Tarikul3639/Portfolio/compare/web-v1.6.0...web-v1.6.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update package versions and clean lockfiles for web and server ([343fd2a](https://github.com/Tarikul3639/Portfolio/commit/343fd2a68949b200fd68192375de0390530299b0))
+
 # [web-v1.5.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.4.0...web-v1.5.0) (2026-04-26)
 
 
