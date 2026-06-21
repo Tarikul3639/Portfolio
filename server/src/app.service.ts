@@ -15,7 +15,7 @@ export class AppService {
    */
   getResumePath(): string {
     // Note: ensure the 'src/assets' folder exists in your build or handle it via nest-cli.json assets
-    return join(__dirname, 'assets', 'Tarikul_Islam_Resume_V2.pdf');
+    return join(__dirname, 'assets', 'Tarikul_Islam_Resume_V4.pdf');
   }
 
   /**
