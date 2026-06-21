@@ -20,6 +20,7 @@ export function HeroVisual() {
                         alt="Tarikul Islam – Profile"
                         fill
                         priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="w-full h-full object-cover scale-150 object-[50%_20%] transition-transform duration-700 group-hover:scale-110"
                     />
 

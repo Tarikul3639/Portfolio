@@ -16,7 +16,7 @@ export function HoverBorderGradient({
     ...props
 }: React.PropsWithChildren<
     {
-        as?: React.ElementType;
+        as?: React.ElementType<{ children?: React.ReactNode }>;
         containerClassName?: string;
         className?: string;
         duration?: number;
@@ -55,9 +55,10 @@ export function HoverBorderGradient({
             return () => clearInterval(interval);
         }
     }, [hovered]);
+    const TagComponent = Tag as React.JSXElementConstructor<{ children?: React.ReactNode; className?: string; onMouseEnter?: unknown; onMouseLeave?: unknown; [key: string]: unknown }>;
     return (
-        <Tag
-            onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
+        <TagComponent
+            onMouseEnter={() => {
                 setHovered(true);
             }}
             onMouseLeave={() => setHovered(false)}
@@ -94,6 +95,6 @@ export function HoverBorderGradient({
                 transition={{ ease: "linear", duration: duration ?? 1 }}
             />
             <div className="bg-black absolute z-1 flex-none inset-0.5 rounded-[100px]" />
-        </Tag>
+        </TagComponent>
     );
 }
