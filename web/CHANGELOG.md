@@ -1,3 +1,15 @@
+# [web-v1.7.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.6.1...web-v1.7.0) (2026-06-21)
+
+
+### Bug Fixes
+
+* **ui:** resolve TypeScript never type issue in HoverBorderGradient component and improve polymorphic support ([0d85a19](https://github.com/Tarikul3639/Portfolio/commit/0d85a197776f5c7af8650b7b7e6ab1ee7a97e3c2))
+
+
+### Features
+
+* **web:** integrate full 3D hero system with React Three Fiber ([7af895b](https://github.com/Tarikul3639/Portfolio/commit/7af895ba79c035421e1c8cc5c23fb6ecc9efb5da))
+
 # [web-v1.6.1](https://github.com/Tarikul3639/Portfolio/compare/web-v1.6.0...web-v1.6.1) (2026-06-20)
 
 
