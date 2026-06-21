@@ -7,11 +7,11 @@ import photo from "@/assets/tarikul-hero.webp";
 export function HeroVisual() {
     return (
         <div className="flex flex-1 items-center justify-center">
-            <div className="relative group w-72 h-72 md:w-112.5 md:h-112">
+            <div className="relative group w-72 h-72 sm:w-96 sm:h-96 md:w-112.5 md:h-112">
 
                 {/* Glow Background Layers */}
-                <div className="absolute inset-0 bg-linear-to-tr from-primary to-blue-400 rounded-[2rem] rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-linear-to-bl from-primary to-cyan-400 rounded-[2rem] -rotate-3 opacity-20 group-hover:-rotate-6 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-linear-to-tr from-primary to-blue-400 rounded-[2rem] rotate-6 opacity-25 group-hover:rotate-12 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-linear-to-bl from-primary to-cyan-400 rounded-[2rem] -rotate-3 opacity-25 group-hover:-rotate-6 transition-transform duration-500" />
 
                 {/* Image Container */}
                 <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] border border-border/40 shadow-2xl">
