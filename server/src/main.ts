@@ -14,8 +14,24 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   // CORS Configuration
+  const allowedOrigins = [
+    'https://tarikul-islam.me',
+    'https://www.tarikul-islam.me',
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ];
+
   app.enableCors({
-    origin: configService.get<string>('FRONTEND_URL')!,
+    origin: (origin, callback) => {
+      // Postman / server-to-server requests won't have an origin, allow them
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Origin ${origin} not allowed by CORS`), false);
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
