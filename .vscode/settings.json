@@ -12,5 +12,6 @@
         "Toastify",
         "webp",
         "webrtc"
-    ]
+    ],
+    "snyk.advanced.autoSelectOrganization": true
 }
