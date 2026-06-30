@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   // ── Base ──
   metadataBase: new URL(BASE_URL),
   manifest: "/manifest.json",
-  applicationName: "Tarikul Islam Portfolio",
+  applicationName: "Tarikul Islam",
   generator: "Next.js",
   category: "technology",
   referrer: "origin-when-cross-origin",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: BASE_URL,
-    siteName: "Tarikul Islam Portfolio",
+    siteName: "Tarikul Islam",
     title: "Tarikul Islam | Full Stack Web Developer",
     description:
       "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript.",
@@ -137,34 +137,41 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
 
-  const jsonLd = {
+  const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${BASE_URL}#person`,
     name: "Tarikul Islam",
     url: BASE_URL,
     image: `${BASE_URL}/og`,
     jobTitle: "Full Stack Web Developer",
     description:
-      "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript — based in Dhaka, Bangladesh.",
+      "Full Stack Web Developer specializing in React, Next.js, NestJS, and TypeScript.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": BASE_URL,
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dhaka",
       addressCountry: "BD",
     },
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "NestJS",
-      "TypeScript",
-      "Node.js",
-      "MongoDB",
-      "Redux Toolkit",
-      "Tailwind CSS",
-    ],
     sameAs: [
       "https://github.com/tarikul3639",
       "https://www.linkedin.com/in/tarikul3639/",
     ],
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${BASE_URL}#website`,
+    url: BASE_URL,
+    name: "Tarikul Islam",
+    alternateName: "Tarikul Islam Portfolio",
+    publisher: {
+      "@id": `${BASE_URL}#person`,
+    },
   };
 
   return (
@@ -183,8 +190,18 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
         />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd),
+          }}
+        />
+
         <PageLoader>{children}</PageLoader>
         <Toaster />
       </body>
