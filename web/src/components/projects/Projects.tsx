@@ -4,6 +4,7 @@ import { SectionId } from "@/types/section";
 import { PROJECTS } from "@/data/projects.data";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectsHeader } from "./ProjectsHeader";
+import { usePerformance } from "@/hooks/usePerformance";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
@@ -12,15 +13,19 @@ const BackgroundScene = dynamic(() => import("@/components/3d/BackgroundScene"),
 });
 
 export default function ProjectsSection() {
+  const { isLowEnd } = usePerformance();
+
   return (
     <div
       id={SectionId.Projects}
       className="relative max-w-7xl w-full bg-background px-4 md:px-6 py-16"
     >
       {/* Subtle 3D Background */}
-      <Suspense fallback={null}>
-        <BackgroundScene />
-      </Suspense>
+      {!isLowEnd && (
+        <Suspense fallback={null}>
+          <BackgroundScene />
+        </Suspense>
+      )}
 
       <div className="relative z-10">
         <ProjectsHeader />
