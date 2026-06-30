@@ -1,3 +1,10 @@
+# [web-v1.8.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.7.0...web-v1.8.0) (2026-06-30)
+
+
+### Features
+
+* add adaptive performance optimization for Hero section ([baee78e](https://github.com/Tarikul3639/Portfolio/commit/baee78eac4bc8a70a6f16825ae412e5b2cac478e))
+
 # [web-v1.7.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.6.1...web-v1.7.0) (2026-06-21)
 
 
