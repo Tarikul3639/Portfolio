@@ -15,10 +15,11 @@ type PerformanceInfo = {
  *
  * Behavior:
  * - Checks CPU, RAM and reduced-motion on page load.
- * - Starts FPS monitoring.
- * - If FPS drops below the threshold once, marks the device as low-end.
- * - Stops monitoring after detecting a low-end state.
- * - A page refresh resets everything and performs the checks again.
+ * - Waits before measuring FPS to avoid false detection during initial loading.
+ * - Measures average FPS for 3 seconds.
+ * - Marks the device as low-end if average FPS is below the threshold.
+ * - Stops monitoring after the first evaluation.
+ * - Refreshing the page resets the process.
  */
 export function usePerformance(): PerformanceInfo {
     const [cpuCores, setCpuCores] = useState<number | null>(null);
@@ -30,7 +31,6 @@ export function usePerformance(): PerformanceInfo {
     useEffect(() => {
         if (typeof window === "undefined") return;
 
-        // Hardware information
         const cpu = navigator.hardwareConcurrency ?? null;
 
         const nav = navigator as Navigator & {
@@ -42,7 +42,6 @@ export function usePerformance(): PerformanceInfo {
         setCpuCores(cpu);
         setDeviceMemory(memory);
 
-        // Reduced motion preference
         const media = window.matchMedia("(prefers-reduced-motion: reduce)");
         setPrefersReducedMotion(media.matches);
 
@@ -56,49 +55,61 @@ export function usePerformance(): PerformanceInfo {
 
         media.addEventListener("change", handleMotionChange);
 
-        // Hardware check
-        if (
-            (cpu !== null && cpu <= 4) ||
-            (memory !== null && memory <= 4) ||
-            media.matches
-        ) {
+        const lowHardware =
+            (cpu !== null && cpu <= 2) &&
+            (memory !== null && memory <= 2);
+
+        if (lowHardware || media.matches) {
             setIsLowEnd(true);
         }
 
-        // FPS Monitor
-        let frameCount = 0;
-        let lastTime = performance.now();
         let animationId = 0;
+        let startDelay: number;
         let stopped = false;
 
-        const loop = (time: number) => {
-            if (stopped) return;
+        startDelay = window.setTimeout(() => {
+            let frameCount = 0;
+            let secondStart = performance.now();
 
-            frameCount++;
+            const samples: number[] = [];
 
-            if (time - lastTime >= 1000) {
-                setFps(frameCount);
+            const loop = (time: number) => {
+                if (stopped) return;
 
-                if (frameCount < 30) {
-                    setIsLowEnd(true);
+                frameCount++;
 
-                    // Stop monitoring after detecting low performance.
-                    stopped = true;
-                    cancelAnimationFrame(animationId);
-                    return;
+                if (time - secondStart >= 1000) {
+                    samples.push(frameCount);
+
+                    setFps(frameCount);
+
+                    frameCount = 0;
+                    secondStart = time;
+
+                    // Measure for 3 seconds
+                    if (samples.length === 3) {
+                        const averageFps =
+                            samples.reduce((a, b) => a + b, 0) / samples.length;
+
+                        if (averageFps < 25) {
+                            setIsLowEnd(true);
+                        }
+
+                        stopped = true;
+                        cancelAnimationFrame(animationId);
+                        return;
+                    }
                 }
 
-                frameCount = 0;
-                lastTime = time;
-            }
+                animationId = requestAnimationFrame(loop);
+            };
 
             animationId = requestAnimationFrame(loop);
-        };
-
-        animationId = requestAnimationFrame(loop);
+        }, 3000);
 
         return () => {
             stopped = true;
+            clearTimeout(startDelay);
             cancelAnimationFrame(animationId);
             media.removeEventListener("change", handleMotionChange);
         };
