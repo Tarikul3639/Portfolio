@@ -1,3 +1,11 @@
+# [web-v1.8.1](https://github.com/Tarikul3639/Portfolio/compare/web-v1.8.0...web-v1.8.1) (2026-06-30)
+
+
+### Performance Improvements
+
+* improve adaptive performance detection and optimize projects section ([e55a7e3](https://github.com/Tarikul3639/Portfolio/commit/e55a7e3bdf5e96988542d18696e7e69d2b000729))
+* improve FPS detection stability for low-end devices ([af66e53](https://github.com/Tarikul3639/Portfolio/commit/af66e5319edcfd3c2bf6b8d2103a7347119d1e32))
+
 # [web-v1.8.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.7.0...web-v1.8.0) (2026-06-30)
 
 
