@@ -1,3 +1,10 @@
+# [web-v1.8.2](https://github.com/Tarikul3639/Portfolio/compare/web-v1.8.1...web-v1.8.2) (2026-06-30)
+
+
+### Performance Improvements
+
+* improve SEO ranking ([96f4303](https://github.com/Tarikul3639/Portfolio/commit/96f4303721ec856c6fb2a226a0095037d9b0f371))
+
 # [web-v1.8.1](https://github.com/Tarikul3639/Portfolio/compare/web-v1.8.0...web-v1.8.1) (2026-06-30)
 
 
