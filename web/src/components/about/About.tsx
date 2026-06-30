@@ -5,6 +5,7 @@ import { AboutImageCard } from "./AboutImageCard";
 import { AboutTechGrid } from "./AboutTechGrid";
 import { AboutEducation } from "./AboutEducation";
 import { SectionId } from "@/types/section";
+import { usePerformance } from "@/hooks/usePerformance";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
@@ -13,15 +14,19 @@ const BackgroundScene = dynamic(() => import("@/components/3d/BackgroundScene"),
 });
 
 export const About = () => {
+  const { isLowEnd } = usePerformance();
+
   return (
     <section
       id={SectionId.About}
       className="relative max-w-7xl w-full bg-background overflow-x-hidden px-4 md:px-6 py-16"
     >
       {/* Subtle 3D Background */}
-      <Suspense fallback={null}>
-        <BackgroundScene />
-      </Suspense>
+      {!isLowEnd && (
+        <Suspense fallback={null}>
+          <BackgroundScene />
+        </Suspense>
+      )}
 
       <div className="relative z-10">
         {/* Header */}
