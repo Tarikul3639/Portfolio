@@ -1,3 +1,10 @@
+# [web-v1.9.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.8.2...web-v1.9.0) (2026-07-04)
+
+
+### Features
+
+* **ui:** enhance navbar and scroll navigation ([2fcaf1e](https://github.com/Tarikul3639/Portfolio/commit/2fcaf1eaa7c0be2acf4f42e08574986db49a6f24))
+
 # [web-v1.8.2](https://github.com/Tarikul3639/Portfolio/compare/web-v1.8.1...web-v1.8.2) (2026-06-30)
 
 
