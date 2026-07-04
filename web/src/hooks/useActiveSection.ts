@@ -1,40 +1,39 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Section } from "@/types/section";
 
 export function useActiveSection(sections: Section[]) {
-    const [active, setActive] = useState(sections[0]);
+    const [active, setActive] = useState<Section>(sections[0]);
 
     useEffect(() => {
-        let ticking = false;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort(
+                        (a, b) => b.intersectionRatio - a.intersectionRatio
+                    );
 
-        const handleScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const viewportMiddle = window.innerHeight / 2;
-
-                    for (let id of sections) {
-                        const el = document.getElementById(id);
-                        if (!el) continue;
-
-                        const rect = el.getBoundingClientRect();
-
-                        if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
-                            setActive(id);
-                            break;
-                        }
-                    }
-
-                    ticking = false;
-                });
-
-                ticking = true;
+                if (visible.length) {
+                    setActive(visible[0].target.id as Section);
+                }
+            },
+            {
+                threshold: Array.from(
+                    { length: 101 },
+                    (_, i) => i / 100
+                ),
             }
-        };
+        );
 
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll();
+        const elements = sections
+            .map((id) => document.getElementById(id))
+            .filter(Boolean) as HTMLElement[];
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        elements.forEach((element) => observer.observe(element));
+
+        return () => observer.disconnect();
     }, [sections]);
 
     return active;

@@ -1,17 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 import { NavLogo } from "./NavLogo";
 import { NavLinks } from "./NavLinks";
 import { ThemeToggle } from "./ThemeToggle";
 import { MobileMenuButton } from "./MobileMenuButton";
-import { ProgressBar } from "./ProgressBar";
 import { Sidebar } from "../Sidebar";
-import { Section } from "@/types/section";
 
-import { useScrollProgress } from "@/hooks/useScrollProgress";
+import { Section } from "@/types/section";
+import { useNavbar } from "@/hooks/useNavbar";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useTheme } from "@/hooks/useTheme";
+
+const navbarVariants = {
+    visible: {
+        y: 0,
+    },
+    hidden: {
+        y: "-110%",
+    },
+};
 
 interface Props {
     title?: string;
@@ -24,21 +34,25 @@ export default function Navbar({
 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
-    const { progress, scrolled } = useScrollProgress();
+    const { scrolled, hidden } = useNavbar();
     const activeLink = useActiveSection(sections);
     const { theme, toggleTheme } = useTheme();
 
     return (
         <>
-            <nav
-                className={`fixed top-0 left-0 w-full z-999 transition-all duration-700 ${scrolled ? "py-4" : "py-6 md:py-8"
-                    }`}
+            <motion.nav
+                variants={navbarVariants}
+                animate={hidden ? "hidden" : "visible"}
+                transition={{
+                    type: "spring",
+                    stiffness: 420,
+                    damping: 38,
+                    mass: 0.7,
+                }}
+                className={`fixed top-0 z-50 w-full py-3 md:px-8 md:py-6`}
             >
-                {/* FIX: scrollWidth → progress */}
-                <ProgressBar scrollWidth={progress * 100} />
-
                 <div
-                    className={`mx-auto px-8 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
+                    className={`mx-auto px-4 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
                         ? "max-w-5xl bg-background/60 backdrop-blur-2xl border border-border/30 rounded-full shadow-lg"
                         : "max-w-7xl bg-transparent"
                         }`}
@@ -47,7 +61,6 @@ export default function Navbar({
                         <NavLogo title={title} />
 
                         <div className="hidden md:flex items-center gap-10">
-                            {/* FIX: setActiveLink removed */}
                             <NavLinks
                                 menuItems={sections}
                                 activeLink={activeLink}
@@ -55,22 +68,26 @@ export default function Navbar({
 
                             <div className="h-6 w-px bg-border" />
 
-                            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+                            <ThemeToggle
+                                theme={theme}
+                                toggleTheme={toggleTheme}
+                            />
                         </div>
 
-                        <MobileMenuButton onClick={() => setIsOpen(true)} />
+                        <MobileMenuButton
+                            onClick={() => setIsOpen(true)}
+                        />
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
 
-            {/* FIX: Sidebar props cleaned */}
             <Sidebar
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 menuItems={sections}
                 activeLink={activeLink}
                 toggleTheme={toggleTheme}
-                theme={theme} 
+                theme={theme}
             />
         </>
     );

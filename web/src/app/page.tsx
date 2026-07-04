@@ -7,6 +7,7 @@ import { Contact } from "@/components/contact";
 import Navbar from "@/components/navbar";
 import DotScrollBar from "@/components/dotScrollBar/DotScrollBar";
 import { Footer } from "@/components/footer";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 const BASE_URL = "https://tarikul-islam.me";
 
@@ -48,6 +49,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
+      {/* Progress Bar */}
+      <ProgressBar />
+
       {/* Navigation */}
       <Navbar />
 
