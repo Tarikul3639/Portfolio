@@ -4,6 +4,8 @@ import Nexion_v4 from "@/assets/projects/Nexion_V4.png";
 import krishokPalli from "@/assets/projects/krishok-palli-mockup.webp";
 import RamadanOrbit from "@/assets/projects/Ramadan_Orbit.png";
 import Electrifiers from "@/assets/projects/Electrifiers.webp";
+import BishuddhoAcademy from "@/assets/projects/bishuddho-academy-mockup.png";
+import MosqueManagement from "@/assets/projects/mosque-management-mockup.png";
 
 import {
     TypeScriptIcon,
@@ -20,6 +22,8 @@ import {
     GitHubIcon,
     SocketIoIcon,
     CloudinaryIcon,
+    PostgreSQLIcon,
+    PrismaIcon,
 } from "@/data/tech.icons";
 
 export const PROJECTS = [
@@ -44,6 +48,52 @@ export const PROJECTS = [
             { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
             { icon: <NodeIcon className="w-4 h-4" />, name: "Node.js" },
             { icon: <ExpressIcon className="w-4 h-4" />, name: "Express.js" },
+            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
+            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
+        ],
+    },
+    {
+        title: "Mosque Management System",
+        link: "https://github.com/Tarikul3639/Mosque-Management-Frontend",
+        liveLink: "https://mosque-management-blush.vercel.app",
+        description:
+            "A full-stack mosque and community management platform built to digitize family registration, monthly contributions, donations, expenses, committee management, development projects, payments, galleries, and mosque administration through a secure and responsive system.",
+        image: MosqueManagement,
+        tag: "Full-Stack Dev",
+        bgText: "MOSQUE",
+        progress: 95,
+        tech: [
+            { icon: <NestJsIcon className="w-4 h-4" />, name: "NestJS" },
+            { icon: <NextJsIcon className="w-4 h-4" />, name: "Next.js" },
+            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
+            { icon: <PostgreSQLIcon className="w-4 h-4" />, name: "PostgreSQL" },
+            { icon: <PrismaIcon className="w-4 h-4" />, name: "Prisma" },
+            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind CSS" },
+            { icon: <ReduxIcon className="w-4 h-4" />, name: "Redux Toolkit" },
+            { icon: <CloudinaryIcon className="w-4 h-4" />, name: "Cloudinary" },
+            { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
+            { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
+        ],
+    },
+    {
+        title: "Bishuddho Academy",
+        link: "https://github.com/Tarikul3639/Bishuddho-Academy-client",
+        liveLink: "https://bishuddho-academy.vercel.app/",
+        description:
+            "A full-stack EdTech platform built for course management, student enrollment, payment verification, teacher management, certificates, reviews, and personalized learning. Designed with secure authentication, role-based access control, and a scalable architecture for a real educational institute.",
+        image: BishuddhoAcademy,
+        tag: "Full-Stack Dev",
+        bgText: "ACADEMY",
+        progress: 96,
+        tech: [
+            { icon: <NestJsIcon className="w-4 h-4" />, name: "NestJS" },
+            { icon: <NextJsIcon className="w-4 h-4" />, name: "Next.js" },
+            { icon: <MongoDBIcon className="w-4 h-4" />, name: "MongoDB" },
+            { icon: <TailwindIcon className="w-4 h-4" />, name: "Tailwind" },
+            { icon: <ReduxIcon className="w-4 h-4" />, name: "Redux" },
+            { icon: <TypeScriptIcon className="w-4 h-4" />, name: "TypeScript" },
+            { icon: <FramerIcon className="w-4 h-4" />, name: "Framer Motion" },
+            { icon: <CloudinaryIcon className="w-4 h-4" />, name: "Cloudinary" },
             { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
             { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
         ],
@@ -76,7 +126,8 @@ export const PROJECTS = [
         title: "Nexion V4",
         link: "https://github.com/Nexion-V2/Nexion-web",
         liveLink: "",
-        description: "Nexion is a web platform combining classroom, messaging, and AI chatbot to enable smooth learning, communication, and academic management.",
+        description:
+            "Nexion is a web platform combining classroom, messaging, and AI chatbot to enable smooth learning, communication, and academic management.",
         image: Nexion_v4,
         tag: "Full-Stack Dev",
         bgText: "NEXION",
@@ -121,7 +172,8 @@ export const PROJECTS = [
         title: "Ramadan Orbit",
         link: "https://github.com/Tarikul3639/Ramadan-Orbit",
         liveLink: "https://ramadan-orbit.vercel.app",
-        description: "Ramadan Orbit is a web app that provides Sehri, Iftar, and Fajr timings for all districts of Bangladesh. It auto-detects location and shows a localized Ramadan calendar based on Islamic Foundation guidelines.",
+        description:
+            "Ramadan Orbit is a web app that provides Sehri, Iftar, and Fajr timings for all districts of Bangladesh. It auto-detects location and shows a localized Ramadan calendar based on Islamic Foundation guidelines.",
         image: RamadanOrbit,
         tag: "Front-End Dev",
         bgText: "RAMADAN",
@@ -140,7 +192,8 @@ export const PROJECTS = [
         title: "Electrifiers",
         link: "https://github.com/Tarikul3639/ELECTRIFIERS",
         liveLink: "https://electrifiers.netlify.app",
-        description: "Electrifiers is a real-time system that provides scheduled load shedding updates, showing affected areas, timings, and electricity restoration time.",
+        description:
+            "Electrifiers is a real-time system that provides scheduled load shedding updates, showing affected areas, timings, and electricity restoration time.",
         image: Electrifiers,
         tag: "Full-Stack Dev",
         bgText: "ELECTRIFIERS",
@@ -155,7 +208,7 @@ export const PROJECTS = [
             { icon: <GitIcon className="w-4 h-4" />, name: "Git" },
             { icon: <GitHubIcon className="w-4 h-4" />, name: "GitHub" },
         ],
-    }
+    },
 ];
 
 export type Project = (typeof PROJECTS)[0];

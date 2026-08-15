@@ -8,13 +8,13 @@ export const ProjectImage = ({ item }: { item: Project }) => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={[
-            "relative rounded-2xl overflow-hidden w-full max-w-[600px]",
+            "relative rounded-2xl overflow-hidden w-full max-w-150",
             // Aspect ratio for small screens
             "aspect-video",
             // Aspect ratio for medium screens
-            "md:w-[400px] md:aspect-[4/3]",
+            "md:w-100 md:aspect-4/3",
             // Aspect ratio for large screens
-            "lg:w-[600px] lg:aspect-[16/9]",
+            "lg:w-150 lg:aspect-video",
         ].join(" ")}
     >
         {/* <div className="absolute -inset-5 bg-card/80 backdrop-blur-sm opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 z-99" /> */}
