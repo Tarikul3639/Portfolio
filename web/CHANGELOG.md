@@ -1,3 +1,10 @@
+# [web-v1.11.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.10.0...web-v1.11.0) (2026-08-15)
+
+
+### Features
+
+* add mosque project and BishuddhoAcademy projects ([cab8e27](https://github.com/Tarikul3639/Portfolio/commit/cab8e276db123bf82ae7fb378ee11e25d7e2a9a7))
+
 # [web-v1.10.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.9.0...web-v1.10.0) (2026-07-04)
 
 
