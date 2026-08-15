@@ -1,3 +1,10 @@
+# [web-v1.12.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.11.0...web-v1.12.0) (2026-08-15)
+
+
+### Features
+
+* **portfolio:** enhance project showcase and navbar interactions ([0ad0c7b](https://github.com/Tarikul3639/Portfolio/commit/0ad0c7b2815d0fbbdf0643058c0a8642788180c2))
+
 # [web-v1.11.0](https://github.com/Tarikul3639/Portfolio/compare/web-v1.10.0...web-v1.11.0) (2026-08-15)
 
 
