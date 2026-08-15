@@ -14,15 +14,6 @@ import { useNavbar } from "@/hooks/useNavbar";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useTheme } from "@/hooks/useTheme";
 
-const navbarVariants = {
-    visible: {
-        y: 0,
-    },
-    hidden: {
-        y: "-110%",
-    },
-};
-
 interface Props {
     title?: string;
     sections?: Section[];
@@ -34,33 +25,27 @@ export default function Navbar({
 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
-    const { scrolled, hidden } = useNavbar();
+    const { scrolled, navbarY } = useNavbar();
+
     const activeLink = useActiveSection(sections);
     const { theme, toggleTheme } = useTheme();
 
     return (
         <>
             <motion.nav
-                variants={navbarVariants}
-                animate={hidden ? "hidden" : "visible"}
-                transition={{
-                    type: "spring",
-                    stiffness: 420,
-                    damping: 38,
-                    mass: 0.7,
-                }}
-                className={`fixed top-0 z-50 w-full py-3 md:px-8 md:py-6`}
+                style={{ y: navbarY }}
+                className="fixed top-0 z-50 w-full py-3 md:px-8 md:py-6"
             >
                 <div
                     className={`mx-auto px-4 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
-                        ? "max-w-5xl bg-background/60 backdrop-blur-2xl border border-border/30 rounded-full shadow-lg"
-                        : "max-w-7xl bg-transparent"
+                            ? "max-w-5xl bg-background/60 backdrop-blur-2xl border border-border/30 rounded-full shadow-lg"
+                            : "max-w-7xl bg-transparent"
                         }`}
                 >
                     <div className="flex items-center justify-between">
                         <NavLogo title={title} />
 
-                        <div className="hidden md:flex items-center gap-10">
+                        <div className="hidden items-center gap-10 md:flex">
                             <NavLinks
                                 menuItems={sections}
                                 activeLink={activeLink}

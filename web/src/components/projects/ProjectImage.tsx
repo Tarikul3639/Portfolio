@@ -8,7 +8,7 @@ export const ProjectImage = ({ item }: { item: Project }) => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={[
-            "relative rounded-2xl overflow-hidden w-full max-w-150",
+            "relative rounded-lg md:rounded-2xl overflow-hidden w-full max-w-150",
             // Aspect ratio for small screens
             "aspect-video",
             // Aspect ratio for medium screens

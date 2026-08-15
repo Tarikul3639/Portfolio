@@ -57,7 +57,7 @@ export const PROJECTS = [
         link: "https://github.com/Tarikul3639/Mosque-Management-Frontend",
         liveLink: "https://mosque-management-blush.vercel.app",
         description:
-            "A full-stack mosque and community management platform built to digitize family registration, monthly contributions, donations, expenses, committee management, development projects, payments, galleries, and mosque administration through a secure and responsive system.",
+            "A full-stack mosque management platform for family registration, contributions, donations, expenses, committees, projects, payments, galleries, and secure administration.",
         image: MosqueManagement,
         tag: "Full-Stack Dev",
         bgText: "MOSQUE",
@@ -80,7 +80,7 @@ export const PROJECTS = [
         link: "https://github.com/Tarikul3639/Bishuddho-Academy-client",
         liveLink: "https://bishuddho-academy.vercel.app/",
         description:
-            "A full-stack EdTech platform built for course management, student enrollment, payment verification, teacher management, certificates, reviews, and personalized learning. Designed with secure authentication, role-based access control, and a scalable architecture for a real educational institute.",
+            "A full-stack EdTech platform for course management, student enrollment, payments, teachers, certificates, reviews, secure authentication, and personalized learning with scalable architecture.",
         image: BishuddhoAcademy,
         tag: "Full-Stack Dev",
         bgText: "ACADEMY",
